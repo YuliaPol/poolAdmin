@@ -79,7 +79,7 @@ body {
   -webkit-box-shadow: 10px 10px 30px 5px rgba(0, 0, 0, 0.15);
           box-shadow: 10px 10px 30px 5px rgba(0, 0, 0, 0.15);
   border-radius: 0px 0px 25px 25px;
-  padding: 70px 60px 30px;
+  padding: 50px 60px 30px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -96,7 +96,7 @@ body {
   top: 0px;
   left: 0px;
   right: 0px;
-  height: 140px;
+  height: 100px;
   z-index: 999;
 }
 
@@ -157,7 +157,7 @@ body {
 
 .page-wrap .content-wrap {
   padding-top: 20px;
-  margin-top: 140px;
+  margin-top: 100px;
   padding-left: 60px;
   padding-right: 60px;
 }
@@ -1065,6 +1065,551 @@ body {
 
 .page-wrap .content-wrap .switch .slider.round:before {
   border-radius: 50%;
+}
+
+.page-wrap .constr-wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.page-wrap .constr-wrap .left-side {
+  width: 285px;
+}
+
+.page-wrap .constr-wrap .center-block {
+  width: calc(100% - 285px);
+  padding-left: 20px;
+}
+
+.page-wrap .constr-wrap .mode-view-wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.page-wrap .constr-wrap .mode-view-wrap .mode-view-item {
+  padding-left: 12px;
+}
+
+.page-wrap .constr-wrap .mode-view-wrap .mode-view-item .mode-view {
+  width: 25px;
+  height: 20px;
+  position: relative;
+  cursor: pointer;
+}
+
+.page-wrap .constr-wrap .mode-view-wrap .mode-view-item .mode-view.active::before {
+  opacity: 0;
+}
+
+.page-wrap .constr-wrap .mode-view-wrap .mode-view-item .mode-view.active::after {
+  opacity: 1;
+}
+
+.page-wrap .constr-wrap .mode-view-wrap .mode-view-item .mode-view::before {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease-in;
+  -o-transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
+}
+
+.page-wrap .constr-wrap .mode-view-wrap .mode-view-item .mode-view::after {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in;
+  -o-transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
+}
+
+.page-wrap .constr-wrap .mode-view-wrap .mode-view-item .mode-view.mode-full::before {
+  content: "";
+  background: url(./../img/mode-full.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.page-wrap .constr-wrap .mode-view-wrap .mode-view-item .mode-view.mode-full::after {
+  content: "";
+  background: url(./../img/mode-full-a.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.page-wrap .constr-wrap .mode-view-wrap .mode-view-item .mode-view.mode-icons::before {
+  content: "";
+  background: url(./../img/mode-view-icons.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.page-wrap .constr-wrap .mode-view-wrap .mode-view-item .mode-view.mode-icons::after {
+  content: "";
+  background: url(./../img/mode-view-icons-a.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.page-wrap .constr-wrap .filter-wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+
+.page-wrap .constr-wrap .filter-wrap .filter-item {
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
+.page-wrap .constr-wrap .filter-wrap .filter-item.picked .select-styled {
+  background: #7FA1F8;
+  color: #FFFFFF;
+}
+
+.page-wrap .constr-wrap .filter-wrap .filter-item.picked .select-styled::after {
+  background: url(./../img/arrow-grey.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.page-wrap .constr-wrap .filter-wrap .filter-item .select {
+  min-width: 170px;
+}
+
+.page-wrap .constr-wrap .filter-wrap .customselect-wrapper .select-styled {
+  padding: 15px;
+  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 13px;
+  color: #000000;
+  -webkit-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
+
+.page-wrap .constr-wrap .filter-wrap .customselect-wrapper .select-styled.active::after {
+  -webkit-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+       -o-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+
+.page-wrap .constr-wrap .filter-wrap .customselect-wrapper .select-styled::after {
+  background: url(./../img/arrow-grey.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 10px;
+  height: 6px;
+  -webkit-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+       -o-transform: rotate(0deg);
+          transform: rotate(0deg);
+  top: calc(50% - 3px);
+}
+
+.page-wrap .constr-wrap .filter-wrap .customselect-wrapper .select-options li {
+  padding: 15px;
+  font-size: 11px;
+  line-height: 13px;
+}
+
+.page-wrap .constr-wrap .listbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.page-wrap .constr-wrap .listbox.icons-mode .list-item {
+  width: calc(50% - 10px);
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 25px;
+  padding: 15px;
+}
+
+.page-wrap .constr-wrap .listbox.icons-mode .list-item:nth-child(odd) {
+  margin-right: 20px;
+}
+
+.page-wrap .constr-wrap .listbox.icons-mode .list-item .icon {
+  width: 25px;
+  height: 25px;
+}
+
+.page-wrap .constr-wrap .listbox.icons-mode .list-item .name {
+  display: none;
+}
+
+.page-wrap .constr-wrap .listbox .list-item {
+  width: 100%;
+  margin-bottom: 10px;
+  background: #FFFFFF;
+  -webkit-box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
+          box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
+  border-radius: 25px;
+  padding: 20px 13px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  cursor: pointer;
+  -webkit-transition: background, width 0.3s ease-in;
+  -o-transition: background, width 0.3s ease-in;
+  transition: background, width 0.3s ease-in;
+}
+
+.page-wrap .constr-wrap .listbox .list-item:hover {
+  background: rgba(127, 161, 248, 0.2);
+}
+
+.page-wrap .constr-wrap .listbox .list-item:hover .icon::before {
+  opacity: 0;
+}
+
+.page-wrap .constr-wrap .listbox .list-item:hover .icon::after {
+  opacity: 1;
+}
+
+.page-wrap .constr-wrap .listbox .list-item .icon {
+  width: 15px;
+  height: 15px;
+  position: relative;
+}
+
+.page-wrap .constr-wrap .listbox .list-item .icon::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  opacity: 1;
+  -webkit-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
+
+.page-wrap .constr-wrap .listbox .list-item .icon::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  opacity: 0;
+  -webkit-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
+
+.page-wrap .constr-wrap .listbox .list-item .icon.icon-single::before {
+  background: url(./../img/q-icon-single.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.page-wrap .constr-wrap .listbox .list-item .icon.icon-single::after {
+  background: url(./../img/q-icon-single-a.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.page-wrap .constr-wrap .listbox .list-item .icon.icon-free::before {
+  background: url(./../img/q-icon-free.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.page-wrap .constr-wrap .listbox .list-item .icon.icon-free::after {
+  background: url(./../img/q-icon-free-a.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.page-wrap .constr-wrap .listbox .list-item .icon.icon-listfree::before {
+  background: url(./../img/q-icon-listfree.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.page-wrap .constr-wrap .listbox .list-item .icon.icon-listfree::after {
+  background: url(./../img/q-icon-listfree-a.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.page-wrap .constr-wrap .listbox .list-item .icon.icon-branching::before {
+  background: url(./../img/q-icon-branching.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.page-wrap .constr-wrap .listbox .list-item .icon.icon-branching::after {
+  background: url(./../img/q-icon-branching-a.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.page-wrap .constr-wrap .listbox .list-item .icon.icon-scale::before {
+  background: url(./../img/q-icon-scale.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.page-wrap .constr-wrap .listbox .list-item .icon.icon-scale::after {
+  background: url(./../img/q-icon-scale-a.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.page-wrap .constr-wrap .listbox .list-item .icon.icon-dropdown::before {
+  background: url(./../img/q-icon-dropdown.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.page-wrap .constr-wrap .listbox .list-item .icon.icon-dropdown::after {
+  background: url(./../img/q-icon-dropdown-a.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.page-wrap .constr-wrap .listbox .list-item .icon.icon-dropdownmt::before {
+  background: url(./../img/q-icon-dropdownmt.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.page-wrap .constr-wrap .listbox .list-item .icon.icon-dropdownmt::after {
+  background: url(./../img/q-icon-dropdownmt-a.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.page-wrap .constr-wrap .listbox .list-item .icon.icon-matrix::before {
+  background: url(./../img/q-icon-matrix.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.page-wrap .constr-wrap .listbox .list-item .icon.icon-matrix::after {
+  background: url(./../img/q-icon-matrix-a.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.page-wrap .constr-wrap .listbox .list-item .icon.icon-ranging::before {
+  background: url(./../img/q-icon-ranging.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.page-wrap .constr-wrap .listbox .list-item .icon.icon-ranging::after {
+  background: url(./../img/q-icon-ranging-a.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.page-wrap .constr-wrap .listbox .list-item .icon.icon-name::before {
+  background: url(./../img/q-icon-name.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.page-wrap .constr-wrap .listbox .list-item .icon.icon-name::after {
+  background: url(./../img/q-icon-name-a.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.page-wrap .constr-wrap .listbox .list-item .icon.icon-date::before {
+  background: url(./../img/q-icon-date.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.page-wrap .constr-wrap .listbox .list-item .icon.icon-date::after {
+  background: url(./../img/q-icon-date-a.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.page-wrap .constr-wrap .listbox .list-item .icon.icon-email::before {
+  background: url(./../img/q-icon-email.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.page-wrap .constr-wrap .listbox .list-item .icon.icon-email::after {
+  background: url(./../img/q-icon-email-a.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.page-wrap .constr-wrap .listbox .list-item .icon.icon-phone::before {
+  background: url(./../img/q-icon-phone.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.page-wrap .constr-wrap .listbox .list-item .icon.icon-phone::after {
+  background: url(./../img/q-icon-phone-a.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.page-wrap .constr-wrap .listbox .list-item .icon.icon-file::before {
+  background: url(./../img/q-icon-file.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.page-wrap .constr-wrap .listbox .list-item .icon.icon-file::after {
+  background: url(./../img/q-icon-file-a.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.page-wrap .constr-wrap .listbox .list-item .name {
+  padding-left: 13px;
+  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 15px;
+  color: #37353F;
+}
+
+.page-wrap .constr-wrap .questions-wrap {
+  min-height: 500px;
 }
 
 @media screen and (max-width: 1250px) {

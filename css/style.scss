@@ -68,7 +68,7 @@ body {
         background: #212121;
         box-shadow: 10px 10px 30px 5px rgba(0, 0, 0, 0.15);
         border-radius: 0px 0px 25px 25px;
-        padding: 70px 60px 30px;
+        padding: 50px 60px 30px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -76,7 +76,7 @@ body {
         top: 0px;
         left: 0px;
         right: 0px;
-        height: 140px;
+        height: 100px;
         z-index: 999;
         .logo {
             width: 110px;
@@ -122,7 +122,7 @@ body {
     }
     .content-wrap {
         padding-top: 20px;
-        margin-top: 140px;
+        margin-top: 100px;
         padding-left: 60px;
         padding-right: 60px;
         .top-nav {
@@ -798,6 +798,430 @@ body {
             .slider.round:before {
                 border-radius: 50%;
             }
+        }
+    }
+    .constr-wrap {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        .left-side {
+            width: 285px;
+        }
+        .center-block {
+            width: calc(100% - 285px);
+            padding-left: 20px;
+        }
+        .mode-view-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            .mode-view-item {
+                padding-left: 12px;
+                .mode-view {
+                    width: 25px;
+                    height: 20px;
+                    position: relative;
+                    cursor: pointer;
+                    &.active {
+                        &::before {
+                            opacity: 0;
+                        }
+                        &::after {
+                            opacity: 1;
+                        }
+                    }
+                    &::before {
+                        position: absolute;
+                        top: 0px;
+                        bottom: 0px;
+                        left: 0px;
+                        right: 0px;
+                        opacity: 1;
+                        transition: opacity 0.3s ease-in;
+                    }
+                    &::after {
+                        position: absolute;
+                        top: 0px;
+                        bottom: 0px;
+                        left: 0px;
+                        right: 0px;
+                        opacity: 0;
+                        transition: opacity 0.3s ease-in;
+                    }
+                    &.mode-full {
+                        &::before {
+                            content: "";
+                            background: url(./../img/mode-full.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                            
+                        }
+                        &::after {
+                            content: "";
+                            background: url(./../img/mode-full-a.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                    }
+                    &.mode-icons {
+                        &::before {
+                            content: "";
+                            background: url(./../img/mode-view-icons.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                        &::after {
+                            content: "";
+                            background: url(./../img/mode-view-icons-a.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                    }
+                }
+            }
+        }
+        .filter-wrap {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            .filter-item {
+                padding-right: 20px;
+                padding-bottom: 20px;
+                &.picked {
+                    .select-styled {
+                        background: #7FA1F8;
+                        color: #FFFFFF;
+                        &::after {
+                            background: url(./../img/arrow-grey.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                        }
+                    }
+                }
+                .select {
+                    min-width: 170px;
+                }
+            }
+            .customselect-wrapper {
+                .select-styled {
+                    padding: 15px;
+                    font-family: $fontPage;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 11px;
+                    line-height: 13px;
+                    color: #000000;
+                    transition: all 0.3s ease-in;
+                    &.active {
+                        &::after {
+                            transform: rotate(0deg);
+                        }
+                    }
+                    &::after {
+                        background: url(./../img/arrow-grey.svg);
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        width: 10px;
+                        height: 6px;
+                        transform: rotate(0deg);
+                        top: calc(50% - 3px);
+                    }
+                }
+                .select-options {
+                    li {
+                        padding: 15px;
+                        font-size: 11px;
+                        line-height: 13px;
+                    }
+                }
+            }
+        }
+        .listbox {
+            display: flex;
+            align-items: stretch;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            &.icons-mode {
+                .list-item {
+                    width: calc(50% - 10px);
+                    justify-content: center;
+                    margin-bottom: 25px;
+                    padding: 15px;
+                    &:nth-child(odd){
+                        margin-right: 20px;
+                    }
+                    .icon {
+                        width: 25px;
+                        height: 25px;
+                    }
+                    .name {
+                        display: none;
+                    }
+                }
+            }
+            .list-item {
+                width: 100%;
+                margin-bottom: 10px;
+                background: #FFFFFF;
+                box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
+                border-radius: 25px;
+                padding: 20px 13px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                cursor: pointer;
+                transition: background, width 0.3s ease-in;
+                &:hover {
+                    background: rgba(127, 161, 248, 0.2);
+                    .icon {
+                        &::before {
+                            opacity: 0;
+                        }
+                        &::after {
+                            opacity: 1;
+                        }
+                    }
+                }
+                .icon {
+                    width: 15px;
+                    height: 15px;
+                    position: relative;
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        top: 0px;
+                        left: 0px;
+                        right: 0px;
+                        bottom: 0px;
+                        opacity: 1;
+                        transition: all 0.3s ease-in;
+                    }
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        top: 0px;
+                        left: 0px;
+                        right: 0px;
+                        bottom: 0px;
+                        opacity: 0;
+                        transition: all 0.3s ease-in;
+                    }
+                    &.icon-single {
+                        &::before {
+                            background: url(./../img/q-icon-single.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                        &::after {
+                            background: url(./../img/q-icon-single-a.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                    }
+                    &.icon-free {
+                        &::before {
+                            background: url(./../img/q-icon-free.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                        &::after {
+                            background: url(./../img/q-icon-free-a.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                    }
+                    &.icon-listfree {
+                        &::before {
+                            background: url(./../img/q-icon-listfree.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                        &::after {
+                            background: url(./../img/q-icon-listfree-a.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                    }
+                    &.icon-branching {
+                        &::before {
+                            background: url(./../img/q-icon-branching.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                        &::after {
+                            background: url(./../img/q-icon-branching-a.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                    }
+                    &.icon-scale {
+                        &::before {
+                            background: url(./../img/q-icon-scale.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                        &::after {
+                            background: url(./../img/q-icon-scale-a.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                    }
+                    &.icon-dropdown {
+                        &::before {
+                            background: url(./../img/q-icon-dropdown.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                        &::after {
+                            background: url(./../img/q-icon-dropdown-a.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                    }
+                    &.icon-dropdownmt {
+                        &::before {
+                            background: url(./../img/q-icon-dropdownmt.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                        &::after {
+                            background: url(./../img/q-icon-dropdownmt-a.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                    }
+                    &.icon-matrix {
+                        &::before {
+                            background: url(./../img/q-icon-matrix.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                        &::after {
+                            background: url(./../img/q-icon-matrix-a.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                    }
+                    &.icon-ranging {
+                        &::before {
+                            background: url(./../img/q-icon-ranging.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                        &::after {
+                            background: url(./../img/q-icon-ranging-a.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                    }
+                    &.icon-name {
+                        &::before {
+                            background: url(./../img/q-icon-name.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                        &::after {
+                            background: url(./../img/q-icon-name-a.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                    }
+                    &.icon-date {
+                        &::before {
+                            background: url(./../img/q-icon-date.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                        &::after {
+                            background: url(./../img/q-icon-date-a.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                    }
+                    &.icon-email {
+                        &::before {
+                            background: url(./../img/q-icon-email.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                        &::after {
+                            background: url(./../img/q-icon-email-a.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                    }
+                    &.icon-phone {
+                        &::before {
+                            background: url(./../img/q-icon-phone.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                        &::after {
+                            background: url(./../img/q-icon-phone-a.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                    }
+                    &.icon-file {
+                        &::before {
+                            background: url(./../img/q-icon-file.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                        &::after {
+                            background: url(./../img/q-icon-file-a.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                    }
+                }
+                .name {
+                    padding-left: 13px;
+                    font-family: $fontPage;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 13px;
+                    line-height: 15px;
+                    color: #37353F;
+                }
+            }
+        }
+        .questions-wrap {
+            min-height: 500px;
         }
     }
 }
