@@ -41,7 +41,7 @@ table {
     border-spacing: 0; }
 * {
     box-sizing: border-box;
-        &::-webkit-scrollbar-track {
+    &::-webkit-scrollbar-track {
         box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
         border-radius: 5px;
         background-color: #fff;
@@ -125,6 +125,7 @@ body {
         margin-top: 100px;
         padding-left: 60px;
         padding-right: 60px;
+        min-height: calc(100vh - 100px);
         .top-nav {
             display: flex;
             align-items: center;
@@ -806,15 +807,18 @@ body {
         justify-content: flex-start;
         .left-side {
             width: 285px;
+            position: relative;
+            min-height: calc(100vh - 200px);
         }
         .center-block {
             width: calc(100% - 285px);
-            padding-left: 20px;
+            padding-left: 10px;
         }
         .mode-view-wrap {
             display: flex;
             align-items: center;
             justify-content: flex-end;
+            padding-bottom: 20px;
             .mode-view-item {
                 padding-left: 12px;
                 .mode-view {
@@ -889,6 +893,7 @@ body {
             align-items: flex-start;
             justify-content: flex-start;
             flex-wrap: wrap;
+            padding-left: 5px;
             .filter-item {
                 padding-right: 20px;
                 padding-bottom: 20px;
@@ -916,7 +921,7 @@ body {
                     font-size: 11px;
                     line-height: 13px;
                     color: #000000;
-                    transition: all 0.3s ease-in;
+                    transition: background 0.3s ease-in;
                     &.active {
                         &::after {
                             transform: rotate(0deg);
@@ -943,10 +948,28 @@ body {
         }
         .listbox {
             display: flex;
-            align-items: stretch;
+            align-items: flex-start;
             justify-content: flex-start;
             flex-wrap: wrap;
-            margin-top: 30px;
+            max-height: calc(100vh - 250px);
+            overflow-y: auto;
+            padding-right: 10px;
+            padding-left: 5px;
+            padding-top: 5px;
+            &::-webkit-scrollbar-track {
+                box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+                border-radius: 5px;
+                background-color: #fff;
+            }
+            &::-webkit-scrollbar {
+                width: 5px;
+                background-color: #fff;
+            }
+            &::-webkit-scrollbar-thumb {
+                border-radius: 5px;
+                box-shadow: inset 0 0 3px rgba(0,0,0,.05);
+                background-color: #212121;
+            }
             &.icons-mode {
                 .list-item {
                     width: calc(50% - 10px);
@@ -976,7 +999,7 @@ body {
                 align-items: center;
                 justify-content: flex-start;
                 cursor: pointer;
-                transition: background, width 0.3s ease-in;
+                transition: background 0.3s ease-in;
                 &:hover {
                     background: rgba(127, 161, 248, 0.2);
                     .icon {
@@ -1220,23 +1243,590 @@ body {
                 }
             }
         }
-        .questions-wrap {
-            min-height: 500px;
+        .questions-box {
+            height: 100px;
+            .questions-list {
+                background: #FFFFFF;
+                box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
+                border-radius: 25px;
+                max-height: 100%;
+                overflow-y: auto;
+                padding: 5px 0px;
+                &:empty,
+                &.empty {
+                    display: none;
+                }
+                &::-webkit-scrollbar-track {
+                    box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+                    border-radius: 5px;
+                    background-color: #fff;
+                }
+                &::-webkit-scrollbar {
+                    width: 5px;
+                    background-color: #fff;
+                }
+                &::-webkit-scrollbar-thumb {
+                    border-radius: 5px;
+                    box-shadow: inset 0 0 3px rgba(0,0,0,.05);
+                    background-color: #212121;
+                }
+            }
+            .question-wrap {
+                position: relative;
+                padding: 20px 40px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                font-family: $fontPage;
+                &.focus {
+                    &::before {
+                        opacity: 1;
+                    }
+                }
+                &::before {
+                    content: "";
+                    position: absolute;
+                    left: 0px;
+                    top: -5px;
+                    bottom: -5px;      
+                    background: #7FA1F8;
+                    border-radius: 25px;
+                    width: 10px;
+                    transition: opacity 0.3s ease-in;
+                    opacity: 0;
+                }
+                &.question-single {
+                    .radio-btns-wrapper {
+                        display: flex;
+                        align-items: stretch;
+                        justify-content: flex-start;
+                        flex-wrap: wrap;
+                        .radio-item {
+                            margin-right: 30px;
+                            min-width: calc(25% - 30px);
+                            max-width: 100%;
+                            width: auto;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            margin-bottom: 20px;
+                            border: 1px solid #C4C4C4;
+                            border-radius: 25px;
+                            transition: border-color 0.3s ease-in;
+                            position: relative;
+                            &.focus {
+                                border-color: $switchBg;
+                            }
+                            &:hover {
+                                .remove-item {
+                                    opacity: 1;
+                                }
+                            }
+                            &.other,
+                            &.neither {
+                                textarea {
+                                    pointer-events: none;
+                                }
+                            }
+                            .remove-item {
+                                position: absolute;
+                                top: -7px;
+                                right: -7px;
+                                width: 10px;
+                                height: 10px;
+                                background: url(./../img/icon-remove.svg);
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                                cursor: pointer;
+                                opacity: 0;
+                                transition: opacity 0.3s ease-in;
+                            }
+                            textarea,
+                            input[type=text] {
+                                background: transparent;
+                                display: block;
+                                border: none;
+                                padding: 13px 15px;
+                                font-size: 13px;
+                                line-height: 15px;
+                                text-align: center;
+                                color: #000000;
+                                resize: none;
+                                outline: none;
+                                font-family: $fontPage;
+                                width: 100%;
+                            }
+                        }
+                    }
+                    .input-new-item-wrap {
+                        padding-top: 30px;
+                        padding-bottom: 30px;
+                        display: flex;
+                        align-items: flex-end;
+                        justify-content: flex-start;
+                        textarea,
+                        input[type=text] {
+                            font-size: 13px;
+                            line-height: 15px;
+                            color: #000000;
+                            padding-bottom: 5px;
+                            border: none;
+                            outline: none;
+                            border-bottom: 1px solid #fff;
+                            width: 100%;
+                            resize: none;
+                            transition: border 0.3s ease-in;
+                            font-family: $fontPage;
+                            max-width: 500px;
+                            &:focus {
+                                border-color: $switchBg;
+                            }
+                            &::placeholder {
+                                color: #000000;
+                            }
+                        }
+                        .add-new-item {
+                            background: #FFFFFF;
+                            box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
+                            border-radius: 50%;
+                            width: 30px;
+                            height: 30px;
+                            position: relative;
+                            margin-left: 15px;
+                            opacity: 0;
+                            transition: opacity 0.3s ease-in;
+                            cursor: pointer;
+                            &.visible {
+                                opacity: 1;
+                            }
+                            &::before {
+                                content: "";
+                                position: absolute;
+                                top: 7px;
+                                left: 7px;
+                                right: 7px;
+                                bottom: 7px;
+                                background: url(./../img/icon-add.svg);
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                            }
+                        }
+                    }
+                    .check-wrap {
+                        position: relative;
+                        padding-bottom: 20px;
+                        input[type=checkbox] {
+                            display: none;
+                            &:checked {
+                                & ~ label {
+                                    &::before {
+                                        border-color: #7FA2F8;
+                                    }
+                                    .check {
+                                       width: 16px;
+                                    }
+                                }
+                            }
+                        }
+                        label {
+                            font-weight: bold;
+                            font-size: 13px;
+                            line-height: 16px;
+                            color: #000000;
+                            display: block;
+                            display: flex;
+                            align-items: center;
+                            justify-content: flex-start;
+                            cursor: pointer;
+                            &::before {
+                                content: "";
+                                width: 15px;
+                                min-width: 15px;
+                                height: 15px;
+                                min-width: 15px;
+                                border-radius: 5px;
+                                background: #FFFFFF;
+                                border: 1px solid #C4C4C4;
+                                margin-right: 15px;
+                            }
+                            .check {
+                                position: absolute;
+                                display: block;
+                                height: 16px;
+                                top: 0px;
+                                left: 3px;
+                                width: 0px;
+                                transition: width 0.3s;
+                                overflow: hidden;
+                                background: url(./../img/checkbox-arrow.svg);
+                                background-position: left;
+                                background-size: 16px auto;
+                                background-repeat: no-repeat;
+                            }
+                        }
+                    }
+                    .add-single-options {
+                        .btns-wrap {
+                            display: flex;
+                            align-items: stretch;
+                            justify-content: flex-start;
+                            padding-top: 20px;
+                            padding-bottom: 20px;
+                            padding-left: 30px;
+                            input[type=checkbox] {
+                                display: none;
+                                &:checked {
+                                    & ~ label {
+                                        background: #7FA1F8;
+                                        border-color: #7FA1F8;
+                                        color: #FFFFFF;
+                                    }
+                                }
+                            }
+                            label {
+                                display: block;
+                                background: #FFFFFF;
+                                border: 1px solid #C4C4C4;
+                                border-radius: 15px;
+                                padding: 20px 30px;
+                                font-family: $fontPage;
+                                font-style: normal;
+                                font-weight: normal;
+                                font-size: 13px;
+                                line-height: 15px;
+                                color: #000000;
+                                cursor: pointer;
+                                outline: none;
+                                margin-right: 20px;
+                                transition: all 0.3s ease-in;
+                                &::before {
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                    .single-comment {
+                        padding-top: 35px;
+                        textarea {
+                            outline: none;
+                            border: none;
+                            width: 100%;
+                            max-width: 500px;
+                            padding-bottom: 5px;
+                            border-bottom: 1px solid #E5E5E5;
+                            font-family: $fontPage;
+                            font-style: normal;
+                            font-weight: normal;
+                            font-size: 13px;
+                            line-height: 15px;
+                            color: #000000;
+                            resize: none;
+                            &::placeholder {
+                                color: #000000;
+                            }
+                            &:focus {
+                                border-color: $switchBg;
+                            }
+                        }
+                    }
+                }
+                .edit-block {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    position: absolute;
+                    top: 20px;
+                    right: 40px;
+                    width: 80px;
+                    max-width: 100%;
+                    .attach-file {
+                        position: relative;
+                        &:hover {
+                            .attach-files-wrap {
+                                pointer-events: all;
+                                opacity: 1;
+                            }
+                        }
+                        .attach-file-icon {
+                            width: 20px;
+                            height: 20px;
+                            position: relative;
+                            cursor: pointer;
+                            &.active {
+                                &::before {
+                                    opacity: 0;
+                                }
+                                &::before {
+                                    opacity: 1;
+                                }
+                            }
+                            &::before {
+                                content: "";
+                                position: absolute;
+                                top: 0px;
+                                left: 0px;
+                                right: 0px;
+                                bottom: 0px;
+                                background: url(./../img/icon-file.svg);
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                                opacity: 1;
+                                transition: opacity 0.3s ease-in;
+                            }
+                            &::after {
+                                content: "";
+                                top: 0px;
+                                left: 0px;
+                                right: 0px;
+                                bottom: 0px;
+                                background: url(./../img/icon-file-a.svg);
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                                opacity: 0;
+                                transition: opacity 0.3s ease-in;
+                            }
+                        }
+                        .attach-files-wrap {
+                            transition: opacity 0.3s ease-in;
+                            opacity: 0;
+                            pointer-events: none;
+                            position: absolute;
+                            top: 15px;
+                            right: -25px;
+                            .files-list {
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                .file-item {
+                                    padding: 15px;
+                                    &.file-video {
+                                        label {
+                                            &::before {
+                                                background: url(./../img/icon-add-video.svg);
+                                                background-position: center;
+                                                background-repeat: no-repeat;
+                                                background-size: contain;
+                                            }
+                                            &::after {
+                                                background: url(./../img/icon-add-video-a.svg);
+                                                background-position: center;
+                                                background-repeat: no-repeat;
+                                                background-size: contain;
+                                            } 
+                                        }
+                                    }
+                                    &.file-img {
+                                        label {
+                                            &::before {
+                                                background: url(./../img/icon-add-img.svg);
+                                                background-position: center;
+                                                background-repeat: no-repeat;
+                                                background-size: contain;
+                                            }
+                                            &::after {
+                                                background: url(./../img/icon-add-img-a.svg);
+                                                background-position: center;
+                                                background-repeat: no-repeat;
+                                                background-size: contain;
+                                            } 
+                                        }
+                                    }
+                                    &.file-audio {
+                                        label {
+                                            &::before {
+                                                background: url(./../img/icon-add-audio.svg);
+                                                background-position: center;
+                                                background-repeat: no-repeat;
+                                                background-size: contain;
+                                            }
+                                            &::after {
+                                                background: url(./../img/icon-add-audio-a.svg);
+                                                background-position: center;
+                                                background-repeat: no-repeat;
+                                                background-size: contain;
+                                            } 
+                                        }
+                                    }
+                                    input[type=file] {
+                                        display: none;
+                                    }
+                                    label {
+                                        background: #FFFFFF;
+                                        box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
+                                        border-radius: 25px;
+                                        width: 40px;
+                                        height: 40px;
+                                        position: relative;
+                                        display: block;
+                                        cursor: pointer;
+                                        &.active {
+                                            &::before {
+                                                opacity: 0;
+                                            }
+                                            &::after {
+                                                opacity: 1;
+                                            } 
+                                        }
+                                        &::before {
+                                            content: "";
+                                            position: absolute;
+                                            top: 10px;
+                                            left: 10px;
+                                            right: 10px;
+                                            bottom: 10px;
+                                            opacity: 1;
+                                            transition: opacity 0.3s ease-in;
+                                        }
+                                        &::after {
+                                            content: "";
+                                            position: absolute;
+                                            top: 10px;
+                                            left: 10px;
+                                            right: 10px;
+                                            bottom: 10px;
+                                            opacity: 0;
+                                            transition: opacity 0.3s ease-in;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .remove-question {
+                        width: 20px;
+                        height: 20px;
+                        background: url(./../img/icon-remove.svg);
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        cursor: pointer;
+                    }
+                }
+                .question-name {
+                    padding-bottom: 40px;
+                    padding-right: 100px;
+                    input[type=text],
+                    textarea {
+                        border: none;
+                        outline: none;
+                        font-weight: bold;
+                        font-size: 18px;
+                        line-height: 22px;
+                        color: #000000;
+                        padding-bottom: 5px;
+                        border-bottom: 1px solid #fff;
+                        width: 100%;
+                        resize: none;
+                        transition: border 0.3s ease-in;
+                        font-family: $fontPage;
+                        &:focus {
+                            border-color: $switchBg;
+                        }
+                        &::placeholder {
+                            color: #000000;
+                        }
+                    }
+                }
+            }
+            .hidden {
+                display: none;
+            }
+        }
+    }
+}
+@media screen and (max-width: 1600px) {
+    .page-wrap {
+        .constr-wrap {
+            .listbox {
+                .list-item {
+                    padding: 15px 13px;
+                    margin-bottom: 8px;
+                }
+                &.icons-mode {
+                    .list-item {
+                        margin-bottom: 15px;
+                        padding: 15px 15px;
+                        .icon {
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+                }
+            }
         }
     }
 }
 @media screen and (max-width: 1250px) {
     .page-wrap {
-        .top-panel {
-            height: 110px;
-            padding: 50px 50px 20px;
-        }
         .content-wrap {
             margin-top: 110px;
             padding-left: 50px;
             padding-right: 50px;
             .pools-table {
                 padding-top: 25px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 1200px) {
+    .page-wrap {
+        .top-panel {
+            height: 80px;
+            padding: 30px 40px 20px;
+            .logo {
+                width: 80px;
+            }
+        }
+        .content-wrap {
+            margin-top: 80px;
+            padding-left: 40px;
+            padding-right: 40px;
+            .top-nav {
+                .nav-back  {
+                    a {
+                        padding-top: 10px;
+                        padding-bottom: 15px;
+                    }
+                }
+                .pools-menu {
+                    .menu-item {
+                        a {
+                            padding-top: 10px;
+                            padding-bottom: 15px;
+                        }
+                    }
+                }
+            }
+            .filter-wrap {
+                .filter-item {
+                    width: 25%;
+                    padding-right: 15px;
+                    padding-bottom: 15px;
+                    .select {
+                        min-width: 150px;
+                    }
+                }
+                .customselect-wrapper {
+                    .select-styled {
+                        padding: 10px 15px 10px 10px;
+                    }
+                }
+            }
+            .questions-box {
+                .question-wrap {
+                    padding: 20px 30px;
+                    &.question-single {
+                        .radio-btns-wrapper {
+                            .radio-item {
+                                margin-right: 15px;
+                                min-width: calc(25% - 15px);
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -1278,6 +1868,14 @@ body {
                         }
                     }
                 }
+            }
+        }
+        .constr-wrap {
+            .left-side {
+                width: 200px;
+            }
+            .center-block {
+                width: calc(100% - 200px);
             }
         }
     }
