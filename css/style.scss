@@ -808,6 +808,7 @@ body {
         .left-side {
             width: 285px;
             position: relative;
+            z-index: 999;
             min-height: calc(100vh - 200px);
         }
         .center-block {
@@ -1001,7 +1002,7 @@ body {
                 cursor: pointer;
                 transition: background 0.3s ease-in;
                 &:hover {
-                    background: rgba(127, 161, 248, 0.2);
+                    background: #e5ecfe;
                     .icon {
                         &::before {
                             opacity: 0;
@@ -1275,8 +1276,16 @@ body {
                 position: relative;
                 padding: 20px 40px;
                 margin-top: 20px;
-                margin-bottom: 20px;
+                margin-bottom: 35px;
                 font-family: $fontPage;
+                background: #fff;
+                &.ui-sortable-helper {
+                    box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
+                    border-radius: 25px;
+                    &::before {
+                        opacity: 1;
+                    }
+                }
                 &.focus {
                     &::before {
                         opacity: 1;

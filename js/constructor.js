@@ -42,7 +42,6 @@ jQuery(function ($) {
             let navHeight = $('.top-nav').outerHeight(true);
             let filterHeiht = $('.filter-wrap').outerHeight(true);
             let boxHeight = parseInt(viewHeight - panelHeight - wrapPad - navHeight - filterHeiht);
-            console.log(box);
             box.height(boxHeight + 'px');
         }
         $( window ).resize(function() {
@@ -50,30 +49,46 @@ jQuery(function ($) {
             setHeightBox();
         });
         //actions with question
+        //sortable questions
+        if($( window ).width() > 700) {
+            $('.questions-box .questions-list').sortable({
+                cancel: "input, a, button, textarea, .edit-block",
+                containment: "parent",
+                distance: 5,
+                items: ".question-wrap",
+                deactivate: function (event, ui) {
+                    refreshQuestionsId();
+                }
+            });
+        }
         //drag question
         $('.listbox .list-item' ).draggable({
             helper: 'clone',
             cursor: 'move',
             connectToSortable: '.questions-box',
-            containment: '.constr-wrap'
+            containment: '.constr-wrap',
         });
 
         //dropped question
         $('.questions-box').droppable({
             drop: function(event, ui) {
-                var eventTop = event.pageY;
-                var offsetY = event.offsetY;
-                var children = $('.questions-box').find('.questions-list').children();
-                var appendInde = getAppendIndex(children, eventTop, offsetY);
-                var type = $(ui.draggable).attr('data-type');
-                let id = 1;
-                if( appendInde === 'last' ){
-                    id = children.length + 1;
+                if($(ui.draggable).hasClass('list-item')){
+                    var eventTop = event.pageY;
+                    var offsetY = event.offsetY;
+                    var children = $('.questions-box').find('.questions-list').children();
+                    var appendInde = getAppendIndex(children, eventTop, offsetY);
+                    var type = $(ui.draggable).attr('data-type');
+                    let id = 1;
+                    if( appendInde === 'last' ){
+                        id = children.length + 1;
+                    }
+                    else {
+                        id = appendInde + 1 
+                    }
+                    if(type && id){
+                        addQuestion(type, appendInde, id);
+                    }
                 }
-                else {
-                    id = appendInde + 1 
-                }
-                addQuestion(type, appendInde, id);
             }
         });
         //get index of dropable question
@@ -84,9 +99,10 @@ jQuery(function ($) {
             else {
                 for( var i = 0; i < arr.length; i++ ) {
                     var elTop = $(arr[i]).offset().top,
-                        elBottom = $(arr[i]).offset().top + $(arr[i]).height() + 31,
-                        height = $(arr[i]).height() + 31;
-                    if( top > elTop + height && top < elBottom + offsetY ) {
+                        elBottom = $(arr[i]).offset().top + $(arr[i]).outerHeight(true),
+                        height = $(arr[i]).outerHeight(true);
+                    console.log();
+                    if( top > elTop + height/2 && top < elBottom + offsetY ) {
                         return i;
                     }
                     else if(top > elTop && top < elBottom) {
@@ -96,6 +112,15 @@ jQuery(function ($) {
                 return  arr.length - 1;
             }
         }
+
+        //add question by click
+        $('.constr-wrap').on('click', '.listbox .list-item', function(e){
+            let type = $(this).attr('data-type');
+            let appendInde = "last";
+            let id = $('.questions-box').find('.questions-list').children().length + 1;
+            addQuestion(type, appendInde, id);
+        });
+
         //add question to list
         function addQuestion(type, appendInde, id){
             let children = $('.questions-box').find('.questions-list').children();
@@ -199,6 +224,7 @@ jQuery(function ($) {
                 $(children[appendInde]).after( el );
             }
             $('.questions-box').find('.questions-list').removeClass('empty');
+            $('.questions-box textarea').autoResize();
             refreshQuestionsId();
         }
 
@@ -236,6 +262,8 @@ jQuery(function ($) {
             $(question).remove();
             if($('.questions-list').children().length === 0){
                 $('.questions-list').addClass('empty');
+            } else {
+                refreshQuestionsId();
             }
         }
 

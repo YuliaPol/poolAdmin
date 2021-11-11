@@ -1086,6 +1086,7 @@ body {
 .page-wrap .constr-wrap .left-side {
   width: 285px;
   position: relative;
+  z-index: 999;
   min-height: calc(100vh - 200px);
 }
 
@@ -1359,7 +1360,7 @@ body {
 }
 
 .page-wrap .constr-wrap .listbox .list-item:hover {
-  background: rgba(127, 161, 248, 0.2);
+  background: #e5ecfe;
 }
 
 .page-wrap .constr-wrap .listbox .list-item:hover .icon::before {
@@ -1677,8 +1678,19 @@ body {
   position: relative;
   padding: 20px 40px;
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 35px;
   font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+  background: #fff;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.ui-sortable-helper {
+  -webkit-box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
+          box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
+  border-radius: 25px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.ui-sortable-helper::before {
+  opacity: 1;
 }
 
 .page-wrap .constr-wrap .questions-box .question-wrap.focus::before {
