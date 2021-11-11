@@ -91,6 +91,7 @@ jQuery(function ($) {
                 }
             }
         });
+
         //get index of dropable question
         function getAppendIndex(arr, top, offsetY) {
             if( arr.length === 0 ) {
@@ -228,20 +229,7 @@ jQuery(function ($) {
             refreshQuestionsId();
         }
 
-        function refreshQuestionsId(){
-            let questions = $('.questions-box').find('.questions-list').children();
-            if(questions.length > 0){
-                for (let i = 0; i < questions.length; i++) {
-                    let id = i + 1;
-                    let textareas = $(questions[i]).find('textarea');
-                    changeNameInput(textareas, id, 1);
-                    let inputs = $(questions[i]).find('inputs');
-                    changeNameInput(inputs, id, 1);
-                    let labels = $(questions[i]).find('labels');
-                    changeNameInput(labels, id, 1);
-                }
-            }
-        }
+        
         // question in focus
         $('.constr-wrap').on('click', '.question-wrap', function(e){
             if(!$(e.target).hasClass('remove-question')){
@@ -419,19 +407,37 @@ jQuery(function ($) {
             });
         }
 
+        //refresh questions id
+        function refreshQuestionsId(){
+            let questions = $('.questions-box').find('.questions-list').children();
+            if(questions.length > 0){
+                for (let i = 0; i < questions.length; i++) {
+                    let id = i + 1;
+                    $(questions[i]).attr('data-id', id);
+                    let textareas = $(questions[i]).find('textarea');
+                    changeNameInput(textareas, id, 1);
+                    let inputs = $(questions[i]).find('input');
+                    changeNameInput(inputs, id, 1);
+                    let labels = $(questions[i]).find('label');
+                    changeNameInput(labels, id, 1);
+                }
+            }
+        }
+
+        //change id in inputs name
         function changeNameInput(inputs, id, position){
             for (let i = 0; i < inputs.length; i++) {
                 if($(inputs[i]).attr('name')){
                     prevId = $(inputs[i]).attr('name').split("_");
                     prevId[position] = id;
                     newId = prevId.join('_');
-                    $(inputs).attr('name', newId);
+                    $(inputs[i]).attr('name', newId);
                 }
                 if($(inputs[i]).attr('id')){
                     prevId = $(inputs[i]).attr('id').split("_");
                     prevId[position] = id;
                     newId = prevId.join('_');
-                    $(inputs).attr('id', newId);
+                    $(inputs[i]).attr('id', newId);
                 }
                 if($(inputs[i]).attr('for')){
                     prevId = $(inputs[i]).attr('for').split("_");
