@@ -1541,6 +1541,29 @@ body {
                         }
                     }
                 }
+                &.question-free {
+                    .free-answers {
+                        padding-top: 10px;
+                        .answer-wrap {
+                            padding-bottom: 20px;
+                            textarea {
+                                padding: 8px 0px;
+                                border: none;
+                                outline: none;
+                                font-family: $fontPage;
+                                font-style: normal;
+                                font-weight: normal;
+                                font-size: 13px;
+                                line-height: 15px;
+                                color: #000000;
+                                resize: none;
+                                width: 100%;
+                                max-width: 100%;
+                                border-bottom: 1px solid #E5E5E5;;
+                            }
+                        }
+                    }
+                }
                 .edit-block {
                     display: flex;
                     align-items: center;

@@ -158,7 +158,7 @@ jQuery(function ($) {
                 ${nameHtml}`;
             let el;
             switch(type) {
-                case "single":
+                case 'single':
                     el = 
                         `<div class="question-wrap question-single" data-id="${id}">
                             ${topEL}
@@ -205,6 +205,17 @@ jQuery(function ($) {
                                         Добавить вариант ответа «Ничего из вышеперечисленного»
                                     </div>
                                 </label>
+                            </div>
+                        </div>`
+                    break;
+                case 'free-answer':
+                    el = 
+                        `<div class="question-wrap question-free" data-id="${id}">
+                            ${topEL}
+                            <div class="free-answers">
+                                <div class="answer-wrap">
+                                    <textarea rows="1" placeholder="Введите ваш комментарий"></textarea>
+                                </div>
                             </div>
                         </div>`
                     break;

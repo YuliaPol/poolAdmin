@@ -2066,6 +2066,30 @@ body {
   border-color: #7FA1F8;
 }
 
+.page-wrap .constr-wrap .questions-box .question-wrap.question-free .free-answers {
+  padding-top: 10px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-free .free-answers .answer-wrap {
+  padding-bottom: 20px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-free .free-answers .answer-wrap textarea {
+  padding: 8px 0px;
+  border: none;
+  outline: none;
+  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 15px;
+  color: #000000;
+  resize: none;
+  width: 100%;
+  max-width: 100%;
+  border-bottom: 1px solid #E5E5E5;
+}
+
 .page-wrap .constr-wrap .questions-box .question-wrap .edit-block {
   display: -webkit-box;
   display: -webkit-flex;
