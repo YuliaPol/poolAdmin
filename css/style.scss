@@ -1939,6 +1939,28 @@ body {
         }
     }
 }
+.load-wrapper {
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    background: #ffffff;
+    z-index: 9999;
+    .loader {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        height: 100px;
+        width: 200px;
+        transform: translate(-50%, -50%);
+        background: url(./../img/logo-loader.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+}
 @media screen and (max-width: 1600px) {
     .page-wrap {
         .constr-wrap {

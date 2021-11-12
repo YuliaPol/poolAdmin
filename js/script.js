@@ -13,5 +13,8 @@ jQuery(function ($) {
                 $(this).find('.hidden-menu').removeClass('to-top');
             }
         });
+
+        // preloader
+        $('.load-wrapper').fadeOut();
     });
 });

@@ -2578,6 +2578,34 @@ body {
   display: none;
 }
 
+.load-wrapper {
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  background: #ffffff;
+  z-index: 9999;
+}
+
+.load-wrapper .loader {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 100px;
+  width: 200px;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+       -o-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: url(./../img/logo-loader.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
 @media screen and (max-width: 1600px) {
   .page-wrap .constr-wrap .listbox .list-item {
     padding: 15px 13px;
