@@ -82,6 +82,9 @@ jQuery(function ($) {
                     if( appendInde === 'last' ){
                         id = children.length + 1;
                     }
+                    else if ( appendInde < 0 ) {
+                        id = 1;
+                    }
                     else {
                         id = appendInde + 1 
                     }
@@ -225,17 +228,26 @@ jQuery(function ($) {
                             ${topEL}
                         </div>`
             }
+            let scrollTo = 0;
             if( appendInde === 'last' ){
                 $('.questions-box').find('.questions-list').append(el);
+                scrollTo = $('.questions-box').find('.questions-list .question-wrap:last-child').offset().top;
             }
             else if ( appendInde < 0 ) {
                 $('.questions-box').find('.questions-list').prepend(el);
             }
             else {
                 $(children[appendInde]).after( el );
+                scrollTo = $(children[appendInde]).offset().top;
             }
             $('.questions-box').find('.questions-list').removeClass('empty');
-            $('.questions-box textarea').autoResize();
+            $('.questions-box textarea').autoResize();    
+            //scroll to element 
+            let container = $('.questions-list');
+            container.scrollTop(
+                scrollTo - container.offset().top + container.scrollTop()
+            );
+            
             refreshQuestionsId();
         }
 
