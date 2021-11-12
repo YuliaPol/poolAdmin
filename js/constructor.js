@@ -102,7 +102,6 @@ jQuery(function ($) {
                     var elTop = $(arr[i]).offset().top,
                         elBottom = $(arr[i]).offset().top + $(arr[i]).outerHeight(true),
                         height = $(arr[i]).outerHeight(true);
-                    console.log();
                     if( top > elTop + height/2 && top < elBottom + offsetY ) {
                         return i;
                     }
@@ -255,8 +254,138 @@ jQuery(function ($) {
             }
         }
 
-        //settings for single question
+        //events for files
+        //upload img
+        $('.constr-wrap').on('change', '.file-img input[type=file]', function(e){
+            let input = this;
+            let question = $(this).parents('.question-wrap');
+            if (input.files && input.files[0]) {
+                let fileWrap = question.find('.added-file-wrap');
+                if(fileWrap.length === 0) {
+                    let wrapHtml = '<div class="added-file-wrap"></div>';
+                    $(wrapHtml).insertAfter(question.find('.question-name'));
+                    fileWrap =  question.find('.added-file-wrap');
+                } else {
+                    fileWrap.html('');
+                }
+                let imgHtml = 
+                    `<div class="img-wrap">
+                        <img src="" alt="Img">
+                        <div class="img-remove"></div>
+                    </div>`;
+                $(imgHtml).appendTo(fileWrap);
+                let img = question.find('.added-file-wrap img');
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    img.attr('src', e.target.result);
+                    setFileActive(input);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        });
+        //upload audio
+        $('.constr-wrap').on('change', '.file-audio input[type=file]', function(e){
+            let question = $(this).parents('.question-wrap');
+            let fileWrap = question.find('.added-file-wrap');
+            let input = this;
+            let inputFile = e.target;
+            if (inputFile.files && inputFile.files[0]) {
+                if(fileWrap.length === 0) {
+                    let wrapHtml = '<div class="added-file-wrap"></div>';
+                    $(wrapHtml).insertAfter(question.find('.question-name'));
+                    fileWrap =  question.find('.added-file-wrap');
+                } else {
+                    fileWrap.html('');
+                }
+                let audioHtml = 
+                    `<div class="audio-wrap">
+                        <div class="audio-control"></div>
+                        <div class="audiowave" data-audiopath=""></div>
+                        <div class="audio-duration"></div>
+                        <div class="audio-remove"></div>
+                    </div>`;
+                $(audioHtml).appendTo(fileWrap);
+    
+                let audio = question.find('.added-file-wrap .audiowave');
+                audio.stop();
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    audio.attr('data-audiopath', e.target.result);
+                    setAudioWave(audio[0], e.target.result);
+                    setFileActive(input);
+                };
+                reader.readAsDataURL(inputFile.files[0]);
+            }
+        });
+        //upload video
+        $('.constr-wrap').on('change', '.file-video input[type=file]', function(e){
+            let question = $(this).parents('.question-wrap');
+            let input = this;
+            if(this.files && this.files[0]){
+                fileWrap =  question.find('.added-file-wrap');
+                if(fileWrap.length === 0) {
+                    let wrapHtml = '<div class="added-file-wrap"></div>';
+                    $(wrapHtml).insertAfter(question.find('.question-name'));
+                    fileWrap =  question.find('.added-file-wrap');
+                } else {
+                    fileWrap.html('');
+                }
+                let videoHtml = 
+                    `<div class="video-wrap">
+                        <video-radio-star>
+                            <video controls>
+                                <source src="./files-for-test/video.mp4">
+                                Your browser does not support HTML5 video.
+                            </video>
+                            <button type="button" class="video-play" data-play></button>
+                        </video-radio-star>
+                        <div class="video-remove"></div>
+                    </div>`;
+                $(videoHtml).appendTo(fileWrap);
+                let source = fileWrap.find('source');
+                source[0].src = URL.createObjectURL(this.files[0]);
+                setFileActive(input);
+            }
+        });
+        //set active type of fole
+        function setFileActive(input){
+            let question = $(input).parents('.question-wrap');
+            if($(input).parents('.file-video').length === 0) {
+                clear_form_elements(question.find('.file-video'));
+                question.find('.file-video label').removeClass('active');
+            }
+            if($(input).parents('.file-audio').length === 0) {
+                clear_form_elements(question.find('.file-audio'));
+                question.find('.file-audio label').removeClass('active');
+            }
+            if($(input).parents('.file-img').length === 0) {
+                clear_form_elements(question.find('.file-img'));
+                question.find('.file-img label').removeClass('active');
+            }
+            $(input).parents('.file-item').find('label').addClass('active');
+        }
+        //remove img
+        $('.constr-wrap').on('click', '.question-wrap .img-remove', function(e){
+            removeFile(this);
+        });
+        //remove audio
+        $('.constr-wrap').on('click', '.question-wrap .audio-remove', function(e){
+            removeFile(this);
+        });
+        //remove video
+        $('.constr-wrap').on('click', '.question-wrap .video-remove', function(e){
+            removeFile(this);
+        });
 
+        //remove file
+        function removeFile(el){
+            let question = $(el).parents('.question-wrap');
+            let fileWrap = question.find('.added-file-wrap');
+            fileWrap.remove();
+            clear_form_elements(question.find('.attach-files-wrap'));
+            question.find('.attach-files-wrap label').removeClass('active')
+        }
+        //settings for single question
         //single input point in focus
         $('.content-wrap').on('focus', '.question-single .radio-item textarea', function(e){
             $(this).parents('.radio-item').addClass('focus');
@@ -330,7 +459,6 @@ jQuery(function ($) {
                 changeNameInput(textareas, id, 2);
             }
         }
-
         //show single options add other or comment
         $('.content-wrap').on('change', '.question-single .show-single-opt', function(e){
             if($(this).is(':checked')){
@@ -447,5 +575,57 @@ jQuery(function ($) {
                 }
             }
         }
+
+        //make audiowave
+        $('.audiowave').each(function(){
+            var path = $(this).attr('data-audiopath');//path for audio
+            setAudioWave(this, path);
+        });
+
+        // wavesurfer for audio elements
+        function setAudioWave(el, path){
+            //Initialize WaveSurfer
+            var wavesurfer = WaveSurfer.create({
+                container: el,
+                scrollParent: false,
+                backgroundColor: '#FFFFFF',
+                height: 40,
+                barMinHeight: 1,
+                barWidth: 1.5,
+                cursorWidth: 0,
+                barGap: 1.5,
+                waveColor: '#E5E5E5',
+                hideScrollbar: true,
+                progressColor: "#000000"
+            });
+
+            //Load audio file
+            wavesurfer.load(path);
+
+            // Show video duration
+            wavesurfer.on('ready', function () {
+                $(el).parents('.audio-wrap').find('.audio-duration').html(formatTime(wavesurfer.getDuration()));
+            });
+
+            wavesurfer.on('pause', function () {
+                $(el).parents('.audio-wrap').find('.audio-control').removeClass('pause');
+            });
+
+            wavesurfer.on('play', function () {
+                $(el).parents('.audio-wrap').find('.audio-control').addClass('pause');
+            });
+            //Add button event
+            $(el).parents('.audio-wrap').find('.audio-control').click(function(){
+                wavesurfer.playPause();
+            });
+        }
+
+        //seconds to time
+        function formatTime (time) {
+            return [
+                Math.floor((time % 3600) / 60), // minutes
+                ('00' + Math.floor(time % 60)).slice(-2) // seconds
+            ].join(':');
+        };
     });
 });

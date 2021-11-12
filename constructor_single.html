@@ -181,6 +181,28 @@
                                 <div class="question-name">
                                     <textarea name="question_1"  rows="1" placeholder="Введите ваш вопрос"></textarea>
                                 </div>
+                                <div class="added-file-wrap">
+                                    <!-- <div class="img-wrap">
+                                        <img src="./files-for-test/img.jpg" alt="Img">
+                                        <div class="img-remove"></div>
+                                    </div> -->
+                                    <!-- <div class="audio-wrap">
+                                        <div class="audio-control"></div>
+                                        <div class="audiowave" data-audiopath="/files-for-test/audio.mp3"></div>
+                                        <div class="audio-duration"></div>
+                                        <div class="audio-remove"></div>
+                                    </div> -->
+                                    <div class="video-wrap">
+                                        <video-radio-star>
+                                            <video controls>
+                                                <source src="./files-for-test/video.mp4">
+                                                  Your browser does not support HTML5 video.
+                                            </video>
+                                            <button type="button" class="video-play" data-play></button>
+                                        </video-radio-star>
+                                        <div class="video-remove"></div>
+                                    </div>
+                                </div>
                                 <div class="radio-btns-wrapper">
                                     <div class="radio-item">
                                         <div class="remove-item"></div>
@@ -251,7 +273,9 @@
     <script src="./js/jquery-ui.js"></script>
     <script src="./js/jquery.ui.touch-punch.min.js"></script>
     <script src="./js/custom_select.js"></script>
+    <script src="./js/wavesurfer.min.js"></script>
     <script src="./js/script.js"></script>
+    <script src="./js/video-radio-star.js"></script>
     <script src="./js/constructor.js"></script>
 </body>
 </html>

@@ -1309,6 +1309,7 @@ body {
                         align-items: stretch;
                         justify-content: flex-start;
                         flex-wrap: wrap;
+                        padding-top: 10px;
                         .radio-item {
                             margin-right: 30px;
                             min-width: calc(25% - 30px);
@@ -1603,8 +1604,10 @@ body {
                             opacity: 0;
                             pointer-events: none;
                             position: absolute;
-                            top: 15px;
+                            padding-top: 15px;
+                            top: 0px;
                             right: -25px;
+                            z-index: 10;
                             .files-list {
                                 display: flex;
                                 align-items: center;
@@ -1715,7 +1718,7 @@ body {
                     }
                 }
                 .question-name {
-                    padding-bottom: 40px;
+                    padding-bottom: 15px;
                     padding-right: 100px;
                     input[type=text],
                     textarea {
@@ -1736,6 +1739,173 @@ body {
                         }
                         &::placeholder {
                             color: #000000;
+                        }
+                    }
+                }
+                .added-file-wrap {
+                    width: 100%;
+                    max-width: 100%;
+                    padding-bottom: 35px;
+                    .img-wrap {
+                        max-width: 100%;
+                        position: relative;
+                        display: inline-block;
+                        &:hover {
+                            .img-remove {
+                                opacity: 1;
+                            }
+                        }
+                        .img-remove {
+                            position: absolute;
+                            top: 20px;
+                            right: 20px;
+                            width: 10px;
+                            height: 10px;
+                            background: url(./../img/icon-delete-white.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                            cursor: pointer;
+                            opacity: 0;
+                            transition: opacity 0.3s ease-in;
+                        }
+                        img {
+                            object-fit: contain;
+                            object-position: center;
+                            max-width: 100%;
+                            max-height: 550px;
+                            box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
+                            border-radius: 25px;
+                        }
+                    }
+                    .audio-wrap {
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                        max-width: 500px;
+                        width: 100%;
+                        position: relative;
+                        padding-right: 20px;
+                        &:hover {
+                            .audio-remove {
+                                opacity: 1;
+                            }
+                        }
+                        .audio-control {
+                            width: 20px;
+                            height: 20px;
+                            position: relative;
+                            margin-right: 10px;
+                            cursor: pointer;
+                            &.pause {
+                                &::before {
+                                    opacity: 0;
+                                }
+                                &::after {
+                                    opacity: 1;
+                                }
+                            }
+                            &::before {
+                                content: "";
+                                position: absolute;
+                                top: 0px;
+                                bottom: 0px;
+                                left: 0px;
+                                right: 0px;
+                                background: url(./../img/icon-audio-play.svg);
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                                opacity: 1;
+                                transition: opacity 0.3s ease-in;
+                            }
+                            &::after {
+                                content: "";
+                                position: absolute;
+                                top: 0px;
+                                bottom: 0px;
+                                left: 0px;
+                                right: 0px;
+                                background: url(./../img/icon-audio-pause.svg);
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                                opacity: 0;
+                                transition: opacity 0.3s ease-in;
+                            }
+                        }
+                        .audiowave {
+                            width: calc(100% - 30px);
+                        }
+                        .audio-duration {
+                            font-family: $fontPage;
+                            font-style: normal;
+                            font-weight: bold;
+                            font-size: 9px;
+                            line-height: 11px;
+                            color: #E5E5E5;
+                            margin-left: 10px;
+                        }
+                        .audio-remove {
+                            position: absolute;
+                            top: 0px;
+                            right: 0px;
+                            width: 10px;
+                            height: 10px;
+                            background: url(./../img/icon-remove.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                            opacity: 0;
+                            transition: opacity 0.3s ease-in;
+                            cursor: pointer;
+                        }
+                    }
+                    .video-wrap {
+                        position: relative;
+                        &:hover {
+                            .video-remove {
+                                opacity: 1;
+                            }
+                        }
+                        video {
+                            max-width: 100%;
+                            width: 100%;
+                        }
+                        .radiostar-playing {
+                            .video-play {
+                                opacity: 0;
+                            }
+                        }
+                        .video-play {
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            width: 50px;
+                            height: 50px;
+                            background: url(./../img/video-play.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                            transform: translate(-50%, -50%);
+                            border: none;
+                            outline: none;
+                            transition: opacity 0.3s ease-in;
+                            pointer-events: none;
+                        }
+                        .video-remove {
+                            position: absolute;
+                            top: 20px;
+                            right: 20px;
+                            width: 10px;
+                            height: 10px;
+                            background: url(./../img/icon-delete-white.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                            cursor: pointer;
+                            opacity: 0;
+                            transition: opacity 0.3s ease-in;
                         }
                     }
                 }
