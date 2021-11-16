@@ -222,6 +222,82 @@ jQuery(function ($) {
                             </div>
                         </div>`
                     break;
+                case 'scale':
+                    el = 
+                        `<div class="question-wrap question-scale" data-id="${id}">
+                            ${topEL}
+                            <div class="scale-wrap scale-star scale-10">
+
+                                <input type="radio" id="scale_${id}_10" name="scale_${id}" value="10" />
+                                <label for="scale_${id}_10" title="text"></label>
+                        
+                                <input type="radio" id="scale_${id}_9" name="scale_${id}" value="9" />
+                                <label for="scale_${id}_9" title="text"></label>
+                        
+                                <input type="radio" id="scale_${id}_8" name="scale_${id}" value="8" />
+                                <label for="scale_${id}_8" title="text"></label>
+                        
+                                <input type="radio" id="scale_${id}_7" name="scale_${id}" value="7" />
+                                <label for="scale_${id}_7" title="text"></label>
+                        
+                                <input type="radio" id="scale_${id}_6" name="scale_${id}" value="6" />
+                                <label for="scale_${id}_6" title="text"></label>
+                        
+                                <input type="radio" id="scale_${id}_5" name="scale_${id}" value="5" />
+                                <label for="scale_${id}_5" title="text"></label>
+                        
+                                <input type="radio" id="scale_${id}_4" name="scale_${id}" value="4" />
+                                <label for="scale_${id}_4" title="text"></label>
+                        
+                                <input type="radio" id="scale_${id}_3" name="scale_${id}" value="3" />
+                                <label for="scale_${id}_3" title="text"></label>
+                        
+                                <input type="radio" id="scale_${id}_2" name="scale_${id}" value="2" />
+                                <label for="scale_${id}_2" title="text"></label>
+                        
+                                <input type="radio" id="scale_${id}_1" name="scale_${id}" value="1" />
+                                <label for="scale_${id}_1" title="text"></label>
+                            </div>
+                            <div class="scale-options">
+                                <div class="scale-row">
+                                    <div class="options-item">
+                                        <div class="option-label">
+                                            Шкала
+                                        </div>
+                                        <div class="option-value">
+                                            <select name="scaleAmount_${id}" class="customselect scale-amount">
+                                                <option value="3">3</option>
+                                                <option value="5">5</option>
+                                                <option selected value="10">10</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="options-item">
+                                        <div class="option-label">
+                                            Фигура
+                                        </div>
+                                        <div class="option-value">
+                                            <select name="scaleType_${id}" class="customselect scale-type">
+                                                <option selected value="star">Звездочки</option>
+                                                <option value="face">Смайлики</option>
+                                                <option value="heart">Сердечки</option>
+                                                <option value="hand">Руки</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="check-wrap">
+                                    <input type="checkbox" class="add-rateLabels" name="rateLabels_${id}" id="rateLabels_${id}">
+                                    <label for="rateLabels_${id}">
+                                        <div class="check"></div>
+                                        <div class="check-text">
+                                            Метки рейтинга
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>`
+                    break;
                 default: 
                     el =
                         `<div class="question-wrap question-single" data-id="${id}">
@@ -247,11 +323,10 @@ jQuery(function ($) {
             container.scrollTop(
                 scrollTo - container.offset().top + container.scrollTop()
             );
-            
+            customSelectActive();
             refreshQuestionsId();
         }
 
-        
         // question in focus
         $('.constr-wrap').on('click', '.question-wrap', function(e){
             if(!$(e.target).hasClass('remove-question')){
@@ -278,6 +353,7 @@ jQuery(function ($) {
         }
 
         //events for files
+
         //upload img
         $('.constr-wrap').on('change', '.file-img input[type=file]', function(e){
             let input = this;
@@ -408,7 +484,10 @@ jQuery(function ($) {
             clear_form_elements(question.find('.attach-files-wrap'));
             question.find('.attach-files-wrap label').removeClass('active')
         }
+        //end events for files
+
         //settings for single question
+
         //single input point in focus
         $('.content-wrap').on('focus', '.question-single .radio-item textarea', function(e){
             $(this).parents('.radio-item').addClass('focus');
@@ -533,6 +612,122 @@ jQuery(function ($) {
                 removeSingleOption(removeEl);
             }
         });
+
+        //end settings for single question
+
+        //settings for scale question
+
+        //change type of scale
+        $('.content-wrap').on('change', '.question-scale .scale-type', function(e){
+            let question = $(this).parents('.question-wrap');
+            setClassForScale(question);
+        });
+
+        //change amount of ratings
+        $('.content-wrap').on('change', '.question-scale .scale-amount', function(e){
+            let amount = $(this).val();
+            let question = $(this).parents('.question-wrap');
+            let scaleWrap = question.find('.scale-wrap');
+            let questionId = question.attr('data-id');
+            addScaleRate(scaleWrap, amount, questionId);
+            setClassForScale(question);
+            changeAmountLabel(question);
+        });
+
+        //add class to scale-wrap
+        function setClassForScale(question){
+            let type = question.find('.scale-type').val();
+            let amount = question.find('.scale-amount').val();
+            let scaleWrap = question.find('.scale-wrap');
+            let labelWrap = question.find('.scale-labels-wrap');
+            let classList = 'scale-wrap ' + 'scale-' + amount;
+            let classListLabel = 'scale-labels-wrap ' + 'scale-' + amount;
+            switch(type){
+                case 'star':
+                    classList += ' scale-star'
+                    break;
+                case 'face':
+                    classList += ' scale-face'
+                    break;
+                case 'heart':
+                    classList += ' scale-heart'
+                    break;
+                case 'hand':
+                    classList += ' scale-hands'
+                    break;
+            }
+            scaleWrap.attr('class', classList);
+            labelWrap.attr('class', classListLabel);
+        }
+
+        //add scale list
+        function addScaleRate(scaleWrap, amount, questionId) {
+            let scaleHtml = '';
+            for (let i = 1; i <= amount; i++) {
+                scaleHtml +=
+                `<input type="radio" id="scale_${questionId}_${i}" name="scale_${questionId}" value="${i}" />
+                 <label for="scale_${questionId}_${i}" title="text"></label>`;
+            }
+            scaleWrap.html(scaleHtml);
+        }
+        //chnage amount of labels under rate
+        function changeAmountLabel(question){
+            let amount = parseInt(question.find('.scale-amount').val());
+            let questionId = question.attr('data-id');
+            let labelOptionsWrap = question.find('.labels-option');
+            let labelsOption = labelOptionsWrap.children();
+            let labelScaleWrap = question.find('.scale-labels-wrap');
+            let labelsScale = labelScaleWrap.children();
+            if(amount > labelsOption.length){
+                for (let i = labelsOption.length+1; i < amount+1; i++) {
+                    if(!labelsOption[i]) {
+                        let labelHtml = 
+                        `<div class="label-item">
+                            <div class="number">${i}</div>
+                            <div class="value">
+                                <input type="text" name="inputpoint_${questionId}_${i}">
+                            </div>
+                        </div>`;
+                        labelOptionsWrap.append(labelHtml);
+                        let labelScaleHtml = `<div class="label-item"></div>`;
+                        labelScaleWrap.append(labelScaleHtml);
+                    }
+                }
+            } else {
+                for (let i = amount; i < labelsOption.length ; i++) {
+                    labelsOption[i].remove();
+                    labelsScale[i].remove();
+                }
+            }
+        }
+        
+        //add\remove labels under rate
+        $('.content-wrap').on('change', '.question-scale .add-rateLabels', function(e){
+            let question = $(this).parents('.question-wrap');
+            if($(this).is(':checked')){
+                let labelsScale = `<div class="scale-labels-wrap"></div>`;
+                let labelsOption = `<div class="labels-option"></div>`;
+                $(labelsScale).insertAfter(question.find('.scale-wrap'));
+                $(labelsOption).insertAfter($(this).parents('.check-wrap'));
+                changeAmountLabel(question);
+                setClassForScale(question);
+            } else {
+                question.find('.scale-labels-wrap').remove();
+                question.find('.labels-option').remove();
+            }
+        });
+        //input scale label
+        $('.content-wrap').on('input', '.question-scale .label-item input[type=text]', function(e){
+            let question = $(this).parents('.question-wrap');
+            let labelsWrap = question.find('.scale-labels-wrap');
+            let questionId = question.attr('data-id');
+            let text = $(this).val();
+            let optionId = $(this).parents('.label-item').index() + 1;
+            labelsWrap.find(`.label-item:nth-child(${optionId})`).html(text);
+        });
+
+        //end settings for scale question
+
         //function for clear inputs in block
         function clear_form_elements(block) {
             jQuery(block).find(':input').each(function() {

@@ -1902,74 +1902,6 @@ body {
           background-size: contain;
 }
 
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .check-wrap {
-  position: relative;
-  padding-bottom: 20px;
-}
-
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .check-wrap input[type=checkbox] {
-  display: none;
-}
-
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .check-wrap input[type=checkbox]:checked ~ label::before {
-  border-color: #7FA2F8;
-}
-
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .check-wrap input[type=checkbox]:checked ~ label .check {
-  width: 16px;
-}
-
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .check-wrap label {
-  font-weight: bold;
-  font-size: 13px;
-  line-height: 16px;
-  color: #000000;
-  display: block;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  cursor: pointer;
-}
-
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .check-wrap label::before {
-  content: "";
-  width: 15px;
-  min-width: 15px;
-  height: 15px;
-  min-width: 15px;
-  border-radius: 5px;
-  background: #FFFFFF;
-  border: 1px solid #C4C4C4;
-  margin-right: 15px;
-}
-
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .check-wrap label .check {
-  position: absolute;
-  display: block;
-  height: 16px;
-  top: 0px;
-  left: 3px;
-  width: 0px;
-  -webkit-transition: width 0.3s;
-  -o-transition: width 0.3s;
-  transition: width 0.3s;
-  overflow: hidden;
-  background: url(./../img/checkbox-arrow.svg);
-  background-position: left;
-  -webkit-background-size: 16px auto;
-          background-size: 16px auto;
-  background-repeat: no-repeat;
-}
-
 .page-wrap .constr-wrap .questions-box .question-wrap.question-single .add-single-options .btns-wrap {
   display: -webkit-box;
   display: -webkit-flex;
@@ -2088,6 +2020,471 @@ body {
   width: 100%;
   max-width: 100%;
   border-bottom: 1px solid #E5E5E5;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-labels-wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-top: 10px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-labels-wrap .label-item {
+  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 9px;
+  line-height: 10px;
+  text-align: center;
+  color: #000000;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -webkit-flex-direction: row-reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  padding-top: 10px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-wrap.scale-star label::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: url(./../img/icon-star.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease-in;
+  -o-transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-wrap.scale-star label::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: url(./../img/icon-star-a.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in;
+  -o-transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-wrap.scale-face label::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: url(./../img/icon-scale-face.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease-in;
+  -o-transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-wrap.scale-face label::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: url(./../img/icon-scale-face-a.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in;
+  -o-transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-wrap.scale-heart label::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: url(./../img/icon-scale-heart.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease-in;
+  -o-transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-wrap.scale-heart label::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: url(./../img/icon-scale-heart-a.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in;
+  -o-transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-wrap.scale-hands label::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: url(./../img/icon-scale-hand.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease-in;
+  -o-transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-wrap.scale-hands label::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: url(./../img/icon-scale-hand-a.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in;
+  -o-transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-wrap input[type=radio] {
+  display: none;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-wrap input[type=radio]:checked + label::after,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-wrap input[type=radio]:checked ~ label::after {
+  opacity: 1;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-wrap input[type=radio]:checked + label::before,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-wrap input[type=radio]:checked ~ label::before {
+  opacity: 0;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-wrap input[type=radio] + label:hover::after,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-wrap input[type=radio] + label:hover ~ label::after,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-wrap input[type=radio] ~ label:hover::after,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-wrap input[type=radio] ~ label:hover ~ label::after {
+  opacity: 1;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-wrap input[type=radio] + label:hover::before,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-wrap input[type=radio] + label:hover ~ label::before,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-wrap input[type=radio] ~ label:hover::before,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-wrap input[type=radio] ~ label:hover ~ label::before {
+  opacity: 0;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-wrap label {
+  height: 60px;
+  position: relative;
+  cursor: pointer;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-10 > div,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-10 > label {
+  width: calc(10% - 10px);
+  max-width: calc(10% - 10px);
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-9 > div,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-9 > label {
+  width: calc(11% - 10px);
+  max-width: calc(11% - 10px);
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-8 > div,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-8 > label {
+  width: calc(12.5% - 10px);
+  max-width: calc(12.5% - 10px);
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-7 > div,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-7 > label {
+  width: calc(14% - 10px);
+  max-width: calc(14% - 10px);
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-6 > div,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-6 > label {
+  width: calc(16.5% - 10px);
+  max-width: calc(16.5% - 10px);
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-5 > div,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-5 > label {
+  width: calc(20% - 10px);
+  max-width: calc(20% - 10px);
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-4 > div,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-4 > label {
+  width: calc(25% - 10px);
+  max-width: calc(25% - 10px);
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-3 {
+  max-width: 500px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-3 > div,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-3 > label {
+  width: calc(33.3% - 10px);
+  max-width: calc(33.3% - 10px);
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-options {
+  padding-top: 40px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-options .scale-row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding-bottom: 40px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-options .scale-row .options-item {
+  padding-right: 40px;
+  min-width: 120px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-options .scale-row .options-item:nth-child(2) {
+  min-width: 150px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-options .scale-row .options-item .option-label {
+  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 16px;
+  color: #000000;
+  padding-bottom: 15px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-options .scale-row .options-item .customselect-wrapper .select-styled {
+  padding: 8px 15px;
+  padding-right: 35px;
+  font-size: 11px;
+  line-height: 13px;
+  color: #000000;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-options .scale-row .options-item .customselect-wrapper .select-styled::after {
+  background: url(./../img/arrow-lightgrey.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 10px;
+  height: 10px;
+  -webkit-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+       -o-transform: rotate(0deg);
+          transform: rotate(0deg);
+  top: 9px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-options .scale-row .options-item .customselect-wrapper .select-options li {
+  padding: 8px 15px;
+  font-size: 11px;
+  line-height: 13px;
+  color: #000000;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-options .labels-option .label-item {
+  padding-bottom: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  width: 100%;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-options .labels-option .label-item .number {
+  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 15px;
+  color: #000000;
+  padding-right: 20px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-options .labels-option .label-item .value {
+  width: 100%;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-options .labels-option .label-item .value input[type=text] {
+  border: none;
+  outline: none;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #E5E5E5;
+  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 15px;
+  color: #000000;
+  width: 100%;
+  max-width: 500px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-options .labels-option .label-item .value input[type=text]:focus {
+  border-color: #7FA1F8;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap .check-wrap {
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap .check-wrap input[type=checkbox] {
+  display: none;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap .check-wrap input[type=checkbox]:checked ~ label::before {
+  border-color: #7FA2F8;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap .check-wrap input[type=checkbox]:checked ~ label .check {
+  width: 16px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap .check-wrap label {
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 16px;
+  color: #000000;
+  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  cursor: pointer;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap .check-wrap label::before {
+  content: "";
+  width: 15px;
+  min-width: 15px;
+  height: 15px;
+  min-width: 15px;
+  border-radius: 5px;
+  background: #FFFFFF;
+  border: 1px solid #C4C4C4;
+  margin-right: 15px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap .check-wrap label .check {
+  position: absolute;
+  display: block;
+  height: 16px;
+  top: 0px;
+  left: 3px;
+  width: 0px;
+  -webkit-transition: width 0.3s;
+  -o-transition: width 0.3s;
+  transition: width 0.3s;
+  overflow: hidden;
+  background: url(./../img/checkbox-arrow.svg);
+  background-position: left;
+  -webkit-background-size: 16px auto;
+          background-size: 16px auto;
+  background-repeat: no-repeat;
 }
 
 .page-wrap .constr-wrap .questions-box .question-wrap .edit-block {
