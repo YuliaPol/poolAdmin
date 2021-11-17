@@ -422,7 +422,7 @@ jQuery(function ($) {
                 let videoHtml = 
                     `<div class="video-wrap">
                         <video-radio-star>
-                            <video controls>
+                            <video>
                                 <source src="./files-for-test/video.mp4">
                                 Your browser does not support HTML5 video.
                             </video>
@@ -436,7 +436,21 @@ jQuery(function ($) {
                 setFileActive(input);
             }
         });
-        //set active type of fole
+
+        $('.constr-wrap').on('click', '.video-wrap video', function(e){
+            e.preventDefault();
+            let videoWrap = $(this).parent();
+            let video = videoWrap.find('video').get(0);
+            if(video.paused){
+                $(video).prop('controls', true);
+                video.play();
+            } else {
+                video.pause();
+                $(video).prop('controls', false);
+            }
+        });
+
+        //set active type of file
         function setFileActive(input){
             let question = $(input).parents('.question-wrap');
             if($(input).parents('.file-video').length === 0) {
