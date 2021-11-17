@@ -2023,6 +2023,7 @@ body {
   width: 100%;
   max-width: 100%;
   border-bottom: 1px solid #E5E5E5;
+  pointer-events: none;
 }
 
 .page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-labels-wrap {
