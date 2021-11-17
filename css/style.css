@@ -1084,15 +1084,15 @@ body {
 }
 
 .page-wrap .constr-wrap .left-side {
-  width: 285px;
+  width: 295px;
   position: relative;
   z-index: 999;
   min-height: calc(100vh - 200px);
 }
 
 .page-wrap .constr-wrap .center-block {
-  width: calc(100% - 285px);
-  padding-left: 10px;
+  width: calc(100% - 295px);
+  padding-left: 20px;
 }
 
 .page-wrap .constr-wrap .mode-view-wrap {
@@ -1109,6 +1109,9 @@ body {
       -ms-flex-pack: end;
           justify-content: flex-end;
   padding-bottom: 20px;
+  padding-top: 13px;
+  padding-right: 5px;
+  padding-left: 5px;
 }
 
 .page-wrap .constr-wrap .mode-view-wrap .mode-view-item {
@@ -1210,8 +1213,9 @@ body {
 }
 
 .page-wrap .constr-wrap .filter-wrap .filter-item {
-  padding-right: 20px;
-  padding-bottom: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  min-width: 170px;
 }
 
 .page-wrap .constr-wrap .filter-wrap .filter-item.picked .select-styled {
@@ -1225,10 +1229,6 @@ body {
   background-repeat: no-repeat;
 }
 
-.page-wrap .constr-wrap .filter-wrap .filter-item .select {
-  min-width: 170px;
-}
-
 .page-wrap .constr-wrap .filter-wrap .customselect-wrapper .select-styled {
   padding: 15px;
   font-family: "Gilroy", Verdana, Tahoma, sans-serif;
@@ -1240,6 +1240,9 @@ body {
   -webkit-transition: background 0.3s ease-in;
   -o-transition: background 0.3s ease-in;
   transition: background 0.3s ease-in;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: 1px solid #E5E5E5;
 }
 
 .page-wrap .constr-wrap .filter-wrap .customselect-wrapper .select-styled.active::after {
@@ -1286,9 +1289,7 @@ body {
           flex-wrap: wrap;
   max-height: calc(100vh - 250px);
   overflow-y: auto;
-  padding-right: 10px;
-  padding-left: 5px;
-  padding-top: 5px;
+  padding: 5px;
   -ms-overflow-style: none;
   /* IE and Edge */
   scrollbar-width: none;
@@ -1632,6 +1633,9 @@ body {
   max-height: 100%;
   overflow-y: auto;
   padding: 5px 5px;
+  -webkit-box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
+          box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
+  border-radius: 25px;
   -ms-overflow-style: none;
   /* IE and Edge */
   scrollbar-width: none;
@@ -1643,21 +1647,22 @@ body {
   display: none;
 }
 
+.page-wrap .constr-wrap .questions-box.empty {
+  opacity: 0;
+}
+
+.page-wrap .constr-wrap .questions-box.empty .questions-list {
+  display: none;
+}
+
+.page-wrap .constr-wrap .questions-box.empty .questions-list .btn-preview-wrap {
+  display: none;
+}
+
 .page-wrap .constr-wrap .questions-box .questions-list {
   background: #FFFFFF;
-  -webkit-box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
-          box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
-  border-radius: 25px;
   padding-bottom: 80px;
   position: relative;
-}
-
-.page-wrap .constr-wrap .questions-box .questions-list.empty {
-  display: none;
-}
-
-.page-wrap .constr-wrap .questions-box .questions-list.empty .btn-preview-wrap {
-  display: none;
 }
 
 .page-wrap .constr-wrap .questions-box .questions-list .btn-preview-wrap {
@@ -3050,21 +3055,6 @@ body {
           background-size: contain;
 }
 
-@media screen and (max-width: 1600px) {
-  .page-wrap .constr-wrap .listbox .list-item {
-    padding: 15px 13px;
-    margin-bottom: 8px;
-  }
-  .page-wrap .constr-wrap .listbox.icons-mode .list-item {
-    margin-bottom: 15px;
-    padding: 15px 15px;
-  }
-  .page-wrap .constr-wrap .listbox.icons-mode .list-item .icon {
-    width: 20px;
-    height: 20px;
-  }
-}
-
 @media screen and (max-width: 1250px) {
   .page-wrap .content-wrap {
     margin-top: 110px;
@@ -3098,11 +3088,9 @@ body {
     padding-bottom: 15px;
   }
   .page-wrap .content-wrap .filter-wrap .filter-item {
-    width: 25%;
-    padding-right: 15px;
-    padding-bottom: 15px;
-  }
-  .page-wrap .content-wrap .filter-wrap .filter-item .select {
+    width: calc(25% - 15px);
+    margin-right: 15px;
+    margin-bottom: 15px;
     min-width: 150px;
   }
   .page-wrap .content-wrap .filter-wrap .customselect-wrapper .select-styled {
@@ -3114,6 +3102,18 @@ body {
   .page-wrap .content-wrap .questions-box .question-wrap.question-single .radio-btns-wrapper .radio-item {
     margin-right: 15px;
     min-width: calc(25% - 15px);
+  }
+  .page-wrap .constr-wrap .listbox .list-item {
+    padding: 15px 13px;
+    margin-bottom: 8px;
+  }
+  .page-wrap .constr-wrap .listbox.icons-mode .list-item {
+    margin-bottom: 15px;
+    padding: 15px 15px;
+  }
+  .page-wrap .constr-wrap .listbox.icons-mode .list-item .icon {
+    width: 20px;
+    height: 20px;
   }
 }
 

@@ -307,7 +307,7 @@ jQuery(function ($) {
                 $(children[appendInde]).after( el );
                 scrollTo = $(children[appendInde]).offset().top;
             }
-            $('.questions-box').find('.questions-list').removeClass('empty');
+            $('.questions-box').removeClass('empty');
             $('.questions-box textarea').autoResize();    
             //scroll to element 
             let container = $('.questions-list');
@@ -336,7 +336,7 @@ jQuery(function ($) {
         function removeQuestion(question){
             $(question).remove();
             if($('.questions-list').children('.question-wrap').length === 0){
-                $('.questions-list').addClass('empty');
+                $('.questions-box').addClass('empty');
             } else {
                 refreshQuestionsId();
             }
