@@ -1910,7 +1910,7 @@ body {
                                 &::before {
                                     opacity: 0;
                                 }
-                                &::before {
+                                &::after {
                                     opacity: 1;
                                 }
                             }
@@ -1930,6 +1930,7 @@ body {
                             }
                             &::after {
                                 content: "";
+                                position: absolute;
                                 top: 0px;
                                 left: 0px;
                                 right: 0px;
@@ -2093,23 +2094,18 @@ body {
                         max-width: 100%;
                         position: relative;
                         display: inline-block;
-                        &:hover {
-                            .img-remove {
-                                opacity: 1;
-                            }
-                        }
+                        padding-right: 15px;
                         .img-remove {
                             position: absolute;
-                            top: 20px;
-                            right: 20px;
+                            top: 0px;
+                            right: 0px;
                             width: 10px;
                             height: 10px;
-                            background: url(./../img/icon-delete-white.svg);
+                            background: url(./../img/icon-delete.svg);
                             background-position: center;
                             background-repeat: no-repeat;
                             background-size: contain;
                             cursor: pointer;
-                            opacity: 0;
                             transition: opacity 0.3s ease-in;
                         }
                         img {
@@ -2206,14 +2202,20 @@ body {
                     }
                     .video-wrap {
                         position: relative;
-                        &:hover {
-                            .video-remove {
-                                opacity: 1;
-                            }
+                        padding-right: 15px;
+                        *::-webkit-media-controls-play-button {
+                            display: none!important;
+                            -webkit-appearance: none;
+                        }
+                        *::-webkit-media-controls-start-playback-button {
+                            display: none!important;
+                            -webkit-appearance: none;
                         }
                         video {
                             max-width: 100%;
                             width: 100%;
+                            box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
+                            border-radius: 25px;
                         }
                         .radiostar-playing {
                             .video-play {
@@ -2238,16 +2240,15 @@ body {
                         }
                         .video-remove {
                             position: absolute;
-                            top: 20px;
-                            right: 20px;
+                            top: 0px;
+                            right: 0px;
                             width: 10px;
                             height: 10px;
-                            background: url(./../img/icon-delete-white.svg);
+                            background: url(./../img/icon-delete.svg);
                             background-position: center;
                             background-repeat: no-repeat;
                             background-size: contain;
                             cursor: pointer;
-                            opacity: 0;
                             transition: opacity 0.3s ease-in;
                         }
                     }

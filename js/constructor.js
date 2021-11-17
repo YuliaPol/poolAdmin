@@ -452,6 +452,7 @@ jQuery(function ($) {
                 question.find('.file-img label').removeClass('active');
             }
             $(input).parents('.file-item').find('label').addClass('active');
+            $(input).parents('.attach-file').find('.attach-file-icon').addClass('active');
         }
         //remove img
         $('.constr-wrap').on('click', '.question-wrap .img-remove', function(e){
@@ -473,6 +474,7 @@ jQuery(function ($) {
             fileWrap.remove();
             clear_form_elements(question.find('.attach-files-wrap'));
             question.find('.attach-files-wrap label').removeClass('active')
+            $(question).find('.attach-file-icon').removeClass('active');
         }
         //end events for files
 

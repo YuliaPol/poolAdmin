@@ -2515,7 +2515,7 @@ body {
   opacity: 0;
 }
 
-.page-wrap .constr-wrap .questions-box .question-wrap .edit-block .attach-file .attach-file-icon.active::before {
+.page-wrap .constr-wrap .questions-box .question-wrap .edit-block .attach-file .attach-file-icon.active::after {
   opacity: 1;
 }
 
@@ -2539,6 +2539,7 @@ body {
 
 .page-wrap .constr-wrap .questions-box .question-wrap .edit-block .attach-file .attach-file-icon::after {
   content: "";
+  position: absolute;
   top: 0px;
   left: 0px;
   right: 0px;
@@ -2758,25 +2759,21 @@ body {
   max-width: 100%;
   position: relative;
   display: inline-block;
-}
-
-.page-wrap .constr-wrap .questions-box .question-wrap .added-file-wrap .img-wrap:hover .img-remove {
-  opacity: 1;
+  padding-right: 15px;
 }
 
 .page-wrap .constr-wrap .questions-box .question-wrap .added-file-wrap .img-wrap .img-remove {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 0px;
+  right: 0px;
   width: 10px;
   height: 10px;
-  background: url(./../img/icon-delete-white.svg);
+  background: url(./../img/icon-delete.svg);
   background-position: center;
   background-repeat: no-repeat;
   -webkit-background-size: contain;
           background-size: contain;
   cursor: pointer;
-  opacity: 0;
   -webkit-transition: opacity 0.3s ease-in;
   -o-transition: opacity 0.3s ease-in;
   transition: opacity 0.3s ease-in;
@@ -2903,15 +2900,25 @@ body {
 
 .page-wrap .constr-wrap .questions-box .question-wrap .added-file-wrap .video-wrap {
   position: relative;
+  padding-right: 15px;
 }
 
-.page-wrap .constr-wrap .questions-box .question-wrap .added-file-wrap .video-wrap:hover .video-remove {
-  opacity: 1;
+.page-wrap .constr-wrap .questions-box .question-wrap .added-file-wrap .video-wrap *::-webkit-media-controls-play-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap .added-file-wrap .video-wrap *::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
 }
 
 .page-wrap .constr-wrap .questions-box .question-wrap .added-file-wrap .video-wrap video {
   max-width: 100%;
   width: 100%;
+  -webkit-box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
+          box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
+  border-radius: 25px;
 }
 
 .page-wrap .constr-wrap .questions-box .question-wrap .added-file-wrap .video-wrap .radiostar-playing .video-play {
@@ -2943,17 +2950,16 @@ body {
 
 .page-wrap .constr-wrap .questions-box .question-wrap .added-file-wrap .video-wrap .video-remove {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 0px;
+  right: 0px;
   width: 10px;
   height: 10px;
-  background: url(./../img/icon-delete-white.svg);
+  background: url(./../img/icon-delete.svg);
   background-position: center;
   background-repeat: no-repeat;
   -webkit-background-size: contain;
           background-size: contain;
   cursor: pointer;
-  opacity: 0;
   -webkit-transition: opacity 0.3s ease-in;
   -o-transition: opacity 0.3s ease-in;
   transition: opacity 0.3s ease-in;
