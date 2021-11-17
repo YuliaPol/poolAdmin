@@ -166,18 +166,9 @@ jQuery(function ($) {
                         `<div class="question-wrap question-single" data-id="${id}">
                             ${topEL}
                             <div class="radio-btns-wrapper">
-                                <div class="radio-item">
-                                    <div class="remove-item"></div>
-                                    <textarea name="inputpoint_${id}_1" rows="1" placeholder="Вариант ответа"></textarea>
-                                </div>
-                                <div class="radio-item">
-                                    <div class="remove-item"></div>
-                                    <textarea name="inputpoint_${id}_2" rows="1" placeholder="Вариант ответа"></textarea>
-                                </div>
                             </div>
                             <div class="input-new-item-wrap">
                                 <input type="text" class="input-single-item" placeholder="Введите вариант ответа">
-                                <div class="add-new-item"></div>
                             </div>
                             <div class="check-wrap">
                                 <input type="checkbox" id="addOpt_${id}" class="show-single-opt">
@@ -341,11 +332,10 @@ jQuery(function ($) {
         $('.constr-wrap').on('click', '.question-wrap .remove-question', function(e){
             let question = $(this).parents('.question-wrap');
             removeQuestion(question);
-            refreshQuestionsId();
         });
         function removeQuestion(question){
             $(question).remove();
-            if($('.questions-list').children().length === 0){
+            if($('.questions-list').children('.question-wrap').length === 0){
                 $('.questions-list').addClass('empty');
             } else {
                 refreshQuestionsId();
@@ -498,30 +488,27 @@ jQuery(function ($) {
             $(this).parents('.radio-item').removeClass('focus');
         });
 
-        //input new single item
-        $('.content-wrap').on('input', '.question-single .input-single-item', function(e){
-            let btn_send = $(this).parents('.input-new-item-wrap').find('.add-new-item');
-            if($(this).val()){
-                $(btn_send).addClass('visible');
-            } else {
-                $(btn_send).removeClass('visible');
-            }
-        });
-
         //add new single item
-        $('.content-wrap').on('click', '.question-single .add-new-item', function(e){
-            let text = $(this).parents('.input-new-item-wrap').find('.input-single-item').val();
-            clear_form_elements($(this).parents('.input-new-item-wrap'));
-            $(this).removeClass('visible');
-            let thisQuestion = $(this).parents('.question-wrap');
-            let itemsList = thisQuestion.find('.radio-btns-wrapper');
-            let questionId = thisQuestion.attr('data-id');
-            let pointId = itemsList.children().length + 1;
-            if(questionId && pointId && text && itemsList){
-                addSingleOption(questionId, pointId, text, itemsList);
+        $('.content-wrap').on('change', '.question-single .input-single-item', function(e){
+            let text = $(this).val();
+            if(text){
+                let thisQuestion = $(this).parents('.question-wrap');
+                let itemsList = thisQuestion.find('.radio-btns-wrapper');
+                let questionId = thisQuestion.attr('data-id');
+                let pointId = itemsList.children().length + 1;
+                if(questionId && pointId && text && itemsList){
+                    addSingleOption(questionId, pointId, text, itemsList);
+                }
+                clear_form_elements($(this).parents('.input-new-item-wrap'));
             }
         });
-
+        //click out of input single option
+        $(document).click(function(event) { 
+            var $target = $(event.target);
+            if(!$target.hasClass('input-single-item')){
+                $('.input-single-item').change();
+            }
+        })
         function addSingleOption(questionId, pointId, text, itemsList, addClas = ' '){
             let itemsName = "inputpoint_" + questionId + "_" + pointId;
             let itemHtml = 
