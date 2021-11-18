@@ -1113,7 +1113,7 @@ body {
                             background-size: contain;
                         }
                     }
-                    &.icon-dropdownmt {
+                    &.icon-multiple {
                         &::before {
                             background: url(./../img/q-icon-dropdownmt.svg);
                             background-position: center;
@@ -1304,7 +1304,8 @@ body {
                     transition: opacity 0.3s ease-in;
                     opacity: 0;
                 }
-                &.question-single {
+                &.question-single,
+                &.question-multiple  {
                     .radio-btns-wrapper {
                         display: flex;
                         align-items: stretch;
@@ -1313,7 +1314,7 @@ body {
                         padding-top: 10px;
                         .radio-item {
                             margin-right: 30px;
-                            min-width: calc(25% - 30px);
+                            min-width: calc(20% - 30px);
                             max-width: 100%;
                             width: auto;
                             display: flex;
@@ -1829,6 +1830,56 @@ body {
                                 }
                             }
                         } 
+                    }
+                }
+                &.question-multiple {
+                    .input-item {
+                        padding: 13px 15px;
+                        min-width: 200px;
+                        max-width: 100%;
+                    }
+                    .input-new-item-wrap {
+                        padding-top: 0px;
+                        padding-bottom: 0px;
+                    }
+                    .radio-btns-wrapper {
+                        padding-bottom: 20px;
+                    }
+                    .option-comment {
+                        padding-top: 0px;
+                        padding-bottom: 35px;
+                    }
+                    .select-wrap {
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                        .select-input {
+                            min-width: 70px;
+                        }
+                        .select-label {
+                            padding-left: 17px;
+                            font-family: $fontPage;
+                            font-style: normal;
+                            font-weight: bold;
+                            font-size: 13px;
+                            line-height: 16px;
+                            color: #000000;
+                        }
+                        .customselect-wrapper {
+                            .select-styled {
+                                padding: 15px;
+                                padding-right: 35px;
+                                font-size: 11px;
+                                line-height: 13px;
+                                color: #000000;
+                            }
+                            .select-options li {
+                                padding: 10px 15px;
+                                font-size: 11px;
+                                line-height: 13px;
+                                color: #000000;
+                            }
+                        }
                     }
                 }
                 .option-comment {

@@ -1490,7 +1490,7 @@ body {
           background-size: contain;
 }
 
-.page-wrap .constr-wrap .listbox .list-item .icon.icon-dropdownmt::before {
+.page-wrap .constr-wrap .listbox .list-item .icon.icon-multiple::before {
   background: url(./../img/q-icon-dropdownmt.svg);
   background-position: center;
   background-repeat: no-repeat;
@@ -1498,7 +1498,7 @@ body {
           background-size: contain;
 }
 
-.page-wrap .constr-wrap .listbox .list-item .icon.icon-dropdownmt::after {
+.page-wrap .constr-wrap .listbox .list-item .icon.icon-multiple::after {
   background: url(./../img/q-icon-dropdownmt-a.svg);
   background-position: center;
   background-repeat: no-repeat;
@@ -1714,7 +1714,7 @@ body {
   opacity: 0;
 }
 
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .radio-btns-wrapper {
+.page-wrap .constr-wrap .questions-box .question-wrap.question-single .radio-btns-wrapper, .page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .radio-btns-wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1733,9 +1733,9 @@ body {
   padding-top: 10px;
 }
 
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .radio-btns-wrapper .radio-item {
+.page-wrap .constr-wrap .questions-box .question-wrap.question-single .radio-btns-wrapper .radio-item, .page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .radio-btns-wrapper .radio-item {
   margin-right: 30px;
-  min-width: calc(25% - 30px);
+  min-width: calc(20% - 30px);
   max-width: 100%;
   width: auto;
   display: -webkit-box;
@@ -1759,19 +1759,19 @@ body {
   position: relative;
 }
 
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .radio-btns-wrapper .radio-item.focus {
+.page-wrap .constr-wrap .questions-box .question-wrap.question-single .radio-btns-wrapper .radio-item.focus, .page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .radio-btns-wrapper .radio-item.focus {
   border-color: #7FA1F8;
 }
 
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .radio-btns-wrapper .radio-item:hover .remove-item {
+.page-wrap .constr-wrap .questions-box .question-wrap.question-single .radio-btns-wrapper .radio-item:hover .remove-item, .page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .radio-btns-wrapper .radio-item:hover .remove-item {
   opacity: 1;
 }
 
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .radio-btns-wrapper .radio-item.other textarea, .page-wrap .constr-wrap .questions-box .question-wrap.question-single .radio-btns-wrapper .radio-item.neither textarea {
+.page-wrap .constr-wrap .questions-box .question-wrap.question-single .radio-btns-wrapper .radio-item.other textarea, .page-wrap .constr-wrap .questions-box .question-wrap.question-single .radio-btns-wrapper .radio-item.neither textarea, .page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .radio-btns-wrapper .radio-item.other textarea, .page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .radio-btns-wrapper .radio-item.neither textarea {
   pointer-events: none;
 }
 
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .radio-btns-wrapper .radio-item .remove-item {
+.page-wrap .constr-wrap .questions-box .question-wrap.question-single .radio-btns-wrapper .radio-item .remove-item, .page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .radio-btns-wrapper .radio-item .remove-item {
   position: absolute;
   top: -7px;
   right: -7px;
@@ -1790,7 +1790,8 @@ body {
 }
 
 .page-wrap .constr-wrap .questions-box .question-wrap.question-single .radio-btns-wrapper .radio-item textarea,
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .radio-btns-wrapper .radio-item input[type=text] {
+.page-wrap .constr-wrap .questions-box .question-wrap.question-single .radio-btns-wrapper .radio-item input[type=text], .page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .radio-btns-wrapper .radio-item textarea,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .radio-btns-wrapper .radio-item input[type=text] {
   background: transparent;
   display: block;
   border: none;
@@ -1805,7 +1806,7 @@ body {
   width: 100%;
 }
 
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .input-new-item-wrap {
+.page-wrap .constr-wrap .questions-box .question-wrap.question-single .input-new-item-wrap, .page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .input-new-item-wrap {
   padding-top: 30px;
   padding-bottom: 30px;
   display: -webkit-box;
@@ -1823,7 +1824,8 @@ body {
 }
 
 .page-wrap .constr-wrap .questions-box .question-wrap.question-single .input-new-item-wrap textarea,
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .input-new-item-wrap input[type=text] {
+.page-wrap .constr-wrap .questions-box .question-wrap.question-single .input-new-item-wrap input[type=text], .page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .input-new-item-wrap textarea,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .input-new-item-wrap input[type=text] {
   font-size: 13px;
   line-height: 15px;
   color: #000000;
@@ -1841,36 +1843,42 @@ body {
 }
 
 .page-wrap .constr-wrap .questions-box .question-wrap.question-single .input-new-item-wrap textarea:focus,
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .input-new-item-wrap input[type=text]:focus {
+.page-wrap .constr-wrap .questions-box .question-wrap.question-single .input-new-item-wrap input[type=text]:focus, .page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .input-new-item-wrap textarea:focus,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .input-new-item-wrap input[type=text]:focus {
   border-color: #7FA1F8;
 }
 
 .page-wrap .constr-wrap .questions-box .question-wrap.question-single .input-new-item-wrap textarea::-webkit-input-placeholder,
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .input-new-item-wrap input[type=text]::-webkit-input-placeholder {
+.page-wrap .constr-wrap .questions-box .question-wrap.question-single .input-new-item-wrap input[type=text]::-webkit-input-placeholder, .page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .input-new-item-wrap textarea::-webkit-input-placeholder,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .input-new-item-wrap input[type=text]::-webkit-input-placeholder {
   color: #000000;
 }
 
 .page-wrap .constr-wrap .questions-box .question-wrap.question-single .input-new-item-wrap textarea::-moz-placeholder,
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .input-new-item-wrap input[type=text]::-moz-placeholder {
+.page-wrap .constr-wrap .questions-box .question-wrap.question-single .input-new-item-wrap input[type=text]::-moz-placeholder, .page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .input-new-item-wrap textarea::-moz-placeholder,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .input-new-item-wrap input[type=text]::-moz-placeholder {
   color: #000000;
 }
 
 .page-wrap .constr-wrap .questions-box .question-wrap.question-single .input-new-item-wrap textarea:-ms-input-placeholder,
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .input-new-item-wrap input[type=text]:-ms-input-placeholder {
+.page-wrap .constr-wrap .questions-box .question-wrap.question-single .input-new-item-wrap input[type=text]:-ms-input-placeholder, .page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .input-new-item-wrap textarea:-ms-input-placeholder,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .input-new-item-wrap input[type=text]:-ms-input-placeholder {
   color: #000000;
 }
 
 .page-wrap .constr-wrap .questions-box .question-wrap.question-single .input-new-item-wrap textarea::-ms-input-placeholder,
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .input-new-item-wrap input[type=text]::-ms-input-placeholder {
+.page-wrap .constr-wrap .questions-box .question-wrap.question-single .input-new-item-wrap input[type=text]::-ms-input-placeholder, .page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .input-new-item-wrap textarea::-ms-input-placeholder,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .input-new-item-wrap input[type=text]::-ms-input-placeholder {
   color: #000000;
 }
 
 .page-wrap .constr-wrap .questions-box .question-wrap.question-single .input-new-item-wrap textarea::placeholder,
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .input-new-item-wrap input[type=text]::placeholder {
+.page-wrap .constr-wrap .questions-box .question-wrap.question-single .input-new-item-wrap input[type=text]::placeholder, .page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .input-new-item-wrap textarea::placeholder,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .input-new-item-wrap input[type=text]::placeholder {
   color: #000000;
 }
 
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .input-new-item-wrap .add-new-item {
+.page-wrap .constr-wrap .questions-box .question-wrap.question-single .input-new-item-wrap .add-new-item, .page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .input-new-item-wrap .add-new-item {
   background: #FFFFFF;
   -webkit-box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
           box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
@@ -1886,11 +1894,11 @@ body {
   cursor: pointer;
 }
 
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .input-new-item-wrap .add-new-item.visible {
+.page-wrap .constr-wrap .questions-box .question-wrap.question-single .input-new-item-wrap .add-new-item.visible, .page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .input-new-item-wrap .add-new-item.visible {
   opacity: 1;
 }
 
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .input-new-item-wrap .add-new-item::before {
+.page-wrap .constr-wrap .questions-box .question-wrap.question-single .input-new-item-wrap .add-new-item::before, .page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .input-new-item-wrap .add-new-item::before {
   content: "";
   position: absolute;
   top: 7px;
@@ -2392,6 +2400,70 @@ body {
 
 .page-wrap .constr-wrap .questions-box .question-wrap.question-dropdown .optins-list .option-item .value input[type=text]:focus {
   border-color: #7FA1F8;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .input-item {
+  padding: 13px 15px;
+  min-width: 200px;
+  max-width: 100%;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .input-new-item-wrap {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .radio-btns-wrapper {
+  padding-bottom: 20px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .option-comment {
+  padding-top: 0px;
+  padding-bottom: 35px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .select-wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .select-wrap .select-input {
+  min-width: 70px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .select-wrap .select-label {
+  padding-left: 17px;
+  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 16px;
+  color: #000000;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .select-wrap .customselect-wrapper .select-styled {
+  padding: 15px;
+  padding-right: 35px;
+  font-size: 11px;
+  line-height: 13px;
+  color: #000000;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .select-wrap .customselect-wrapper .select-options li {
+  padding: 10px 15px;
+  font-size: 11px;
+  line-height: 13px;
+  color: #000000;
 }
 
 .page-wrap .constr-wrap .questions-box .question-wrap .option-comment {
