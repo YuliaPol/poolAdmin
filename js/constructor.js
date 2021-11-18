@@ -171,21 +171,21 @@ jQuery(function ($) {
                                 <input type="text" class="input-single-item" placeholder="Введите вариант ответа">
                             </div>
                             <div class="check-wrap">
-                                <input type="checkbox" id="addOpt_${id}" class="show-single-opt">
+                                <input type="checkbox" id="addOpt_${id}" class="show-answers-opt">
                                 <label for="addOpt_${id}">
                                     <div class="check"></div>
                                     <div class="check-text">
                                         Добавить вариант ответа «Другое» или поле комментария
                                     </div>
                                 </label>
-                                <div class="hidden add-single-options">
+                                <div class="hidden add-answers-options">
                                     <div class="btns-wrap">
                                         <div class="btn-wrap">
-                                            <input type="checkbox" class="add-other" id="addOther_${id}">
+                                            <input type="checkbox" class="add-other" id="addOther_${id}"  name="addOther_${id}">
                                             <label for="addOther_${id}">Вариант ответа</label>
                                         </div>
                                         <div class="btn-wrap">
-                                            <input type="checkbox" class="add-comment" id="addComment_${id}">
+                                            <input type="checkbox" class="add-comment" id="addComment_${id}"  name="addComment_${id}">
                                             <label for="addComment_${id}">Поле комментария</label>
                                         </div>
                                     </div>
@@ -302,6 +302,46 @@ jQuery(function ($) {
                                             Метки рейтинга
                                         </div>
                                     </label>
+                                </div>
+                            </div>
+                        </div>`
+                    break;
+                case 'dropdown':
+                    el = 
+                        `<div class="question-wrap question-dropdown" data-id="${id}">
+                            ${topEL}
+                            <div class="dropdown-wrap">
+                                <select class="customselect">
+                                    <option value=""></option>
+                                </select>
+                            </div>
+                            <div class="optins-list">
+                                <div class="option-item">
+                                    <div class="number">1.</div>
+                                    <div class="value">
+                                        <input type="text" name="inputpoint_${id}_1" value="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="check-wrap">
+                                <input type="checkbox" id="addOpt_${id}" class="show-answers-opt">
+                                <label for="addOpt_${id}">
+                                    <div class="check"></div>
+                                    <div class="check-text">
+                                        Добавить вариант ответа «Другое» или поле комментария
+                                    </div>
+                                </label>
+                                <div class="add-answers-options hidden"> 
+                                    <div class="btns-wrap">
+                                        <div class="btn-wrap">
+                                            <input type="checkbox" class="add-other" id="addOther_${id}" name="addOther_${id}">
+                                            <label for="addOther_${id}">Вариант ответа</label>
+                                        </div>
+                                        <div class="btn-wrap">
+                                            <input type="checkbox" class="add-comment" id="addComment_${id}" name="addComment_${id}">
+                                            <label for="addComment_${id}">Поле комментария</label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>`
@@ -541,7 +581,7 @@ jQuery(function ($) {
             if(!$target.hasClass('input-single-item')){
                 $('.input-single-item').change();
             }
-        })
+        });
         function addSingleOption(questionId, pointId, text, itemsList, addClas = ' '){
             let itemsName = "inputpoint_" + questionId + "_" + pointId;
             let itemHtml = 
@@ -582,12 +622,12 @@ jQuery(function ($) {
             }
         }
         //show single options add other or comment
-        $('.content-wrap').on('change', '.question-single .show-single-opt', function(e){
+        $('.content-wrap').on('change', '.question-wrap .show-answers-opt', function(e){
             if($(this).is(':checked')){
-                $(this).parents('.check-wrap').find('.add-single-options').fadeIn(300);
+                $(this).parents('.check-wrap').find('.add-answers-options').fadeIn(300);
             } else {
-                $(this).parents('.check-wrap').find('.add-single-options').fadeOut(300);
-                clear_form_elements($(this).parents('.check-wrap').find('.add-single-options'));
+                $(this).parents('.check-wrap').find('.add-answers-options').fadeOut(300);
+                clear_form_elements($(this).parents('.check-wrap').find('.add-answers-options'));
             }
         });
 
@@ -610,12 +650,12 @@ jQuery(function ($) {
             let thisQuestion = $(this).parents('.question-wrap');
             if($(this).is(':checked')){
                 let commnetHtml = 
-                '<div class="single-comment">'
+                '<div class="option-comment">'
                 +'    <textarea rows="1" placeholder="Введите ваш комментарий"></textarea>'
                 +'</div>';
                 $(commnetHtml).insertBefore(thisQuestion.find('.input-new-item-wrap'));
             } else {
-                thisQuestion.find('.single-comment').remove();
+                thisQuestion.find('.option-comment').remove();
             }
         });
         //add single option neither
@@ -747,6 +787,139 @@ jQuery(function ($) {
         });
 
         //end settings for scale question
+
+        //settings for dropdown question
+
+        //input option for select
+        $('.content-wrap').on('input', '.question-dropdown .option-item input[type=text]', function(e){
+            let newText = $(this).val();
+            let question = $(this).parents('.question-wrap');
+            let optionId = parseInt($(this).parents('.option-item').index()) + 1;
+            if(newText && question && optionId){
+                setNewText(question, newText, optionId);
+            }
+            if(newText && optionId===question.find('.optins-list').children().length){
+                addNewOption(question);
+            }
+        });
+        $('.content-wrap').on('change', '.question-dropdown .option-item input[type=text]', function(e){
+            let newText = $(this).val();
+            let question = $(this).parents('.question-wrap');
+            let optionId = parseInt($(this).parents('.option-item').index()) + 1;
+            let newOptionId = parseInt($(this).parents('.option-item').index()) + 1;
+            if(!newText && optionId !== $(this).parents('.optins-list').children().length){
+                removeDropdownOption(question, newOptionId);
+            }
+        });
+        //click out of input option select
+        $(document).click(function(event) { 
+            var $target = $(event.target);
+            if($target.parents('option-item').length === 0){
+                $('.option-item input').change();
+            }
+        })
+        //set new text for option select
+        function setNewText(question, text, index){
+            let select = question.find('.dropdown-wrap select');
+            let customSelect = question.find('.customselect-wrapper');
+            if(select.find(`option:nth-child(${index})`).length === 0){
+                let selectHtml = `<option value=""></option>`;
+                $(selectHtml).insertAfter(select.find(`option:nth-child(${index - 1})`));
+    
+                let customSelectHtml = `<li rel=""></li>`;
+                $(customSelectHtml).insertAfter(customSelect.find('.select-options').find(`li:nth-child(${index - 1})`));
+            }
+
+            select.find(`option:nth-child(${index})`).html(text);
+            select.find(`option:nth-child(${index})`).prop('value', text);
+            
+            customSelect.find(`li:nth-child(${index})`).html(text);
+            customSelect.find(`li:nth-child(${index})`).prop('rel', text);
+
+            if(customSelect.find(`li:nth-child(${index})`).hasClass('active') || 
+                (index === 1 && customSelect.find('li.active').length === 0)){
+                customSelect.find('.select-styled').html(text);
+            }
+        }
+
+        //add new option to select
+        function addNewOption(question){
+            let optionList = question.find('.optins-list');
+            let questionId = question.attr('data-id');
+            let optionId = parseInt(optionList.children().length) + 1;
+            let select = question.find('.dropdown-wrap select');
+            let customSelect = question.find('.customselect-wrapper');
+
+            let optionHtml = 
+                `<div class="option-item">
+                    <div class="number">${optionId}.</div>
+                    <div class="value">
+                        <input type="text" name="inputpoint_${questionId}_${optionId}">
+                    </div>
+                </div>`;
+            optionList.append(optionHtml);
+
+            let selectHtml = `<option value=""></option>`;
+            $(selectHtml).insertAfter(select.find(`option:nth-child(${optionId - 1})`));
+
+            let customSelectHtml = `<li rel=""></li>`;
+            $(customSelectHtml).insertAfter(customSelect.find('.select-options').find(`li:nth-child(${optionId - 1})`));
+        }
+
+        //remove option from select
+        function removeDropdownOption(question, optionId){
+            let optionList = question.find('.optins-list');
+            let select = question.find('.dropdown-wrap select');
+            let customSelect = question.find('.customselect-wrapper');
+            if(select.find(`option:nth-child(${optionId})`).length != 0){
+                select.find(`option:nth-child(${optionId})`).remove();
+            }
+            if(customSelect.find(`li:nth-child(${optionId})`).length != 0){
+                customSelect.find(`li:nth-child(${optionId})`).remove();
+            }
+            if(optionList.find(`.option-item:nth-child(${optionId})`).length != 0){
+                optionList.find(`.option-item:nth-child(${optionId})`).remove();
+            }
+            refreshDropdownInputs(question.find('.optins-list'));
+        }
+
+        //add other option to select
+        $('.content-wrap').on('change', '.question-dropdown .add-other', function(e){
+            let question = $(this).parents('.question-wrap');
+            let index = parseInt(question.find('.select-options').children().length);
+            let indexNew = index + 1;
+            let text = 'Другое';
+            if($(this).is(':checked')){
+                setNewText(question, text, indexNew)
+            } else {
+                removeDropdownOption(question, index);
+            }
+        });
+
+        //add to dropdown  comment
+        $('.content-wrap').on('change', '.question-dropdown .add-comment', function(e){
+            let question = $(this).parents('.question-wrap');
+            if($(this).is(':checked')){
+                let commentHtml = 
+                    `<div class="option-comment">
+                        <textarea rows="1" placeholder="Введите ваш комментарий"></textarea>
+                    </div>`
+                $(commentHtml).insertAfter(question.find('.dropdown-wrap'));
+            } else {
+                question.find('.option-comment').remove();
+            }
+        });
+        //refresh ids for input
+        function refreshDropdownInputs(optionList){
+            let options = optionList.children();
+            for (let i = 0; i < options.length; i++) {
+                let id = i + 1;
+                $(options[i]).find('.number').html(`${id}.`);
+                let inputs = $(options[i]).find('input');
+                changeNameInput(inputs, id, 2);
+            }
+        }
+        //end settings for dropdown question
 
         //function for clear inputs in block
         function clear_form_elements(block) {

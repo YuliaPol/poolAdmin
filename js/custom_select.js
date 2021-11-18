@@ -119,8 +119,11 @@ function customSelectActive(){
                     $(this).toggleClass('active').next('ul.select-options').toggle();
                 });
             
-                $listItems.click(function(e) {
+                // $listItems.click(function(e) {
+                $('body').on('click', '.customselect-wrapper li', function(e){
                     e.stopPropagation();
+                    $styledSelect = $(this).parents('.customselect-wrapper').find('.select-styled');
+                    $this =  $(this).parents('.customselect-wrapper').find('select');
                     $styledSelect.text($(this).text()).removeClass('active');
                     $this.val($(this).attr('rel'));
                     $(this).parents('ul').find('li').removeClass('active');

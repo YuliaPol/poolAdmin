@@ -1661,7 +1661,7 @@ body {
 
 .page-wrap .constr-wrap .questions-box .questions-list {
   background: #FFFFFF;
-  padding-bottom: 80px;
+  padding-bottom: 50px;
   position: relative;
 }
 
@@ -1902,103 +1902,6 @@ body {
   background-repeat: no-repeat;
   -webkit-background-size: contain;
           background-size: contain;
-}
-
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .add-single-options .btns-wrap {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: stretch;
-  -webkit-align-items: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 30px;
-}
-
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .add-single-options .btns-wrap input[type=checkbox] {
-  display: none;
-}
-
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .add-single-options .btns-wrap input[type=checkbox]:checked ~ label {
-  background: #7FA1F8;
-  border-color: #7FA1F8;
-  color: #FFFFFF;
-}
-
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .add-single-options .btns-wrap label {
-  display: block;
-  background: #FFFFFF;
-  border: 1px solid #C4C4C4;
-  border-radius: 15px;
-  padding: 20px 30px;
-  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 13px;
-  line-height: 15px;
-  color: #000000;
-  cursor: pointer;
-  outline: none;
-  margin-right: 20px;
-  -webkit-transition: all 0.3s ease-in;
-  -o-transition: all 0.3s ease-in;
-  transition: all 0.3s ease-in;
-}
-
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .add-single-options .btns-wrap label::before {
-  display: none;
-}
-
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .single-comment {
-  padding-top: 35px;
-}
-
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .single-comment textarea {
-  outline: none;
-  border: none;
-  width: 100%;
-  max-width: 500px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid #E5E5E5;
-  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 13px;
-  line-height: 15px;
-  color: #000000;
-  resize: none;
-  pointer-events: none;
-}
-
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .single-comment textarea::-webkit-input-placeholder {
-  color: #000000;
-}
-
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .single-comment textarea::-moz-placeholder {
-  color: #000000;
-}
-
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .single-comment textarea:-ms-input-placeholder {
-  color: #000000;
-}
-
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .single-comment textarea::-ms-input-placeholder {
-  color: #000000;
-}
-
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .single-comment textarea::placeholder {
-  color: #000000;
-}
-
-.page-wrap .constr-wrap .questions-box .question-wrap.question-single .single-comment textarea:focus {
-  border-color: #7FA1F8;
 }
 
 .page-wrap .constr-wrap .questions-box .question-wrap.question-free .free-answers {
@@ -2423,6 +2326,119 @@ body {
   border-color: #7FA1F8;
 }
 
+.page-wrap .constr-wrap .questions-box .question-wrap.question-dropdown .dropdown-wrap {
+  max-width: 500px;
+  margin-bottom: 40px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-dropdown .dropdown-wrap .select-options li:empty {
+  display: none;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-dropdown .option-comment {
+  padding-top: 0px;
+  padding-bottom: 35px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-dropdown .optins-list {
+  padding-bottom: 30px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-dropdown .optins-list .option-item {
+  padding-bottom: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  width: 100%;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-dropdown .optins-list .option-item .number {
+  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 15px;
+  color: #000000;
+  padding-right: 20px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-dropdown .optins-list .option-item .value {
+  width: 100%;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-dropdown .optins-list .option-item .value input[type=text] {
+  border: none;
+  outline: none;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #E5E5E5;
+  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 15px;
+  color: #000000;
+  width: 100%;
+  max-width: 500px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-dropdown .optins-list .option-item .value input[type=text]:focus {
+  border-color: #7FA1F8;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap .option-comment {
+  padding-top: 35px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap .option-comment textarea {
+  outline: none;
+  border: none;
+  width: 100%;
+  max-width: 500px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #E5E5E5;
+  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 15px;
+  color: #000000;
+  resize: none;
+  pointer-events: none;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap .option-comment textarea::-webkit-input-placeholder {
+  color: #000000;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap .option-comment textarea::-moz-placeholder {
+  color: #000000;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap .option-comment textarea:-ms-input-placeholder {
+  color: #000000;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap .option-comment textarea::-ms-input-placeholder {
+  color: #000000;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap .option-comment textarea::placeholder {
+  color: #000000;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap .option-comment textarea:focus {
+  border-color: #7FA1F8;
+}
+
 .page-wrap .constr-wrap .questions-box .question-wrap .check-wrap {
   position: relative;
   padding-bottom: 20px;
@@ -2489,6 +2505,58 @@ body {
   -webkit-background-size: 16px auto;
           background-size: 16px auto;
   background-repeat: no-repeat;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap .add-answers-options .btns-wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap .add-answers-options .btns-wrap input[type=checkbox] {
+  display: none;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap .add-answers-options .btns-wrap input[type=checkbox]:checked ~ label {
+  background: #7FA1F8;
+  border-color: #7FA1F8;
+  color: #FFFFFF;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap .add-answers-options .btns-wrap label {
+  display: block;
+  background: #FFFFFF;
+  border: 1px solid #C4C4C4;
+  border-radius: 15px;
+  padding: 20px 30px;
+  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 15px;
+  color: #000000;
+  cursor: pointer;
+  outline: none;
+  margin-right: 20px;
+  -webkit-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap .add-answers-options .btns-wrap label::before {
+  display: none;
 }
 
 .page-wrap .constr-wrap .questions-box .question-wrap .edit-block {
@@ -2992,7 +3060,6 @@ body {
 }
 
 .page-wrap .constr-wrap .questions-box .btn-preview-wrap {
-  padding-top: 20px;
   padding-bottom: 20px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -3087,6 +3154,9 @@ body {
   .page-wrap .content-wrap .top-nav .pools-menu .menu-item a {
     padding-top: 10px;
     padding-bottom: 15px;
+  }
+  .page-wrap .content-wrap .filter-wrap {
+    padding-top: 8px;
   }
   .page-wrap .content-wrap .filter-wrap .filter-item {
     width: calc(25% - 15px);
