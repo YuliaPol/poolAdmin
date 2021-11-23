@@ -641,8 +641,8 @@ jQuery(function ($) {
         //click enter
         $(document).on('keypress',function(e) {
             if(e.which == 13) {
-                e.preventDefault();
                 if($(e.target).hasClass('input-single-item')){
+                    e.preventDefault();
                     $(e.target).change();
                 }
             }
@@ -878,6 +878,7 @@ jQuery(function ($) {
         });
         //click out of input option select
         $(document).click(function(event) { 
+            console.log(event);
             var $target = $(event.target);
             if($target.parents('option-item').length === 0){
                 $('.option-item input').change();
@@ -1026,8 +1027,8 @@ jQuery(function ($) {
         //click enter
         $(document).on('keypress',function(e) {
             if(e.which == 13) {
-                e.preventDefault();
                 if($(e.target).hasClass('input-multiple-item')){
+                    e.preventDefault();
                     $(e.target).change();
                 }
             }
