@@ -2021,6 +2021,32 @@ body {
                         }
                     }
                 }
+                &.question-name {
+                    .name-answers {
+                        .answer-wrap {
+                            padding-bottom: 20px;
+                            textarea {
+                                font-family: $fontPage;
+                                border: none;
+                                resize: none;
+                                outline: none;
+                                pointer-events: none;
+                                border-bottom: 1px solid #E5E5E5;
+                                width: 100%;
+                                max-width: 500px;
+                                padding-bottom: 8px;
+                                font-style: normal;
+                                font-weight: normal;
+                                font-size: 13px;
+                                line-height: 15px;
+                                color: #000000;
+                                &::placeholder {
+                                    color: #000000;
+                                }
+                            }
+                        }
+                    }
+                }
                 .option-comment {
                     padding-top: 35px;
                     textarea {

@@ -2655,6 +2655,47 @@ body {
   border-bottom: 1px solid transparent;
 }
 
+.page-wrap .constr-wrap .questions-box .question-wrap.question-name .name-answers .answer-wrap {
+  padding-bottom: 20px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-name .name-answers .answer-wrap textarea {
+  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+  border: none;
+  resize: none;
+  outline: none;
+  pointer-events: none;
+  border-bottom: 1px solid #E5E5E5;
+  width: 100%;
+  max-width: 500px;
+  padding-bottom: 8px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 15px;
+  color: #000000;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-name .name-answers .answer-wrap textarea::-webkit-input-placeholder {
+  color: #000000;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-name .name-answers .answer-wrap textarea::-moz-placeholder {
+  color: #000000;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-name .name-answers .answer-wrap textarea:-ms-input-placeholder {
+  color: #000000;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-name .name-answers .answer-wrap textarea::-ms-input-placeholder {
+  color: #000000;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-name .name-answers .answer-wrap textarea::placeholder {
+  color: #000000;
+}
+
 .page-wrap .constr-wrap .questions-box .question-wrap .option-comment {
   padding-top: 35px;
 }

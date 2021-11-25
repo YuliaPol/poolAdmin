@@ -463,6 +463,23 @@ jQuery(function ($) {
                             </div>
                         </div>`
                     break;
+                case 'name':
+                    el = 
+                        `<div class="question-wrap question-name" data-id="${id}">
+                            ${topEL}
+                            <div class="name-answers">
+                                <div class="answer-wrap">
+                                    <textarea rows="1" placeholder="Имя"></textarea>
+                                </div>
+                                <div class="answer-wrap">
+                                    <textarea rows="1" placeholder="Отчество"></textarea>
+                                </div>
+                                <div class="answer-wrap">
+                                    <textarea rows="1" placeholder="Фамилия"></textarea>
+                                </div>
+                            </div>
+                        </div>`
+                    break;
                 default: 
                     el =
                         `<div class="question-wrap question-single" data-id="${id}">
