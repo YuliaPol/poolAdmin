@@ -1975,12 +1975,12 @@ body {
                         }
                     }
                 }
-                &.question-range {
-                    .range-list {
+                &.question-ranging {
+                    .ranging-list {
                         padding-bottom: 71px;
                         position: relative;
                         padding-top: 1px;
-                        .range-item {
+                        .ranging-item {
                             margin-top: 10px;
                             margin-bottom: 10px;
                             background: #e5ecfe;
@@ -2006,7 +2006,7 @@ body {
                                 background-size: contain;
                                 cursor: grab;
                             }
-                            .range-name {
+                            .ranging-name {
                                 padding-left: 10px;
                                 width: calc(100% - 20px);
                                 textarea {

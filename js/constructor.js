@@ -451,12 +451,12 @@ jQuery(function ($) {
                     break;
                 case 'ranging':
                     el = 
-                        `<div class="question-wrap question-range" data-id="${id}">
+                        `<div class="question-wrap question-ranging" data-id="${id}">
                             ${topEL}
-                            <div class="range-list">
-                                <div class="range-item empty-item">
+                            <div class="ranging-list">
+                                <div class="ranging-item empty-item">
                                     <div class="grab-icon"></div>
-                                    <div class="range-name">
+                                    <div class="ranging-name">
                                         <textarea name="inputpoint_${id}_1" placeholder="Введите вариант ответа" rows="1"></textarea>
                                     </div>
                                 </div>
@@ -490,9 +490,9 @@ jQuery(function ($) {
             );
             customSelectActive();
             //dragable and sortable for range items
-            $('.question-range .range-list').sortable({
+            $('.question-ranging .ranging-list').sortable({
                 cancel: 'a,button, textarea, .empty-item',
-                containment: '.range-list',
+                containment: '.ranging-list',
                 cursor: 'grab'
             });
             refreshQuestionsId();
@@ -1388,28 +1388,28 @@ jQuery(function ($) {
         });
         //end settings for matrix question
 
-        //end settings for range question
+        //end settings for ranging question
         
-        //dragable and sortable for range items
-        $('.question-range .range-list').sortable({
+        //dragable and sortable for ranging items
+        $('.question-ranging .ranging-list').sortable({
             cancel: 'a,button, textarea, .empty-item',
-            containment: '.range-list',
+            containment: '.ranging-list',
             cursor: 'grab'
         });
 
-        //input new range item
-        $('.content-wrap').on('input', '.question-range .empty-item textarea', function(e){
+        //input new ranging item
+        $('.content-wrap').on('input', '.question-ranging .empty-item textarea', function(e){
             let question = $(this).parents('.question-wrap');
             let newText = $(this).val();
-            let thisItem = $(this).parents('.range-item');
-            let thisRangeList = thisItem.parents('.range-list');
+            let thisItem = $(this).parents('.ranging-item');
+            let thisRangeList = thisItem.parents('.ranging-list');
             let questionID = question.attr('data-id');
             if(newText){
-                let newItemId = question.find('.range-list').children().length + 1;
+                let newItemId = question.find('.ranging-list').children().length + 1;
                 let newItemHtml = 
-                    `<div class="range-item empty-item">
+                    `<div class="ranging-item empty-item">
                         <div class="grab-icon"></div>
-                        <div class="range-name">
+                        <div class="ranging-name">
                             <textarea name="inputpoint_${questionID}_${newItemId}" placeholder="Введите вариант ответа" rows="1"></textarea>
                         </div>
                     </div>`;
@@ -1419,9 +1419,9 @@ jQuery(function ($) {
             }
         });
 
-        $('.content-wrap').on('blur', '.question-range .range-item textarea', function(e){
+        $('.content-wrap').on('blur', '.question-ranging .ranging-item textarea', function(e){
             let thisText = $(this).val();
-            let thisItem = $(this).parents('.range-item');
+            let thisItem = $(this).parents('.ranging-item');
             let question = $(this).parents('.question-wrap');
             if(!thisText && !thisItem.hasClass('empty-item')){
                 thisItem.remove();
@@ -1430,7 +1430,7 @@ jQuery(function ($) {
         });
 
         function refreshRangeId(question){
-            let rangeList = question.find('.range-list').children();
+            let rangeList = question.find('.ranging-list').children();
             if(rangeList.length > 0){
                 for (let i = 0; i < rangeList.length; i++) {
                     let id = i + 1;
@@ -1440,7 +1440,7 @@ jQuery(function ($) {
                 }
             }
         }
-        //end settings for range question
+        //end settings for ranging question
 
         //function for clear inputs in block
         function clear_form_elements(block) {
