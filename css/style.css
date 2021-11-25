@@ -2594,6 +2594,67 @@ body {
   border-color: #7FA1F8;
 }
 
+.page-wrap .constr-wrap .questions-box .question-wrap.question-range .range-list {
+  padding-bottom: 71px;
+  position: relative;
+  padding-top: 1px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-range .range-list .range-item {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: #e5ecfe;
+  border-radius: 15px;
+  padding: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-range .range-list .range-item.empty-item {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-range .range-list .range-item .grab-icon {
+  display: block;
+  margin-top: 2.5px;
+  width: 20px;
+  height: 16px;
+  background: url(./../img/icon-range.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-range .range-list .range-item .range-name {
+  padding-left: 10px;
+  width: calc(100% - 20px);
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-range .range-list .range-item .range-name textarea {
+  border: 0px;
+  background: transparent;
+  outline: none;
+  resize: none;
+  width: 100%;
+  border-bottom: 1px solid transparent;
+}
+
 .page-wrap .constr-wrap .questions-box .question-wrap .option-comment {
   padding-top: 35px;
 }

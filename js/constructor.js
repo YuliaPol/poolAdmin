@@ -449,6 +449,20 @@ jQuery(function ($) {
                             </div>
                         </div>`
                     break;
+                case 'ranging':
+                    el = 
+                        `<div class="question-wrap question-range" data-id="${id}">
+                            ${topEL}
+                            <div class="range-list">
+                                <div class="range-item empty-item">
+                                    <div class="grab-icon"></div>
+                                    <div class="range-name">
+                                        <textarea name="inputpoint_${id}_1" placeholder="Введите вариант ответа" rows="1"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>`
+                    break;
                 default: 
                     el =
                         `<div class="question-wrap question-single" data-id="${id}">
@@ -468,13 +482,19 @@ jQuery(function ($) {
                 scrollTo = $(children[appendInde]).offset().top;
             }
             $('.questions-box').removeClass('empty');
-            $('.questions-box textarea').autoResize();    
+            $('.questions-box textarea').autoResize();
             //scroll to element 
             let container = $('.questions-list');
             container.scrollTop(
                 scrollTo - container.offset().top + container.scrollTop()
             );
             customSelectActive();
+            //dragable and sortable for range items
+            $('.question-range .range-list').sortable({
+                cancel: 'a,button, textarea, .empty-item',
+                containment: '.range-list',
+                cursor: 'grab'
+            });
             refreshQuestionsId();
         }
 
@@ -1367,6 +1387,60 @@ jQuery(function ($) {
             }
         });
         //end settings for matrix question
+
+        //end settings for range question
+        
+        //dragable and sortable for range items
+        $('.question-range .range-list').sortable({
+            cancel: 'a,button, textarea, .empty-item',
+            containment: '.range-list',
+            cursor: 'grab'
+        });
+
+        //input new range item
+        $('.content-wrap').on('input', '.question-range .empty-item textarea', function(e){
+            let question = $(this).parents('.question-wrap');
+            let newText = $(this).val();
+            let thisItem = $(this).parents('.range-item');
+            let thisRangeList = thisItem.parents('.range-list');
+            let questionID = question.attr('data-id');
+            if(newText){
+                let newItemId = question.find('.range-list').children().length + 1;
+                let newItemHtml = 
+                    `<div class="range-item empty-item">
+                        <div class="grab-icon"></div>
+                        <div class="range-name">
+                            <textarea name="inputpoint_${questionID}_${newItemId}" placeholder="Введите вариант ответа" rows="1"></textarea>
+                        </div>
+                    </div>`;
+                thisItem.removeClass('empty-item');
+                $(newItemHtml).insertAfter(thisItem);
+                $(thisRangeList).find('.empty-item').find('textarea').autoResize();
+            }
+        });
+
+        $('.content-wrap').on('blur', '.question-range .range-item textarea', function(e){
+            let thisText = $(this).val();
+            let thisItem = $(this).parents('.range-item');
+            let question = $(this).parents('.question-wrap');
+            if(!thisText && !thisItem.hasClass('empty-item')){
+                thisItem.remove();
+                refreshRangeId(question);
+            }
+        });
+
+        function refreshRangeId(question){
+            let rangeList = question.find('.range-list').children();
+            if(rangeList.length > 0){
+                for (let i = 0; i < rangeList.length; i++) {
+                    let id = i + 1;
+                    let input = $(rangeList[i]).find('textarea');
+                    console.log(input);
+                    changeNameInput(input, id, 2);
+                }
+            }
+        }
+        //end settings for range question
 
         //function for clear inputs in block
         function clear_form_elements(block) {

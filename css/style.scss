@@ -1975,6 +1975,52 @@ body {
                         }
                     }
                 }
+                &.question-range {
+                    .range-list {
+                        padding-bottom: 71px;
+                        position: relative;
+                        padding-top: 1px;
+                        .range-item {
+                            margin-top: 10px;
+                            margin-bottom: 10px;
+                            background: #e5ecfe;
+                            border-radius: 15px;
+                            padding: 20px;
+                            display: flex;
+                            align-items: flex-start;
+                            justify-content: flex-start;
+                            &.empty-item {
+                                position: absolute;
+                                bottom: 0px;
+                                left: 0px;
+                                right: 0px;
+                            }
+                            .grab-icon {
+                                display: block;
+                                margin-top: 2.5px;
+                                width: 20px;
+                                height: 16px;
+                                background: url(./../img/icon-range.svg);
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                                cursor: grab;
+                            }
+                            .range-name {
+                                padding-left: 10px;
+                                width: calc(100% - 20px);
+                                textarea {
+                                    border: 0px;
+                                    background: transparent;
+                                    outline: none;
+                                    resize: none;
+                                    width: 100%;
+                                    border-bottom: 1px solid transparent;
+                                }
+                            }
+                        }
+                    }
+                }
                 .option-comment {
                     padding-top: 35px;
                     textarea {
