@@ -1632,7 +1632,7 @@ body {
   height: 100px;
   max-height: 100%;
   overflow-y: auto;
-  padding: 5px 5px;
+  padding: 5px 0px;
   -webkit-box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
           box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
   border-radius: 25px;
@@ -2464,6 +2464,134 @@ body {
   font-size: 11px;
   line-height: 13px;
   color: #000000;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-table {
+  width: 100%;
+  max-width: 100%;
+  overflow: auto;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-table table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-table td {
+  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 15px;
+  text-align: center;
+  color: #000000;
+  padding: 20px 10px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-table td:first-child {
+  text-align: left;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-table td .matrix-check {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-table td .matrix-check label {
+  width: 30px;
+  height: 20px;
+  position: relative;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-table td .matrix-check label::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+       -o-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  border: 1px solid #E5E5E5;
+  border-radius: 50%;
+  background: transparent;
+  -webkit-transition: border-color, background 0.3s ease-in;
+  -o-transition: border-color, background 0.3s ease-in;
+  transition: border-color, background 0.3s ease-in;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-table td .matrix-check input[type=radio],
+.page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-table td .matrix-check input[type=checkbox] {
+  display: none;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-table td .matrix-check input[type=radio]:checked ~ label::before,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-table td .matrix-check input[type=checkbox]:checked ~ label::before {
+  background: #7FA1F8;
+  border-color: #7FA1F8;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-options {
+  padding-top: 20px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-row-list,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-col-list {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-row-list .matrix-col,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-row-list .matrix-row,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-col-list .matrix-col,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-col-list .matrix-row {
+  padding-bottom: 20px;
+  width: 100%;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-row-list .matrix-col .value,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-row-list .matrix-row .value,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-col-list .matrix-col .value,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-col-list .matrix-row .value {
+  width: 100%;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-row-list .matrix-col .value input[type=text],
+.page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-row-list .matrix-row .value input[type=text],
+.page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-col-list .matrix-col .value input[type=text],
+.page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-col-list .matrix-row .value input[type=text] {
+  border: none;
+  outline: none;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #E5E5E5;
+  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 15px;
+  color: #000000;
+  width: 100%;
+  max-width: 500px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-row-list .matrix-col .value input[type=text]:focus,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-row-list .matrix-row .value input[type=text]:focus,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-col-list .matrix-col .value input[type=text]:focus,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-col-list .matrix-row .value input[type=text]:focus {
+  border-color: #7FA1F8;
 }
 
 .page-wrap .constr-wrap .questions-box .question-wrap .option-comment {

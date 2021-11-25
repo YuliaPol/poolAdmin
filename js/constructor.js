@@ -402,6 +402,53 @@ jQuery(function ($) {
                             </div>
                         </div>`
                     break;
+                case 'matrix':
+                    el = 
+                        `<div class="question-wrap question-matrix" data-id="${id}">
+                            ${topEL}
+                            <div class="matrix-table">
+                                <table>
+                                    <tr>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="matrix-options">
+                                <div class="matrix-row-list">
+                                    <div class="matrix-row">
+                                        <div class="value">
+                                            <input type="text" name="inputRow_${id}_1" placeholder="Введите текст строки">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="check-wrap">
+                                    <input type="checkbox" id="addComment_${id}" class="add-comment">
+                                    <label for="addComment_${id}">
+                                        <div class="check"></div>
+                                        <div class="check-text">
+                                            Добавить поле комментария
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="check-wrap">
+                                    <input type="checkbox" class="add-multipleChoice" name="addmultiple_${id}" id="addmultiple_${id}">
+                                    <label for="addmultiple_${id}">
+                                        <div class="check"></div>
+                                        <div class="check-text">
+                                            Разрешить несколько ответов на строку
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="matrix-col-list">
+                                    <div class="matrix-col">
+                                        <div class="value">
+                                            <input type="text" name="inputCol_${id}_1" placeholder="Введите текст строки">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>`
+                    break;
                 default: 
                     el =
                         `<div class="question-wrap question-single" data-id="${id}">
@@ -878,8 +925,7 @@ jQuery(function ($) {
         });
         //click out of input option select
         $(document).click(function(event) { 
-            console.log(event);
-            var $target = $(event.target);
+            let $target = $(event.target);
             if($target.parents('option-item').length === 0){
                 $('.option-item input').change();
             }
@@ -1109,6 +1155,219 @@ jQuery(function ($) {
         });
         //end settings for multiple question
 
+        //settings for matrix question
+
+        //input name of row for matrix
+        $('.content-wrap').on('input', '.question-matrix .matrix-row input[type=text]', function(e){
+            let newText = $(this).val();
+            let question = $(this).parents('.question-wrap');
+            let rowItem = $(this).parents('.matrix-row');
+            let rowIndex = parseInt(rowItem.index()) + 2;
+            let rowHtml = question.find('.matrix-table').find(`tr:nth-child(${rowIndex})`);
+            if(rowHtml.length > 0){
+                rowHtml.find('td:nth-child(1)').html(newText);
+            } else {
+                addMatrixRow(question, newText);
+            }
+        });
+        //out of focus row input
+        $('.content-wrap').on('blur', '.question-matrix .matrix-row input[type=text]', function(e){
+            let newText = $(this).val();
+            let question = $(this).parents('.question-wrap');
+            let rowItem = $(this).parents('.matrix-row');
+            let rowIndex = parseInt(rowItem.index()) + 1;
+            if(!newText && rowIndex !== question.find('.matrix-row-list').children().length){
+                removeMatrixRow(question, rowIndex);
+            }
+        });
+        //input name of col for matrix
+        $('.content-wrap').on('input', '.question-matrix .matrix-col input[type=text]', function(e){
+            let newText = $(this).val();
+            let question = $(this).parents('.question-wrap');
+            let colItem = $(this).parents('.matrix-col');
+            let colIndex = parseInt(colItem.index()) + 2;
+            let colHtml = question.find('.matrix-table').find(`tr:nth-child(1)`).find(`td:nth-child(${colIndex})`);
+            if(colHtml.length > 0){
+                colHtml.html(newText);
+            } else {
+                addMatrixCol(question, newText);
+            }
+        });
+        //out of focus col input
+        $('.content-wrap').on('blur', '.question-matrix .matrix-col input[type=text]', function(e){
+            let newText = $(this).val();
+            let question = $(this).parents('.question-wrap');
+            let colItem = $(this).parents('.matrix-col');
+            let colIndex = parseInt(colItem.index()) + 1;
+            if(!newText && colIndex !== question.find('.matrix-col-list').children().length){
+                removeMatrixCol(question, colIndex);
+            }
+        });
+        //add row to matrix table
+        function addMatrixRow(question, text) {
+            let table = question.find('.matrix-table');
+            let questionId = question.attr('data-id');
+            let rowHtml = 
+                `<tr>
+                    <td>${text}</td>
+                `;
+            let rowIndex = table.find('tr').length;
+            let colAmount = table.find('tr:nth-child(1)').find('td').length;
+
+            for (let i = 1; i < colAmount; i++) {
+                rowHtml +=
+                    `<td>
+                        <div class="matrix-check">
+                            <input type="radio" name="q_${questionId}_${rowIndex}" id="q_${questionId}_${rowIndex}_${i}">
+                            <label for="q_${questionId}_${rowIndex}_${i}"></label>
+                        </div>
+                    </td>`;
+            }
+            rowHtml += 
+                `   </tr>`;
+            $(rowHtml).insertAfter(table.find('tr:last-child()'));
+
+            //add empty input row
+            let inputRowHtml = 
+                `<div class="matrix-row">
+                    <div class="value">
+                        <input type="text" name="inputRow_${questionId}_${rowIndex}" placeholder="Введите текст строки">
+                    </div>
+                </div>`;
+            $(inputRowHtml).appendTo($(question).find('.matrix-row-list'));
+        }
+
+        //add col to matrix table
+        function addMatrixCol(question, text){
+            let table = question.find('.matrix-table');
+            let questionId = question.attr('data-id');
+            let tableRows = table.find('tr');
+            let colId = $(tableRows[0]).find('td').length;
+            for (let i = 0; i < tableRows.length; i++) {
+                if(i === 0){
+                    let colHeaderHtml= `<td>${text}</td>`;
+                    $(colHeaderHtml).appendTo(tableRows[i]);
+                } else {
+                    let colHtml = 
+                        `<td>
+                            <div class="matrix-check">
+                                <input type="radio" name="q_${questionId}_${i}" id="q_${questionId}_${i}_${colId}">
+                                <label for="q_${questionId}_${i}_${colId}"></label>
+                            </div>
+                        </td>`;
+                    $(colHtml).appendTo(tableRows[i]);
+                }
+            }
+
+            //add empty input col
+            let inputColHtml = 
+            `<div class="matrix-col">
+                <div class="value">
+                    <input type="text" name="inputCol_${questionId}_${colId}" placeholder="Введите текст строки">
+                </div>
+            </div>`;
+         $(inputColHtml).appendTo($(question).find('.matrix-col-list'));
+        }
+        
+        //remove matrix col
+        function removeMatrixCol(question, colId){
+            let table = question.find('.matrix-table');
+            let inputColList = question.find('.matrix-col-list');
+            let tableRow = table.find('tr');
+            let tableColId = colId + 1;
+            for (let i = 0; i < tableRow.length; i++) {
+                $(tableRow[i]).find(`td:nth-child(${tableColId})`).remove();
+            }
+            inputColList.find(`.matrix-col:nth-child(${colId}`).remove();
+            refreshMatrixID(question);
+        }
+
+        //remove matrix row
+        function removeMatrixRow(question, rowId){
+            let table = question.find('.matrix-table');
+            let inputRowList = question.find('.matrix-row-list');
+            let tableRowId = rowId + 1;
+            let deletedRow = table.find(`tr:nth-child(${tableRowId})`);
+            deletedRow.remove();
+            inputRowList.find(`.matrix-row:nth-child(${rowId}`).remove();
+            refreshMatrixID(question);
+        }
+        //refresh matrix ids
+        function refreshMatrixID(question){
+            let table = question.find('.matrix-table');
+            let rowTable = table.find('tr');
+            let rowList = question.find('.matrix-row-list').children();
+            let colList = question.find('.matrix-col-list').children();
+            for (let i = 0; i < rowTable.length; i++) {
+                if(i!== 0) {
+                    let colTable = $(rowTable[i]).find('td')
+                    let inputsRow = $(rowTable[i]).find('input');
+                    let labelsRow = $(rowTable[i]).find('label');
+                    // set row Id
+                    changeNameInput(inputsRow, i, 2);
+                    changeNameInput(labelsRow, i, 2);
+                    for (let i2 = 0; i2 < colTable.length; i2++) {
+                        if(i2 != 0){
+                            let inputs = $(colTable[i2]).find('input');
+                            let labels = $(colTable[i2]).find('label');
+                            //set col id
+                            changeNameInput(inputs, i2, 3);
+                            changeNameInput(labels, i2, 3);
+                        }
+                    }
+                }
+            }
+            for (let i = 0; i < rowList.length; i++) {
+                let inputs = $(rowList[i]).find('input');
+                let id = i+1;
+                changeNameInput(inputs, id, 2);
+            }
+            for (let i = 0; i < colList.length; i++) {
+                let inputs = $(colList[i]).find('input');
+                let id = i+1;
+                changeNameInput(inputs, id, 2);
+            }
+        }
+        //change multiple\single choice
+        $('.content-wrap').on('change', '.question-matrix .add-multipleChoice', function(e){
+            let question = $(this).parents('.question-wrap');
+            let table = question.find('.matrix-table');
+            let inputs = table.find('input');
+            if($(this).is(':checked')){
+                for (let i = 0; i < inputs.length; i++) {
+                    if($(inputs[i]).attr('type') === 'radio'){
+                        $(inputs[i]).attr('type', 'checkbox');
+                        let inputId = $(inputs[i]).attr('id');
+                        $(inputs[i]).attr('name', inputId);
+                    }
+                }
+            } else {
+                for (let i = 0; i < inputs.length; i++) {
+                    if($(inputs[i]).attr('type') === 'checkbox'){
+                        let oldName = $(inputs[i]).attr('name').split("_");
+                        oldName.pop();
+                        let newId = oldName.join('_');
+                        $(inputs[i]).attr('name', newId);
+                        $(inputs[i]).attr('type', 'radio');
+                    }
+                }
+            }
+        });
+        //add comment to matrix question
+        $('.content-wrap').on('change', '.question-matrix .add-comment', function(e){
+            let question = $(this).parents('.question-wrap');
+            if($(this).is(':checked')){
+                let commnetHtml = 
+                '<div class="option-comment">'
+                +'    <textarea rows="1" placeholder="Введите ваш комментарий"></textarea>'
+                +'</div>';
+                $(commnetHtml).insertAfter(question.find('.matrix-table'));
+            } else {
+                question.find('.option-comment').remove();
+            }
+        });
+        //end settings for matrix question
+
         //function for clear inputs in block
         function clear_form_elements(block) {
             jQuery(block).find(':input').each(function() {
@@ -1156,23 +1415,30 @@ jQuery(function ($) {
             for (let i = 0; i < inputs.length; i++) {
                 if($(inputs[i]).attr('name')){
                     prevId = $(inputs[i]).attr('name').split("_");
-                    prevId[position] = id;
-                    newId = prevId.join('_');
-                    $(inputs[i]).attr('name', newId);
+                    if(prevId[position]){
+                        prevId[position] = id;
+                        newId = prevId.join('_');
+                        $(inputs[i]).attr('name', newId);
+                    }
                 }
                 if($(inputs[i]).attr('id')){
                     prevId = $(inputs[i]).attr('id').split("_");
-                    prevId[position] = id;
-                    newId = prevId.join('_');
-                    $(inputs[i]).attr('id', newId);
+                    if(prevId[position]){
+                        prevId[position] = id;
+                        newId = prevId.join('_');
+                        $(inputs[i]).attr('id', newId);
+                    }
                 }
                 if($(inputs[i]).attr('for')){
                     prevId = $(inputs[i]).attr('for').split("_");
-                    prevId[position] = id;
-                    newId = prevId.join('_');
-                    $(inputs[i]).attr('for', newId);
+                    if(prevId[position]){
+                        prevId[position] = id;
+                        newId = prevId.join('_');
+                        $(inputs[i]).attr('for', newId);
+                    }
                 }
             }
+            return true;
         }
 
         //make audiowave

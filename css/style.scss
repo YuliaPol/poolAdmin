@@ -1882,6 +1882,99 @@ body {
                         }
                     }
                 }
+                &.question-matrix {
+                    .matrix-table {
+                        width: 100%;
+                        max-width: 100%;
+                        overflow: auto;
+                        table {
+                            width: 100%;
+                            table-layout: fixed;
+                        }
+                        td {
+                            font-family: $fontPage;
+                            font-style: normal;
+                            font-weight: normal;
+                            font-size: 13px;
+                            line-height: 15px;
+                            text-align: center;
+                            color: #000000;
+                            padding: 20px 10px;
+                            &:first-child {
+                                text-align: left;
+                            }
+                            .matrix-check {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                width: 100%;
+                                label {
+                                    width: 30px;
+                                    height: 20px;
+                                    position: relative;
+                                    &::before {
+                                        content: "";
+                                        position: absolute;
+                                        top: 50%;
+                                        left: 50%;
+                                        transform: translate(-50%, -50%);
+                                        width: 10px;
+                                        height: 10px;
+                                        border: 1px solid #E5E5E5;
+                                        border-radius: 50%;
+                                        background: transparent;
+                                        transition: border-color, background 0.3s ease-in;
+                                    }
+                                }
+                                input[type=radio],
+                                input[type=checkbox] {
+                                    display: none;
+                                    &:checked {
+                                        & ~ label {
+                                            &::before {
+                                                background: #7FA1F8;
+                                                border-color: #7FA1F8;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .matrix-options {
+                        padding-top: 20px;
+                    }
+                    .matrix-row-list,
+                    .matrix-col-list {
+                        padding-top: 20px;
+                        padding-bottom: 20px;
+                        .matrix-col,
+                        .matrix-row {
+                            padding-bottom: 20px;
+                            width: 100%;
+                            .value {
+                                width: 100%;
+                                input[type=text] {
+                                    border: none;
+                                    outline: none;
+                                    padding-bottom: 8px;
+                                    border-bottom: 1px solid #E5E5E5;
+                                    font-family: $fontPage;
+                                    font-style: normal;
+                                    font-weight: normal;
+                                    font-size: 13px;
+                                    line-height: 15px;
+                                    color: #000000;
+                                    width: 100%;
+                                    max-width: 500px;
+                                    &:focus {
+                                        border-color: $switchBg;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
                 .option-comment {
                     padding-top: 35px;
                     textarea {
