@@ -14,6 +14,28 @@ jQuery(function ($) {
                 })
             })
         };
+        //local settings for datepicker
+        $.datepicker.setDefaults(
+            {
+            closeText: 'Закрыть',
+            prevText: '',
+            currentText: 'Сегодня',
+            monthNames: ['Январь','Февраль','Март','Апрель','Май','Июнь',
+                'Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+            monthNamesShort: ['Янв','Фев','Мар','Апр','Май','Июн',
+                'Июл','Авг','Сен','Окт','Ноя','Дек'],
+            dayNames: ['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота'],
+            dayNamesShort: ['вск','пнд','втр','срд','чтв','птн','сбт'],
+            dayNamesMin: ['Вс','Пн','Вт','Ср','Чт','Пт','Сб'],
+            weekHeader: 'Не',
+            dateFormat: 'dd.mm.yy',
+            firstDay: 1,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: ''
+        });
+
+        //auto height for textarea
         $('.questions-box textarea').autoResize();
         //activation filter
         $('.content-wrap').on('change', '.filter-item select', function(e){
@@ -158,6 +180,7 @@ jQuery(function ($) {
                     ${attchFiles}
                     <div class="remove-question"></div>
                 </div>
+                <input type="hidden" name="type_${id}" value="${type}">
                 ${nameHtml}`;
             let el;
             switch(type) {
@@ -480,6 +503,16 @@ jQuery(function ($) {
                             </div>
                         </div>`
                     break;
+                case 'date':
+                    el = 
+                        `<div class="question-wrap question-date" data-id="${id}">
+                            ${topEL}
+                            <div class="date-answer">
+                                <input type="text" class="date-input" maxlength="10">
+                                <div class="icon-date"></div>
+                            </div>
+                        </div>`
+                    break;
                 default: 
                     el =
                         `<div class="question-wrap question-single" data-id="${id}">
@@ -506,12 +539,24 @@ jQuery(function ($) {
                 scrollTo - container.offset().top + container.scrollTop()
             );
             customSelectActive();
-            //dragable and sortable for range items
-            $('.question-ranging .ranging-list').sortable({
-                cancel: 'a,button, textarea, .empty-item',
-                containment: '.ranging-list',
-                cursor: 'grab'
-            });
+            if(type = "ranging"){
+                //dragable and sortable for range items
+                $('.question-ranging .ranging-list').sortable({
+                    cancel: 'a,button, textarea, .empty-item',
+                    containment: '.ranging-list',
+                    cursor: 'grab'
+                });
+            }
+            if(type = "date"){
+                //settings for date question
+                $('.date-input').datepicker({
+                    gotoCurrent: true,
+                    showOtherMonths: false,
+                    altFormat: "mm.dd.yyyy",
+                    dateFormat: "mm.dd.yyyy",
+                });
+                setInputMaskDate();
+            }
             refreshQuestionsId();
         }
 
@@ -1458,6 +1503,52 @@ jQuery(function ($) {
             }
         }
         //end settings for ranging question
+
+        //settings for date question
+        $('.date-input').datepicker({
+            gotoCurrent: true,
+            showOtherMonths: false,
+            altFormat: "mm.dd.yyyy",
+            dateFormat: "mm.dd.yyyy",
+        });
+
+        //mask for input date
+        var dateInputMask = function dateInputMask(elm) {
+            elm.addEventListener('keypress', function(e) {
+                if(e.keyCode < 47 || e.keyCode > 57) {
+                    e.preventDefault();
+                }
+                
+                var len = elm.value.length;
+                
+                // If we're at a particular place, let the user type the slash
+                // i.e., 12.12.1212
+                if(len !== 1 || len !== 3) {
+                    if(e.keyCode == 47) {
+                        e.preventDefault();
+                    }
+                }
+                
+                // If they don't add the slash, do it for them...
+                if(len === 2) {
+                    elm.value += '.';
+                }
+
+                // If they don't add the slash, do it for them...
+                if(len === 5) {
+                    elm.value += '.';
+                }
+            });
+        };
+        //set input mask for date
+        function setInputMaskDate(){
+            var dateInputs = $('.date-input');
+            for (let i = 0; i < dateInputs.length; i++) {
+                dateInputMask(dateInputs[i]);
+            }
+        }
+        setInputMaskDate();
+        //end settings for date question
 
         //function for clear inputs in block
         function clear_form_elements(block) {
