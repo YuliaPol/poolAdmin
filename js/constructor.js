@@ -540,12 +540,7 @@ jQuery(function ($) {
             );
             customSelectActive();
             if(type = "ranging"){
-                //dragable and sortable for range items
-                $('.question-ranging .ranging-list').sortable({
-                    cancel: 'a,button, textarea, .empty-item',
-                    containment: '.ranging-list',
-                    cursor: 'grab'
-                });
+                setSortbaleRanging();
             }
             if(type = "date"){
                 //settings for date question
@@ -1450,15 +1445,21 @@ jQuery(function ($) {
         });
         //end settings for matrix question
 
-        //end settings for ranging question
+        //settings for ranging question
         
         //dragable and sortable for ranging items
-        $('.question-ranging .ranging-list').sortable({
-            cancel: 'a,button, textarea, .empty-item',
-            containment: '.ranging-list',
-            cursor: 'grab'
-        });
-
+        function setSortbaleRanging(){
+            $('.question-ranging .ranging-list').sortable({
+                cancel: 'a,button, textarea, .empty-item',
+                containment: '.ranging-list',
+                cursor: 'grab',
+                stop: function( event, ui ) {
+                    let question = $(ui.item).parents('.question-wrap');
+                    refreshRangeId(question);
+                }
+            });
+        }
+        setSortbaleRanging();
         //input new ranging item
         $('.content-wrap').on('input', '.question-ranging .empty-item textarea', function(e){
             let question = $(this).parents('.question-wrap');
