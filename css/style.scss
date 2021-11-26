@@ -2081,6 +2081,29 @@ body {
                         }
                     }
                 }
+                &.question-email {
+                    .email-answer {
+                        input {
+                            outline: none;
+                            border: none;
+                            border-bottom: 1px solid #E5E5E5;
+                            background: transparent;
+                            font-family: $fontPage;
+                            font-style: normal;
+                            font-weight: normal;
+                            font-size: 13px;
+                            line-height: 15px;
+                            color: #000000;
+                            pointer-events: none;
+                            padding-bottom: 8px;
+                            width: 100%;
+                            max-width: 500px;
+                            &::placeholder {
+                                color: #000000;
+                            }
+                        }
+                    }
+                }
                 .option-comment {
                     padding-top: 35px;
                     textarea {

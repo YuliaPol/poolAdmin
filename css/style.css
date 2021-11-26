@@ -2732,6 +2732,43 @@ body {
   pointer-events: none;
 }
 
+.page-wrap .constr-wrap .questions-box .question-wrap.question-email .email-answer input {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #E5E5E5;
+  background: transparent;
+  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 15px;
+  color: #000000;
+  pointer-events: none;
+  padding-bottom: 8px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-email .email-answer input::-webkit-input-placeholder {
+  color: #000000;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-email .email-answer input::-moz-placeholder {
+  color: #000000;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-email .email-answer input:-ms-input-placeholder {
+  color: #000000;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-email .email-answer input::-ms-input-placeholder {
+  color: #000000;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-email .email-answer input::placeholder {
+  color: #000000;
+}
+
 .page-wrap .constr-wrap .questions-box .question-wrap .option-comment {
   padding-top: 35px;
 }

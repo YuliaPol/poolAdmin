@@ -513,6 +513,15 @@ jQuery(function ($) {
                             </div>
                         </div>`
                     break;
+                case 'email':
+                    el = 
+                        `<div class="question-wrap question-email" data-id="${id}">
+                            ${topEL}
+                            <div class="email-answer">
+                                <input type="email" placeholder="Email">
+                            </div>
+                        </div>`
+                    break;
                 default: 
                     el =
                         `<div class="question-wrap question-single" data-id="${id}">
