@@ -133,7 +133,8 @@ function customSelectActive(){
                 });
             
                 $(document).click(function() {
-                    $styledSelect.removeClass('active');
+                    console.log('document click');
+                    $('.customselect-wrapper').find('.select-styled').removeClass('active');
                     $list.hide();
                 });
             }

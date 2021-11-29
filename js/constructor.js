@@ -528,7 +528,7 @@ jQuery(function ($) {
                             ${topEL}
                             <div class="phone-answer">
                                 <input class="code" type="text" value="+7" readonly>
-                                <input class="phone" type="tel" maxlength="9">
+                                <input class="phone" type="tel" maxlength="11">
                             </div>
                         </div>`
                     break;
