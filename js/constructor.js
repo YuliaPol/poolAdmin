@@ -522,6 +522,16 @@ jQuery(function ($) {
                             </div>
                         </div>`
                     break;
+                case 'phone':
+                    el = 
+                        `<div class="question-wrap question-phone" data-id="${id}">
+                            ${topEL}
+                            <div class="phone-answer">
+                                <input class="code" type="text" value="+7" readonly>
+                                <input class="phone" type="tel" maxlength="9">
+                            </div>
+                        </div>`
+                    break;
                 default: 
                     el =
                         `<div class="question-wrap question-single" data-id="${id}">
@@ -560,6 +570,12 @@ jQuery(function ($) {
                     dateFormat: "mm.dd.yyyy",
                 });
                 setInputMaskDate();
+            }
+            if(type = "phone"){
+                //set pick phone code
+                $('.question-phone input.code').intlTelInput({
+                    initialCountry: "ru",
+                });
             }
             refreshQuestionsId();
         }
@@ -1559,6 +1575,12 @@ jQuery(function ($) {
         }
         setInputMaskDate();
         //end settings for date question
+
+        //settings for phone question
+        $('.question-phone input.code').intlTelInput({
+            initialCountry: "ru",
+        });
+        //end settings for phone question
 
         //function for clear inputs in block
         function clear_form_elements(block) {

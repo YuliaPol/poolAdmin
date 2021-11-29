@@ -2104,6 +2104,107 @@ body {
                         }
                     }
                 }
+                &.question-phone {
+                    .phone-answer {
+                        display: flex;
+                        align-items: stretch;
+                        justify-content: flex-start;
+                    }
+                    .flag-dropdown {
+                        bottom: 0px;
+                        .selected-flag {
+                            padding-bottom: 10px;
+                            padding-left: 7px;
+                            padding-right: 7px;
+                            margin: 0px;
+                            padding-bottom: 5px;
+                            padding-top: 5px;
+                            &:hover {
+                                background: transparent;
+                            }
+                            .down-arrow {
+                                display: none;
+                            }
+                        }
+                        .country-list {
+                            background: #FFFFFF;
+                            box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
+                            border-radius: 15px;
+                            border: none;
+                            .country {
+                                padding: 10px 15px;
+                                border-bottom: 1px solid #F5F5F7;
+                                font-family: $fontPage;
+                                font-style: normal;
+                                font-weight: normal;
+                                font-size: 11px;
+                                line-height: 13px;
+                                color: #000000;
+                                transition: background 0.3s ease-in;
+                                &.highlight {
+                                    background: rgba(127, 161, 248, 0.2);
+                                }
+                            }
+                            .divider {
+                                margin: 0px;
+                                padding: 0px;
+                                border-color: #7FA1F8;
+                            }
+                        }
+                    }
+                    .intl-tel-input {
+                        position: relative;
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            bottom: -1px;
+                            left: 0px;
+                            width: 30px;
+                            border-bottom: 1px solid #E5E5E5;
+                            z-index: 10;
+                        }
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            bottom: -1px;
+                            right: 0px;
+                            width: 40px;
+                            border-bottom: 1px solid #E5E5E5;
+                            z-index: 10;
+                        }
+                        input {
+                            border: none;
+                            outline: none;
+                            width: 90px;
+                            font-family: $fontPage;
+                            font-style: normal;
+                            font-weight: normal;
+                            font-size: 13px;
+                            line-height: 15px;
+                            color: #000000;
+                            padding-left: 50px;
+                            text-align: center;
+                            height: auto;
+                            padding-bottom: 5px;
+                        }
+                    }
+                    .phone {
+                        border: none;
+                        outline: none;
+                        padding-bottom: 5px;
+                        padding-left: 0px;
+                        padding-right: 0px;
+                        margin-left: 20px;
+                        border-bottom: 1px solid #E5E5E5;
+                        font-family: $fontPage;
+                        font-style: normal;
+                        font-weight: normal;
+                        font-size: 13px;
+                        line-height: 15px;
+                        color: #000000;
+                        pointer-events: none;
+                    }
+                }
                 .option-comment {
                     padding-top: 35px;
                     textarea {
