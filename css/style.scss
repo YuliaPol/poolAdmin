@@ -2205,6 +2205,169 @@ body {
                         pointer-events: none;
                     }
                 }
+                &.question-file {
+                    .file-answer {
+                        label {
+                            display: block;
+                            width: 40px;
+                            height: 40px;
+                            background: #FFFFFF;
+                            box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
+                            border-radius: 50%;
+                            position: relative;
+                            cursor: pointer;
+                            pointer-events: none;
+                            &:hover,
+                            .active {
+                                &::before {
+                                    opacity: 0;
+                                }
+                                &::after {
+                                    opacity: 1;
+                                }
+                            }
+                            &::before {
+                                content: "";
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                width: 20px;
+                                height: 20px;
+                                background: url(./../img/icon-file.svg);
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                                opacity: 1;
+                                transition: opacity 0.3s ease-in;
+                            }
+                            &::after {
+                                content: "";
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                width: 20px;
+                                height: 20px;
+                                background: url(./../img/icon-file-a.svg);
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                                opacity: 0;
+                                transition: opacity 0.3s ease-in;
+                            }
+                        }
+                        input[type=file] {
+                            display: none;
+                        }
+                    }
+                    .uploaded-list {
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                        flex-wrap: wrap;
+                        padding-top: 35px;
+                        .file-item {
+                            margin-right: 20px;
+                            margin-bottom: 35px;
+                            width: 80px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            flex-direction: column;
+                            .file-icon {
+                                width: 40px;
+                                height: 40px;
+                                border-radius: 50%;
+                                position: relative;
+                                background: #FFFFFF;
+                                box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
+                                &::before {
+                                    content: "";
+                                    position: absolute;
+                                    width: 20px;
+                                    height: 20px;
+                                    background: url(./../img/icon-upload-file.svg);
+                                    background-position: center;
+                                    background-repeat: no-repeat;
+                                    background-size: contain;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%);
+                                }
+                                &.file-icon-img {
+                                    &::before {
+                                        background: url(./../img/icon-add-img.svg);
+                                        background-position: center;
+                                        background-repeat: no-repeat;
+                                        background-size: contain;  
+                                    }
+                                }
+                                &.file-icon-video {
+                                    &::before {
+                                        background: url(./../img/icon-add-video.svg);
+                                        background-position: center;
+                                        background-repeat: no-repeat;
+                                        background-size: contain;  
+                                    }
+                                }
+                                &.file-icon-audio {
+                                    &::before {
+                                        background: url(./../img/icon-add-audio.svg);
+                                        background-position: center;
+                                        background-repeat: no-repeat;
+                                        background-size: contain;  
+                                    }
+                                }
+                                &.file-icon-exel {
+                                    &::before {
+                                        background: url(./../img/exel-icon.svg);
+                                        background-position: center;
+                                        background-repeat: no-repeat;
+                                        background-size: contain;  
+                                    }
+                                }
+                                &.file-icon-word {
+                                    &::before {
+                                        background: url(./../img/icon-upload-word.svg);
+                                        background-position: center;
+                                        background-repeat: no-repeat;
+                                        background-size: contain;  
+                                    }
+                                }
+                                &.file-icon-pp {
+                                    &::before {
+                                        background: url(./../img/icon-upload-powerpoint.svg);
+                                        background-position: center;
+                                        background-repeat: no-repeat;
+                                        background-size: contain;  
+                                    }
+                                }
+                                &.file-icon-pdf {
+                                    &::before {
+                                        background: url(./../img/icon-upload-pdf.svg);
+                                        background-position: center;
+                                        background-repeat: no-repeat;
+                                        background-size: contain;  
+                                    }
+                                }
+                            }
+                            .file-name {
+                                padding-top: 10px;
+                                font-family: $fontPage;
+                                font-style: normal;
+                                font-weight: normal;
+                                font-size: 13px;
+                                line-height: 15px;
+                                color: #000000;
+                                max-width: 70px;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                            }
+                        }
+                    }
+                }
                 .option-comment {
                     padding-top: 35px;
                     textarea {

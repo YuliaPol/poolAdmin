@@ -532,6 +532,17 @@ jQuery(function ($) {
                             </div>
                         </div>`
                     break;
+                case 'file':
+                    el = 
+                        `<div class="question-wrap question-file" data-id="${id}">
+                            ${topEL}
+                            <div class="file-answer">
+                                <label>
+                                    <input type="file" multiple>
+                                </label>
+                            </div>
+                        </div>`
+                    break;
                 default: 
                     el =
                         `<div class="question-wrap question-single" data-id="${id}">
@@ -1581,6 +1592,54 @@ jQuery(function ($) {
             initialCountry: "ru",
         });
         //end settings for phone question
+
+        //settings for file question
+
+        //add icons and names of uploaded files 
+        $('.content-wrap').on('change', '.question-file input[type=file]', function(e){
+            let files = this.files;
+            let question = $(this).parents('.question-wrap');
+            if(question.find('.uploaded-list').length === 0){
+                let listHtml = `<div class="uploaded-list"></div>`
+                $(listHtml).insertAfter($(this).parents('.file-answer'));
+            }
+            let filesWrap = question.find('.uploaded-list');
+            let fileList = '';
+            for (let i = 0; i < files.length; i++) {
+                let fileName = files[i].name;
+                let lastDot = fileName.lastIndexOf('.');
+                let ext = fileName.substring(lastDot + 1);
+                let iconClass = '';
+                if(ext === 'doc' || ext === 'docx' || ext === 'dot' || ext === 'docm' || ext === 'dotx' || ext === 'dotm'){
+                    iconClass = 'file-icon-word';
+                } else if(ext === 'jpg' || ext === 'png' || ext === 'gif' || ext === 'jpg'
+                    || ext === 'jpeg' || ext === 'webp' || ext === 'svg'){
+                        iconClass = 'file-icon-img';
+                } else if(ext === 'avi' || ext === 'mp4' || ext === 'webm' || ext === '3gp' || ext === '3gpp'
+                    || ext === 'flv' || ext === 'm4v' || ext === 'mkv' || ext === 'mov' || ext === 'mpeg'
+                    || ext === 'mpeg4' || ext === 'ogg' || ext === 'ogv' || ext === 'wmv'){
+                        iconClass = 'file-icon-video';
+                } else if(ext === 'wav' || ext === 'mp3' || ext === 'm4a' || ext === 'wma' || ext === 'flac' || ext === 'aiff'){
+                    iconClass = 'file-icon-audio';
+                } else if(ext === 'xlsx' || ext === 'xlsm' || ext === 'xltx' || ext === 'xls' || ext === 'xml'){
+                    iconClass = 'file-icon-exel';
+                } else if(ext === 'pdf'){
+                    iconClass = 'file-icon-pdf';
+                } else if(ext === 'pptx' || ext === 'pptm' || ext === 'pptm' || ext === 'ppt'){
+                    iconClass = 'file-icon-pp';
+                }
+                let itemHtml = 
+                    `<div class="file-item">
+                        <div class="file-icon ${iconClass}"></div>
+                        <div class="file-name">
+                            ${fileName}
+                        </div>
+                    </div>`;
+                fileList += itemHtml;
+            }
+            filesWrap.html(fileList);
+        });
+        //end settings file for  question
 
         //function for clear inputs in block
         function clear_form_elements(block) {

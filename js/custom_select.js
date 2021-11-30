@@ -133,7 +133,6 @@ function customSelectActive(){
                 });
             
                 $(document).click(function() {
-                    console.log('document click');
                     $('.customselect-wrapper').find('.select-styled').removeClass('active');
                     $list.hide();
                 });
