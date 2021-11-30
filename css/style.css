@@ -1618,6 +1618,22 @@ body {
           background-size: contain;
 }
 
+.page-wrap .constr-wrap .listbox .list-item .icon.icon-diapason::before {
+  background: url(./../img/q-icon-diapason.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.page-wrap .constr-wrap .listbox .list-item .icon.icon-diapason::after {
+  background: url(./../img/q-icon-diapason-a.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
 .page-wrap .constr-wrap .listbox .list-item .name {
   padding-left: 13px;
   font-family: "Gilroy", Verdana, Tahoma, sans-serif;

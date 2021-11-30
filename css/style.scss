@@ -1225,6 +1225,20 @@ body {
                             background-size: contain;
                         }
                     }
+                    &.icon-diapason {
+                        &::before {
+                            background: url(./../img/q-icon-diapason.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                        &::after {
+                            background: url(./../img/q-icon-diapason-a.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                    }
                 }
                 .name {
                     padding-left: 13px;
