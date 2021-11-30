@@ -15,8 +15,7 @@ jQuery(function ($) {
             })
         };
         //local settings for datepicker
-        $.datepicker.setDefaults(
-            {
+        $.datepicker.setDefaults({
             closeText: 'Закрыть',
             prevText: '',
             currentText: 'Сегодня',
@@ -35,6 +34,21 @@ jQuery(function ($) {
             yearSuffix: ''
         });
 
+        // Restricts input for the set of matched elements to the given inputFilter function.
+        $.fn.inputFilter = function(inputFilter) {
+            return this.on("input keydown keyup mousedown mouseup select contextmenu drop", function() {
+                if (inputFilter(this.value)) {
+                    this.oldValue = this.value;
+                    this.oldSelectionStart = this.selectionStart;
+                    this.oldSelectionEnd = this.selectionEnd;
+                } else if (this.hasOwnProperty("oldValue")) {
+                    this.value = this.oldValue;
+                    this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+                } else {
+                    this.value = "";
+                }
+            });
+        };
         //auto height for textarea
         $('.questions-box textarea').autoResize();
         //activation filter
@@ -543,6 +557,32 @@ jQuery(function ($) {
                             </div>
                         </div>`
                     break;
+                case 'diapason':
+                    el = 
+                        `<div class="question-wrap question-diapason" data-id="${id}">
+                            ${topEL}
+                            <div class="diapason-answer">
+                                <div class="diapason">
+                                    <div class="label">
+                                        <div class="value">0</div>
+                                    </div>
+                                    <div class="input-box">
+                                        <input class="input-range" type="range" min="0" max="10" step="1" value="0"/>
+                                        <div class="bar"></div>
+                                        <div class="bar-filled"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="diapson-set">
+                                <div class="label">
+                                    Диапазон шкалы
+                                </div>
+                                <div class="set-value">
+                                    <input type="text" class="set-dispason-max" name="rangemax_${id}" value="10">
+                                </div>
+                            </div>
+                        </div>`
+                    break;
                 default: 
                     el =
                         `<div class="question-wrap question-single" data-id="${id}">
@@ -586,6 +626,12 @@ jQuery(function ($) {
                 //set pick phone code
                 $('.question-phone input.code').intlTelInput({
                     initialCountry: "ru",
+                });
+            }
+            if(type = "diapason"){
+                //input only number for diapason max
+                $('.set-dispason-max').inputFilter(function(value) {
+                    return /^\d*$/.test(value) && (value === "" || parseInt(value) <= 10000);
                 });
             }
             refreshQuestionsId();
@@ -1641,6 +1687,49 @@ jQuery(function ($) {
         });
         //end settings file for  question
 
+        //settings for diapason question
+        //input diapason value
+        $('.content-wrap').on('input', '.question-diapason .input-range', function(e){
+            setDiapasonValue(this);
+        });
+        //set new diapsson value
+        function setDiapasonValue(input){
+            var value = $(input).val();
+            var max = $(input).attr('max');
+            var min = $(input).attr('min');
+            var range = max - min;
+            var relvalue = value - min;
+            var percent = (100/range)*relvalue;
+            var parents = $(input).parents('.diapason');
+            var paddleft = (30*percent)/100;
+            parents.find('.label').css('left', 'calc(' + percent + '% - ' + paddleft + 'px)');
+            parents.find('.label .value').html(value);
+            parents.find('.input-box .bar-filled').css('width', percent + '%');
+            parents.find('.label').css('background-position', percent + '%');
+        };
+        //input only number for diapason max
+        $('.set-dispason-max').inputFilter(function(value) {
+            return /^\d*$/.test(value) && (value === "" || parseInt(value) <= 10000);
+        });
+
+        $('.content-wrap').on('change', '.question-diapason .set-dispason-max', function(e){
+            let question = $(this).parents('.question-wrap');
+            setDiapasonMax(question);
+        });
+        //set diapason max
+        function setDiapasonMax(question){
+            let max = parseInt(question.find('.set-dispason-max').val());
+            if(max > 0){
+                let diapsonInput = question.find('.input-range');
+                diapsonInput.attr('max', max);
+                let diapasonValue = parseInt(diapsonInput.val());
+                if(max < diapasonValue){
+                    diapsonInput.val(max)
+                }
+                setDiapasonValue(diapsonInput)
+            }
+        }
+        //end settings for diapason question
         //function for clear inputs in block
         function clear_form_elements(block) {
             jQuery(block).find(':input').each(function() {
