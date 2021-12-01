@@ -252,7 +252,7 @@ jQuery(function ($) {
                     break;
                 case 'listfree':
                     el = 
-                        `<div class="question-wrap question-free" data-id="${id}">
+                        `<div class="question-wrap question-listfree" data-id="${id}">
                             ${topEL}
                             <div class="free-answers">
                                 <div class="answer-wrap">

@@ -1928,15 +1928,15 @@ body {
           background-size: contain;
 }
 
-.page-wrap .constr-wrap .questions-box .question-wrap.question-free .free-answers {
+.page-wrap .constr-wrap .questions-box .question-wrap.question-free .free-answers, .page-wrap .constr-wrap .questions-box .question-wrap.question-listfree .free-answers {
   padding-top: 10px;
 }
 
-.page-wrap .constr-wrap .questions-box .question-wrap.question-free .free-answers .answer-wrap {
+.page-wrap .constr-wrap .questions-box .question-wrap.question-free .free-answers .answer-wrap, .page-wrap .constr-wrap .questions-box .question-wrap.question-listfree .free-answers .answer-wrap {
   padding-bottom: 20px;
 }
 
-.page-wrap .constr-wrap .questions-box .question-wrap.question-free .free-answers .answer-wrap textarea {
+.page-wrap .constr-wrap .questions-box .question-wrap.question-free .free-answers .answer-wrap textarea, .page-wrap .constr-wrap .questions-box .question-wrap.question-listfree .free-answers .answer-wrap textarea {
   padding: 8px 0px;
   border: none;
   outline: none;
@@ -3967,6 +3967,509 @@ body {
 
 .page-wrap .constr-wrap .questions-box .hidden {
   display: none;
+}
+
+.page-wrap .top-nav {
+  position: relative;
+  z-index: 100;
+}
+
+.page-wrap .preview-bg {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  top: -50px;
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+          background-size: cover;
+}
+
+.page-wrap .preview-footer {
+  position: absolute;
+  z-index: 150;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background: #FFFFFF;
+  -webkit-box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
+          box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
+  padding: 35px 60px;
+}
+
+.page-wrap .preview-footer .proggres {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: #7FA1F8;
+  border-radius: 25px;
+  height: 5px;
+}
+
+.page-wrap .preview-footer .footer-row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.page-wrap .preview-footer .footer-row .link-back {
+  outline: none;
+  text-decoration: none;
+  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 11px;
+  line-height: 13px;
+  color: #000000;
+}
+
+.page-wrap .preview-footer .footer-row .btn-save {
+  display: block;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  background: #7FA1F8;
+  border-radius: 25px;
+  padding: 15px 40px;
+  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 11px;
+  line-height: 13px;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.page-wrap .pool-wrap {
+  max-width: 1075px;
+  margin: auto;
+  margin-top: 20px;
+  height: calc(100vh - 240px);
+}
+
+.page-wrap .pool-wrap .question-list {
+  position: relative;
+  z-index: 100;
+  background: #FFFFFF;
+  -webkit-box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
+          box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
+  border-radius: 25px;
+  padding: 10px 30px;
+  padding-bottom: 100px;
+  max-height: 100%;
+  overflow: auto;
+}
+
+.page-wrap .pool-wrap .question-list::-webkit-scrollbar {
+  width: 0px;
+  display: none;
+}
+
+.page-wrap .pool-wrap .question-wrap {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  position: relative;
+}
+
+.page-wrap .pool-wrap .question-wrap:hover::before {
+  opacity: 1;
+}
+
+.page-wrap .pool-wrap .question-wrap::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  background: #7FA1F8;
+  border-radius: 25px;
+  width: 11px;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in;
+  -o-transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
+}
+
+.page-wrap .pool-wrap .question-wrap .question-name {
+  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  color: #000000;
+  padding-bottom: 35px;
+}
+
+.page-wrap .pool-wrap .question-wrap .radio-btns-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+
+.page-wrap .pool-wrap .question-wrap .radio-btns-wrapper .radio-item {
+  min-width: 20%;
+  padding-right: 5%;
+}
+
+.page-wrap .pool-wrap .question-wrap .radio-btns-wrapper .radio-item input[type=radio],
+.page-wrap .pool-wrap .question-wrap .radio-btns-wrapper .radio-item input[type=checkbox] {
+  display: none;
+}
+
+.page-wrap .pool-wrap .question-wrap .radio-btns-wrapper .radio-item input[type=radio]:checked ~ label,
+.page-wrap .pool-wrap .question-wrap .radio-btns-wrapper .radio-item input[type=checkbox]:checked ~ label {
+  background: #7FA1F8;
+  color: #fff;
+  border-color: #7FA1F8;
+}
+
+.page-wrap .pool-wrap .question-wrap .radio-btns-wrapper .radio-item input[type=radio] ~ label,
+.page-wrap .pool-wrap .question-wrap .radio-btns-wrapper .radio-item input[type=checkbox] ~ label {
+  display: block;
+  width: 100%;
+  padding: 13px 20px;
+  border: 1px solid #C4C4C4;
+  border-radius: 25px;
+  font-family: #000000;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 15px;
+  text-align: center;
+  color: #000000;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
+
+.page-wrap .pool-wrap .question-wrap .free-answers .answer-wrap {
+  padding-bottom: 20px;
+}
+
+.page-wrap .pool-wrap .question-wrap .free-answers .answer-wrap:last-child {
+  padding-bottom: 0px;
+}
+
+.page-wrap .pool-wrap .question-wrap .free-answers .answer-wrap textarea {
+  border: none;
+  outline: none;
+  padding-bottom: 8px;
+  background: transparent;
+  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 15px;
+  color: #000000;
+  width: 100%;
+  border-bottom: 1px solid #E5E5E5;
+  resize: none;
+}
+
+.page-wrap .pool-wrap .question-wrap .scale-labels-wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-top: 10px;
+}
+
+.page-wrap .pool-wrap .question-wrap .scale-labels-wrap .label-item {
+  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 9px;
+  line-height: 10px;
+  text-align: center;
+  color: #000000;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.page-wrap .pool-wrap .question-wrap .scale-wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -webkit-flex-direction: row-reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  padding-top: 10px;
+}
+
+.page-wrap .pool-wrap .question-wrap .scale-wrap.scale-star label::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: url(./../img/icon-star.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease-in;
+  -o-transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
+}
+
+.page-wrap .pool-wrap .question-wrap .scale-wrap.scale-star label::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: url(./../img/icon-star-a.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in;
+  -o-transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
+}
+
+.page-wrap .pool-wrap .question-wrap .scale-wrap.scale-face label::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: url(./../img/icon-scale-face.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease-in;
+  -o-transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
+}
+
+.page-wrap .pool-wrap .question-wrap .scale-wrap.scale-face label::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: url(./../img/icon-scale-face-a.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in;
+  -o-transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
+}
+
+.page-wrap .pool-wrap .question-wrap .scale-wrap.scale-heart label::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: url(./../img/icon-scale-heart.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease-in;
+  -o-transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
+}
+
+.page-wrap .pool-wrap .question-wrap .scale-wrap.scale-heart label::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: url(./../img/icon-scale-heart-a.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in;
+  -o-transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
+}
+
+.page-wrap .pool-wrap .question-wrap .scale-wrap.scale-hands label::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: url(./../img/icon-scale-hand.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease-in;
+  -o-transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
+}
+
+.page-wrap .pool-wrap .question-wrap .scale-wrap.scale-hands label::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: url(./../img/icon-scale-hand-a.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in;
+  -o-transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
+}
+
+.page-wrap .pool-wrap .question-wrap .scale-wrap input[type=radio] {
+  display: none;
+}
+
+.page-wrap .pool-wrap .question-wrap .scale-wrap input[type=radio]:checked + label::after,
+.page-wrap .pool-wrap .question-wrap .scale-wrap input[type=radio]:checked ~ label::after {
+  opacity: 1;
+}
+
+.page-wrap .pool-wrap .question-wrap .scale-wrap input[type=radio]:checked + label::before,
+.page-wrap .pool-wrap .question-wrap .scale-wrap input[type=radio]:checked ~ label::before {
+  opacity: 0;
+}
+
+.page-wrap .pool-wrap .question-wrap .scale-wrap input[type=radio] + label:hover::after,
+.page-wrap .pool-wrap .question-wrap .scale-wrap input[type=radio] + label:hover ~ label::after,
+.page-wrap .pool-wrap .question-wrap .scale-wrap input[type=radio] ~ label:hover::after,
+.page-wrap .pool-wrap .question-wrap .scale-wrap input[type=radio] ~ label:hover ~ label::after {
+  opacity: 1;
+}
+
+.page-wrap .pool-wrap .question-wrap .scale-wrap input[type=radio] + label:hover::before,
+.page-wrap .pool-wrap .question-wrap .scale-wrap input[type=radio] + label:hover ~ label::before,
+.page-wrap .pool-wrap .question-wrap .scale-wrap input[type=radio] ~ label:hover::before,
+.page-wrap .pool-wrap .question-wrap .scale-wrap input[type=radio] ~ label:hover ~ label::before {
+  opacity: 0;
+}
+
+.page-wrap .pool-wrap .question-wrap .scale-wrap label {
+  height: 60px;
+  position: relative;
+  cursor: pointer;
+}
+
+.page-wrap .pool-wrap .question-wrap .scale-10 > div,
+.page-wrap .pool-wrap .question-wrap .scale-10 > label {
+  width: calc(10% - 10px);
+  max-width: calc(10% - 10px);
+}
+
+.page-wrap .pool-wrap .question-wrap .scale-9 > div,
+.page-wrap .pool-wrap .question-wrap .scale-9 > label {
+  width: calc(11% - 10px);
+  max-width: calc(11% - 10px);
+}
+
+.page-wrap .pool-wrap .question-wrap .scale-8 > div,
+.page-wrap .pool-wrap .question-wrap .scale-8 > label {
+  width: calc(12.5% - 10px);
+  max-width: calc(12.5% - 10px);
+}
+
+.page-wrap .pool-wrap .question-wrap .scale-7 > div,
+.page-wrap .pool-wrap .question-wrap .scale-7 > label {
+  width: calc(14% - 10px);
+  max-width: calc(14% - 10px);
+}
+
+.page-wrap .pool-wrap .question-wrap .scale-6 > div,
+.page-wrap .pool-wrap .question-wrap .scale-6 > label {
+  width: calc(16.5% - 10px);
+  max-width: calc(16.5% - 10px);
+}
+
+.page-wrap .pool-wrap .question-wrap .scale-5 > div,
+.page-wrap .pool-wrap .question-wrap .scale-5 > label {
+  width: calc(20% - 10px);
+  max-width: calc(20% - 10px);
+}
+
+.page-wrap .pool-wrap .question-wrap .scale-4 > div,
+.page-wrap .pool-wrap .question-wrap .scale-4 > label {
+  width: calc(25% - 10px);
+  max-width: calc(25% - 10px);
+}
+
+.page-wrap .pool-wrap .question-wrap .scale-3 {
+  max-width: 500px;
+}
+
+.page-wrap .pool-wrap .question-wrap .scale-3 > div,
+.page-wrap .pool-wrap .question-wrap .scale-3 > label {
+  width: calc(33.3% - 10px);
+  max-width: calc(33.3% - 10px);
 }
 
 .load-wrapper {
