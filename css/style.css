@@ -3963,6 +3963,7 @@ body {
   color: #FFFFFF;
   display: inline-block;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .page-wrap .constr-wrap .questions-box .hidden {
@@ -4005,6 +4006,8 @@ body {
   background: #7FA1F8;
   border-radius: 25px;
   height: 5px;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .page-wrap .preview-footer .footer-row {

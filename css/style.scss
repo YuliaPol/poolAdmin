@@ -3013,6 +3013,7 @@ body {
                 color: #FFFFFF;
                 display: inline-block;
                 cursor: pointer;
+                text-decoration: none;
             }
             .hidden {
                 display: none;
@@ -3049,6 +3050,8 @@ body {
             background: #7FA1F8;
             border-radius: 25px;
             height: 5px;
+            max-width: 100%;
+            overflow: hidden;
         }
         .footer-row {
             display: flex;

@@ -205,5 +205,19 @@ jQuery(function ($) {
             parents.find('.input-box .bar-filled').css('width', percent + '%');
             parents.find('.label').css('background-position', percent + '%');
         };
+
+        $('.pool-wrap .question-list').scroll(function(e){
+            setScrollWisth();
+        });
+        function setScrollWisth(){
+            let box = $('.pool-wrap .question-list');
+            let curScroll = box.scrollTop();
+            let scrolHeight = box[0].scrollHeight;
+            let boxHeight = box[0].clientHeight;
+            let boxScrollHeight = scrolHeight - boxHeight;
+            let scrollWidth = Math.round((100/boxScrollHeight)*curScroll);
+            $('.preview-footer .proggres').css('width', scrollWidth + '%');
+        }
+        setScrollWisth();
     });
 });
