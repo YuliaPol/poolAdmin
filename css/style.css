@@ -3707,6 +3707,36 @@ body {
   color: #000000;
 }
 
+.page-wrap .constr-wrap .questions-box .question-wrap .question-name input[type=text].has-error,
+.page-wrap .constr-wrap .questions-box .question-wrap .question-name textarea.has-error {
+  border-color: #FF7262;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap .question-name input[type=text].has-error::-webkit-input-placeholder,
+.page-wrap .constr-wrap .questions-box .question-wrap .question-name textarea.has-error::-webkit-input-placeholder {
+  color: #FF7262;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap .question-name input[type=text].has-error::-moz-placeholder,
+.page-wrap .constr-wrap .questions-box .question-wrap .question-name textarea.has-error::-moz-placeholder {
+  color: #FF7262;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap .question-name input[type=text].has-error:-ms-input-placeholder,
+.page-wrap .constr-wrap .questions-box .question-wrap .question-name textarea.has-error:-ms-input-placeholder {
+  color: #FF7262;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap .question-name input[type=text].has-error::-ms-input-placeholder,
+.page-wrap .constr-wrap .questions-box .question-wrap .question-name textarea.has-error::-ms-input-placeholder {
+  color: #FF7262;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap .question-name input[type=text].has-error::placeholder,
+.page-wrap .constr-wrap .questions-box .question-wrap .question-name textarea.has-error::placeholder {
+  color: #FF7262;
+}
+
 .page-wrap .constr-wrap .questions-box .question-wrap .added-file-wrap {
   width: 100%;
   max-width: 100%;

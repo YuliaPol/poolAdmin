@@ -2815,6 +2815,12 @@ body {
                         &::placeholder {
                             color: #000000;
                         }
+                        &.has-error {
+                            border-color: #FF7262;
+                            &::placeholder {
+                                color: #FF7262;
+                            }
+                        }
                     }
                 }
                 .added-file-wrap {

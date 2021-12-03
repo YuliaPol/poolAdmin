@@ -187,7 +187,7 @@ jQuery(function ($) {
                 </div>`;
             let nameHtml = 
                 `<div class="question-name">
-                    <textarea name="question_${id}"  rows="1" placeholder="Введите ваш вопрос"></textarea>
+                    <textarea name="question_${id}"  rows="1" placeholder="Введите ваш вопрос" data-required="required"></textarea>
                 </div>`;
             let topEL = 
                 `<div class="edit-block">
