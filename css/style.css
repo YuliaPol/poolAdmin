@@ -1773,6 +1773,7 @@ body {
   -o-transition: border-color 0.3s ease-in;
   transition: border-color 0.3s ease-in;
   position: relative;
+  background: #fff;
 }
 
 .page-wrap .constr-wrap .questions-box .question-wrap.question-single .radio-btns-wrapper .radio-item.focus, .page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .radio-btns-wrapper .radio-item.focus {

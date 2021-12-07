@@ -634,6 +634,12 @@ jQuery(function ($) {
                     return /^\d*$/.test(value) && (value === "" || parseInt(value) <= 10000);
                 });
             }
+            if(type = "single"){
+                setSortbaleSingleItems();
+            }
+            if(type = "multiple"){
+                setMultipleItems();
+            }
             refreshQuestionsId();
         }
 
@@ -944,6 +950,30 @@ jQuery(function ($) {
             }
         });
 
+        //sortable for single items
+        function setSortbaleSingleItems(){
+            $('.question-single .radio-btns-wrapper').sortable({
+                cancel: 'a',
+                containment: '.radio-btns-wrapper',
+                cursor: 'grab',
+                stop: function( event, ui ) {
+                    let itemsList = $(event.target);
+                    refreshSingleOptionsId(itemsList);
+                }
+            });
+        }
+        setSortbaleSingleItems();
+
+        $('.content-wrap').on('click', '.question-single .radio-btns-wrapper textarea', function(e){
+            let parent = $(this).parents('.radio-btns-wrapper');
+            if(parent.is(':ui-sortable')){
+                parent.sortable( 'disable');
+            }
+        });
+        $('.content-wrap').on('blur', '.question-single .radio-btns-wrapper textarea', function(e){
+            let parent = $(this).parents('.radio-btns-wrapper');
+            parent.sortable( 'enable');
+        });
         //end settings for single question
 
         //settings for scale question
@@ -1311,6 +1341,36 @@ jQuery(function ($) {
                 let removeEl = itemsList.find('.neither');
                 removeSingleOption(removeEl);
             }
+        });
+        //sortable for multiple items
+        function setMultipleItems(){
+            $('.question-multiple .radio-btns-wrapper').sortable({
+                cancel: 'a, .input-item',
+                containment: '.radio-btns-wrapper',
+                cursor: 'grab',
+                stop: function( event, ui ) {
+                    let itemsList = $(event.target);
+                    //check if input-item is last element
+                    let inputItem = itemsList.find('.input-item');
+                    let inputItemId = inputItem.index() + 1;
+                    let listLegth = itemsList.children().length;
+                    if(inputItemId < listLegth){
+                        inputItem.appendTo(itemsList);
+                    }
+                    refreshMultipleOptionsId(itemsList);
+                }
+            });
+        }
+        setMultipleItems();
+        $('.content-wrap').on('click', '.question-multiple .radio-btns-wrapper textarea', function(e){
+            let parent = $(this).parents('.radio-btns-wrapper');
+            if(parent.is(':ui-sortable')){
+                parent.sortable( 'disable');
+            }
+        });
+        $('.content-wrap').on('blur', '.question-multiple .radio-btns-wrapper textarea', function(e){
+            let parent = $(this).parents('.radio-btns-wrapper');
+            parent.sortable( 'enable');
         });
         //end settings for multiple question
 
