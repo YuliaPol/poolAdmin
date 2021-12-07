@@ -954,7 +954,7 @@ jQuery(function ($) {
         function setSortbaleSingleItems(){
             $('.question-single .radio-btns-wrapper').sortable({
                 cancel: 'a',
-                containment: '.radio-btns-wrapper',
+                containment: '.questions-list',
                 cursor: 'grab',
                 stop: function( event, ui ) {
                     let itemsList = $(event.target);
@@ -1346,7 +1346,7 @@ jQuery(function ($) {
         function setMultipleItems(){
             $('.question-multiple .radio-btns-wrapper').sortable({
                 cancel: 'a, .input-item',
-                containment: '.radio-btns-wrapper',
+                containment: '.questions-list',
                 cursor: 'grab',
                 stop: function( event, ui ) {
                     let itemsList = $(event.target);
@@ -1593,7 +1593,7 @@ jQuery(function ($) {
         function setSortbaleRanging(){
             $('.question-ranging .ranging-list').sortable({
                 cancel: 'a,button, textarea, .empty-item',
-                containment: '.ranging-list',
+                containment: 'parent',
                 cursor: 'grab',
                 stop: function( event, ui ) {
                     let question = $(ui.item).parents('.question-wrap');

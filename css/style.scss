@@ -1277,6 +1277,8 @@ body {
                 background: #FFFFFF;
                 padding-bottom: 50px;
                 position: relative;
+                max-width: 100%;
+                overflow: hidden;
                 .btn-preview-wrap {
                     position: absolute;
                     bottom: 0px;

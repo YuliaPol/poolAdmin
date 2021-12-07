@@ -1679,6 +1679,8 @@ body {
   background: #FFFFFF;
   padding-bottom: 50px;
   position: relative;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .page-wrap .constr-wrap .questions-box .questions-list .btn-preview-wrap {
