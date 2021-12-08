@@ -533,6 +533,38 @@ body {
                                             transition: opacity 0.3s ease-in;
                                         }
                                     }
+                                    .icon-basket {
+                                        width: 15px;
+                                        height: 15px;
+                                        position: relative;
+                                        &::before {
+                                            content: "";
+                                            position: absolute;
+                                            top: 0px;
+                                            bottom: 0px;
+                                            left: 0px;
+                                            right: 0px;
+                                            background: url(./../img/icon-basket.svg);
+                                            background-position: center;
+                                            background-repeat: no-repeat;
+                                            background-size: contain;
+                                            transition: opacity 0.3s ease-in;
+                                        }
+                                        &::after {
+                                            content: "";
+                                            position: absolute;
+                                            top: 0px;
+                                            bottom: 0px;
+                                            left: 0px;
+                                            right: 0px;
+                                            background: url(./../img/icon-basket-a.svg);
+                                            background-position: center;
+                                            background-repeat: no-repeat;
+                                            background-size: contain;
+                                            opacity: 0;
+                                            transition: opacity 0.3s ease-in;
+                                        }
+                                    }
                                 }
                                 .text {
                                     font-family: $fontPage;
