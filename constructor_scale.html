@@ -84,10 +84,6 @@
                             <div class="icon icon-dropdown"></div>
                             <div class="name">Выпадающий список</div>
                         </div>
-                        <div class="list-item" data-type="multiple">
-                            <div class="icon icon-multiple"></div>
-                            <div class="name">Множественный выбор</div>
-                        </div>
                         <div class="list-item" data-type="matrix">
                             <div class="icon icon-matrix"></div>
                             <div class="name">Матрица</div>
@@ -115,10 +111,6 @@
                         <div class="list-item" data-type="file">
                             <div class="icon icon-file"></div>
                             <div class="name">Загрузить файл</div>
-                        </div>
-                        <div class="list-item" data-type="diapason">
-                            <div class="icon icon-diapason"></div>
-                            <div class="name">Диапазон</div>
                         </div>
                     </div>
                 </div>
@@ -160,173 +152,175 @@
                     <div class="questions-box">
                         <div class="questions-list">
                             <div class="question-wrap question-scale" data-id="1">
-                                <div class="edit-block">
-                                    <div class="attach-file">
-                                        <div class="attach-file-icon"></div>
-                                        <div class="attach-files-wrap">
-                                            <div class="files-list">
-                                                <div class="file-item file-video">
-                                                    <input type="file" accept="video/mp4,video/x-m4v,video/*" name="uploadvideo_1"
-                                                        id="uploadvideo_1">
-                                                    <label for="uploadvideo_1"></label>
+                                <div class="box-shadow">
+                                    <div class="edit-block">
+                                        <div class="attach-file">
+                                            <div class="attach-file-icon"></div>
+                                            <div class="attach-files-wrap">
+                                                <div class="files-list">
+                                                    <div class="file-item file-video">
+                                                        <input type="file" accept="video/mp4,video/x-m4v,video/*" name="uploadvideo_1"
+                                                            id="uploadvideo_1">
+                                                        <label for="uploadvideo_1"></label>
+                                                    </div>
+                                                    <div class="file-item file-img">
+                                                        <input type="file" accept="image/png, image/gif, image/jpeg" name="uploadimage_1"
+                                                            id="uploadimage_1">
+                                                        <label for="uploadimage_1"></label>
+                                                    </div>
+                                                    <div class="file-item file-audio">
+                                                        <input type="file" accept=".mp3,audio/*" name="uploadaudio_1" id="uploadaudio_1">
+                                                        <label for="uploadaudio_1"></label>
+                                                    </div>
                                                 </div>
-                                                <div class="file-item file-img">
-                                                    <input type="file" accept="image/png, image/gif, image/jpeg" name="uploadimage_1"
-                                                        id="uploadimage_1">
-                                                    <label for="uploadimage_1"></label>
+                                            </div>
+                                        </div>
+                                        <div class="remove-question"></div>
+                                    </div>
+                                    <div class="question-name">
+                                        <textarea name="question_1"  rows="1" placeholder="Введите ваш вопрос"></textarea>
+                                    </div>
+                                    <div class="scale-wrap scale-star scale-10">
+                        
+                                        <input type="radio" id="scale_1_10" name="scale_1" value="10" />
+                                        <label for="scale_1_10" title="text"></label>
+
+                                        <input type="radio" id="scale_1_9" name="scale_1" value="9" />
+                                        <label for="scale_1_9" title="text"></label>
+
+                                        <input type="radio" id="scale_1_8" name="scale_1" value="8" />
+                                        <label for="scale_1_8" title="text"></label>
+
+                                        <input type="radio" id="scale_1_7" name="scale_1" value="7" />
+                                        <label for="scale_1_7" title="text"></label>
+
+                                        <input type="radio" id="scale_1_6" name="scale_1" value="6" />
+                                        <label for="scale_1_6" title="text"></label>
+
+                                        <input type="radio" id="scale_1_5" name="scale_1" value="5" />
+                                        <label for="scale_1_5" title="text"></label>
+
+                                        <input type="radio" id="scale_1_4" name="scale_1" value="4" />
+                                        <label for="scale_1_4" title="text"></label>
+
+                                        <input type="radio" id="scale_1_3" name="scale_1" value="3" />
+                                        <label for="scale_1_3" title="text"></label>
+
+                                        <input type="radio" id="scale_1_2" name="scale_1" value="2" />
+                                        <label for="scale_1_2" title="text"></label>
+
+                                        <input type="radio" id="scale_1_1" name="scale_1" value="1" />
+                                        <label for="scale_1_1" title="text"></label>
+                                    </div>
+                                    <div class="scale-labels-wrap scale-10">
+                                        <div class="label-item"></div>
+                                        <div class="label-item"></div>
+                                        <div class="label-item"></div>
+                                        <div class="label-item"></div>
+                                        <div class="label-item"></div>
+                                        <div class="label-item"></div>
+                                        <div class="label-item"></div>
+                                        <div class="label-item"></div>
+                                        <div class="label-item"></div>
+                                        <div class="label-item"></div>
+                                    </div>
+                                    <div class="scale-options">
+                                        <div class="scale-row">
+                                            <div class="options-item">
+                                                <div class="option-label">
+                                                    Шкала
                                                 </div>
-                                                <div class="file-item file-audio">
-                                                    <input type="file" accept=".mp3,audio/*" name="uploadaudio_1" id="uploadaudio_1">
-                                                    <label for="uploadaudio_1"></label>
+                                                <div class="option-value">
+                                                    <select name="scaleAmount_1" class="customselect scale-amount">
+                                                        <option value="3">3</option>
+                                                        <option value="5">5</option>
+                                                        <option selected value="10">10</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="options-item">
+                                                <div class="option-label">
+                                                    Фигура
+                                                </div>
+                                                <div class="option-value">
+                                                    <select name="scaleType_1" class="customselect scale-type">
+                                                        <option value="star">Звездочки</option>
+                                                        <option value="face">Смайлики</option>
+                                                        <option value="heart">Сердечки</option>
+                                                        <option value="hand">Руки</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="remove-question"></div>
-                                </div>
-                                <div class="question-name">
-                                    <textarea name="question_1"  rows="1" placeholder="Введите ваш вопрос"></textarea>
-                                </div>
-                                <div class="scale-wrap scale-star scale-10">
-                    
-                                    <input type="radio" id="scale_1_10" name="scale_1" value="10" />
-                                    <label for="scale_1_10" title="text"></label>
-
-                                    <input type="radio" id="scale_1_9" name="scale_1" value="9" />
-                                    <label for="scale_1_9" title="text"></label>
-
-                                    <input type="radio" id="scale_1_8" name="scale_1" value="8" />
-                                    <label for="scale_1_8" title="text"></label>
-
-                                    <input type="radio" id="scale_1_7" name="scale_1" value="7" />
-                                    <label for="scale_1_7" title="text"></label>
-
-                                    <input type="radio" id="scale_1_6" name="scale_1" value="6" />
-                                    <label for="scale_1_6" title="text"></label>
-
-                                    <input type="radio" id="scale_1_5" name="scale_1" value="5" />
-                                    <label for="scale_1_5" title="text"></label>
-
-                                    <input type="radio" id="scale_1_4" name="scale_1" value="4" />
-                                    <label for="scale_1_4" title="text"></label>
-
-                                    <input type="radio" id="scale_1_3" name="scale_1" value="3" />
-                                    <label for="scale_1_3" title="text"></label>
-
-                                    <input type="radio" id="scale_1_2" name="scale_1" value="2" />
-                                    <label for="scale_1_2" title="text"></label>
-
-                                    <input type="radio" id="scale_1_1" name="scale_1" value="1" />
-                                    <label for="scale_1_1" title="text"></label>
-                                </div>
-                                <div class="scale-labels-wrap scale-10">
-                                    <div class="label-item"></div>
-                                    <div class="label-item"></div>
-                                    <div class="label-item"></div>
-                                    <div class="label-item"></div>
-                                    <div class="label-item"></div>
-                                    <div class="label-item"></div>
-                                    <div class="label-item"></div>
-                                    <div class="label-item"></div>
-                                    <div class="label-item"></div>
-                                    <div class="label-item"></div>
-                                </div>
-                                <div class="scale-options">
-                                    <div class="scale-row">
-                                        <div class="options-item">
-                                            <div class="option-label">
-                                                Шкала
-                                            </div>
-                                            <div class="option-value">
-                                                <select name="scaleAmount_1" class="customselect scale-amount">
-                                                    <option value="3">3</option>
-                                                    <option value="5">5</option>
-                                                    <option selected value="10">10</option>
-                                                </select>
-                                            </div>
+                                        <div class="check-wrap">
+                                            <input checked type="checkbox" class="add-rateLabels" name="rateLabels_1" id="rateLabels_1">
+                                            <label for="rateLabels_1">
+                                                <div class="check"></div>
+                                                <div class="check-text">
+                                                    Метки рейтинга
+                                                </div>
+                                            </label>
                                         </div>
-                                        <div class="options-item">
-                                            <div class="option-label">
-                                                Фигура
+                                        <div class="labels-option">
+                                            <div class="label-item">
+                                                <div class="number">1.</div>
+                                                <div class="value">
+                                                    <input type="text" name="inputpoint_1_1">
+                                                </div>
                                             </div>
-                                            <div class="option-value">
-                                                <select name="scaleType_1" class="customselect scale-type">
-                                                    <option value="star">Звездочки</option>
-                                                    <option value="face">Смайлики</option>
-                                                    <option value="heart">Сердечки</option>
-                                                    <option value="hand">Руки</option>
-                                                </select>
+                                            <div class="label-item">
+                                                <div class="number">2.</div>
+                                                <div class="value">
+                                                    <input type="text" name="inputpoint_1_2">
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="check-wrap">
-                                        <input checked type="checkbox" class="add-rateLabels" name="rateLabels_1" id="rateLabels_1">
-                                        <label for="rateLabels_1">
-                                            <div class="check"></div>
-                                            <div class="check-text">
-                                                Метки рейтинга
+                                            <div class="label-item">
+                                                <div class="number">3.</div>
+                                                <div class="value">
+                                                    <input type="text" name="inputpoint_1_3">
+                                                </div>
                                             </div>
-                                        </label>
-                                    </div>
-                                    <div class="labels-option">
-                                        <div class="label-item">
-                                            <div class="number">1.</div>
-                                            <div class="value">
-                                                <input type="text" name="inputpoint_1_1">
+                                            <div class="label-item">
+                                                <div class="number">4.</div>
+                                                <div class="value">
+                                                    <input type="text" name="inputpoint_1_4">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="label-item">
-                                            <div class="number">2.</div>
-                                            <div class="value">
-                                                <input type="text" name="inputpoint_1_2">
+                                            <div class="label-item">
+                                                <div class="number">5.</div>
+                                                <div class="value">
+                                                    <input type="text" name="inputpoint_1_5">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="label-item">
-                                            <div class="number">3.</div>
-                                            <div class="value">
-                                                <input type="text" name="inputpoint_1_3">
+                                            <div class="label-item">
+                                                <div class="number">6.</div>
+                                                <div class="value">
+                                                    <input type="text" name="inputpoint_1_6">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="label-item">
-                                            <div class="number">4.</div>
-                                            <div class="value">
-                                                <input type="text" name="inputpoint_1_4">
+                                            <div class="label-item">
+                                                <div class="number">7.</div>
+                                                <div class="value">
+                                                    <input type="text" name="inputpoint_1_7">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="label-item">
-                                            <div class="number">5.</div>
-                                            <div class="value">
-                                                <input type="text" name="inputpoint_1_5">
+                                            <div class="label-item">
+                                                <div class="number">8.</div>
+                                                <div class="value">
+                                                    <input type="text" name="inputpoint_1_8">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="label-item">
-                                            <div class="number">6.</div>
-                                            <div class="value">
-                                                <input type="text" name="inputpoint_1_6">
+                                            <div class="label-item">
+                                                <div class="number">9.</div>
+                                                <div class="value">
+                                                    <input type="text" name="inputpoint_1_9">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="label-item">
-                                            <div class="number">7.</div>
-                                            <div class="value">
-                                                <input type="text" name="inputpoint_1_7">
-                                            </div>
-                                        </div>
-                                        <div class="label-item">
-                                            <div class="number">8.</div>
-                                            <div class="value">
-                                                <input type="text" name="inputpoint_1_8">
-                                            </div>
-                                        </div>
-                                        <div class="label-item">
-                                            <div class="number">9.</div>
-                                            <div class="value">
-                                                <input type="text" name="inputpoint_1_9">
-                                            </div>
-                                        </div>
-                                        <div class="label-item">
-                                            <div class="number">10.</div>
-                                            <div class="value">
-                                                <input type="text" name="inputpoint_1_10">
+                                            <div class="label-item">
+                                                <div class="number">10.</div>
+                                                <div class="value">
+                                                    <input type="text" name="inputpoint_1_10">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

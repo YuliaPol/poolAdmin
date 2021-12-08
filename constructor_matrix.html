@@ -84,10 +84,6 @@
                             <div class="icon icon-dropdown"></div>
                             <div class="name">Выпадающий список</div>
                         </div>
-                        <div class="list-item" data-type="multiple">
-                            <div class="icon icon-multiple"></div>
-                            <div class="name">Множественный выбор</div>
-                        </div>
                         <div class="list-item" data-type="matrix">
                             <div class="icon icon-matrix"></div>
                             <div class="name">Матрица</div>
@@ -115,10 +111,6 @@
                         <div class="list-item" data-type="file">
                             <div class="icon icon-file"></div>
                             <div class="name">Загрузить файл</div>
-                        </div>
-                        <div class="list-item" data-type="diapason">
-                            <div class="icon icon-diapason"></div>
-                            <div class="name">Диапазон</div>
                         </div>
                     </div>
                 </div>
@@ -160,150 +152,152 @@
                     <div class="questions-box">
                         <div class="questions-list">
                             <div class="question-wrap question-matrix" data-id="1">
-                                <div class="edit-block">
-                                    <div class="attach-file">
-                                        <div class="attach-file-icon"></div>
-                                        <div class="attach-files-wrap">
-                                            <div class="files-list">
-                                                <div class="file-item file-video">
-                                                    <input type="file" accept="video/mp4,video/x-m4v,video/*" name="uploadvideo_1"
-                                                        id="uploadvideo_1">
-                                                    <label for="uploadvideo_1"></label>
-                                                </div>
-                                                <div class="file-item file-img">
-                                                    <input type="file" accept="image/png, image/gif, image/jpeg" name="uploadimage_1"
-                                                        id="uploadimage_1">
-                                                    <label for="uploadimage_1"></label>
-                                                </div>
-                                                <div class="file-item file-audio">
-                                                    <input type="file" accept=".mp3,audio/*" name="uploadaudio_1" id="uploadaudio_1">
-                                                    <label for="uploadaudio_1"></label>
+                                <div class="box-shadow">
+                                    <div class="edit-block">
+                                        <div class="attach-file">
+                                            <div class="attach-file-icon"></div>
+                                            <div class="attach-files-wrap">
+                                                <div class="files-list">
+                                                    <div class="file-item file-video">
+                                                        <input type="file" accept="video/mp4,video/x-m4v,video/*" name="uploadvideo_1"
+                                                            id="uploadvideo_1">
+                                                        <label for="uploadvideo_1"></label>
+                                                    </div>
+                                                    <div class="file-item file-img">
+                                                        <input type="file" accept="image/png, image/gif, image/jpeg" name="uploadimage_1"
+                                                            id="uploadimage_1">
+                                                        <label for="uploadimage_1"></label>
+                                                    </div>
+                                                    <div class="file-item file-audio">
+                                                        <input type="file" accept=".mp3,audio/*" name="uploadaudio_1" id="uploadaudio_1">
+                                                        <label for="uploadaudio_1"></label>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="remove-question"></div>
                                     </div>
-                                    <div class="remove-question"></div>
-                                </div>
-                                <div class="question-name">
-                                    <textarea name="question_1"  rows="1" placeholder="Введите ваш вопрос"></textarea>
-                                </div>
-                                <div class="matrix-table">
-                                    <table>
-                                        <tr>
-                                            <td></td>
-                                            <td>Текст столбца</td>
-                                            <td>Текст столбца</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Текст строки</td>
-                                            <td>
-                                                <div class="matrix-check">
-                                                    <!-- q-1(question ID)-1(row ID)-1(col ID) -->
-                                                    <input type="radio" name="q_1_1" id="q_1_1_1">
-                                                    <label for="q_1_1_1"></label>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="matrix-check">
-                                                    <input type="radio" name="q_1_1" id="q_1_1_2">
-                                                    <label for="q_1_1_2"></label>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Текст строки</td>
-                                            <td>
-                                                <div class="matrix-check">
-                                                    <input type="radio" name="q_1_2" id="q_1_2_1">
-                                                    <label for="q_1_2_1"></label>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="matrix-check">
-                                                    <input type="radio" name="q_1_2" id="q_1_2_2">
-                                                    <label for="q_1_2_2"></label>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Текст строки</td>
-                                            <td>
-                                                <div class="matrix-check">
-                                                    <input type="radio" name="q_1_3" id="q_1_3_1">
-                                                    <label for="q_1_3_1"></label>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="matrix-check">
-                                                    <input type="radio" name="q_1_3" id="q_1_3_2">
-                                                    <label for="q_1_3_2"></label>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="matrix-options">
-                                    <div class="matrix-row-list">
-                                        <div class="matrix-row">
-                                            <div class="value">
-                                                <input type="text" name="inputRow_1_1" value="Текст строки" 
-                                                    placeholder="Введите текст строки">
-                                            </div>
-                                        </div>
-                                        <div class="matrix-row">
-                                            <div class="value">
-                                                <input type="text" name="inputRow_1_2" value="Текст строки" 
-                                                    placeholder="Введите текст строки">
-                                            </div>
-                                        </div>
-                                        <div class="matrix-row">
-                                            <div class="value">
-                                                <input type="text" name="inputRow_1_3" value="Текст строки"
-                                                    placeholder="Введите текст строки">
-                                            </div>
-                                        </div>
-                                        <!-- last empty -->
-                                        <div class="matrix-row">
-                                            <div class="value">
-                                                <input type="text" name="inputRow_1_4" placeholder="Введите текст строки">
-                                            </div>
-                                        </div>
+                                    <div class="question-name">
+                                        <textarea name="question_1"  rows="1" placeholder="Введите ваш вопрос"></textarea>
                                     </div>
-                                    <div class="check-wrap">
-                                        <input type="checkbox" id="addComment_1" class="add-comment">
-                                        <label for="addComment_1">
-                                            <div class="check"></div>
-                                            <div class="check-text">
-                                                Добавить поле комментария
-                                            </div>
-                                        </label>
+                                    <div class="matrix-table">
+                                        <table>
+                                            <tr>
+                                                <td></td>
+                                                <td>Текст столбца</td>
+                                                <td>Текст столбца</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Текст строки</td>
+                                                <td>
+                                                    <div class="matrix-check">
+                                                        <!-- q-1(question ID)-1(row ID)-1(col ID) -->
+                                                        <input type="radio" name="q_1_1" id="q_1_1_1">
+                                                        <label for="q_1_1_1"></label>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="matrix-check">
+                                                        <input type="radio" name="q_1_1" id="q_1_1_2">
+                                                        <label for="q_1_1_2"></label>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Текст строки</td>
+                                                <td>
+                                                    <div class="matrix-check">
+                                                        <input type="radio" name="q_1_2" id="q_1_2_1">
+                                                        <label for="q_1_2_1"></label>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="matrix-check">
+                                                        <input type="radio" name="q_1_2" id="q_1_2_2">
+                                                        <label for="q_1_2_2"></label>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Текст строки</td>
+                                                <td>
+                                                    <div class="matrix-check">
+                                                        <input type="radio" name="q_1_3" id="q_1_3_1">
+                                                        <label for="q_1_3_1"></label>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="matrix-check">
+                                                        <input type="radio" name="q_1_3" id="q_1_3_2">
+                                                        <label for="q_1_3_2"></label>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
                                     </div>
-                                    <div class="check-wrap">
-                                        <input type="checkbox" class="add-multipleChoice" name="addmultiple_1" id="addmultiple_1">
-                                        <label for="addmultiple_1">
-                                            <div class="check"></div>
-                                            <div class="check-text">
-                                                Разрешить несколько ответов на строку
+                                    <div class="matrix-options">
+                                        <div class="matrix-row-list">
+                                            <div class="matrix-row">
+                                                <div class="value">
+                                                    <input type="text" name="inputRow_1_1" value="Текст строки" 
+                                                        placeholder="Введите текст строки">
+                                                </div>
                                             </div>
-                                        </label>
-                                    </div>
-                                    <div class="matrix-col-list">
-                                        <div class="matrix-col">
-                                            <div class="value">
-                                                <input type="text" name="inputCol_1_1" value="Текст столбца" 
-                                                    placeholder="Введите текст строки">
+                                            <div class="matrix-row">
+                                                <div class="value">
+                                                    <input type="text" name="inputRow_1_2" value="Текст строки" 
+                                                        placeholder="Введите текст строки">
+                                                </div>
+                                            </div>
+                                            <div class="matrix-row">
+                                                <div class="value">
+                                                    <input type="text" name="inputRow_1_3" value="Текст строки"
+                                                        placeholder="Введите текст строки">
+                                                </div>
+                                            </div>
+                                            <!-- last empty -->
+                                            <div class="matrix-row">
+                                                <div class="value">
+                                                    <input type="text" name="inputRow_1_4" placeholder="Введите текст строки">
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="matrix-col">
-                                            <div class="value">
-                                                <input type="text" name="inputCol_1_2" value="Текст столбца" 
-                                                    placeholder="Введите текст строки">
-                                            </div>
+                                        <div class="check-wrap">
+                                            <input type="checkbox" id="addComment_1" class="add-comment">
+                                            <label for="addComment_1">
+                                                <div class="check"></div>
+                                                <div class="check-text">
+                                                    Добавить поле комментария
+                                                </div>
+                                            </label>
                                         </div>
-                                        <!-- last is empty -->
-                                        <div class="matrix-col">
-                                            <div class="value">
-                                                <input type="text" name="inputCol_1_3" placeholder="Введите текст строки">
+                                        <div class="check-wrap">
+                                            <input type="checkbox" class="add-multipleChoice" name="addmultiple_1" id="addmultiple_1">
+                                            <label for="addmultiple_1">
+                                                <div class="check"></div>
+                                                <div class="check-text">
+                                                    Разрешить несколько ответов на строку
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <div class="matrix-col-list">
+                                            <div class="matrix-col">
+                                                <div class="value">
+                                                    <input type="text" name="inputCol_1_1" value="Текст столбца" 
+                                                        placeholder="Введите текст строки">
+                                                </div>
+                                            </div>
+                                            <div class="matrix-col">
+                                                <div class="value">
+                                                    <input type="text" name="inputCol_1_2" value="Текст столбца" 
+                                                        placeholder="Введите текст строки">
+                                                </div>
+                                            </div>
+                                            <!-- last is empty -->
+                                            <div class="matrix-col">
+                                                <div class="value">
+                                                    <input type="text" name="inputCol_1_3" placeholder="Введите текст строки">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

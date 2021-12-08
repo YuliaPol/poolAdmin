@@ -84,10 +84,6 @@
                             <div class="icon icon-dropdown"></div>
                             <div class="name">Выпадающий список</div>
                         </div>
-                        <div class="list-item" data-type="multiple">
-                            <div class="icon icon-multiple"></div>
-                            <div class="name">Множественный выбор</div>
-                        </div>
                         <div class="list-item" data-type="matrix">
                             <div class="icon icon-matrix"></div>
                             <div class="name">Матрица</div>
@@ -115,10 +111,6 @@
                         <div class="list-item" data-type="file">
                             <div class="icon icon-file"></div>
                             <div class="name">Загрузить файл</div>
-                        </div>
-                        <div class="list-item" data-type="diapason">
-                            <div class="icon icon-diapason"></div>
-                            <div class="name">Диапазон</div>
                         </div>
                     </div>
                 </div>
@@ -161,92 +153,95 @@
                         <div class="questions-box">
                             <div class="questions-list">
                                 <div class="question-wrap question-dropdown" data-id="1">
-                                    <div class="edit-block">
-                                        <div class="attach-file">
-                                            <div class="attach-file-icon"></div>
-                                            <div class="attach-files-wrap">
-                                                <div class="files-list">
-                                                    <div class="file-item file-video">
-                                                        <input type="file" accept="video/mp4,video/x-m4v,video/*" name="uploadvideo_1"
-                                                            id="uploadvideo_1">
-                                                        <label for="uploadvideo_1"></label>
-                                                    </div>
-                                                    <div class="file-item file-img">
-                                                        <input type="file" accept="image/png, image/gif, image/jpeg" name="uploadimage_1"
-                                                            id="uploadimage_1">
-                                                        <label for="uploadimage_1"></label>
-                                                    </div>
-                                                    <div class="file-item file-audio">
-                                                        <input type="file" accept=".mp3,audio/*" name="uploadaudio_1" id="uploadaudio_1">
-                                                        <label for="uploadaudio_1"></label>
+                                    <div class="box-shadow">
+                                        <div class="edit-block">
+                                            <div class="attach-file">
+                                                <div class="attach-file-icon"></div>
+                                                <div class="attach-files-wrap">
+                                                    <div class="files-list">
+                                                        <div class="file-item file-video">
+                                                            <input type="file" accept="video/mp4,video/x-m4v,video/*" name="uploadvideo_1"
+                                                                id="uploadvideo_1">
+                                                            <label for="uploadvideo_1"></label>
+                                                        </div>
+                                                        <div class="file-item file-img">
+                                                            <input type="file" accept="image/png, image/gif, image/jpeg" name="uploadimage_1"
+                                                                id="uploadimage_1">
+                                                            <label for="uploadimage_1"></label>
+                                                        </div>
+                                                        <div class="file-item file-audio">
+                                                            <input type="file" accept=".mp3,audio/*" name="uploadaudio_1" id="uploadaudio_1">
+                                                            <label for="uploadaudio_1"></label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="remove-question"></div>
                                         </div>
-                                        <div class="remove-question"></div>
-                                    </div>
-                                    <div class="question-name">
-                                        <textarea name="question_1"  rows="1" placeholder="Введите ваш вопрос"></textarea>
-                                    </div>
-                                    <div class="added-file-wrap">
-                                    </div>
-                                    <div class="dropdown-wrap">
-                                        <select class="customselect">
-                                            <option value="Ответ 1">Ответ 1</option>
-                                            <option value="Ответ 2">Ответ 2</option>
-                                            <option value="Ответ 3">Ответ 3</option>
-                                            <!-- last empty option  for new options -->
-                                            <option value=""></option>
-                                        </select>
-                                    </div>
-                                    <div class="option-comment">
-                                        <textarea rows="1" placeholder="Введите ваш комментарий"></textarea>
-                                    </div>
-                                    <div class="optins-list">
-                                        <div class="option-item">
-                                            <div class="number">1.</div>
-                                            <div class="value">
-                                                <input type="text" name="inputpoint_1_1" value="Ответ 1">
-                                            </div>
+                                        <div class="question-name">
+                                            <textarea name="question_1"  rows="1" placeholder="Введите ваш вопрос"></textarea>
                                         </div>
-                                        <div class="option-item">
-                                            <div class="number">2.</div>
-                                            <div class="value">
-                                                <input type="text" name="inputpoint_1_2" value="Ответ 2">
-                                            </div>
+                                        <div class="added-file-wrap">
                                         </div>
-                                        <div class="option-item">
-                                            <div class="number">3.</div>
-                                            <div class="value">
-                                                <input type="text" name="inputpoint_1_3" value="Ответ 3">
-                                            </div>
+                                        <div class="dropdown-wrap">
+                                            <select class="customselect">
+                                                <option value="Ответ 1">Ответ 1</option>
+                                                <option value="Ответ 2">Ответ 2</option>
+                                                <option value="Ответ 3">Ответ 3</option>
+                                                <!-- last empty option  for new options -->
+                                                <option value=""></option>
+                                            </select>
                                         </div>
-                                        <!-- last empty input for new option -->
-                                        <div class="option-item">
-                                            <div class="number">4.</div>
-                                            <div class="value">
-                                                <input type="text" name="inputpoint_1_3" value="">
-                                            </div>
+                                        <div class="option-comment">
+                                            <textarea rows="1" placeholder="Введите ваш комментарий"></textarea>
                                         </div>
-                                    </div>
-                                    <div class="check-wrap">
-                                        <input type="checkbox" id="addOpt_1" class="show-answers-opt" checked>
-                                        <label for="addOpt_1">
-                                            <div class="check"></div>
-                                            <div class="check-text">
-                                                Добавить вариант ответа «Другое» или поле комментария
-                                            </div>
-                                        </label>
-                                        <!-- if  addOpt_1 unchecked to .add-answers-options add class hidden -->
-                                        <div class="add-answers-options"> 
-                                            <div class="btns-wrap">
-                                                <div class="btn-wrap">
-                                                    <input type="checkbox" class="add-other" id="addOther_1">
-                                                    <label for="addOther_1">Вариант ответа</label>
+                                        <div class="optins-list">
+                                            <div class="option-item">
+                                                <div class="number">1.</div>
+                                                <div class="value">
+                                                    <input type="text" name="inputpoint_1_1" value="Ответ 1">
                                                 </div>
-                                                <div class="btn-wrap">
-                                                    <input type="checkbox" class="add-comment" id="addComment_1" checked>
-                                                    <label for="addComment_1">Поле комментария</label>
+                                            </div>
+                                            <div class="option-item">
+                                                <div class="number">2.</div>
+                                                <div class="value">
+                                                    <input type="text" name="inputpoint_1_2" value="Ответ 2">
+                                                </div>
+                                            </div>
+                                            <div class="option-item">
+                                                <div class="number">3.</div>
+                                                <div class="value">
+                                                    <input type="text" name="inputpoint_1_3" value="Ответ 3">
+                                                </div>
+                                            </div>
+                                            <!-- last empty input for new option -->
+                                            <div class="option-item">
+                                                <div class="number">4.</div>
+                                                <div class="value">
+                                                    <input type="text" name="inputpoint_1_3" value="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="switch-group">
+                                            <div class="check-wrap">
+                                                <input type="checkbox" id="addOpt_1" class="show-hidden-opt" checked>
+                                                <label for="addOpt_1">
+                                                    <div class="check"></div>
+                                                    <div class="check-text">
+                                                        Добавить вариант ответа «Другое» или поле комментария
+                                                    </div>
+                                                </label>
+                                            </div>
+                                            <div class="hidden-options"> 
+                                                <div class="btns-wrap">
+                                                    <div class="btn-wrap">
+                                                        <input type="checkbox" class="add-other" id="addOther_1">
+                                                        <label for="addOther_1">Вариант ответа</label>
+                                                    </div>
+                                                    <div class="btn-wrap">
+                                                        <input type="checkbox" class="add-comment" id="addComment_1" checked>
+                                                        <label for="addComment_1">Поле комментария</label>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

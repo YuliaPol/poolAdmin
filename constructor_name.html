@@ -84,10 +84,6 @@
                             <div class="icon icon-dropdown"></div>
                             <div class="name">Выпадающий список</div>
                         </div>
-                        <div class="list-item" data-type="multiple">
-                            <div class="icon icon-multiple"></div>
-                            <div class="name">Множественный выбор</div>
-                        </div>
                         <div class="list-item" data-type="matrix">
                             <div class="icon icon-matrix"></div>
                             <div class="name">Матрица</div>
@@ -115,10 +111,6 @@
                         <div class="list-item" data-type="file">
                             <div class="icon icon-file"></div>
                             <div class="name">Загрузить файл</div>
-                        </div>
-                        <div class="list-item" data-type="diapason">
-                            <div class="icon icon-diapason"></div>
-                            <div class="name">Диапазон</div>
                         </div>
                     </div>
                 </div>
@@ -160,42 +152,44 @@
                     <div class="questions-box">
                         <div class="questions-list">
                             <div class="question-wrap question-name" data-id="1">
-                                <div class="edit-block">
-                                    <div class="attach-file">
-                                        <div class="attach-file-icon"></div>
-                                        <div class="attach-files-wrap">
-                                            <div class="files-list">
-                                                <div class="file-item file-video">
-                                                    <input type="file" accept="video/mp4,video/x-m4v,video/*" name="uploadvideo_1"
-                                                        id="uploadvideo_1">
-                                                    <label for="uploadvideo_1"></label>
-                                                </div>
-                                                <div class="file-item file-img">
-                                                    <input type="file" accept="image/png, image/gif, image/jpeg" name="uploadimage_1"
-                                                        id="uploadimage_1">
-                                                    <label for="uploadimage_1"></label>
-                                                </div>
-                                                <div class="file-item file-audio">
-                                                    <input type="file" accept=".mp3,audio/*" name="uploadaudio_1" id="uploadaudio_1">
-                                                    <label for="uploadaudio_1"></label>
+                                <div class="box-shadow">
+                                    <div class="edit-block">
+                                        <div class="attach-file">
+                                            <div class="attach-file-icon"></div>
+                                            <div class="attach-files-wrap">
+                                                <div class="files-list">
+                                                    <div class="file-item file-video">
+                                                        <input type="file" accept="video/mp4,video/x-m4v,video/*" name="uploadvideo_1"
+                                                            id="uploadvideo_1">
+                                                        <label for="uploadvideo_1"></label>
+                                                    </div>
+                                                    <div class="file-item file-img">
+                                                        <input type="file" accept="image/png, image/gif, image/jpeg" name="uploadimage_1"
+                                                            id="uploadimage_1">
+                                                        <label for="uploadimage_1"></label>
+                                                    </div>
+                                                    <div class="file-item file-audio">
+                                                        <input type="file" accept=".mp3,audio/*" name="uploadaudio_1" id="uploadaudio_1">
+                                                        <label for="uploadaudio_1"></label>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="remove-question"></div>
                                     </div>
-                                    <div class="remove-question"></div>
-                                </div>
-                                <div class="question-name">
-                                    <textarea name="question_1"  rows="1" placeholder="Введите ваш вопрос"></textarea>
-                                </div>
-                                <div class="name-answers">
-                                    <div class="answer-wrap">
-                                        <textarea rows="1" placeholder="Имя"></textarea>
+                                    <div class="question-name">
+                                        <textarea name="question_1"  rows="1" placeholder="Введите ваш вопрос"></textarea>
                                     </div>
-                                    <div class="answer-wrap">
-                                        <textarea rows="1" placeholder="Отчество"></textarea>
-                                    </div>
-                                    <div class="answer-wrap">
-                                        <textarea rows="1" placeholder="Фамилия"></textarea>
+                                    <div class="name-answers">
+                                        <div class="answer-wrap">
+                                            <textarea rows="1" placeholder="Имя"></textarea>
+                                        </div>
+                                        <div class="answer-wrap">
+                                            <textarea rows="1" placeholder="Отчество"></textarea>
+                                        </div>
+                                        <div class="answer-wrap">
+                                            <textarea rows="1" placeholder="Фамилия"></textarea>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

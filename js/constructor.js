@@ -201,51 +201,97 @@ jQuery(function ($) {
                 case 'single':
                     el = 
                         `<div class="question-wrap question-single" data-id="${id}">
-                            ${topEL}
-                            <div class="radio-btns-wrapper">
+                            <div class="box-shadow">
+                                ${topEL}
+                                <div class="radio-btns-wrapper">
+                                </div>
+                                <div class="input-new-item-wrap">
+                                    <input type="text" class="input-single-item" placeholder="Введите вариант ответа">
+                                </div>
                             </div>
-                            <div class="input-new-item-wrap">
-                                <input type="text" class="input-single-item" placeholder="Введите вариант ответа">
-                            </div>
-                            <div class="check-wrap">
-                                <input type="checkbox" id="addOpt_${id}" class="show-answers-opt">
-                                <label for="addOpt_${id}">
-                                    <div class="check"></div>
-                                    <div class="check-text">
+                            <div class="box-shadow">
+                                <div class="switch-group">
+                                <div class="switch-row">
+                                    <div class="label">
                                         Добавить вариант ответа «Другое» или поле комментария
                                     </div>
+                                    <label class="switch">
+                                        <input type="checkbox" class="show-hidden-opt">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                                <div class="hidden hidden-options">
+                                    <div class="check-row">
+                                        <input type="checkbox" class="add-other" id="addOther_${id}" name="addOther_${id}">
+                                        <label for="addOther_${id}">Вариант ответа
+                                            <div class="check"></div>
+                                        </label>
+                                    </div>
+                                    <div class="check-row">
+                                        <input type="checkbox" class="add-comment" id="addComment_${id}" name="addComment_${id}">
+                                        <label for="addComment_${id}">
+                                            Поле комментария
+                                            <div class="check"></div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="switch-row">
+                                <div class="label">
+                                    Добавить вариант ответа «Ничего из вышеперечисленного»
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" name="addNeither_${id}" class="add-neither">
+                                    <span class="slider round"></span>
                                 </label>
-                                <div class="hidden add-answers-options">
-                                    <div class="btns-wrap">
-                                        <div class="btn-wrap">
-                                            <input type="checkbox" class="add-other" id="addOther_${id}"  name="addOther_${id}">
-                                            <label for="addOther_${id}">Вариант ответа</label>
+                            </div>
+                            <div class="switch-group">
+                                <div class="switch-row">
+                                    <div class="label">
+                                        Несколько вариантов ответов
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" class="show-hidden-opt" name="multiple_${id}">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                                <div class="hidden hidden-options">
+                                    <div class="select-row">
+                                        <div class="label">
+                                            Колличество необходимых выбраных ответов
                                         </div>
-                                        <div class="btn-wrap">
-                                            <input type="checkbox" class="add-comment" id="addComment_${id}"  name="addComment_${id}">
-                                            <label for="addComment_${id}">Поле комментария</label>
+                                        <div class="select-input">
+                                            <select name="requiredOpt_${id}" class="customselect">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="check-wrap">
-                                <input type="checkbox" class="add-neither" name="addNeither_${id}" id="addNeither_${id}">
-                                <label for="addNeither_${id}">
-                                    <div class="check"></div>
-                                    <div class="check-text">
-                                        Добавить вариант ответа «Ничего из вышеперечисленного»
-                                    </div>
+                            <div class="switch-row">
+                                <div class="label">
+                                    Обязательность ответа
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" name="required_${id}">
+                                    <span class="slider round"></span>
                                 </label>
+                            </div>
                             </div>
                         </div>`
                     break;
                 case 'free-answer':
                     el = 
                         `<div class="question-wrap question-free" data-id="${id}">
-                            ${topEL}
-                            <div class="free-answers">
-                                <div class="answer-wrap">
-                                    <textarea rows="1" placeholder="Введите ваш комментарий"></textarea>
+                            <div class="box-shadow">
+                                ${topEL}
+                                <div class="free-answers">
+                                    <div class="answer-wrap">
+                                        <textarea rows="1" placeholder="Введите ваш комментарий"></textarea>
+                                    </div>
                                 </div>
                             </div>
                         </div>`
@@ -253,16 +299,18 @@ jQuery(function ($) {
                 case 'listfree':
                     el = 
                         `<div class="question-wrap question-listfree" data-id="${id}">
-                            ${topEL}
-                            <div class="free-answers">
-                                <div class="answer-wrap">
-                                    <textarea rows="1" placeholder="Введите ваш комментарий"></textarea>
-                                </div>
-                                <div class="answer-wrap">
-                                    <textarea rows="1" placeholder="Введите ваш комментарий"></textarea>
-                                </div>
-                                <div class="answer-wrap">
-                                    <textarea rows="1" placeholder="Введите ваш комментарий"></textarea>
+                            <div class="box-shadow">
+                                ${topEL}
+                                <div class="free-answers">
+                                    <div class="answer-wrap">
+                                        <textarea rows="1" placeholder="Введите ваш комментарий"></textarea>
+                                    </div>
+                                    <div class="answer-wrap">
+                                        <textarea rows="1" placeholder="Введите ваш комментарий"></textarea>
+                                    </div>
+                                    <div class="answer-wrap">
+                                        <textarea rows="1" placeholder="Введите ваш комментарий"></textarea>
+                                    </div>
                                 </div>
                             </div>
                         </div>`
@@ -270,75 +318,77 @@ jQuery(function ($) {
                 case 'scale':
                     el = 
                         `<div class="question-wrap question-scale" data-id="${id}">
-                            ${topEL}
-                            <div class="scale-wrap scale-star scale-10">
+                            <div class="box-shadow">
+                                ${topEL}
+                                <div class="scale-wrap scale-star scale-10">
 
-                                <input type="radio" id="scale_${id}_10" name="scale_${id}" value="10" />
-                                <label for="scale_${id}_10" title="text"></label>
-                        
-                                <input type="radio" id="scale_${id}_9" name="scale_${id}" value="9" />
-                                <label for="scale_${id}_9" title="text"></label>
-                        
-                                <input type="radio" id="scale_${id}_8" name="scale_${id}" value="8" />
-                                <label for="scale_${id}_8" title="text"></label>
-                        
-                                <input type="radio" id="scale_${id}_7" name="scale_${id}" value="7" />
-                                <label for="scale_${id}_7" title="text"></label>
-                        
-                                <input type="radio" id="scale_${id}_6" name="scale_${id}" value="6" />
-                                <label for="scale_${id}_6" title="text"></label>
-                        
-                                <input type="radio" id="scale_${id}_5" name="scale_${id}" value="5" />
-                                <label for="scale_${id}_5" title="text"></label>
-                        
-                                <input type="radio" id="scale_${id}_4" name="scale_${id}" value="4" />
-                                <label for="scale_${id}_4" title="text"></label>
-                        
-                                <input type="radio" id="scale_${id}_3" name="scale_${id}" value="3" />
-                                <label for="scale_${id}_3" title="text"></label>
-                        
-                                <input type="radio" id="scale_${id}_2" name="scale_${id}" value="2" />
-                                <label for="scale_${id}_2" title="text"></label>
-                        
-                                <input type="radio" id="scale_${id}_1" name="scale_${id}" value="1" />
-                                <label for="scale_${id}_1" title="text"></label>
-                            </div>
-                            <div class="scale-options">
-                                <div class="scale-row">
-                                    <div class="options-item">
-                                        <div class="option-label">
-                                            Шкала
-                                        </div>
-                                        <div class="option-value">
-                                            <select name="scaleAmount_${id}" class="customselect scale-amount">
-                                                <option value="3">3</option>
-                                                <option value="5">5</option>
-                                                <option selected value="10">10</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="options-item">
-                                        <div class="option-label">
-                                            Фигура
-                                        </div>
-                                        <div class="option-value">
-                                            <select name="scaleType_${id}" class="customselect scale-type">
-                                                <option selected value="star">Звездочки</option>
-                                                <option value="face">Смайлики</option>
-                                                <option value="heart">Сердечки</option>
-                                                <option value="hand">Руки</option>
-                                            </select>
-                                        </div>
-                                    </div>
+                                    <input type="radio" id="scale_${id}_10" name="scale_${id}" value="10" />
+                                    <label for="scale_${id}_10" title="text"></label>
+                            
+                                    <input type="radio" id="scale_${id}_9" name="scale_${id}" value="9" />
+                                    <label for="scale_${id}_9" title="text"></label>
+                            
+                                    <input type="radio" id="scale_${id}_8" name="scale_${id}" value="8" />
+                                    <label for="scale_${id}_8" title="text"></label>
+                            
+                                    <input type="radio" id="scale_${id}_7" name="scale_${id}" value="7" />
+                                    <label for="scale_${id}_7" title="text"></label>
+                            
+                                    <input type="radio" id="scale_${id}_6" name="scale_${id}" value="6" />
+                                    <label for="scale_${id}_6" title="text"></label>
+                            
+                                    <input type="radio" id="scale_${id}_5" name="scale_${id}" value="5" />
+                                    <label for="scale_${id}_5" title="text"></label>
+                            
+                                    <input type="radio" id="scale_${id}_4" name="scale_${id}" value="4" />
+                                    <label for="scale_${id}_4" title="text"></label>
+                            
+                                    <input type="radio" id="scale_${id}_3" name="scale_${id}" value="3" />
+                                    <label for="scale_${id}_3" title="text"></label>
+                            
+                                    <input type="radio" id="scale_${id}_2" name="scale_${id}" value="2" />
+                                    <label for="scale_${id}_2" title="text"></label>
+                            
+                                    <input type="radio" id="scale_${id}_1" name="scale_${id}" value="1" />
+                                    <label for="scale_${id}_1" title="text"></label>
                                 </div>
-                                <div class="check-wrap">
-                                    <input type="checkbox" class="add-rateLabels" name="rateLabels_${id}" id="rateLabels_${id}">
-                                    <label for="rateLabels_${id}">
-                                        <div class="check"></div>
-                                        <div class="check-text">
-                                            Метки рейтинга
+                                <div class="scale-options">
+                                    <div class="scale-row">
+                                        <div class="options-item">
+                                            <div class="option-label">
+                                                Шкала
+                                            </div>
+                                            <div class="option-value">
+                                                <select name="scaleAmount_${id}" class="customselect scale-amount">
+                                                    <option value="3">3</option>
+                                                    <option value="5">5</option>
+                                                    <option selected value="10">10</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </label>
+                                        <div class="options-item">
+                                            <div class="option-label">
+                                                Фигура
+                                            </div>
+                                            <div class="option-value">
+                                                <select name="scaleType_${id}" class="customselect scale-type">
+                                                    <option selected value="star">Звездочки</option>
+                                                    <option value="face">Смайлики</option>
+                                                    <option value="heart">Сердечки</option>
+                                                    <option value="hand">Руки</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="check-wrap">
+                                        <input type="checkbox" class="add-rateLabels" name="rateLabels_${id}" id="rateLabels_${id}">
+                                        <label for="rateLabels_${id}">
+                                            <div class="check"></div>
+                                            <div class="check-text">
+                                                Метки рейтинга
+                                            </div>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>`
@@ -346,95 +396,43 @@ jQuery(function ($) {
                 case 'dropdown':
                     el = 
                         `<div class="question-wrap question-dropdown" data-id="${id}">
-                            ${topEL}
-                            <div class="dropdown-wrap">
-                                <select class="customselect">
-                                    <option value=""></option>
-                                </select>
-                            </div>
-                            <div class="optins-list">
-                                <div class="option-item">
-                                    <div class="number">1.</div>
-                                    <div class="value">
-                                        <input type="text" name="inputpoint_${id}_1" value="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="check-wrap">
-                                <input type="checkbox" id="addOpt_${id}" class="show-answers-opt">
-                                <label for="addOpt_${id}">
-                                    <div class="check"></div>
-                                    <div class="check-text">
-                                        Добавить вариант ответа «Другое» или поле комментария
-                                    </div>
-                                </label>
-                                <div class="add-answers-options hidden"> 
-                                    <div class="btns-wrap">
-                                        <div class="btn-wrap">
-                                            <input type="checkbox" class="add-other" id="addOther_${id}" name="addOther_${id}">
-                                            <label for="addOther_${id}">Вариант ответа</label>
-                                        </div>
-                                        <div class="btn-wrap">
-                                            <input type="checkbox" class="add-comment" id="addComment_${id}" name="addComment_${id}">
-                                            <label for="addComment_${id}">Поле комментария</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>`
-                    break;
-                case 'multiple':
-                    el = 
-                        `<div class="question-wrap question-multiple" data-id="${id}">
-                            ${topEL}
-                            <div class="radio-btns-wrapper">
-                                <div class="input-item">
-                                    <div class="input-new-item-wrap">
-                                        <input type="text" class="input-multiple-item" placeholder="Введите вариант ответа">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="check-wrap">
-                                <input type="checkbox" id="addOpt_${id}" class="show-answers-opt">
-                                <label for="addOpt_${id}">
-                                    <div class="check"></div>
-                                    <div class="check-text">
-                                        Добавить вариант ответа «Другое» или поле комментария
-                                    </div>
-                                </label>
-                                <div class="add-answers-options hidden">
-                                    <div class="btns-wrap">
-                                        <div class="btn-wrap">
-                                            <input type="checkbox" class="add-other" id="addOther_${id}">
-                                            <label for="addOther_${id}">Вариант ответа</label>
-                                        </div>
-                                        <div class="btn-wrap">
-                                            <input type="checkbox" class="add-comment" id="addComment_${id}">
-                                            <label for="addComment_${id}">Поле комментария</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="check-wrap">
-                                <input type="checkbox" class="add-neither" name="addNeither_${id}" id="addNeither_${id}">
-                                <label for="addNeither_${id}">
-                                    <div class="check"></div>
-                                    <div class="check-text">
-                                        Добавить вариант ответа «Ничего из вышеперечисленного»
-                                    </div>
-                                </label>
-                            </div>
-                            <div class="select-wrap">
-                                <div class="select-input">
-                                    <select name="requiredOpt_${id}" class="customselect">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
+                            <div class="box-shadow">
+                                ${topEL}
+                                <div class="dropdown-wrap">
+                                    <select class="customselect">
+                                        <option value=""></option>
                                     </select>
                                 </div>
-                                <div class="select-label">
-                                    Колличество необходимых выбраных ответов
+                                <div class="optins-list">
+                                    <div class="option-item">
+                                        <div class="number">1.</div>
+                                        <div class="value">
+                                            <input type="text" name="inputpoint_${id}_1" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="switch-group">
+                                    <div class="check-wrap">
+                                        <input type="checkbox" id="addOpt_${id}" class="show-hidden-opt">
+                                        <label for="addOpt_${id}">
+                                            <div class="check"></div>
+                                            <div class="check-text">
+                                                Добавить вариант ответа «Другое» или поле комментария
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="hidden hidden-options"> 
+                                        <div class="btns-wrap">
+                                            <div class="btn-wrap">
+                                                <input type="checkbox" class="add-other" id="addOther_${id}">
+                                                <label for="addOther_${id}">Вариант ответа</label>
+                                            </div>
+                                            <div class="btn-wrap">
+                                                <input type="checkbox" class="add-comment" id="addComment_${id}">
+                                                <label for="addComment_${id}">Поле комментария</label>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>`
@@ -442,44 +440,46 @@ jQuery(function ($) {
                 case 'matrix':
                     el = 
                         `<div class="question-wrap question-matrix" data-id="${id}">
-                            ${topEL}
-                            <div class="matrix-table">
-                                <table>
-                                    <tr>
-                                        <td></td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class="matrix-options">
-                                <div class="matrix-row-list">
-                                    <div class="matrix-row">
-                                        <div class="value">
-                                            <input type="text" name="inputRow_${id}_1" placeholder="Введите текст строки">
+                            <div class="box-shadow">
+                                ${topEL}
+                                <div class="matrix-table">
+                                    <table>
+                                        <tr>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="matrix-options">
+                                    <div class="matrix-row-list">
+                                        <div class="matrix-row">
+                                            <div class="value">
+                                                <input type="text" name="inputRow_${id}_1" placeholder="Введите текст строки">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="check-wrap">
-                                    <input type="checkbox" id="addComment_${id}" class="add-comment">
-                                    <label for="addComment_${id}">
-                                        <div class="check"></div>
-                                        <div class="check-text">
-                                            Добавить поле комментария
-                                        </div>
-                                    </label>
-                                </div>
-                                <div class="check-wrap">
-                                    <input type="checkbox" class="add-multipleChoice" name="addmultiple_${id}" id="addmultiple_${id}">
-                                    <label for="addmultiple_${id}">
-                                        <div class="check"></div>
-                                        <div class="check-text">
-                                            Разрешить несколько ответов на строку
-                                        </div>
-                                    </label>
-                                </div>
-                                <div class="matrix-col-list">
-                                    <div class="matrix-col">
-                                        <div class="value">
-                                            <input type="text" name="inputCol_${id}_1" placeholder="Введите текст строки">
+                                    <div class="check-wrap">
+                                        <input type="checkbox" id="addComment_${id}" class="add-comment">
+                                        <label for="addComment_${id}">
+                                            <div class="check"></div>
+                                            <div class="check-text">
+                                                Добавить поле комментария
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="check-wrap">
+                                        <input type="checkbox" class="add-multipleChoice" name="addmultiple_${id}" id="addmultiple_${id}">
+                                        <label for="addmultiple_${id}">
+                                            <div class="check"></div>
+                                            <div class="check-text">
+                                                Разрешить несколько ответов на строку
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="matrix-col-list">
+                                        <div class="matrix-col">
+                                            <div class="value">
+                                                <input type="text" name="inputCol_${id}_1" placeholder="Введите текст строки">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -489,12 +489,14 @@ jQuery(function ($) {
                 case 'ranging':
                     el = 
                         `<div class="question-wrap question-ranging" data-id="${id}">
-                            ${topEL}
-                            <div class="ranging-list">
-                                <div class="ranging-item empty-item">
-                                    <div class="grab-icon"></div>
-                                    <div class="ranging-name">
-                                        <textarea name="inputpoint_${id}_1" placeholder="Введите вариант ответа" rows="1"></textarea>
+                            <div class="box-shadow">
+                                ${topEL}
+                                <div class="ranging-list">
+                                    <div class="ranging-item empty-item">
+                                        <div class="grab-icon"></div>
+                                        <div class="ranging-name">
+                                            <textarea name="inputpoint_${id}_1" placeholder="Введите вариант ответа" rows="1"></textarea>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -503,16 +505,18 @@ jQuery(function ($) {
                 case 'name':
                     el = 
                         `<div class="question-wrap question-name" data-id="${id}">
-                            ${topEL}
-                            <div class="name-answers">
-                                <div class="answer-wrap">
-                                    <textarea rows="1" placeholder="Имя"></textarea>
-                                </div>
-                                <div class="answer-wrap">
-                                    <textarea rows="1" placeholder="Отчество"></textarea>
-                                </div>
-                                <div class="answer-wrap">
-                                    <textarea rows="1" placeholder="Фамилия"></textarea>
+                            <div class="box-shadow">
+                                ${topEL}
+                                <div class="name-answers">
+                                    <div class="answer-wrap">
+                                        <textarea rows="1" placeholder="Имя"></textarea>
+                                    </div>
+                                    <div class="answer-wrap">
+                                        <textarea rows="1" placeholder="Отчество"></textarea>
+                                    </div>
+                                    <div class="answer-wrap">
+                                        <textarea rows="1" placeholder="Фамилия"></textarea>
+                                    </div>
                                 </div>
                             </div>
                         </div>`
@@ -520,65 +524,47 @@ jQuery(function ($) {
                 case 'date':
                     el = 
                         `<div class="question-wrap question-date" data-id="${id}">
-                            ${topEL}
-                            <div class="date-answer">
-                                <input type="text" class="date-input" maxlength="10">
-                                <div class="icon-date"></div>
+                            <div class="box-shadow">
+                                ${topEL}
+                                <div class="date-answer">
+                                    <input type="text" class="date-input" maxlength="10">
+                                    <div class="icon-date"></div>
+                                </div>
                             </div>
                         </div>`
                     break;
                 case 'email':
                     el = 
                         `<div class="question-wrap question-email" data-id="${id}">
-                            ${topEL}
-                            <div class="email-answer">
-                                <input type="email" placeholder="Email">
+                            <div class="box-shadow">
+                                ${topEL}
+                                <div class="email-answer">
+                                    <input type="email" placeholder="Email">
+                                </div>
                             </div>
                         </div>`
                     break;
                 case 'phone':
                     el = 
                         `<div class="question-wrap question-phone" data-id="${id}">
-                            ${topEL}
-                            <div class="phone-answer">
-                                <input class="code" type="text" value="+7" readonly>
-                                <input class="phone" type="tel" maxlength="11">
+                            <div class="box-shadow">
+                                ${topEL}
+                                <div class="phone-answer">
+                                    <input class="code" type="text" value="+7" readonly>
+                                    <input class="phone" type="tel" maxlength="11">
+                                </div>
                             </div>
                         </div>`
                     break;
                 case 'file':
                     el = 
                         `<div class="question-wrap question-file" data-id="${id}">
-                            ${topEL}
-                            <div class="file-answer">
-                                <label>
-                                    <input type="file" multiple>
-                                </label>
-                            </div>
-                        </div>`
-                    break;
-                case 'diapason':
-                    el = 
-                        `<div class="question-wrap question-diapason" data-id="${id}">
-                            ${topEL}
-                            <div class="diapason-answer">
-                                <div class="diapason">
-                                    <div class="label">
-                                        <div class="value">0</div>
-                                    </div>
-                                    <div class="input-box">
-                                        <input class="input-range" type="range" min="0" max="10" step="1" value="0"/>
-                                        <div class="bar"></div>
-                                        <div class="bar-filled"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="diapson-set">
-                                <div class="label">
-                                    Диапазон шкалы
-                                </div>
-                                <div class="set-value">
-                                    <input type="text" class="set-dispason-max" name="rangemax_${id}" value="10">
+                            <div class="box-shadow">
+                                ${topEL}
+                                <div class="file-answer">
+                                    <label>
+                                        <input type="file" multiple>
+                                    </label>
                                 </div>
                             </div>
                         </div>`
@@ -586,7 +572,9 @@ jQuery(function ($) {
                 default: 
                     el =
                         `<div class="question-wrap question-single" data-id="${id}">
-                            ${topEL}
+                            <div class="box-shadow">
+                                ${topEL}
+                            </div>
                         </div>`
             }
             let scrollTo = 0;
@@ -626,12 +614,6 @@ jQuery(function ($) {
                 //set pick phone code
                 $('.question-phone input.code').intlTelInput({
                     initialCountry: "ru",
-                });
-            }
-            if(type = "diapason"){
-                //input only number for diapason max
-                $('.set-dispason-max').inputFilter(function(value) {
-                    return /^\d*$/.test(value) && (value === "" || parseInt(value) <= 10000);
                 });
             }
             if(type = "single"){
@@ -899,12 +881,12 @@ jQuery(function ($) {
             }
         }
         //show single options add other or comment
-        $('.content-wrap').on('change', '.question-wrap .show-answers-opt', function(e){
+        $('.content-wrap').on('change', '.question-wrap .show-hidden-opt', function(e){
             if($(this).is(':checked')){
-                $(this).parents('.check-wrap').find('.add-answers-options').fadeIn(300);
+                $(this).parents('.switch-group').find('.hidden-options').fadeIn(300);
             } else {
-                $(this).parents('.check-wrap').find('.add-answers-options').fadeOut(300);
-                clear_form_elements($(this).parents('.check-wrap').find('.add-answers-options'));
+                $(this).parents('.switch-group').find('.hidden-options').fadeOut(300);
+                clear_form_elements($(this).parents('.switch-group').find('.hidden-options'));
             }
         });
 
@@ -953,7 +935,7 @@ jQuery(function ($) {
         //sortable for single items
         function setSortbaleSingleItems(){
             $('.question-single .radio-btns-wrapper').sortable({
-                cancel: 'a',
+                cancel: 'a, .inFocus',
                 containment: '.questions-list',
                 cursor: 'grab',
                 stop: function( event, ui ) {
@@ -965,14 +947,11 @@ jQuery(function ($) {
         setSortbaleSingleItems();
 
         $('.content-wrap').on('click', '.question-single .radio-btns-wrapper textarea', function(e){
-            let parent = $(this).parents('.radio-btns-wrapper');
-            if(parent.is(':ui-sortable')){
-                parent.sortable( 'disable');
-            }
+            $(this).parent('.radio-item').addClass('inFocus');
+            $(this).parent('.radio-item').find('textarea').focus();
         });
         $('.content-wrap').on('blur', '.question-single .radio-btns-wrapper textarea', function(e){
-            let parent = $(this).parents('.radio-btns-wrapper');
-            parent.sortable( 'enable');
+            $(this).parent('.radio-item').removeClass('inFocus');
         });
         //end settings for single question
 
@@ -1747,49 +1726,6 @@ jQuery(function ($) {
         });
         //end settings file for  question
 
-        //settings for diapason question
-        //input diapason value
-        $('.content-wrap').on('input', '.question-diapason .input-range', function(e){
-            setDiapasonValue(this);
-        });
-        //set new diapsson value
-        function setDiapasonValue(input){
-            var value = $(input).val();
-            var max = $(input).attr('max');
-            var min = $(input).attr('min');
-            var range = max - min;
-            var relvalue = value - min;
-            var percent = (100/range)*relvalue;
-            var parents = $(input).parents('.diapason');
-            var paddleft = (30*percent)/100;
-            parents.find('.label').css('left', 'calc(' + percent + '% - ' + paddleft + 'px)');
-            parents.find('.label .value').html(value);
-            parents.find('.input-box .bar-filled').css('width', percent + '%');
-            parents.find('.label').css('background-position', percent + '%');
-        };
-        //input only number for diapason max
-        $('.set-dispason-max').inputFilter(function(value) {
-            return /^\d*$/.test(value) && (value === "" || parseInt(value) <= 10000);
-        });
-
-        $('.content-wrap').on('change', '.question-diapason .set-dispason-max', function(e){
-            let question = $(this).parents('.question-wrap');
-            setDiapasonMax(question);
-        });
-        //set diapason max
-        function setDiapasonMax(question){
-            let max = parseInt(question.find('.set-dispason-max').val());
-            if(max > 0){
-                let diapsonInput = question.find('.input-range');
-                diapsonInput.attr('max', max);
-                let diapasonValue = parseInt(diapsonInput.val());
-                if(max < diapasonValue){
-                    diapsonInput.val(max)
-                }
-                setDiapasonValue(diapsonInput)
-            }
-        }
-        //end settings for diapason question
         //function for clear inputs in block
         function clear_form_elements(block) {
             jQuery(block).find(':input').each(function() {
