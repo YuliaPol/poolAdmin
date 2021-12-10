@@ -14,6 +14,17 @@ jQuery(function ($) {
             }
         });
 
+        //mobile menu
+        $('.constr-wrap').on('click', '.mobile-aside', function(e){
+            if($(this).hasClass('active')){
+                $(this).removeClass('active');
+                $(this).parents('.left-side').removeClass('open');
+            } else {
+                $(this).addClass('active');
+                $(this).parents('.left-side').addClass('open');
+            }
+        });
+
         // preloader
         $('.load-wrapper').fadeOut();
     });
