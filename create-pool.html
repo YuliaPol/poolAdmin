@@ -81,15 +81,23 @@
                             <div class="img-container"></div>
                         </div>
                         <div class="form-group">
-                            <div class="question">
-                                Добавьте файлы для опроса
-                            </div>
-                            <div class="input-file">
-                                <label>
-                                    <input type="file" name="filePool-1" class="add-pool-files" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
-                                </label>
-                            </div>
-                            <div class="files-container">
+                            <div class="form-row">
+                                <div class="question">
+                                    Добавьте файлы для опроса
+                                </div>
+                                <div class="files-container">
+                                </div>
+                                <div class="input-check">
+                                    <label class="switch">
+                                        <input type="checkbox" name="q-5" class="add-exel">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                                <div class="input-exel">
+                                    <label>
+                                        <input type="file" name="filePool-1" class="add-pool-files" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+                                    </label>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -112,6 +120,21 @@
                    </div>
                </form>
            </div>
+        </div>
+    </div>
+    <div class="popup-wrap file-popup">
+        <div class="popup-body">
+            <div class="file-row">
+                <div class="label">
+                    Добавьте файл
+                </div>
+                <div class="file-icon">
+                    <div class="exel-delete"></div>
+                </div>
+            </div>
+            <div class="btn-wrap">
+                <button class="btn-default close-popup">Добавить</button>
+            </div>
         </div>
     </div>
     <div class="load-wrapper">

@@ -897,6 +897,38 @@ body {
   min-height: 140px;
 }
 
+.page-wrap .content-wrap .create-pool-wrap .create-form .form-group .form-row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.page-wrap .content-wrap .create-pool-wrap .create-form .form-group .form-row .files-container {
+  margin-right: 40px;
+  padding-bottom: 10px;
+}
+
+.page-wrap .content-wrap .create-pool-wrap .create-form .form-group .form-row .files-container .file-item {
+  margin-top: 0px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.page-wrap .content-wrap .create-pool-wrap .create-form .form-group .form-row .files-container .file-item .file-icon {
+  width: 10px;
+  height: 10px;
+}
+
 .page-wrap .content-wrap .create-pool-wrap .create-form .form-group .files-container {
   display: -webkit-box;
   display: -webkit-flex;
@@ -975,6 +1007,10 @@ body {
   position: absolute;
   top: 0px;
   right: 0px;
+}
+
+.page-wrap .content-wrap .create-pool-wrap .create-form .input-exel {
+  display: none;
 }
 
 .page-wrap .content-wrap .create-pool-wrap .btn-wrap {
@@ -5444,6 +5480,176 @@ body {
 .datepicker .datepicker--cell.-current-, .datepicker .datepicker--cell.-selected-, .datepicker .datepicker--cell.-focus- {
   background: rgba(127, 161, 248, 0.2);
   color: #7FA1F8;
+}
+
+.popup-wrap {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.3);
+  display: none;
+}
+
+.popup-wrap .popup-body {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+       -o-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #FFFFFF;
+  -webkit-box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
+          box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
+  border-radius: 25px;
+  width: 540px;
+  max-width: 90%;
+  padding: 40px 35px;
+}
+
+.popup-wrap .popup-body .btn-default {
+  background: #7FA1F8;
+  border-radius: 25px;
+  padding: 15px 30px;
+  border: none;
+  outline: none;
+  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 11px;
+  line-height: 13px;
+  color: #FFFFFF;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.popup-wrap .popup-body .btn-wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 20px;
+}
+
+.popup-wrap .popup-body .label {
+  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 16px;
+  color: #000000;
+}
+
+.popup-wrap .popup-body .file-row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.popup-wrap .popup-body .file-row .file-icon {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  cursor: pointer;
+}
+
+.popup-wrap .popup-body .file-row .file-icon::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: url(./../img/icon-file.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+       -o-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transition: opacity 0.3s ease-in;
+  -o-transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
+}
+
+.popup-wrap .popup-body .file-row .file-icon::after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: url(./../img/exel-icon.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+       -o-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in;
+  -o-transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
+}
+
+.popup-wrap .popup-body .file-row .file-icon .exel-delete {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  top: 0px;
+  right: 0px;
+  background: url(./../img/icon-delete.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.popup-wrap .popup-body .file-row .file-icon.active {
+  -webkit-box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
+          box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
+  border-radius: 50%;
+}
+
+.popup-wrap .popup-body .file-row .file-icon.active:hover .exel-delete {
+  opacity: 1;
+}
+
+.popup-wrap .popup-body .file-row .file-icon.active::before {
+  opacity: 0;
+}
+
+.popup-wrap .popup-body .file-row .file-icon.active::after {
+  opacity: 1;
 }
 
 @media screen and (max-width: 1250px) {

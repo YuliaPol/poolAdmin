@@ -686,6 +686,25 @@ body {
                             min-height: 140px;
                         }
                     }
+                    .form-row {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        .files-container {
+                            margin-right: 40px;
+                            padding-bottom: 10px;
+                            .file-item {
+                                margin-top: 0px;
+                                width: 20px;
+                                height: 20px;
+                                cursor: pointer;
+                                .file-icon {
+                                    width: 10px;
+                                    height: 10px;
+                                }
+                            }
+                        }
+                    }
                     .files-container {
                         display: flex;
                         flex-wrap: wrap;
@@ -737,6 +756,9 @@ body {
                         top: 0px;
                         right: 0px;
                     }
+                }
+                .input-exel {
+                    display: none;
                 }
            }
            .btn-wrap {
@@ -4155,6 +4177,128 @@ body {
         &.-focus- {
             background: rgba(127, 161, 248, 0.2);
             color: #7FA1F8;
+        }
+    }
+}
+.popup-wrap {
+   position: fixed;
+   top: 0px;
+   left: 0px;
+   right: 0px;
+   bottom: 0px;
+   z-index: 9999;
+   background: rgba(0,0,0,0.3);
+   display: none;
+    .popup-body {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #FFFFFF;
+        box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
+        border-radius: 25px;
+        width: 540px;
+        max-width: 90%;
+        padding: 40px 35px;
+        .btn-default {
+            background: #7FA1F8;
+            border-radius: 25px;
+            padding: 15px 30px;
+            border: none;
+            outline: none;
+            font-family: $fontPage;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 11px;
+            line-height: 13px;
+            color: #FFFFFF;
+            display: inline-block;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 20px;
+        }
+        .label {
+            font-family: $fontPage;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 13px;
+            line-height: 16px;
+            color: #000000;
+        }
+        .file-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .file-icon {
+                width: 40px;
+                height: 40px;
+                position: relative;
+                cursor: pointer;
+                &::before {
+                    content: "";
+                    display: block;
+                    width: 20px;
+                    height: 20px;
+                    background: url(./../img/icon-file.svg);
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    transition: opacity 0.3s ease-in;
+                }
+                &::after {
+                    content: "";
+                    display: block;
+                    width: 20px;
+                    height: 20px;
+                    background: url(./../img/exel-icon.svg);
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    opacity: 0;
+                    transition: opacity 0.3s ease-in;
+                }
+                .exel-delete {
+                    position: absolute;
+                    width: 5px;
+                    height: 5px;
+                    top: 0px;
+                    right: 0px;
+                    background: url(./../img/icon-delete.svg);
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    cursor: pointer;
+                    opacity: 0;
+                }
+                &.active {
+                    box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
+                    border-radius: 50%;
+                    &:hover {
+                        .exel-delete {
+                            opacity: 1;
+                        }
+                    }
+                    &::before {
+                        opacity: 0;
+                    }
+                    &::after {
+                        opacity: 1;
+                    }
+                }
+            }
         }
     }
 }
