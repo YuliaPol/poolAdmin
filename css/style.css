@@ -1754,7 +1754,7 @@ body {
   -webkit-box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
           box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
   margin-bottom: 20px;
-  padding: 20px 40px;
+  padding: 40px 40px;
   border-radius: 25px;
 }
 
@@ -1810,9 +1810,9 @@ body {
 .page-wrap .constr-wrap .questions-box .question-wrap > .box-shadow:nth-child(1)::before {
   content: "";
   position: absolute;
-  left: 0px;
-  top: -5px;
-  bottom: -5px;
+  left: 5px;
+  top: 15px;
+  bottom: 15px;
   background: #7FA1F8;
   border-radius: 25px;
   width: 10px;
@@ -1838,7 +1838,7 @@ body {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
-  padding-top: 10px;
+  padding-top: 20px;
 }
 
 .page-wrap .constr-wrap .questions-box .question-wrap.question-single .radio-btns-wrapper .radio-item, .page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .radio-btns-wrapper .radio-item {
@@ -1916,8 +1916,7 @@ body {
 }
 
 .page-wrap .constr-wrap .questions-box .question-wrap.question-single .input-new-item-wrap, .page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .input-new-item-wrap {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 20px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2762,6 +2761,32 @@ body {
   resize: none;
   width: 100%;
   border-bottom: 1px solid transparent;
+  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 15px;
+  color: #000000;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-ranging .ranging-list .ranging-item .ranging-name textarea::-webkit-input-placeholder {
+  color: #000000;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-ranging .ranging-list .ranging-item .ranging-name textarea::-moz-placeholder {
+  color: #000000;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-ranging .ranging-list .ranging-item .ranging-name textarea:-ms-input-placeholder {
+  color: #000000;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-ranging .ranging-list .ranging-item .ranging-name textarea::-ms-input-placeholder {
+  color: #000000;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-ranging .ranging-list .ranging-item .ranging-name textarea::placeholder {
+  color: #000000;
 }
 
 .page-wrap .constr-wrap .questions-box .question-wrap.question-name .name-answers .answer-wrap {
@@ -4070,6 +4095,10 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding-bottom: 25px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap .switch-row:last-child {
+  padding-bottom: 0px;
 }
 
 .page-wrap .constr-wrap .questions-box .question-wrap .switch-row .label {
@@ -5697,7 +5726,7 @@ body {
     padding: 10px 15px 10px 10px;
   }
   .page-wrap .content-wrap .questions-box .question-wrap .box-shadow {
-    padding: 20px 30px;
+    padding: 30px 30px;
   }
   .page-wrap .content-wrap .questions-box .question-wrap.question-single .radio-btns-wrapper .radio-item {
     margin-right: 15px;
