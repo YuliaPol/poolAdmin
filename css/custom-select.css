@@ -104,6 +104,15 @@
   border-bottom-right-radius: 15px;
   max-height: 280px;
   overflow: auto;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.customselect-wrapper .select-options::-webkit-scrollbar {
+  width: 0px;
+  display: none;
 }
 
 .customselect-wrapper .select-options li {

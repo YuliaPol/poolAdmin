@@ -60,6 +60,9 @@ body {
     font-family: $fontPage;
     font-style: normal;
     font-size: 14px;
+    .page-wrap {
+        font-family: $fontPage;
+    }
 }
 .page-wrap {
     width: 100%;
@@ -617,6 +620,11 @@ body {
                             border-bottom: 1px solid #E5E5E5;
                             padding: 8px 15px;
                             width: 100%;
+                            font-family: $fontPage;
+                            font-weight: normal;
+                            font-size: 11px;
+                            line-height: 13px;
+                            text-align: center;
                         }
                     }
                     .customselect-wrapper {
@@ -1332,16 +1340,22 @@ body {
                 margin-bottom: 20px;
                 padding: 40px 40px;
                 border-radius: 25px;
+                &.question-content {
+                    padding-right: 80px;
+                }
                 &:last-child {
                     margin-bottom: 0px;
                 }
+            }
+            .question-settings {
+                display: none;
             }
             .questions-list {
                 background: #FFFFFF;
                 padding-bottom: 80px;
                 position: relative;
                 max-width: 100%;
-                overflow: hidden;
+                // overflow: hidden;
                 .btn-preview-wrap {
                     position: absolute;
                     bottom: 0px;
@@ -1358,13 +1372,6 @@ body {
                 background: #fff;
                 padding: 5px;
                 padding-bottom: 15px;
-                &.ui-sortable-helper {
-                    box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
-                    border-radius: 25px;
-                    &::before {
-                        opacity: 1;
-                    }
-                }
                 &.focus {
                     & > .box-shadow {
                         &:nth-child(1){
@@ -1779,7 +1786,6 @@ body {
                         }
                     }
                     .scale-options {
-                        padding-top: 40px;
                         .scale-row {
                             display: flex;
                             align-items: center;
@@ -1881,7 +1887,6 @@ body {
                         padding-bottom: 35px;
                     }
                     .optins-list {
-                        padding-bottom: 30px;
                         .option-item {
                             padding-bottom: 20px;
                             display: flex;
@@ -2697,15 +2702,14 @@ body {
                         }
                     }
                 }
-                .edit-block {
+                .control-panel {
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
+                    flex-direction: column-reverse;
                     position: absolute;
-                    top: 20px;
+                    top: 30px;
                     right: 40px;
-                    width: 80px;
-                    max-width: 100%;
                     .attach-file {
                         position: relative;
                         &:hover {
@@ -2761,16 +2765,17 @@ body {
                             opacity: 0;
                             pointer-events: none;
                             position: absolute;
-                            padding-top: 15px;
+                            padding-top: 25px;
                             top: 0px;
-                            right: -25px;
+                            right: -20px;
                             z-index: 10;
                             .files-list {
                                 display: flex;
                                 align-items: center;
                                 justify-content: space-between;
+                                flex-direction: column;
                                 .file-item {
-                                    padding: 15px;
+                                    padding: 10px;
                                     &.file-video {
                                         label {
                                             &::before {
@@ -2862,6 +2867,50 @@ body {
                                     }
                                 }
                             }
+                        }
+                    }
+                    .show-settings {
+                        width: 20px;
+                        height: 20px;
+                        position: relative;
+                        margin-top: 20px;
+                        margin-bottom: 20px;
+                        cursor: pointer;
+                        &.active {
+                            &::before {
+                                opacity: 0;
+                            }
+                            &::after {
+                                opacity: 1;
+                            }
+                        }
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            top: 0px;
+                            left: 0px;
+                            right: 0px;
+                            bottom: 0px;
+                            background: url(./../img/icon-settings.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                            opacity: 1;
+                            transition: opacity 0.3s ease-in;
+                        }
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            top: 0px;
+                            left: 0px;
+                            right: 0px;
+                            bottom: 0px;
+                            background: url(./../img/icon-settings-a.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                            opacity: 0;
+                            transition: opacity 0.3s ease-in;
                         }
                     }
                     .remove-question {
@@ -4370,8 +4419,15 @@ body {
             }
             .questions-box {
                 .question-wrap {
+                    .control-panel {
+                        top: 35px;
+                        right: 35px;
+                    }
                     .box-shadow {
                         padding: 30px 30px;
+                        &.question-content {
+                            padding-right: 70px;
+                        }
                     }
                     &.question-single {
                         .radio-btns-wrapper {
@@ -4503,6 +4559,10 @@ body {
                 .question-wrap {
                     .box-shadow {
                         padding: 20px 15px;
+                        padding-right: 70px;
+                        &.question-content {
+                            padding-right: 70px;
+                        }
                     }
                 }
             }

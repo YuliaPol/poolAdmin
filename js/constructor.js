@@ -88,7 +88,7 @@ jQuery(function ($) {
         //sortable questions
         if($( window ).width() > 700) {
             $('.questions-box .questions-list').sortable({
-                cancel: "input, a, button, textarea, .edit-block",
+                cancel: "input, a, button, textarea, .control-panel",
                 containment: "parent",
                 distance: 5,
                 items: ".question-wrap",
@@ -190,18 +190,31 @@ jQuery(function ($) {
                     <textarea name="question_${id}"  rows="1" placeholder="Введите ваш вопрос" data-required="required"></textarea>
                 </div>`;
             let topEL = 
-                `<div class="edit-block">
+                `<div class="control-panel">
                     ${attchFiles}
+                    <div class="show-settings"></div>
                     <div class="remove-question"></div>
                 </div>
                 <input type="hidden" name="type_${id}" value="${type}">
                 ${nameHtml}`;
             let el;
+
+            let required_Set = 
+            `<div class="switch-row">
+                <div class="label">
+                    Обязательность ответа
+                </div>
+                <label class="switch">
+                    <input type="checkbox" name="required_${id}">
+                    <span class="slider round"></span>
+                </label>
+            </div>`;
+
             switch(type) {
                 case 'single':
                     el = 
                         `<div class="question-wrap question-single" data-id="${id}">
-                            <div class="box-shadow">
+                            <div class="box-shadow question-content">
                                 ${topEL}
                                 <div class="radio-btns-wrapper">
                                 </div>
@@ -209,97 +222,92 @@ jQuery(function ($) {
                                     <input type="text" class="input-single-item" placeholder="Введите вариант ответа">
                                 </div>
                             </div>
-                            <div class="box-shadow">
+                            <div class="box-shadow question-settings">
                                 <div class="switch-group">
-                                <div class="switch-row">
-                                    <div class="label">
-                                        Добавить вариант ответа «Другое» или поле комментария
-                                    </div>
-                                    <label class="switch">
-                                        <input type="checkbox" class="show-hidden-opt">
-                                        <span class="slider round"></span>
-                                    </label>
-                                </div>
-                                <div class="hidden hidden-options">
-                                    <div class="check-row">
-                                        <input type="checkbox" class="add-other" id="addOther_${id}" name="addOther_${id}">
-                                        <label for="addOther_${id}">Вариант ответа
-                                            <div class="check"></div>
-                                        </label>
-                                    </div>
-                                    <div class="check-row">
-                                        <input type="checkbox" class="add-comment" id="addComment_${id}" name="addComment_${id}">
-                                        <label for="addComment_${id}">
-                                            Поле комментария
-                                            <div class="check"></div>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="switch-row">
-                                <div class="label">
-                                    Добавить вариант ответа «Ничего из вышеперечисленного»
-                                </div>
-                                <label class="switch">
-                                    <input type="checkbox" name="addNeither_${id}" class="add-neither">
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                            <div class="switch-group">
-                                <div class="switch-row">
-                                    <div class="label">
-                                        Несколько вариантов ответов
-                                    </div>
-                                    <label class="switch">
-                                        <input type="checkbox" class="show-hidden-opt" name="multiple_${id}">
-                                        <span class="slider round"></span>
-                                    </label>
-                                </div>
-                                <div class="hidden hidden-options">
-                                    <div class="select-row">
+                                    <div class="switch-row">
                                         <div class="label">
-                                            Колличество необходимых выбраных ответов
+                                            Добавить вариант ответа «Другое» или поле комментария
                                         </div>
-                                        <div class="select-input">
-                                            <select name="requiredOpt_${id}" class="customselect">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                            </select>
+                                        <label class="switch">
+                                            <input type="checkbox" class="show-hidden-opt">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+                                    <div class="hidden hidden-options">
+                                        <div class="check-row">
+                                            <input type="checkbox" class="add-other" id="addOther_${id}" name="addOther_${id}">
+                                            <label for="addOther_${id}">Вариант ответа
+                                                <div class="check"></div>
+                                            </label>
+                                        </div>
+                                        <div class="check-row">
+                                            <input type="checkbox" class="add-comment" id="addComment_${id}" name="addComment_${id}">
+                                            <label for="addComment_${id}">
+                                                Поле комментария
+                                                <div class="check"></div>
+                                            </label>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="switch-row">
-                                <div class="label">
-                                    Обязательность ответа
+                                <div class="switch-row">
+                                    <div class="label">
+                                        Добавить вариант ответа «Ничего из вышеперечисленного»
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" name="addNeither_${id}" class="add-neither">
+                                        <span class="slider round"></span>
+                                    </label>
                                 </div>
-                                <label class="switch">
-                                    <input type="checkbox" name="required_${id}">
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
+                                <div class="switch-group">
+                                    <div class="switch-row">
+                                        <div class="label">
+                                            Несколько вариантов ответов
+                                        </div>
+                                        <label class="switch">
+                                            <input type="checkbox" class="show-hidden-opt" name="multiple_${id}">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+                                    <div class="hidden hidden-options">
+                                        <div class="select-row">
+                                            <div class="label">
+                                                Колличество необходимых выбраных ответов
+                                            </div>
+                                            <div class="select-input">
+                                                <select name="requiredOpt_${id}" class="customselect">
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                ${required_Set}
                             </div>
                         </div>`
                     break;
                 case 'free-answer':
                     el = 
                         `<div class="question-wrap question-free" data-id="${id}">
-                            <div class="box-shadow">
+                            <div class="box-shadow question-content">
                                 ${topEL}
                                 <div class="free-answers">
                                     <div class="answer-wrap">
                                         <textarea rows="1" placeholder="Введите ваш комментарий"></textarea>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="box-shadow question-settings">
+                                ${required_Set}
                             </div>
                         </div>`
                     break;
                 case 'listfree':
                     el = 
                         `<div class="question-wrap question-listfree" data-id="${id}">
-                            <div class="box-shadow">
+                            <div class="box-shadow question-content">
                                 ${topEL}
                                 <div class="free-answers">
                                     <div class="answer-wrap">
@@ -313,12 +321,15 @@ jQuery(function ($) {
                                     </div>
                                 </div>
                             </div>
+                            <div class="box-shadow question-settings">
+                                ${required_Set}
+                            </div>
                         </div>`
                     break;
                 case 'scale':
                     el = 
                         `<div class="question-wrap question-scale" data-id="${id}">
-                            <div class="box-shadow">
+                            <div class="box-shadow question-content">
                                 ${topEL}
                                 <div class="scale-wrap scale-star scale-10">
 
@@ -352,6 +363,8 @@ jQuery(function ($) {
                                     <input type="radio" id="scale_${id}_1" name="scale_${id}" value="1" />
                                     <label for="scale_${id}_1" title="text"></label>
                                 </div>
+                            </div>
+                            <div class="box-shadow question-settings">
                                 <div class="scale-options">
                                     <div class="scale-row">
                                         <div class="options-item">
@@ -375,7 +388,7 @@ jQuery(function ($) {
                                                     <option selected value="star">Звездочки</option>
                                                     <option value="face">Смайлики</option>
                                                     <option value="heart">Сердечки</option>
-                                                    <option value="hand">Руки</option>
+                                                    <option value="hand">Палец</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -390,12 +403,13 @@ jQuery(function ($) {
                                         </label>
                                     </div>
                                 </div>
+                                ${required_Set}
                             </div>
                         </div>`
                     break;
                 case 'dropdown':
                     el = 
-                        `<div class="question-wrap question-dropdown" data-id="${id}">
+                        `<div class="question-wrap question-dropdown question-content" data-id="${id}">
                             <div class="box-shadow">
                                 ${topEL}
                                 <div class="dropdown-wrap">
@@ -411,6 +425,8 @@ jQuery(function ($) {
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="box-shadow question-settings">
                                 <div class="switch-group">
                                     <div class="check-wrap">
                                         <input type="checkbox" id="addOpt_${id}" class="show-hidden-opt">
@@ -434,13 +450,14 @@ jQuery(function ($) {
                                         </div>
                                     </div>
                                 </div>
+                                ${required_Set}
                             </div>
                         </div>`
                     break;
                 case 'matrix':
                     el = 
                         `<div class="question-wrap question-matrix" data-id="${id}">
-                            <div class="box-shadow">
+                            <div class="box-shadow question-content">
                                 ${topEL}
                                 <div class="matrix-table">
                                     <table>
@@ -484,12 +501,15 @@ jQuery(function ($) {
                                     </div>
                                 </div>
                             </div>
+                            <div class="box-shadow question-settings">
+                                ${required_Set}
+                            </div>
                         </div>`
                     break;
                 case 'ranging':
                     el = 
                         `<div class="question-wrap question-ranging" data-id="${id}">
-                            <div class="box-shadow">
+                            <div class="box-shadow question-content">
                                 ${topEL}
                                 <div class="ranging-list">
                                     <div class="ranging-item empty-item">
@@ -500,12 +520,15 @@ jQuery(function ($) {
                                     </div>
                                 </div>
                             </div>
+                            <div class="box-shadow question-settings">
+                                ${required_Set}
+                            </div>
                         </div>`
                     break;
                 case 'name':
                     el = 
                         `<div class="question-wrap question-name" data-id="${id}">
-                            <div class="box-shadow">
+                            <div class="box-shadow question-content">
                                 ${topEL}
                                 <div class="name-answers">
                                     <div class="answer-wrap">
@@ -519,47 +542,59 @@ jQuery(function ($) {
                                     </div>
                                 </div>
                             </div>
+                            <div class="box-shadow question-settings">
+                                ${required_Set}
+                            </div>
                         </div>`
                     break;
                 case 'date':
                     el = 
                         `<div class="question-wrap question-date" data-id="${id}">
-                            <div class="box-shadow">
+                            <div class="box-shadow question-content">
                                 ${topEL}
                                 <div class="date-answer">
                                     <input type="text" class="date-input" maxlength="10">
                                     <div class="icon-date"></div>
                                 </div>
                             </div>
+                            <div class="box-shadow question-settings">
+                                ${required_Set}
+                            </div>
                         </div>`
                     break;
                 case 'email':
                     el = 
                         `<div class="question-wrap question-email" data-id="${id}">
-                            <div class="box-shadow">
+                            <div class="box-shadow question-content">
                                 ${topEL}
                                 <div class="email-answer">
                                     <input type="email" placeholder="Email">
                                 </div>
+                            </div>
+                            <div class="box-shadow question-settings">
+                                ${required_Set}
                             </div>
                         </div>`
                     break;
                 case 'phone':
                     el = 
                         `<div class="question-wrap question-phone" data-id="${id}">
-                            <div class="box-shadow">
+                            <div class="box-shadow question-content">
                                 ${topEL}
                                 <div class="phone-answer">
                                     <input class="code" type="text" value="+7" readonly>
                                     <input class="phone" type="tel" maxlength="11">
                                 </div>
                             </div>
+                            <div class="box-shadow question-settings">
+                                ${required_Set}
+                            </div>
                         </div>`
                     break;
                 case 'file':
                     el = 
                         `<div class="question-wrap question-file" data-id="${id}">
-                            <div class="box-shadow">
+                            <div class="box-shadow question-content">
                                 ${topEL}
                                 <div class="file-answer">
                                     <label>
@@ -567,13 +602,19 @@ jQuery(function ($) {
                                     </label>
                                 </div>
                             </div>
+                            <div class="box-shadow question-settings">
+                                ${required_Set}
+                            </div>
                         </div>`
                     break;
                 default: 
                     el =
                         `<div class="question-wrap question-single" data-id="${id}">
-                            <div class="box-shadow">
+                            <div class="box-shadow question-content">
                                 ${topEL}
+                            </div>
+                            <div class="box-shadow question-settings">
+                                ${required_Set}
                             </div>
                         </div>`
             }
@@ -625,6 +666,17 @@ jQuery(function ($) {
             refreshQuestionsId();
         }
 
+        //show settings for question
+        $('.constr-wrap').on('click', '.show-settings', function(e){
+            let question = $(this).parents('.question-wrap');
+            if($(this).hasClass('active')){
+                question.find('.question-settings').fadeOut(300);
+                $(this).removeClass('active');
+            } else {
+                question.find('.question-settings').fadeIn(300);
+                $(this).addClass('active');
+            }
+        });
         // question in focus
         $('.constr-wrap').on('click', '.question-wrap', function(e){
             if(!$(e.target).hasClass('remove-question')){

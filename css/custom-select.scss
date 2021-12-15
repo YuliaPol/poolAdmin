@@ -86,6 +86,12 @@ $maxWidth: 100%;
         border-bottom-right-radius: 15px;
         max-height: 280px;
         overflow: auto;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        &::-webkit-scrollbar {
+            width: 0px;
+            display: none;
+        }
         li {
             margin: 0;
             transition: all 0.2s ease-in;
