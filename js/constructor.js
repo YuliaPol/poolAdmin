@@ -642,14 +642,7 @@ jQuery(function ($) {
                 setSortbaleRanging();
             }
             if(type = "date"){
-                //settings for date question
-                $('.date-input').datepicker({
-                    gotoCurrent: true,
-                    showOtherMonths: false,
-                    altFormat: "mm.dd.yyyy",
-                    dateFormat: "mm.dd.yyyy",
-                });
-                setInputMaskDate();
+                setDatePicker();
             }
             if(type = "phone"){
                 //set pick phone code
@@ -1679,12 +1672,6 @@ jQuery(function ($) {
         //end settings for ranging question
 
         //settings for date question
-        $('.date-input').datepicker({
-            gotoCurrent: true,
-            showOtherMonths: false,
-            altFormat: "mm.dd.yyyy",
-            dateFormat: "mm.dd.yyyy",
-        });
 
         //mask for input date
         var dateInputMask = function dateInputMask(elm) {
@@ -1722,6 +1709,43 @@ jQuery(function ($) {
             }
         }
         setInputMaskDate();
+        function setDatePicker(){
+             //settings for date question
+             $('.date-input').datepicker({
+                gotoCurrent: true,
+                showOtherMonths: false,
+                altFormat: "mm.dd.yyyy",
+                dateFormat: "mm.dd.yyyy",
+            });
+            setInputMaskDate();
+        }
+        //add few date input
+        $('.content-wrap').on('change', '.question-date .count-select',function(e){
+            let count = parseInt($(this).val());
+            let question = $(this).parents('.question-wrap');
+            let dataList = question.find('.data-list');
+            let dataInputs = dataList.children();
+            let curCount = parseInt(dataInputs.length);
+            console.log(count);
+            if(count > curCount){
+                for (let i = curCount; i < count; i++) {
+                    let newInput = 
+                    `<div class="date-answer">
+                        <input type="text" class="date-input" maxlength="10">
+                        <div class="icon-date"></div>
+                    </div>`;
+                    $(newInput).appendTo(dataList);
+                }
+            }
+            if(count < curCount){
+                for (let i = 0; i < curCount; i++) {
+                    if(i >= count){
+                        dataInputs[i].remove();
+                    }
+                }
+            }
+            setDatePicker();
+        });
         //end settings for date question
 
         //settings for phone question

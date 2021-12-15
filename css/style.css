@@ -69,6 +69,10 @@ body {
   font-size: 14px;
 }
 
+body .page-wrap {
+  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+}
+
 .page-wrap {
   width: 100%;
   overflow: hidden;
@@ -818,6 +822,10 @@ body {
   border-bottom: 1px solid #E5E5E5;
   padding: 8px 15px;
   width: 100%;
+  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 13px;
 }
 
 .page-wrap .content-wrap .create-pool-wrap .create-form .form-group .customselect-wrapper {
@@ -1796,15 +1804,15 @@ body {
   padding-bottom: 15px;
 }
 
-.page-wrap .constr-wrap .questions-box .question-wrap.focus > .box-shadow:nth-child(1)::before {
+.page-wrap .constr-wrap .questions-box .question-wrap.focus > .box-shadow::before {
   opacity: 1;
 }
 
-.page-wrap .constr-wrap .questions-box .question-wrap > .box-shadow:nth-child(1) {
+.page-wrap .constr-wrap .questions-box .question-wrap > .box-shadow {
   position: relative;
 }
 
-.page-wrap .constr-wrap .questions-box .question-wrap > .box-shadow:nth-child(1)::before {
+.page-wrap .constr-wrap .questions-box .question-wrap > .box-shadow::before {
   content: "";
   position: absolute;
   left: 5px;
@@ -2855,6 +2863,29 @@ body {
   pointer-events: none;
 }
 
+.page-wrap .constr-wrap .questions-box .question-wrap.question-date .data-list {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-date .data-list .date-answer {
+  margin-right: 40px;
+  margin-bottom: 20px;
+}
+
 .page-wrap .constr-wrap .questions-box .question-wrap.question-email .email-answer input {
   outline: none;
   border: none;
@@ -3559,7 +3590,7 @@ body {
       -ms-flex-direction: column-reverse;
           flex-direction: column-reverse;
   position: absolute;
-  top: 40px;
+  top: 30px;
   right: 40px;
 }
 
@@ -5556,9 +5587,13 @@ body {
   border-radius: 10px;
 }
 
-.datepicker .datepicker--cell.-current-, .datepicker .datepicker--cell.-selected-, .datepicker .datepicker--cell.-focus- {
-  background: rgba(127, 161, 248, 0.2);
+.datepicker .datepicker--cell.-current- {
   color: #7FA1F8;
+  font-weight: bold;
+}
+
+.datepicker .datepicker--cell.-selected-, .datepicker .datepicker--cell.-focus- {
+  background: rgba(127, 161, 248, 0.2);
 }
 
 .popup-wrap {

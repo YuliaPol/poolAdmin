@@ -624,7 +624,6 @@ body {
                             font-weight: normal;
                             font-size: 11px;
                             line-height: 13px;
-                            text-align: center;
                         }
                     }
                     .customselect-wrapper {
@@ -1374,28 +1373,24 @@ body {
                 padding-bottom: 15px;
                 &.focus {
                     & > .box-shadow {
-                        &:nth-child(1){
-                            &::before {
-                                opacity: 1;
-                            }
+                        &::before {
+                            opacity: 1;
                         }
                     }
                 }
                 & > .box-shadow {
-                    &:nth-child(1){
-                        position: relative;
-                        &::before {
-                            content: "";
-                            position: absolute;
-                            left: 5px;
-                            top: 15px;
-                            bottom: 15px;      
-                            background: #7FA1F8;
-                            border-radius: 25px;
-                            width: 10px;
-                            transition: opacity 0.3s ease-in;
-                            opacity: 0;
-                        }
+                    position: relative;
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        left: 5px;
+                        top: 15px;
+                        bottom: 15px;      
+                        background: #7FA1F8;
+                        border-radius: 25px;
+                        width: 10px;
+                        transition: opacity 0.3s ease-in;
+                        opacity: 0;
                     }
                 }
                 &.question-single,
@@ -2180,6 +2175,16 @@ body {
                             bottom: 8px;
                             right: 0px;
                             pointer-events: none;
+                        }
+                    }
+                    .data-list {
+                        display: flex;
+                        flex-wrap: wrap;
+                        align-items: center;
+                        justify-content: flex-start;
+                        .date-answer {
+                            margin-right: 40px;
+                            margin-bottom: 20px;
                         }
                     }
                 }
@@ -4232,11 +4237,13 @@ body {
         line-height: 13px;
         color: #000000;
         border-radius: 10px;
-        &.-current-,
+        &.-current- {
+            color: #7FA1F8;
+            font-weight: bold;
+        }
         &.-selected-,
         &.-focus- {
             background: rgba(127, 161, 248, 0.2);
-            color: #7FA1F8;
         }
     }
 }

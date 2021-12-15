@@ -181,12 +181,40 @@
                                     <div class="question-name">
                                         <textarea name="question_1"  rows="1" placeholder="Введите ваш вопрос"></textarea>
                                     </div>
-                                    <div class="date-answer">
-                                        <input type="text" class="date-input" maxlength="10">
-                                        <div class="icon-date"></div>
+                                    <div class="data-list">
+                                        <div class="date-answer">
+                                            <input type="text" class="date-input" maxlength="10">
+                                            <div class="icon-date"></div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="box-shadow question-settings">
+                                    <div class="switch-group">
+                                        <div class="switch-row">
+                                            <div class="label">
+                                                Несколько вариантов ответов
+                                            </div>
+                                            <label class="switch">
+                                                <input type="checkbox" class="show-hidden-opt" name="multiple_1">
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                        <div class="hidden hidden-options">
+                                            <div class="select-row">
+                                                <div class="label">
+                                                    Колличество необходимых выбраных ответов
+                                                </div>
+                                                <div class="select-input">
+                                                    <select name="requiredOpt_1" class="customselect count-select">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                    </select>
+                                                </div>
+                                            </div>                                               
+                                        </div>
+                                    </div>
                                     <div class="switch-row">
                                         <div class="label">
                                             Обязательность ответа
