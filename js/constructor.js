@@ -373,9 +373,9 @@ jQuery(function ($) {
                                             </div>
                                             <div class="option-value">
                                                 <select name="scaleAmount_${id}" class="customselect scale-amount">
-                                                    <option value="3">3</option>
                                                     <option value="5">5</option>
                                                     <option selected value="10">10</option>
+                                                    <option value="2">да/нет</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -389,17 +389,18 @@ jQuery(function ($) {
                                                     <option value="face">Смайлики</option>
                                                     <option value="heart">Сердечки</option>
                                                     <option value="hand">Палец</option>
+                                                    <option value="diapason">Диапазон</option>
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="check-wrap">
-                                        <input type="checkbox" class="add-rateLabels" name="rateLabels_${id}" id="rateLabels_${id}">
-                                        <label for="rateLabels_${id}">
-                                            <div class="check"></div>
-                                            <div class="check-text">
-                                                Метки рейтинга
-                                            </div>
+                                    <div class="switch-row">
+                                        <div class="label">
+                                            Метки рейтинга
+                                        </div>
+                                        <label class="switch">
+                                            <input type="checkbox" class="add-rateLabels" name="rateLabels_${id}" id="rateLabels_${id}">
+                                            <span class="slider round"></span>
                                         </label>
                                     </div>
                                 </div>
@@ -1005,19 +1006,143 @@ jQuery(function ($) {
         //change type of scale
         $('.content-wrap').on('change', '.question-scale .scale-type', function(e){
             let question = $(this).parents('.question-wrap');
-            setClassForScale(question);
+            let type = $(this).val();
+            if(type === 'diapason'){
+                if(question.find('diapason'.length === 0)){
+                    addScaleDiapason(question);
+                    setDiapasonMax(question);
+                }
+            } else {
+                if(question.find('diapason'.length !== 0)){
+                    addScalePicture(question);
+                }
+                setClassForScale(question);
+            }
         });
+
+        function addScalePicture(question){
+            let amount = parseInt(question.find('.scale-amount').val());
+            let questionId = question.attr('data-id');
+            let scaleHtml = `<div class="scale-wrap scale-star scale-10">`;
+            for (let i = amount; i >= 1; i--) {
+                scaleHtml += 
+                    `<input type="radio" id="scale_${questionId}_${i}" name="scale_${questionId}" value="10" />
+                    <label for="scale_${questionId}_${i}" title="text"></label>`;
+            }
+            scaleHtml += 
+                `</div>
+                <div class="scale-labels-wrap scale-10">`
+            for (let i = 1; i <= amount; i++) {
+                scaleHtml += `<div class="label-item"></div>`;
+            }
+            scaleHtml += '</div>';
+
+            let optionsHtml = 
+                `<div class="check-wrap">
+                    <input checked type="checkbox" class="add-rateLabels" name="rateLabels_${questionId}" id="rateLabels_${questionId}">
+                    <label for="rateLabels_${questionId}">
+                        <div class="check"></div>
+                        <div class="check-text">
+                            Метки рейтинга
+                        </div>
+                    </label>
+                </div>
+                <div class="labels-option">`;
+            for (let i = 1; i <= amount; i++) {
+                optionsHtml += 
+                    `<div class="label-item">
+                        <div class="number">${i}.</div>
+                        <div class="value">
+                            <input type="text" name="inputpoint_${questionId}_${i}">
+                        </div>
+                    </div>`;
+            }
+            optionsHtml += '</div>';
+            if(question.find('.diapason-answer').length > 0){
+                question.find('.diapason-answer').remove();
+            }
+            if(question.find('.scale-wrap').length === 0){
+                $(scaleHtml).insertAfter(question.find('.question-name'));
+            }
+            if(question.find('.labels-option').length === 0){
+                $(optionsHtml).appendTo(question.find('.scale-options'));
+            }
+            setClassForScale(question);
+        }
+
+        function addScaleDiapason(question){
+            question.find('.scale-wrap').remove();
+            question.find('.scale-labels-wrap').remove();
+            question.find('.labels-option').prev().remove();
+            question.find('.labels-option').remove();
+            console.log('add diapason');
+            if($(question).find('.diapason-answer').length === 0){
+                let diapasonHtml = 
+                `<div class="diapason-answer">
+                    <div class="diapason">
+                        <div class="label">
+                            <div class="value">0</div>
+                        </div>
+                        <div class="input-box">
+                            <input class="input-range" type="range" min="1" max="10" step="1" value="0"/>
+                            <div class="bar"></div>
+                            <div class="bar-filled"></div>
+                        </div>
+                    </div>
+                </div>`
+                $(diapasonHtml).insertAfter($(question).find('.question-name'));
+            }
+        }
+
+        $('.content-wrap').on('input', '.question-wrap .input-range', function(e){
+            setDiapasonValue(this);
+        });
+
+        //set new diapsson value
+        function setDiapasonValue(input){
+            var value = $(input).val();
+            var max = $(input).attr('max');
+            var min = $(input).attr('min');
+            var range = max - min;
+            var relvalue = value - min;
+            var percent = (100/range)*relvalue;
+            var parents = $(input).parents('.diapason');
+            let diameter = $(input).parents('.diapason').find('.label').width();
+            var paddleft = (diameter*percent)/100;
+            parents.find('.label').css('left', 'calc(' + percent + '% - ' + paddleft + 'px)');
+            parents.find('.label .value').html(value);
+            parents.find('.input-box .bar-filled').css('width', percent + '%');
+            parents.find('.label').css('background-position', percent + '%');
+        };
 
         //change amount of ratings
         $('.content-wrap').on('change', '.question-scale .scale-amount', function(e){
             let amount = $(this).val();
             let question = $(this).parents('.question-wrap');
-            let scaleWrap = question.find('.scale-wrap');
-            let questionId = question.attr('data-id');
-            addScaleRate(scaleWrap, amount, questionId);
-            setClassForScale(question);
-            changeAmountLabel(question);
+            if(question.find('.diapason-answer').length !== 0){
+                setDiapasonMax(question);
+            } else {
+                let scaleWrap = question.find('.scale-wrap');
+                let questionId = question.attr('data-id');
+                addScaleRate(scaleWrap, amount, questionId);
+                setClassForScale(question);
+                changeAmountLabel(question);
+            }
         });
+
+        //set max value for diapason
+        function setDiapasonMax(question){
+            let max = parseInt(question.find('.scale-amount').val());
+            if(max > 0){
+                let diapsonInput = question.find('.input-range');
+                diapsonInput.attr('max', max);
+                let diapasonValue = parseInt(diapsonInput.val());
+                if(max < diapasonValue){
+                    diapsonInput.val(max)
+                }
+                setDiapasonValue(diapsonInput)
+            }
+        }
 
         //add class to scale-wrap
         function setClassForScale(question){
@@ -1047,6 +1172,7 @@ jQuery(function ($) {
 
         //add scale list
         function addScaleRate(scaleWrap, amount, questionId) {
+            console.log(amount);
             let scaleHtml = '';
             for (let i = 1; i <= amount; i++) {
                 scaleHtml +=
@@ -1093,7 +1219,7 @@ jQuery(function ($) {
                 let labelsScale = `<div class="scale-labels-wrap"></div>`;
                 let labelsOption = `<div class="labels-option"></div>`;
                 $(labelsScale).insertAfter(question.find('.scale-wrap'));
-                $(labelsOption).insertAfter($(this).parents('.check-wrap'));
+                $(labelsOption).insertAfter($(this).parents('.switch-row'));
                 changeAmountLabel(question);
                 setClassForScale(question);
             } else {

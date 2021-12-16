@@ -1373,6 +1373,7 @@ body {
                 border-radius: 25px;
                 &.question-content {
                     padding-right: 80px;
+                    min-height: 160px;
                 }
             }
             .question-settings {
@@ -1809,7 +1810,16 @@ body {
                             max-width: calc(33.3% - 10px);
                         }
                     }
+                    .scale-2 {
+                        max-width: 400px;
+                        & > div,
+                        & > label {
+                            width: calc(50% - 10px);
+                            max-width: calc(50% - 10px);
+                        }
+                    }
                     .scale-options {
+                        padding-bottom: 25px;
                         .scale-row {
                             display: flex;
                             align-items: center;
@@ -1832,23 +1842,14 @@ body {
                                 }
                                 .customselect-wrapper {
                                     .select-styled {
-                                        padding: 8px 15px;
+                                        padding: 15px;
                                         padding-right: 35px;
                                         font-size: 11px;
                                         line-height: 13px;
                                         color: #000000;
-                                        &::after {
-                                            background: url(./../img/arrow-lightgrey.svg);
-                                            background-position: center;
-                                            background-repeat: no-repeat;
-                                            width: 10px;
-                                            height: 10px;
-                                            transform: rotate(0deg);
-                                            top: 9px;
-                                        }
                                     }
                                     .select-options li {
-                                        padding: 8px 15px;
+                                        padding: 10px 15px;
                                         font-size: 11px;
                                         line-height: 13px;
                                         color: #000000;
@@ -2505,90 +2506,6 @@ body {
                     }
                 }
                 &.question-diapason {
-                    .diapason-answer {
-                        .diapason {
-                            width: 100%;
-                            height: 60px;
-                            position: relative;
-                            .label {
-                                position: absolute;
-                                width: 60px;
-                                height: 60px;
-                                background: #7FA1F8;
-                                border-radius: 50%;
-                                top: 0px;
-                                left: 0px;
-                                z-index: 5;
-                                transition: all 0.1s ease-in;
-                                pointer-events: none;
-                                background-repeat: no-repeat;
-                                .value {
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center;
-                                    font-size: 18px;
-                                    line-height: 22px;
-                                    color: #FFFFFF;
-                                    width: 100%;
-                                    height: 100%;
-                                }
-                            }
-                            .input-box {
-                                margin: 0px;
-                                padding: 0px;
-                                position: relative;
-                                .input-range {
-                                    appearance: none;
-                                    width: 100%;
-                                    height: 60px;
-                                    background: transparent;
-                                    outline: none;
-                                    margin: 0px;
-                                    padding: 0px;
-                                    position: relative;
-                                    z-index: 10;
-                                    border-radius: 50%;
-                                    &::-webkit-slider-thumb {
-                                        appearance: none;
-                                        width: 60px;
-                                        height: 60px;
-                                        background: transparent;
-                                        border-radius: 50%;
-                                        cursor: pointer;
-                                    }
-                                    &::-moz-range-thumb {
-                                        width: 60px;
-                                        height: 60px;
-                                        background: transparent;
-                                        border-radius: 50%;
-                                        cursor: pointer;
-                                    }
-                                }
-                                .bar {
-                                    position: absolute;
-                                    top: 27.5px;
-                                    left: 0px;
-                                    right: 0px;
-                                    width: 100%;
-                                    height: 5px;
-                                    background: #E5E5E5;
-                                    z-index: 1;
-                                }
-                                .bar-filled {
-                                    position: absolute;
-                                    top: 27.5px;
-                                    left: 0px;
-                                    right: 0px;
-                                    width: 0%;
-                                    height: 5px;
-                                    background: #7FA1F8;
-                                    z-index: 2;
-                                    transition: width 0.1s ease-in;
-                                    background-repeat: no-repeat;
-                                }
-                            }
-                        }
-                    }
                     .diapson-set {
                         padding-top: 35px;
                         display: flex;
@@ -2614,6 +2531,90 @@ body {
                                 padding: 15px 20px 15px 15px;
                                 text-align: center;
                                 width: 70px;
+                            }
+                        }
+                    }
+                }
+                .diapason-answer {
+                    .diapason {
+                        width: 100%;
+                        height: 60px;
+                        position: relative;
+                        .label {
+                            position: absolute;
+                            width: 60px;
+                            height: 60px;
+                            background: #7FA1F8;
+                            border-radius: 50%;
+                            top: 0px;
+                            left: 0px;
+                            z-index: 5;
+                            transition: all 0.1s ease-in;
+                            pointer-events: none;
+                            background-repeat: no-repeat;
+                            .value {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                font-size: 18px;
+                                line-height: 22px;
+                                color: #FFFFFF;
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+                        .input-box {
+                            margin: 0px;
+                            padding: 0px;
+                            position: relative;
+                            .input-range {
+                                appearance: none;
+                                width: 100%;
+                                height: 60px;
+                                background: transparent;
+                                outline: none;
+                                margin: 0px;
+                                padding: 0px;
+                                position: relative;
+                                z-index: 10;
+                                border-radius: 50%;
+                                &::-webkit-slider-thumb {
+                                    appearance: none;
+                                    width: 60px;
+                                    height: 60px;
+                                    background: transparent;
+                                    border-radius: 50%;
+                                    cursor: pointer;
+                                }
+                                &::-moz-range-thumb {
+                                    width: 60px;
+                                    height: 60px;
+                                    background: transparent;
+                                    border-radius: 50%;
+                                    cursor: pointer;
+                                }
+                            }
+                            .bar {
+                                position: absolute;
+                                top: 27.5px;
+                                left: 0px;
+                                right: 0px;
+                                width: 100%;
+                                height: 5px;
+                                background: #E5E5E5;
+                                z-index: 1;
+                            }
+                            .bar-filled {
+                                position: absolute;
+                                top: 27.5px;
+                                left: 0px;
+                                right: 0px;
+                                width: 0%;
+                                height: 5px;
+                                background: #7FA1F8;
+                                z-index: 2;
+                                transition: width 0.1s ease-in;
+                                background-repeat: no-repeat;
                             }
                         }
                     }

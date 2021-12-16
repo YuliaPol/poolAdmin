@@ -181,49 +181,17 @@
                                     <div class="question-name">
                                         <textarea name="question_1"  rows="1" placeholder="Введите ваш вопрос"></textarea>
                                     </div>
-                                    <div class="scale-wrap scale-star scale-10">
-                        
-                                        <input type="radio" id="scale_1_10" name="scale_1" value="10" />
-                                        <label for="scale_1_10" title="text"></label>
-
-                                        <input type="radio" id="scale_1_9" name="scale_1" value="9" />
-                                        <label for="scale_1_9" title="text"></label>
-
-                                        <input type="radio" id="scale_1_8" name="scale_1" value="8" />
-                                        <label for="scale_1_8" title="text"></label>
-
-                                        <input type="radio" id="scale_1_7" name="scale_1" value="7" />
-                                        <label for="scale_1_7" title="text"></label>
-
-                                        <input type="radio" id="scale_1_6" name="scale_1" value="6" />
-                                        <label for="scale_1_6" title="text"></label>
-
-                                        <input type="radio" id="scale_1_5" name="scale_1" value="5" />
-                                        <label for="scale_1_5" title="text"></label>
-
-                                        <input type="radio" id="scale_1_4" name="scale_1" value="4" />
-                                        <label for="scale_1_4" title="text"></label>
-
-                                        <input type="radio" id="scale_1_3" name="scale_1" value="3" />
-                                        <label for="scale_1_3" title="text"></label>
-
-                                        <input type="radio" id="scale_1_2" name="scale_1" value="2" />
-                                        <label for="scale_1_2" title="text"></label>
-
-                                        <input type="radio" id="scale_1_1" name="scale_1" value="1" />
-                                        <label for="scale_1_1" title="text"></label>
-                                    </div>
-                                    <div class="scale-labels-wrap scale-10">
-                                        <div class="label-item"></div>
-                                        <div class="label-item"></div>
-                                        <div class="label-item"></div>
-                                        <div class="label-item"></div>
-                                        <div class="label-item"></div>
-                                        <div class="label-item"></div>
-                                        <div class="label-item"></div>
-                                        <div class="label-item"></div>
-                                        <div class="label-item"></div>
-                                        <div class="label-item"></div>
+                                    <div class="diapason-answer">
+                                        <div class="diapason">
+                                            <div class="label">
+                                                <div class="value">0</div>
+                                            </div>
+                                            <div class="input-box">
+                                                <input class="input-range" type="range" min="1" max="10" step="1" value="0"/>
+                                                <div class="bar"></div>
+                                                <div class="bar-filled"></div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="box-shadow question-settings">
@@ -256,13 +224,13 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="switch-row">
-                                            <div class="label">
-                                                Метки рейтинга
-                                            </div>
-                                            <label class="switch">
-                                                <input type="checkbox" class="add-rateLabels" name="rateLabels_1" id="rateLabels_1" checked>
-                                                <span class="slider round"></span>
+                                        <div class="check-wrap">
+                                            <input checked type="checkbox" class="add-rateLabels" name="rateLabels_1" id="rateLabels_1">
+                                            <label for="rateLabels_1">
+                                                <div class="check"></div>
+                                                <div class="check-text">
+                                                    Метки рейтинга
+                                                </div>
                                             </label>
                                         </div>
                                         <div class="labels-option">
