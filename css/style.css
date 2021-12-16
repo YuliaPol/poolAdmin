@@ -770,6 +770,47 @@ body .page-wrap {
   transition: opacity 0.3s ease-in;
 }
 
+.page-wrap .content-wrap .pools-table .table-col .pool-menu-wrap .hidden-menu .menu-list .menu-item .icon .icon-duplicate {
+  width: 15px;
+  height: 15px;
+  position: relative;
+}
+
+.page-wrap .content-wrap .pools-table .table-col .pool-menu-wrap .hidden-menu .menu-list .menu-item .icon .icon-duplicate::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background: url(./../img/icon-duplicate.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  -webkit-transition: opacity 0.3s ease-in;
+  -o-transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
+}
+
+.page-wrap .content-wrap .pools-table .table-col .pool-menu-wrap .hidden-menu .menu-list .menu-item .icon .icon-duplicate::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background: url(./../img/icon-duplicate-a.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in;
+  -o-transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
+}
+
 .page-wrap .content-wrap .pools-table .table-col .pool-menu-wrap .hidden-menu .menu-list .menu-item .text {
   font-family: "Gilroy", Verdana, Tahoma, sans-serif;
   font-style: normal;
@@ -1761,17 +1802,13 @@ body .page-wrap {
 .page-wrap .constr-wrap .questions-box .box-shadow {
   -webkit-box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
           box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   padding: 40px 40px;
   border-radius: 25px;
 }
 
 .page-wrap .constr-wrap .questions-box .box-shadow.question-content {
   padding-right: 80px;
-}
-
-.page-wrap .constr-wrap .questions-box .box-shadow:last-child {
-  margin-bottom: 0px;
 }
 
 .page-wrap .constr-wrap .questions-box .question-settings {
@@ -1801,7 +1838,7 @@ body .page-wrap {
   font-family: "Gilroy", Verdana, Tahoma, sans-serif;
   background: #fff;
   padding: 5px;
-  padding-bottom: 15px;
+  padding-bottom: 0px;
 }
 
 .page-wrap .constr-wrap .questions-box .question-wrap.focus > .box-shadow::before {
