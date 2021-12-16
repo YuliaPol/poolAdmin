@@ -1038,33 +1038,22 @@ jQuery(function ($) {
             scaleHtml += '</div>';
 
             let optionsHtml = 
-                `<div class="check-wrap">
-                    <input checked type="checkbox" class="add-rateLabels" name="rateLabels_${questionId}" id="rateLabels_${questionId}">
-                    <label for="rateLabels_${questionId}">
-                        <div class="check"></div>
-                        <div class="check-text">
-                            Метки рейтинга
-                        </div>
+                `<div class="switch-row">
+                    <div class="label">
+                        Метки рейтинга
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" class="add-rateLabels" name="rateLabels_${questionId}" id="rateLabels_${questionId}">
+                        <span class="slider round"></span>
                     </label>
-                </div>
-                <div class="labels-option">`;
-            for (let i = 1; i <= amount; i++) {
-                optionsHtml += 
-                    `<div class="label-item">
-                        <div class="number">${i}.</div>
-                        <div class="value">
-                            <input type="text" name="inputpoint_${questionId}_${i}">
-                        </div>
-                    </div>`;
-            }
-            optionsHtml += '</div>';
+                </div>`;
             if(question.find('.diapason-answer').length > 0){
                 question.find('.diapason-answer').remove();
             }
             if(question.find('.scale-wrap').length === 0){
                 $(scaleHtml).insertAfter(question.find('.question-name'));
             }
-            if(question.find('.labels-option').length === 0){
+            if(question.find('.add-rateLabels').length === 0){
                 $(optionsHtml).appendTo(question.find('.scale-options'));
             }
             setClassForScale(question);
