@@ -281,7 +281,7 @@ jQuery(function ($) {
                                     </div>
                                     <div class="select-input">
                                         <select name="amount_${id}" class="customselect amount-select">
-                                            <option value="dynamic">Динамически</option>
+                                            <option value="dynamic">Автообновление</option>
                                             <option selected value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
