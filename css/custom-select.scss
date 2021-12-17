@@ -5,6 +5,51 @@ $customActive: #7FA1F8;
 $maxWidth: 100%;
 .customselect-wrapper {
     max-width: $maxWidth;
+    &.customselect-multiple {
+        .select-styled {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            padding-left: 8px;
+            padding-top: 8px;
+            padding-bottom: 1px;
+            min-height: 40px;
+            .default {
+                padding: 12px;
+                padding-bottom: 16px;
+            }
+            & > .selectvalue {
+                padding: 12px;
+                padding-right: 25px;
+                background: rgba(127, 161, 248, 0.5);
+                border-radius: 15px;
+                margin-right: 10px;
+                margin-bottom: 8px;
+                position: relative;
+                .remove-option {
+                    position: absolute;
+                    width: 5px;
+                    height: 5px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    right: 12px;
+                    background: url(./../img/icon-remove.svg);
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    cursor: pointer;
+                }
+            }
+        }
+        .select-options {
+            li {
+                &.active {
+                    background: rgba(127, 161, 248, 0.5);
+                }
+            }
+        }
+    }
     .checked {
         display: inline-block;
         width: 10px;

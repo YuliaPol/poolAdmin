@@ -115,7 +115,7 @@
                     </div>
                 </div>
                 <div class="center-block">
-                    <form action="#">
+                    <form action="#" autocomplete="off">
                         <div class="filter-wrap">
                             <div class="filter-item">
                                 <select name="" class="customselect">
@@ -182,10 +182,8 @@
                                         <div class="question-name">
                                             <textarea name="question_1"  rows="1" placeholder="Введите ваш вопрос"></textarea>
                                         </div>
-                                        <div class="added-file-wrap">
-                                        </div>
                                         <div class="dropdown-wrap">
-                                            <select class="customselect">
+                                            <select class="customselect" multiple>
                                                 <option value="Ответ 1">Ответ 1</option>
                                                 <option value="Ответ 2">Ответ 2</option>
                                                 <option value="Ответ 3">Ответ 3</option>
@@ -225,28 +223,41 @@
                                         </div>
                                     </div>
                                     <div class="box-shadow question-settings">
-                                        <div class="switch-group">
-                                            <div class="check-wrap">
-                                                <input type="checkbox" id="addOpt_1" class="show-hidden-opt" checked>
-                                                <label for="addOpt_1">
-                                                    <div class="check"></div>
-                                                    <div class="check-text">
-                                                        Добавить вариант ответа «Другое» или поле комментария
-                                                    </div>
-                                                </label>
+                                        <div class="switch-row">
+                                            <div class="label">
+                                                Добавить вариант ответа «Другое»
                                             </div>
-                                            <div class="hidden-options"> 
-                                                <div class="btns-wrap">
-                                                    <div class="btn-wrap">
-                                                        <input type="checkbox" class="add-other" id="addOther_1">
-                                                        <label for="addOther_1">Вариант ответа</label>
-                                                    </div>
-                                                    <div class="btn-wrap">
-                                                        <input type="checkbox" class="add-comment" id="addComment_1" checked>
-                                                        <label for="addComment_1">Поле комментария</label>
-                                                    </div>
-                                                </div>
+                                            <label class="switch">
+                                                <input type="checkbox" class="add-other" id="addOther_1">
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                        <div class="switch-row">
+                                            <div class="label">
+                                                Добавить вариант ответа «Ничего из вышеперечисленного»
                                             </div>
+                                            <label class="switch">
+                                                <input type="checkbox" class="add-neither" name="addNeither_1">
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                        <div class="switch-row">
+                                            <div class="label">
+                                                Добавить поле для комментария
+                                            </div>
+                                            <label class="switch">
+                                                <input type="checkbox" name="addComment_1" class="add-comment" id="addComment_1" checked>
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                        <div class="switch-row">
+                                            <div class="label">
+                                                Несколько вариантов ответов
+                                            </div>
+                                            <label class="switch">
+                                                <input type="checkbox" name="multiple_1" class="make-multiple" checked>
+                                                <span class="slider round"></span>
+                                            </label>
                                         </div>
                                         <div class="switch-row">
                                             <div class="label">

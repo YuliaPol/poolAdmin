@@ -213,7 +213,7 @@ jQuery(function ($) {
             switch(type) {
                 case 'single':
                     el = 
-                        `<div class="question-wrap question-single" data-id="${id}">
+                        `<div class="question-wrap question-single question-new" data-id="${id}">
                             <div class="box-shadow question-content">
                                 ${topEL}
                                 <div class="radio-btns-wrapper">
@@ -290,7 +290,7 @@ jQuery(function ($) {
                     break;
                 case 'free-answer':
                     el = 
-                        `<div class="question-wrap question-free" data-id="${id}">
+                        `<div class="question-wrap question-free question-new" data-id="${id}">
                             <div class="box-shadow question-content">
                                 ${topEL}
                                 <div class="free-answers">
@@ -306,7 +306,7 @@ jQuery(function ($) {
                     break;
                 case 'listfree':
                     el = 
-                        `<div class="question-wrap question-listfree" data-id="${id}">
+                        `<div class="question-wrap question-listfree question-new" data-id="${id}">
                             <div class="box-shadow question-content">
                                 ${topEL}
                                 <div class="free-answers">
@@ -328,7 +328,7 @@ jQuery(function ($) {
                     break;
                 case 'scale':
                     el = 
-                        `<div class="question-wrap question-scale" data-id="${id}">
+                        `<div class="question-wrap question-scale question-new" data-id="${id}">
                             <div class="box-shadow question-content">
                                 ${topEL}
                                 <div class="scale-wrap scale-star scale-10">
@@ -410,8 +410,8 @@ jQuery(function ($) {
                     break;
                 case 'dropdown':
                     el = 
-                        `<div class="question-wrap question-dropdown question-content" data-id="${id}">
-                            <div class="box-shadow">
+                        `<div class="question-wrap question-dropdown question-new" data-id="${id}">
+                            <div class="box-shadow question-content">
                                 ${topEL}
                                 <div class="dropdown-wrap">
                                     <select class="customselect">
@@ -428,28 +428,41 @@ jQuery(function ($) {
                                 </div>
                             </div>
                             <div class="box-shadow question-settings">
-                                <div class="switch-group">
-                                    <div class="check-wrap">
-                                        <input type="checkbox" id="addOpt_${id}" class="show-hidden-opt">
-                                        <label for="addOpt_${id}">
-                                            <div class="check"></div>
-                                            <div class="check-text">
-                                                Добавить вариант ответа «Другое» или поле комментария
-                                            </div>
-                                        </label>
+                                <div class="switch-row">
+                                    <div class="label">
+                                        Добавить вариант ответа «Другое»
                                     </div>
-                                    <div class="hidden hidden-options"> 
-                                        <div class="btns-wrap">
-                                            <div class="btn-wrap">
-                                                <input type="checkbox" class="add-other" id="addOther_${id}">
-                                                <label for="addOther_${id}">Вариант ответа</label>
-                                            </div>
-                                            <div class="btn-wrap">
-                                                <input type="checkbox" class="add-comment" id="addComment_${id}">
-                                                <label for="addComment_${id}">Поле комментария</label>
-                                            </div>
-                                        </div>
+                                    <label class="switch">
+                                        <input type="checkbox" class="add-other" id="addOther_${id}">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                                <div class="switch-row">
+                                    <div class="label">
+                                        Добавить вариант ответа «Ничего из вышеперечисленного»
                                     </div>
+                                    <label class="switch">
+                                        <input type="checkbox" class="add-neither" name="addNeither_${id}">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                                <div class="switch-row">
+                                    <div class="label">
+                                        Добавить поле для комментария
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" name="addComment_${id}" class="add-comment">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                                <div class="switch-row">
+                                    <div class="label">
+                                        Несколько вариантов ответов
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" name="multiple_${id}" class="make-multiple">
+                                        <span class="slider round"></span>
+                                    </label>
                                 </div>
                                 ${required_Set}
                             </div>
@@ -457,7 +470,7 @@ jQuery(function ($) {
                     break;
                 case 'matrix':
                     el = 
-                        `<div class="question-wrap question-matrix" data-id="${id}">
+                        `<div class="question-wrap question-matrix question-new" data-id="${id}">
                             <div class="box-shadow question-content">
                                 ${topEL}
                                 <div class="matrix-table">
@@ -509,7 +522,7 @@ jQuery(function ($) {
                     break;
                 case 'ranging':
                     el = 
-                        `<div class="question-wrap question-ranging" data-id="${id}">
+                        `<div class="question-wrap question-ranging question-new" data-id="${id}">
                             <div class="box-shadow question-content">
                                 ${topEL}
                                 <div class="ranging-list">
@@ -528,7 +541,7 @@ jQuery(function ($) {
                     break;
                 case 'name':
                     el = 
-                        `<div class="question-wrap question-name" data-id="${id}">
+                        `<div class="question-wrap question-name question-new" data-id="${id}">
                             <div class="box-shadow question-content">
                                 ${topEL}
                                 <div class="name-answers">
@@ -550,7 +563,7 @@ jQuery(function ($) {
                     break;
                 case 'date':
                     el = 
-                        `<div class="question-wrap question-date" data-id="${id}">
+                        `<div class="question-wrap question-date question-new" data-id="${id}">
                             <div class="box-shadow question-content">
                                 ${topEL}
                                 <div class="date-answer">
@@ -565,7 +578,7 @@ jQuery(function ($) {
                     break;
                 case 'email':
                     el = 
-                        `<div class="question-wrap question-email" data-id="${id}">
+                        `<div class="question-wrap question-email question-new" data-id="${id}">
                             <div class="box-shadow question-content">
                                 ${topEL}
                                 <div class="email-answer">
@@ -579,7 +592,7 @@ jQuery(function ($) {
                     break;
                 case 'phone':
                     el = 
-                        `<div class="question-wrap question-phone" data-id="${id}">
+                        `<div class="question-wrap question-phone question-new" data-id="${id}">
                             <div class="box-shadow question-content">
                                 ${topEL}
                                 <div class="phone-answer">
@@ -594,7 +607,7 @@ jQuery(function ($) {
                     break;
                 case 'file':
                     el = 
-                        `<div class="question-wrap question-file" data-id="${id}">
+                        `<div class="question-wrap question-file question-new" data-id="${id}">
                             <div class="box-shadow question-content">
                                 ${topEL}
                                 <div class="file-answer">
@@ -610,7 +623,7 @@ jQuery(function ($) {
                     break;
                 default: 
                     el =
-                        `<div class="question-wrap question-single" data-id="${id}">
+                        `<div class="question-wrap question-single question-new" data-id="${id}">
                             <div class="box-shadow question-content">
                                 ${topEL}
                             </div>
@@ -623,9 +636,11 @@ jQuery(function ($) {
             if( appendInde === 'last' ){
                 $('.questions-box').find('.questions-list').append(el);
                 scrollTo = $('.questions-box').find('.questions-list .question-wrap:last-child').offset().top;
+            
             }
             else if ( appendInde < 0 ) {
                 $('.questions-box').find('.questions-list').prepend(el);
+                scrollTo = $('.questions-box').find('.questions-list .question-wrap:first-child').offset().top;
             }
             else {
                 $(children[appendInde]).after( el );
@@ -634,7 +649,7 @@ jQuery(function ($) {
             $('.questions-box').removeClass('empty');
             $('.questions-box textarea').autoResize();
             //scroll to element 
-            let container = $('.questions-list');
+            let container = $('.questions-box');
             container.scrollTop(
                 scrollTo - container.offset().top + container.scrollTop()
             );
@@ -658,6 +673,15 @@ jQuery(function ($) {
                 setMultipleItems();
             }
             refreshQuestionsId();
+            setTimeout(() => {
+                questionInFocus();
+            }, 500);
+        }
+        function questionInFocus(){
+            let question = $('.question-new');
+            let questionName = question.find('.question-name textarea');
+            questionName.focus();
+            question.removeClass('question-new');
         }
 
         //show settings for question
@@ -1251,13 +1275,6 @@ jQuery(function ($) {
                 removeDropdownOption(question, newOptionId);
             }
         });
-        //click out of input option select
-        $(document).click(function(event) { 
-            let $target = $(event.target);
-            if($target.parents('option-item').length === 0){
-                $('.option-item input').change();
-            }
-        })
         //set new text for option select
         function setNewText(question, text, index){
             let select = question.find('.dropdown-wrap select');
@@ -1270,16 +1287,23 @@ jQuery(function ($) {
                 $(customSelectHtml).insertAfter(customSelect.find('.select-options').find(`li:nth-child(${index - 1})`));
             }
 
+            if(customSelect.find(`li:nth-child(${index})`).hasClass('active') || 
+                (index === 1 && customSelect.find('li.active').length === 0)){
+                if(customSelect.hasClass('customselect-multiple')){
+                    let optionVal = customSelect.find(`li:nth-child(${index})`).attr('rel');
+                    let seletValue = customSelect.find(`.select-styled .selectvalue[data-value="${optionVal}"]`);
+                    seletValue.attr('data-value', text);
+                    seletValue.find('.value').text(text);
+                } else {
+                    customSelect.find('.select-styled').html(text);
+                }
+            }
+
             select.find(`option:nth-child(${index})`).html(text);
             select.find(`option:nth-child(${index})`).prop('value', text);
             
             customSelect.find(`li:nth-child(${index})`).html(text);
-            customSelect.find(`li:nth-child(${index})`).prop('rel', text);
-
-            if(customSelect.find(`li:nth-child(${index})`).hasClass('active') || 
-                (index === 1 && customSelect.find('li.active').length === 0)){
-                customSelect.find('.select-styled').html(text);
-            }
+            customSelect.find(`li:nth-child(${index})`).attr('rel', text);
         }
 
         //add new option to select
@@ -1315,6 +1339,9 @@ jQuery(function ($) {
                 select.find(`option:nth-child(${optionId})`).remove();
             }
             if(customSelect.find(`li:nth-child(${optionId})`).length != 0){
+                if(customSelect.find(`li:nth-child(${optionId})`).hasClass('active')){
+                    customSelect.find(`li:nth-child(${optionId})`).click();
+                }
                 customSelect.find(`li:nth-child(${optionId})`).remove();
             }
             if(optionList.find(`.option-item:nth-child(${optionId})`).length != 0){
@@ -1332,8 +1359,36 @@ jQuery(function ($) {
             if($(this).is(':checked')){
                 setNewText(question, text, indexNew)
             } else {
+                index = question.find('.select-options').find(`li[rel="${text}"]`).index() + 1;
                 removeDropdownOption(question, index);
             }
+        });
+
+        //add neither option to select
+        $('.content-wrap').on('change', '.question-dropdown .add-neither', function(e){
+            let question = $(this).parents('.question-wrap');
+            let index = parseInt(question.find('.select-options').children().length);
+            let indexNew = index + 1;
+            let text = 'Ничего из вышеперечисленного';
+            if($(this).is(':checked')){
+                setNewText(question, text, indexNew)
+            } else {
+                index = question.find('.select-options').find(`li[rel="${text}"]`).index() + 1;
+                removeDropdownOption(question, index);
+            }
+        });
+
+        //make dropdown multiple
+        $('.content-wrap').on('click', '.question-dropdown .make-multiple', function(e){
+            let question = $(this).parents('.question-wrap');
+            if($(this).is(':checked')) {
+                question.find('.customselect-wrapper').addClass('customselect-multiple');
+                question.find('.customselect-wrapper').find('select').attr('multiple', 'multiple');
+            } else {
+                question.find('.customselect-wrapper').removeClass('customselect-multiple');
+                question.find('.customselect-wrapper').find('select').removeAttr('multiple');
+            }
+            question.find('.customselect-wrapper').find('.select-options li.active').click();
         });
 
         //add to dropdown  comment
