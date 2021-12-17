@@ -299,28 +299,6 @@ jQuery(function ($) {
                             </div>
                         </div>`
                     break;
-                case 'listfree':
-                    el = 
-                        `<div class="question-wrap question-listfree question-new" data-id="${id}">
-                            <div class="box-shadow question-content">
-                                ${topEL}
-                                <div class="free-answers">
-                                    <div class="answer-wrap">
-                                        <textarea rows="1" placeholder="Введите ваш комментарий"></textarea>
-                                    </div>
-                                    <div class="answer-wrap">
-                                        <textarea rows="1" placeholder="Введите ваш комментарий"></textarea>
-                                    </div>
-                                    <div class="answer-wrap">
-                                        <textarea rows="1" placeholder="Введите ваш комментарий"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="box-shadow question-settings">
-                                ${required_Set}
-                            </div>
-                        </div>`
-                    break;
                 case 'scale':
                     el = 
                         `<div class="question-wrap question-scale question-new" data-id="${id}">
