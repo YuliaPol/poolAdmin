@@ -1569,6 +1569,11 @@ body {
                             }
                         }
                     }
+                    .select-row {
+                        .select-input {
+                            min-width: 120px;
+                        }
+                    }
                 }
                 &.question-scale {
                     .scale-labels-wrap {
@@ -3173,7 +3178,7 @@ body {
                         padding-bottom: 0px;
                     }
                     .label {
-                        font-family: $fontPage;
+                       font-family: $fontPage;
                         font-style: normal;
                         font-weight: bold;
                         font-size: 13px;
@@ -3248,7 +3253,7 @@ body {
                         padding-right: 17px;
                         font-family: $fontPage;
                         font-style: normal;
-                        font-weight: 300;
+                        font-weight: bold;
                         font-size: 13px;
                         line-height: 16px;
                         color: #000000;

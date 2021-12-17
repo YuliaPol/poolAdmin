@@ -52,7 +52,7 @@ jQuery(function ($) {
         $('.pool-wrap textarea').autoResize();
 
         //in free list answers add new textarea
-        $('.pool-wrap').on('input', '.question-listfree textarea', function(e){
+        $('.pool-wrap').on('input', '.question-freedynamic textarea', function(e){
             let question = $(this).parents('.question-wrap');
             let text = $(this).val();
             let index = $(this).parents('.answer-wrap').index() + 1;
@@ -69,7 +69,7 @@ jQuery(function ($) {
         });
 
         // free list remove textarea if empty
-        $('.pool-wrap').on('blur', '.question-listfree textarea', function(e){
+        $('.pool-wrap').on('blur', '.question-freedynamic textarea', function(e){
             let question = $(this).parents('.question-wrap');
             let text = $(this).val();
             let index = $(this).parents('.answer-wrap').index() + 1;

@@ -2088,6 +2088,10 @@ body .page-wrap {
   pointer-events: none;
 }
 
+.page-wrap .constr-wrap .questions-box .question-wrap.question-free .select-row .select-input, .page-wrap .constr-wrap .questions-box .question-wrap.question-listfree .select-row .select-input {
+  min-width: 120px;
+}
+
 .page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-labels-wrap {
   display: -webkit-box;
   display: -webkit-flex;
@@ -4325,7 +4329,7 @@ body .page-wrap {
   padding-right: 17px;
   font-family: "Gilroy", Verdana, Tahoma, sans-serif;
   font-style: normal;
-  font-weight: 300;
+  font-weight: bold;
   font-size: 13px;
   line-height: 16px;
   color: #000000;

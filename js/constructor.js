@@ -275,6 +275,26 @@ jQuery(function ($) {
                                 </div>
                             </div>
                             <div class="box-shadow question-settings">
+                                <div class="select-row">
+                                    <div class="label">
+                                        Несколько вариантов ответов
+                                    </div>
+                                    <div class="select-input">
+                                        <select name="amount_${id}" class="customselect amount-select">
+                                            <option value="dynamic">Динамически</option>
+                                            <option selected value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                    </div>
+                                </div>
                                 ${required_Set}
                             </div>
                         </div>`
@@ -1894,6 +1914,32 @@ jQuery(function ($) {
             setDatePicker();
         });
         //end settings for date question
+
+        //settings for free question
+        $('.content-wrap').on('change', '.question-free .amount-select',function(e){
+            let question = $(this).parents('.question-wrap');
+            let amount = $(this).val();
+            let freeListWrap = question.find('.free-answers');
+            let freeList = freeListWrap.children();
+            let currentAmount = freeList.length;
+            if(amount === 'dynamic'){
+                amount = 1;
+            }
+            if(amount > currentAmount){
+                for (let i = currentAmount; i <= amount; i++) {
+                    let freeHtml = 
+                        `<div class="answer-wrap">
+                            <textarea rows="1" placeholder="Введите ваш комментарий"></textarea>
+                        </div>`;
+                    freeListWrap.append(freeHtml);
+                }
+            } else {
+                for (let i = amount; i < currentAmount; i++) {
+                    $(freeList[i]).remove();
+                }
+            }
+        });
+        //end settings for free question
 
         //settings for phone question
         $('.question-phone input.code').intlTelInput({
