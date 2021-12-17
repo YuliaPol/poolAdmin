@@ -223,66 +223,41 @@ jQuery(function ($) {
                                 </div>
                             </div>
                             <div class="box-shadow question-settings">
-                                <div class="switch-group">
-                                    <div class="switch-row">
-                                        <div class="label">
-                                            Добавить вариант ответа «Другое» или поле комментария
-                                        </div>
-                                        <label class="switch">
-                                            <input type="checkbox" class="show-hidden-opt">
-                                            <span class="slider round"></span>
-                                        </label>
+                                <div class="switch-row">
+                                    <div class="label">
+                                        Добавить вариант ответа «Другое»
                                     </div>
-                                    <div class="hidden hidden-options">
-                                        <div class="check-row">
-                                            <input type="checkbox" class="add-other" id="addOther_${id}" name="addOther_${id}">
-                                            <label for="addOther_${id}">Вариант ответа
-                                                <div class="check"></div>
-                                            </label>
-                                        </div>
-                                        <div class="check-row">
-                                            <input type="checkbox" class="add-comment" id="addComment_${id}" name="addComment_${id}">
-                                            <label for="addComment_${id}">
-                                                Поле комментария
-                                                <div class="check"></div>
-                                            </label>
-                                        </div>
-                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" class="add-other" name="addOther_${id}">
+                                        <span class="slider round"></span>
+                                    </label>
                                 </div>
                                 <div class="switch-row">
                                     <div class="label">
                                         Добавить вариант ответа «Ничего из вышеперечисленного»
                                     </div>
                                     <label class="switch">
-                                        <input type="checkbox" name="addNeither_${id}" class="add-neither">
+                                        <input type="checkbox" class="add-neither" name="addNeither_${id}">
                                         <span class="slider round"></span>
                                     </label>
                                 </div>
-                                <div class="switch-group">
-                                    <div class="switch-row">
-                                        <div class="label">
-                                            Несколько вариантов ответов
-                                        </div>
-                                        <label class="switch">
-                                            <input type="checkbox" class="show-hidden-opt" name="multiple_${id}">
-                                            <span class="slider round"></span>
-                                        </label>
+                                <div class="switch-row">
+                                    <div class="label">
+                                        Поле комментария
                                     </div>
-                                    <div class="hidden hidden-options">
-                                        <div class="select-row">
-                                            <div class="label">
-                                                Колличество необходимых выбраных ответов
-                                            </div>
-                                            <div class="select-input">
-                                                <select name="requiredOpt_${id}" class="customselect">
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                </select>
-                                            </div>
-                                        </div>
+                                    <label class="switch">
+                                        <input type="checkbox" class="add-comment" name="addComment_${id}">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                                <div class="switch-row">
+                                    <div class="label">
+                                        Несколько вариантов ответов
                                     </div>
+                                    <label class="switch">
+                                        <input type="checkbox" name="multiple_${id}">
+                                        <span class="slider round"></span>
+                                    </label>
                                 </div>
                                 ${required_Set}
                             </div>
