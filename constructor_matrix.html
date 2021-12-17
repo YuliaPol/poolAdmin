@@ -259,24 +259,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="check-wrap">
-                                            <input type="checkbox" id="addComment_1" class="add-comment">
-                                            <label for="addComment_1">
-                                                <div class="check"></div>
-                                                <div class="check-text">
-                                                    Добавить поле комментария
-                                                </div>
-                                            </label>
-                                        </div>
-                                        <div class="check-wrap">
-                                            <input type="checkbox" class="add-multipleChoice" name="addmultiple_1" id="addmultiple_1">
-                                            <label for="addmultiple_1">
-                                                <div class="check"></div>
-                                                <div class="check-text">
-                                                    Разрешить несколько ответов на строку
-                                                </div>
-                                            </label>
-                                        </div>
                                         <div class="matrix-col-list">
                                             <div class="matrix-col">
                                                 <div class="value">
@@ -293,13 +275,31 @@
                                             <!-- last is empty -->
                                             <div class="matrix-col">
                                                 <div class="value">
-                                                    <input type="text" name="inputCol_1_3" placeholder="Введите текст строки">
+                                                    <input type="text" name="inputCol_1_3" placeholder="Введите текст столбца">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="box-shadow question-settings">
+                                    <div class="switch-row">
+                                        <div class="label">
+                                            Разрешить несколько ответов на строку
+                                        </div>
+                                        <label class="switch">
+                                            <input type="checkbox" name="multiple_1" class="add-multipleChoice">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+                                    <div class="switch-row">
+                                        <div class="label">
+                                            Добавить поле комментария
+                                        </div>
+                                        <label class="switch">
+                                            <input type="checkbox" name="addComment_1" class="add-comment">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
                                     <div class="switch-row">
                                         <div class="label">
                                             Обязательность ответа
