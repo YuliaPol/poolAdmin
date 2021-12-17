@@ -561,12 +561,33 @@ jQuery(function ($) {
                         `<div class="question-wrap question-date question-new" data-id="${id}">
                             <div class="box-shadow question-content">
                                 ${topEL}
-                                <div class="date-answer">
-                                    <input type="text" class="date-input" maxlength="10">
-                                    <div class="icon-date"></div>
+                                <div class="data-list">
+                                    <div class="date-answer">
+                                        <input type="text" class="date-input" maxlength="10">
+                                        <div class="icon-date"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="box-shadow question-settings">
+                                <div class="select-row">
+                                    <div class="label">
+                                        Несколько вариантов ответов
+                                    </div>
+                                    <div class="select-input">
+                                        <select name="amount_${id}" class="customselect amount-select">
+                                            <option selected value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                    </div>
+                                </div>
                                 ${required_Set}
                             </div>
                         </div>`
@@ -1887,7 +1908,7 @@ jQuery(function ($) {
             setInputMaskDate();
         }
         //add few date input
-        $('.content-wrap').on('change', '.question-date .count-select',function(e){
+        $('.content-wrap').on('change', '.question-date .amount-select',function(e){
             let count = parseInt($(this).val());
             let question = $(this).parents('.question-wrap');
             let dataList = question.find('.data-list');
