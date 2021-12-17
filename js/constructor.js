@@ -1381,14 +1381,16 @@ jQuery(function ($) {
         //make dropdown multiple
         $('.content-wrap').on('click', '.question-dropdown .make-multiple', function(e){
             let question = $(this).parents('.question-wrap');
+            let selectWrap = question.find('.customselect-wrapper');
             if($(this).is(':checked')) {
-                question.find('.customselect-wrapper').addClass('customselect-multiple');
-                question.find('.customselect-wrapper').find('select').attr('multiple', 'multiple');
+                selectWrap.addClass('customselect-multiple');
+                selectWrap.find('select').attr('multiple', 'multiple');
+                selectWrap.find('.select-styled').html('<div class="default">Выберите ответ</div>');
             } else {
-                question.find('.customselect-wrapper').removeClass('customselect-multiple');
-                question.find('.customselect-wrapper').find('select').removeAttr('multiple');
+                selectWrap.removeClass('customselect-multiple');
+                selectWrap.find('select').removeAttr('multiple');
             }
-            question.find('.customselect-wrapper').find('.select-options li.active').click();
+            selectWrap.find('.select-options li.active').click();
         });
 
         //add to dropdown  comment

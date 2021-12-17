@@ -76,28 +76,6 @@ function customSelectActive(){
             $('.customselect-wrapper').find('.select-options').hide();
         });
 
-        // $styledSelect.click(function(e) {
-        //     e.stopPropagation();
-        //     console.log('styledSelect click');
-        //     if($(e.target).hasClass('remove-option')){
-        //         let optionVal = $(e.target).parents('.selectvalue').attr('data-value');
-        //         $(e.target).parents('.select').find(`.select-options li[rel="${optionVal}"]`).click();
-        //     } else {
-        //         $('div.select-styled.active').not(this).each(function(){
-        //             $(this).removeClass('active').next('ul.select-options').hide();
-        //         });
-        //         $(this).toggleClass('active').next('ul.select-options').toggle();
-        //     }
-        // });
-
-        // $styledSelect.click(function(e) {
-        //     e.stopPropagation();
-        //     $('div.select-styled.active').not(this).each(function(){
-        //         $(this).removeClass('active').next('ul.select-options').hide();
-        //     });
-        //     $(this).toggleClass('active').next('ul.select-options').toggle();
-        // });
-
         $('body').on('click', '.customselect-wrapper .select-styled', function(e){
             let wrapper = $(this).parents('.customselect-wrapper');
             let selected = wrapper.find('.select-styled');
