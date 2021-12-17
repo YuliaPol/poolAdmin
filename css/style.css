@@ -2696,12 +2696,6 @@ body .page-wrap {
   padding-top: 20px;
 }
 
-.page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-row-list,
-.page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-col-list {
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
 .page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-row-list .matrix-col,
 .page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-row-list .matrix-row,
 .page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-col-list .matrix-col,

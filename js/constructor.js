@@ -461,34 +461,34 @@ jQuery(function ($) {
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="check-wrap">
-                                        <input type="checkbox" id="addComment_${id}" class="add-comment">
-                                        <label for="addComment_${id}">
-                                            <div class="check"></div>
-                                            <div class="check-text">
-                                                Добавить поле комментария
-                                            </div>
-                                        </label>
-                                    </div>
-                                    <div class="check-wrap">
-                                        <input type="checkbox" class="add-multipleChoice" name="addmultiple_${id}" id="addmultiple_${id}">
-                                        <label for="addmultiple_${id}">
-                                            <div class="check"></div>
-                                            <div class="check-text">
-                                                Разрешить несколько ответов на строку
-                                            </div>
-                                        </label>
-                                    </div>
                                     <div class="matrix-col-list">
                                         <div class="matrix-col">
                                             <div class="value">
-                                                <input type="text" name="inputCol_${id}_1" placeholder="Введите текст строки">
+                                                <input type="text" name="inputCol_${id}_1" placeholder="Введите текст столбца">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="box-shadow question-settings">
+                                <div class="switch-row">
+                                    <div class="label">
+                                        Разрешить несколько ответов на строку
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" name="multiple_${id}" class="add-multipleChoice">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                                <div class="switch-row">
+                                    <div class="label">
+                                        Добавить поле комментария
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" name="addComment_${id}" class="add-comment">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
                                 ${required_Set}
                             </div>
                         </div>`
@@ -1627,7 +1627,7 @@ jQuery(function ($) {
                 rowHtml +=
                     `<td>
                         <div class="matrix-check">
-                            <input type="radio" name="q_${questionId}_${rowIndex}" id="q_${questionId}_${rowIndex}_${i}">
+                            <input type="radio" name="q_${questionId}_${rowIndex}" id="q_${questionId}_${rowIndex}_${i}" placeholder="Введите текст строки">
                             <label for="q_${questionId}_${rowIndex}_${i}"></label>
                         </div>
                     </td>`;
@@ -1660,7 +1660,7 @@ jQuery(function ($) {
                     let colHtml = 
                         `<td>
                             <div class="matrix-check">
-                                <input type="radio" name="q_${questionId}_${i}" id="q_${questionId}_${i}_${colId}">
+                                <input type="radio" name="q_${questionId}_${i}" id="q_${questionId}_${i}_${colId}" placeholder="Введите текст столбца">
                                 <label for="q_${questionId}_${i}_${colId}"></label>
                             </div>
                         </td>`;
@@ -1672,7 +1672,7 @@ jQuery(function ($) {
             let inputColHtml = 
             `<div class="matrix-col">
                 <div class="value">
-                    <input type="text" name="inputCol_${questionId}_${colId}" placeholder="Введите текст строки">
+                    <input type="text" name="inputCol_${questionId}_${colId}" placeholder="Введите текст столбца">
                 </div>
             </div>`;
          $(inputColHtml).appendTo($(question).find('.matrix-col-list'));
