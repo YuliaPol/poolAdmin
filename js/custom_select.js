@@ -2,6 +2,73 @@ jQuery(function ($) {
     $(document).ready(function () {
        //customselect
         customSelectActive();
+
+        $(document).click(function(e) {
+            $('.customselect-wrapper').find('.select-styled').removeClass('active');
+            $('.customselect-wrapper').find('.select-options').hide();
+        });
+    
+        $('body').on('click', '.customselect-wrapper .select-styled', function(e){
+            e.stopPropagation();
+            let wrapper = $(this).parents('.customselect-wrapper');
+
+            $('.customselect-wrapper').not(wrapper).find('.select-styled').removeClass('active');
+            $('.customselect-wrapper').not(wrapper).find('.select-options').hide();
+
+            let selected = wrapper.find('.select-styled');
+            if(wrapper.hasClass('customselect-multiple')){
+                if($(e.target).hasClass('remove-option')){
+                    let optionVal = $(e.target).parents('.selectvalue').attr('data-value');
+                    $(e.target).parents('.select').find(`.select-options li[rel="${optionVal}"]`).click();
+                }
+            } else {
+                $('div.select-styled.active').not(selected).each(function(){
+                    $(selected).removeClass('active').next('ul.select-options').hide();
+                });
+                $(selected).toggleClass('active').next('ul.select-options').toggle();
+            }
+        });
+    
+        $('body').on('click', '.customselect-wrapper li', function(e){
+            e.stopPropagation();
+            let wrapper = $(this).parents('.customselect-wrapper');
+            $styledSelect = wrapper.find('.select-styled');
+            $this =  wrapper.find('select');
+            $list = wrapper.find('.select-options');
+            if(wrapper.hasClass('customselect-multiple')){
+                let currentLi = $(e.currentTarget);
+                if(currentLi.hasClass('active')) {
+                    currentLi.removeClass('active');
+                    $styledSelect.find('.selectvalue[data-value="' + currentLi.attr('rel') + '"]').remove();
+                    if($styledSelect.find('.selectvalue').length == 0){
+                        $styledSelect.html('<div class="default">Выберите ответ</div>');
+                    }
+                    $this.find('option[value="' + currentLi.attr('rel') + '"]').prop("selected", false)
+                    currentLi.removeClass('active');
+                }
+                else {
+                    currentLi.addClass('active');
+                    if($styledSelect.find('.default').length > 0){
+                        $styledSelect.find('.default').remove();
+                    }
+                    $styledSelect.append(
+                        `<div class="selectvalue" data-value="${$(e.currentTarget).attr('rel')}">
+                            <div class="value">${$(e.currentTarget).attr('rel')}</div>
+                            <div class="remove-option"></div>
+                        </div>`);
+                    $this.find('option[value="' + $(e.currentTarget).attr('rel') + '"]').prop("selected", true);
+                    currentLi.addClass('active');
+                }
+    
+            } else {
+                $styledSelect.text($(this).text()).removeClass('active');
+                $(this).parents('ul').find('li').removeClass('active');
+                $this.val($(this).attr('rel'));
+                $list.hide();
+                $(this).addClass('active');
+            }
+            $this.change();
+        });
     });
 });
 function customSelectActive(){
@@ -71,65 +138,5 @@ function customSelectActive(){
                 }
             }
         }
-        $(document).click(function() {
-            $('.customselect-wrapper').find('.select-styled').removeClass('active');
-            $('.customselect-wrapper').find('.select-options').hide();
-        });
-
-        $('body').on('click', '.customselect-wrapper .select-styled', function(e){
-            let wrapper = $(this).parents('.customselect-wrapper');
-            let selected = wrapper.find('.select-styled');
-            e.stopPropagation();
-            if(wrapper.hasClass('customselect-multiple') && $(e.target).hasClass('remove-option')){
-                let optionVal = $(e.target).parents('.selectvalue').attr('data-value');
-                $(e.target).parents('.select').find(`.select-options li[rel="${optionVal}"]`).click();
-            } else {
-                $('div.select-styled.active').not(selected).each(function(){
-                    $(selected).removeClass('active').next('ul.select-options').hide();
-                });
-                $(selected).toggleClass('active').next('ul.select-options').toggle();
-            }
-        });
-
-        $('body').on('click', '.customselect-wrapper li', function(e){
-            e.stopPropagation();
-            let wrapper = $(this).parents('.customselect-wrapper');
-            $styledSelect = wrapper.find('.select-styled');
-            $this =  wrapper.find('select');
-            $list = wrapper.find('.select-options');
-            if(wrapper.hasClass('customselect-multiple')){
-                let currentLi = $(e.currentTarget);
-                if(currentLi.hasClass('active')) {
-                    currentLi.removeClass('active');
-                    $styledSelect.find('.selectvalue[data-value="' + currentLi.attr('rel') + '"]').remove();
-                    if($styledSelect.find('.selectvalue').length == 0){
-                        $styledSelect.html('<div class="default">Выберите ответ</div>');
-                    }
-                    $this.find('option[value="' + currentLi.attr('rel') + '"]').prop("selected", false)
-                    currentLi.removeClass('active');
-                }
-                else {
-                    currentLi.addClass('active');
-                    if($styledSelect.find('.default').length > 0){
-                        $styledSelect.find('.default').remove();
-                    }
-                    $styledSelect.append(
-                        `<div class="selectvalue" data-value="${$(e.currentTarget).attr('rel')}">
-                            <div class="value">${$(e.currentTarget).attr('rel')}</div>
-                            <div class="remove-option"></div>
-                        </div>`);
-                    $this.find('option[value="' + $(e.currentTarget).attr('rel') + '"]').prop("selected", true);
-                    currentLi.addClass('active');
-                }
-
-            } else {
-                $styledSelect.text($(this).text()).removeClass('active');
-                $(this).parents('ul').find('li').removeClass('active');
-                $this.val($(this).attr('rel'));
-                $list.hide();
-                $(this).addClass('active');
-            }
-            $this.change();
-        });
     });
 }

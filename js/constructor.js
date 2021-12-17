@@ -88,7 +88,7 @@ jQuery(function ($) {
         //sortable questions
         if($( window ).width() > 700) {
             $('.questions-box .questions-list').sortable({
-                cancel: "input, a, button, textarea, .control-panel",
+                cancel: "input, a, button, textarea, .control-panel, .customselect-wrapper",
                 containment: "parent",
                 distance: 5,
                 items: ".question-wrap",
@@ -1080,9 +1080,8 @@ jQuery(function ($) {
         function addScaleDiapason(question){
             question.find('.scale-wrap').remove();
             question.find('.scale-labels-wrap').remove();
-            question.find('.labels-option').prev().remove();
+            question.find('.add-rateLabels').parents('.switch-row').remove();
             question.find('.labels-option').remove();
-            console.log('add diapason');
             if($(question).find('.diapason-answer').length === 0){
                 let diapasonHtml = 
                 `<div class="diapason-answer">
@@ -1782,7 +1781,7 @@ jQuery(function ($) {
         //dragable and sortable for ranging items
         function setSortbaleRanging(){
             $('.question-ranging .ranging-list').sortable({
-                cancel: 'a,button, textarea, .empty-item',
+                cancel: 'a, button, textarea, .empty-item, .customselect-wrapper',
                 containment: 'parent',
                 cursor: 'grab',
                 stop: function( event, ui ) {

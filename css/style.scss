@@ -1824,7 +1824,9 @@ body {
                         }
                     }
                     .scale-options {
-                        padding-bottom: 25px;
+                        .switch-row {
+                            padding-bottom: 25px;
+                        }
                         .scale-row {
                             display: flex;
                             align-items: center;
