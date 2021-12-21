@@ -634,6 +634,9 @@ body {
                             color: $errorColor;
                         }
                     }
+                    &:last-child {
+                        padding-bottom: 0px;
+                    }
                     .question {
                         font-family: $fontPage;
                         font-style: normal;

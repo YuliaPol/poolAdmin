@@ -845,6 +845,10 @@ body .page-wrap {
   color: #FF7262;
 }
 
+.page-wrap .content-wrap .create-pool-wrap .create-form .form-group:last-child {
+  padding-bottom: 0px;
+}
+
 .page-wrap .content-wrap .create-pool-wrap .create-form .form-group .question {
   font-family: "Gilroy", Verdana, Tahoma, sans-serif;
   font-style: normal;
