@@ -553,6 +553,7 @@ jQuery(function ($) {
                                     </div>
                                     <div class="select-input">
                                         <select name="amount_${id}" class="customselect amount-select">
+                                            <option value="dynamic">Автообновление</option>
                                             <option selected value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -1886,11 +1887,14 @@ jQuery(function ($) {
         }
         //add few date input
         $('.content-wrap').on('change', '.question-date .amount-select',function(e){
-            let count = parseInt($(this).val());
+            let count = $(this).val();
             let question = $(this).parents('.question-wrap');
             let dataList = question.find('.data-list');
             let dataInputs = dataList.children();
             let curCount = parseInt(dataInputs.length);
+            if(count === 'dynamic'){
+                count = 1;
+            }
             console.log(count);
             if(count > curCount){
                 for (let i = curCount; i < count; i++) {

@@ -128,12 +128,48 @@ jQuery(function ($) {
         }
         setSortbaleRanging();
         //settings for date question
-        $('.date-input').datepicker({
-            gotoCurrent: true,
-            showOtherMonths: false,
-            altFormat: "mm.dd.yyyy",
-            dateFormat: "mm.dd.yyyy",
+        function setDatePicker(){
+            $('.date-input').datepicker({
+                gotoCurrent: true,
+                showOtherMonths: false,
+                altFormat: "mm.dd.yyyy",
+                dateFormat: "mm.dd.yyyy",
+                autoClose: true,
+                onSelect: function(date, inst, obj){
+                    let dateAnswer = obj.$el.parents('.date-answer')
+                    if(dateAnswer.is(':last-child')){
+                        dateAnswer.addClass('picked-date');
+                        let removeHtml = `<div class="btn-remove-date"></div>`;
+                        $(removeHtml).appendTo(dateAnswer);
+                        let dateList = dateAnswer.parents('.data-list');
+                        let inputId = dateList.length + 1;
+                        let questionId = dateAnswer.parents('.question-wrap').attr('data-id');
+                        let newInputHtml = 
+                            `<div class="date-answer">
+                                <input type="text" class="date-input" maxlength="10" name="q-${questionId}-${inputId}">
+                                <div class="icon-date"></div>
+                            </div>`
+                        $(newInputHtml).appendTo(dateList);
+                        setDatePicker();
+                    }
+                },
+            });
+        }
+        setDatePicker();
+        //delete date input
+        $('.content-wrap').on('click', '.question-datedynamic .btn-remove-date', function(e){
+            let question = $(this).parents('.question-wrap');
+            $(this).parents('.date-answer').remove();
+            refreshDatesIds(question);
         });
+        function refreshDatesIds(question){
+            let list = question.find('.data-list').children();
+            for (let i = 0; i < list.length; i++) {
+                let id = i + 1;
+                let inputs = $(list[i]).find('input');
+                changeNameInput(inputs, id, 2);
+            }
+        }
         //settings for phone question
         $('.question-phone input.code').intlTelInput({
             initialCountry: "ru",

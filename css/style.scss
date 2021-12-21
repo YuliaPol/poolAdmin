@@ -2183,6 +2183,7 @@ body {
                     .date-answer {
                         position: relative;
                         max-width: 128px;
+                        pointer-events: none;
                         .date-input {
                             border: none;
                             border-bottom: 1px solid #E5E5E5;
@@ -2220,6 +2221,11 @@ body {
                         .date-answer {
                             margin-right: 40px;
                             margin-bottom: 20px;
+                        }
+                    }
+                    .select-row {
+                        .select-input {
+                            min-width: 120px;
                         }
                     }
                 }
@@ -3821,6 +3827,48 @@ body {
                     bottom: 8px;
                     right: 0px;
                     pointer-events: none;
+                }
+            }
+            .data-list {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: flex-start;
+                .date-answer {
+                    margin-right: 40px;
+                    margin-bottom: 20px;
+                    &.picked-date {
+                        max-width: 65px;
+                        &:hover {
+                            .btn-remove-date {
+                                opacity: 1;
+                            }
+                        }
+                        .date-input {
+                            border: none;
+                            font-weight: bold;
+                            color: #7FA1F8;
+                            padding-right: 0px;
+                        }
+                        .icon-date {
+                            opacity: 0;
+                            pointer-events: none;
+                        }
+                        .btn-remove-date {
+                            position: absolute;
+                            top: -5px;
+                            right: -5px;
+                            width: 10px;
+                            height: 10px;
+                            background: url(./../img/icon-delete.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: 5px 5px;
+                            cursor: pointer;
+                            opacity: 0;
+                            transition: opacity 0.3s ease-in;
+                        }
+                    }
                 }
             }
             .email-answer {

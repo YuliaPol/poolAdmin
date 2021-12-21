@@ -2867,6 +2867,7 @@ body .page-wrap {
 .page-wrap .constr-wrap .questions-box .question-wrap.question-date .date-answer {
   position: relative;
   max-width: 128px;
+  pointer-events: none;
 }
 
 .page-wrap .constr-wrap .questions-box .question-wrap.question-date .date-answer .date-input {
@@ -2921,6 +2922,10 @@ body .page-wrap {
 .page-wrap .constr-wrap .questions-box .question-wrap.question-date .data-list .date-answer {
   margin-right: 40px;
   margin-bottom: 20px;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-date .select-row .select-input {
+  min-width: 120px;
 }
 
 .page-wrap .constr-wrap .questions-box .question-wrap.question-email .email-answer input {
@@ -5035,6 +5040,67 @@ body .page-wrap {
   bottom: 8px;
   right: 0px;
   pointer-events: none;
+}
+
+.page-wrap .pool-wrap .question-wrap .data-list {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.page-wrap .pool-wrap .question-wrap .data-list .date-answer {
+  margin-right: 40px;
+  margin-bottom: 20px;
+}
+
+.page-wrap .pool-wrap .question-wrap .data-list .date-answer.picked-date {
+  max-width: 65px;
+}
+
+.page-wrap .pool-wrap .question-wrap .data-list .date-answer.picked-date:hover .btn-remove-date {
+  opacity: 1;
+}
+
+.page-wrap .pool-wrap .question-wrap .data-list .date-answer.picked-date .date-input {
+  border: none;
+  font-weight: bold;
+  color: #7FA1F8;
+  padding-right: 0px;
+}
+
+.page-wrap .pool-wrap .question-wrap .data-list .date-answer.picked-date .icon-date {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.page-wrap .pool-wrap .question-wrap .data-list .date-answer.picked-date .btn-remove-date {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 10px;
+  height: 10px;
+  background: url(./../img/icon-delete.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: 5px 5px;
+          background-size: 5px 5px;
+  cursor: pointer;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in;
+  -o-transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
 }
 
 .page-wrap .pool-wrap .question-wrap .email-answer input {
