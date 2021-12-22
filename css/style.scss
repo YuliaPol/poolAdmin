@@ -1022,7 +1022,32 @@ body {
                     transition: background 0.3s ease-in;
                     box-shadow: none;
                     border: 1px solid #E5E5E5;
+                    transition: border-color 0.3s ease-in;
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        top: 0px;
+                        left: 0px;
+                        right: 0px;
+                        bottom: 0px;
+                        box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
+                        border-radius: 15px;
+                        opacity: 0;
+                        transition: opacity 0.3s ease-in;
+                    }
+                    &:hover {
+                        border-color: transparent;
+                        &::before {
+                            opacity: 1;
+                        }
+                    }
                     &.active {
+                        border-color: transparent;
+                        &::before {
+                            opacity: 1;
+                            border-bottom-left-radius: 0px;
+                            border-bottom-right-radius: 0px;
+                        }
                         &::after {
                             transform: rotate(0deg);
                         }
