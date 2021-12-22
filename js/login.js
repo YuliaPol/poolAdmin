@@ -23,6 +23,25 @@ jQuery(function ($) {
         if($('.text-popUp').length > 0){
             setTimeout(function(){ $('.text-popUp').fadeOut(300); }, 3000);
         }
+        $('input[type=email]').change(function(e){
+            let email = $(this).val();
+            loginInput = $(this).parents('.login-input');
+            if(isEmail(email)){
+                if(loginInput.hasClass('has-error')){
+                    loginInput.removeClass('has-error');
+                    loginInput.find('.error-text').remove();
+                }
+            } else {
+                if(loginInput.find('.error-text').length === 0){
+                    let errorHtml = 
+                    `<div class="error-text">
+                        Введите корректный e-mail
+                    </div>`;
+                    $(errorHtml).appendTo(loginInput);
+                }
+                loginInput.addClass('has-error');
+            }
+        });
         function validForm(){
             var erroreArrayElemnts = [];
             var el = loginForm.find('[data-reqired]');
@@ -37,12 +56,26 @@ jQuery(function ($) {
                     }
                 }
             }
+            let emails = loginForm.find('input[type=email]');
+            for (let i = 0; i < emails.length; i++) {
+                if(!isEmail($(emails[i]).val())){
+                    erroreArrayElemnts.push(emails[i]);
+                } else {
+                    loginInput = $(emails[i]).parents('.login-input');
+                    loginInput.removeClass('has-error');
+                    loginInput.find('.error-text').remove();
+                }
+            }
             if(erroreArrayElemnts.length > 0){
                 return false;
             }
             else {
                 return true;
             }
+        }
+        function isEmail(email) {
+            var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            return regex.test(email);
         }
         // preloader
         $('.load-wrapper').fadeOut();

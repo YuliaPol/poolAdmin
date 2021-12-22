@@ -247,6 +247,13 @@ body {
                         border-color: $errorColor;
                     }
                 }
+                .error-text {
+                    padding-top: 5px;
+                    font-size: 12pz;
+                    line-height: 14px;
+                    font-family: $fontPage;
+                    color: $errorColor;
+                }
                 input[type=text],
                 input[type=email],
                 input[type=tel],

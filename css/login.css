@@ -306,6 +306,15 @@ body {
   border-color: #FF7262;
 }
 
+.login-page .login-content .login-form .login-input .error-text,
+.login-page .login-content .agreement-form .login-input .error-text {
+  padding-top: 5px;
+  font-size: 12pz;
+  line-height: 14px;
+  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+  color: #FF7262;
+}
+
 .login-page .login-content .login-form .login-input input[type=text],
 .login-page .login-content .login-form .login-input input[type=email],
 .login-page .login-content .login-form .login-input input[type=tel],
