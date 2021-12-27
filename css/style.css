@@ -1843,7 +1843,6 @@ body .page-wrap {
 .page-wrap .constr-wrap .questions-box .box-shadow {
   -webkit-box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
           box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
-  margin-bottom: 40px;
   padding: 40px 40px;
   border-radius: 25px;
 }
@@ -1855,6 +1854,7 @@ body .page-wrap {
 
 .page-wrap .constr-wrap .questions-box .question-settings {
   display: none;
+  margin-top: 40px;
 }
 
 .page-wrap .constr-wrap .questions-box .questions-list {
@@ -1880,7 +1880,7 @@ body .page-wrap {
   font-family: "Gilroy", Verdana, Tahoma, sans-serif;
   background: #fff;
   padding: 5px;
-  padding-bottom: 0px;
+  padding-bottom: 40px;
 }
 
 .page-wrap .constr-wrap .questions-box .question-wrap.focus > .box-shadow::before {

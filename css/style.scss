@@ -1396,7 +1396,6 @@ body {
             }
             .box-shadow {
                 box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
-                margin-bottom: 40px;
                 padding: 40px 40px;
                 border-radius: 25px;
                 &.question-content {
@@ -1406,6 +1405,7 @@ body {
             }
             .question-settings {
                 display: none;
+                margin-top: 40px;
             }
             .questions-list {
                 background: #FFFFFF;
@@ -1428,7 +1428,7 @@ body {
                 font-family: $fontPage;
                 background: #fff;
                 padding: 5px;
-                padding-bottom: 0px;
+                padding-bottom: 40px;
                 &.focus {
                     & > .box-shadow {
                         &::before {

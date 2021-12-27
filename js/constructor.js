@@ -49,6 +49,10 @@ jQuery(function ($) {
                 }
             });
         };
+        //create unique ID
+        function getUniqueID(){
+            return Date.now().toString(36) + Math.random().toString(36).substr(2);
+        }
         //auto height for textarea
         $('.questions-box textarea').autoResize();
         //activation filter
@@ -88,14 +92,16 @@ jQuery(function ($) {
         //sortable questions
         if($( window ).width() > 700) {
             $('.questions-box .questions-list').sortable({
-                cancel: "input, a, button, textarea, .control-panel, .customselect-wrapper",
-                containment: "parent",
+                cancel: 'input, a, button, textarea, .control-panel, .customselect-wrapper',
+                containment: 'parent',
                 distance: 5,
-                items: ".question-wrap",
+                items: '.question-wrap',
+                opacity: 0.7,
                 deactivate: function (event, ui) {
                     refreshQuestionsId();
                 }
             });
+            $( '.questions-box .questions-list' ).disableSelection();
         }
         //drag question
         $('.listbox .list-item' ).draggable({
@@ -162,6 +168,7 @@ jQuery(function ($) {
 
         //add question to list
         function addQuestion(type, appendInde, id){
+            let uniqueId = getUniqueID();
             let children = $('.questions-box').find('.questions-list').children();
             let attchFiles = 
                 `<div class="attach-file">
@@ -196,6 +203,7 @@ jQuery(function ($) {
                     <div class="remove-question"></div>
                 </div>
                 <input type="hidden" name="type_${id}" value="${type}">
+                <input type="hidden" name="id_${id}" value="${uniqueId}">
                 ${nameHtml}`;
             let el;
 
@@ -1895,7 +1903,6 @@ jQuery(function ($) {
             if(count === 'dynamic'){
                 count = 1;
             }
-            console.log(count);
             if(count > curCount){
                 for (let i = curCount; i < count; i++) {
                     let newInput = 
@@ -1927,8 +1934,8 @@ jQuery(function ($) {
             if(amount === 'dynamic'){
                 amount = 1;
             }
-            if(amount > currentAmount){
-                for (let i = currentAmount; i <= amount; i++) {
+            if(amount >= currentAmount){
+                for (let i = currentAmount; i < amount; i++) {
                     let freeHtml = 
                         `<div class="answer-wrap">
                             <textarea rows="1" placeholder="Введите ваш комментарий"></textarea>
@@ -2035,6 +2042,8 @@ jQuery(function ($) {
                     changeNameInput(inputs, id, 1);
                     let labels = $(questions[i]).find('label');
                     changeNameInput(labels, id, 1);
+                    let selects = $(questions[i]).find('select');
+                    changeNameInput(selects, id, 1);
                 }
             }
         }
