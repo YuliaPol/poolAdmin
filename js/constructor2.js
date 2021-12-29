@@ -98,6 +98,8 @@ jQuery(function ($) {
                 animation: 150,
                 filter: 'input, a, button, textarea, .control-panel, .customselect-wrapper, .ranging-list',
                 preventOnFilter: false,
+                swapThreshold: 0.4,
+                invertSwap: true,
             });
 
             // $('.questions-box .questions-list').sortable({
