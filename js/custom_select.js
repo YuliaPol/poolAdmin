@@ -20,6 +20,8 @@ jQuery(function ($) {
                 if($(e.target).hasClass('remove-option')){
                     let optionVal = $(e.target).parents('.selectvalue').attr('data-value');
                     $(e.target).parents('.select').find(`.select-options li[rel="${optionVal}"]`).click();
+                } else {
+                    (selected).toggleClass('active').next('ul.select-options').toggle();
                 }
             } else {
                 $('div.select-styled.active').not(selected).each(function(){
@@ -83,7 +85,6 @@ function customSelectActive(){
             var $styledSelect = $this.next('div.select-styled');
             if($this.attr('multiple')){
                 $this.parents('.customselect-wrapper').addClass('customselect-multiple');
-
                 if($this.find('option:selected').length>0){
                     var SelectedOption = $this.find('option:selected');
                     console.log(SelectedOption);
