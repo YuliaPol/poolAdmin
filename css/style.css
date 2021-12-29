@@ -2577,6 +2577,10 @@ body .page-wrap {
   width: 100%;
 }
 
+.page-wrap .constr-wrap .questions-box .question-wrap.question-dropdown .optins-list .option-item.neither-option .value input, .page-wrap .constr-wrap .questions-box .question-wrap.question-dropdown .optins-list .option-item.other-option .value input {
+  pointer-events: none;
+}
+
 .page-wrap .constr-wrap .questions-box .question-wrap.question-dropdown .optins-list .option-item .number {
   font-family: "Gilroy", Verdana, Tahoma, sans-serif;
   font-style: normal;

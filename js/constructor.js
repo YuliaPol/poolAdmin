@@ -1078,7 +1078,7 @@ jQuery(function ($) {
                 question.find('.diapason-answer').remove();
             }
             if(question.find('.scale-wrap').length === 0){
-                $(scaleHtml).insertAfter(question.find('.question-name'));
+                $(scaleHtml).appendTo('.question-content');
             }
             if(question.find('.add-rateLabels').length === 0){
                 $(optionsHtml).appendTo(question.find('.scale-options'));
@@ -1105,7 +1105,7 @@ jQuery(function ($) {
                         </div>
                     </div>
                 </div>`
-                $(diapasonHtml).insertAfter($(question).find('.question-name'));
+                $(diapasonHtml).appendTo($(question).find('.question-content'));
             }
         }
 
@@ -1309,26 +1309,27 @@ jQuery(function ($) {
         }
 
         //add new option to select
-        function addNewOption(question){
+        function addNewOption(question, className = "" , value = "", last = true){
             let optionList = question.find('.optins-list');
             let questionId = question.attr('data-id');
             let optionId = parseInt(optionList.children().length) + 1;
             let select = question.find('.dropdown-wrap select');
             let customSelect = question.find('.customselect-wrapper');
-
+            if(last === false ){
+                optionId = optionId - 1;
+            }
             let optionHtml = 
-                `<div class="option-item">
+                `<div class="option-item ${className}">
                     <div class="number">${optionId}.</div>
                     <div class="value">
-                        <input type="text" name="inputpoint_${questionId}_${optionId}">
+                        <input type="text" name="inputpoint_${questionId}_${optionId}" value="${value}">
                     </div>
                 </div>`;
-            optionList.append(optionHtml);
-
-            let selectHtml = `<option value=""></option>`;
+            $(optionHtml).insertAfter(optionList.find(`.option-item:nth-child(${optionId - 1})`));
+            let selectHtml = `<option value="${value}"></option>`;
             $(selectHtml).insertAfter(select.find(`option:nth-child(${optionId - 1})`));
 
-            let customSelectHtml = `<li rel=""></li>`;
+            let customSelectHtml = `<li rel="${value}">${value}</li>`;
             $(customSelectHtml).insertAfter(customSelect.find('.select-options').find(`li:nth-child(${optionId - 1})`));
         }
 
@@ -1355,13 +1356,12 @@ jQuery(function ($) {
         //add other option to select
         $('.content-wrap').on('change', '.question-dropdown .add-other', function(e){
             let question = $(this).parents('.question-wrap');
-            let index = parseInt(question.find('.select-options').children().length);
-            let indexNew = index + 1;
             let text = 'Другое';
             if($(this).is(':checked')){
-                setNewText(question, text, indexNew)
+                addNewOption(question, 'other-option', text, false);
+                refreshDropdownInputs(question.find('.optins-list'));
             } else {
-                index = question.find('.select-options').find(`li[rel="${text}"]`).index() + 1;
+                let index = question.find('.optins-list').find('.other-option').index() + 1;
                 removeDropdownOption(question, index);
             }
         });
@@ -1369,13 +1369,12 @@ jQuery(function ($) {
         //add neither option to select
         $('.content-wrap').on('change', '.question-dropdown .add-neither', function(e){
             let question = $(this).parents('.question-wrap');
-            let index = parseInt(question.find('.select-options').children().length);
-            let indexNew = index + 1;
             let text = 'Ничего из вышеперечисленного';
             if($(this).is(':checked')){
-                setNewText(question, text, indexNew)
+                addNewOption(question, 'neither-option', text, false);
+                refreshDropdownInputs(question.find('.optins-list'));
             } else {
-                index = question.find('.select-options').find(`li[rel="${text}"]`).index() + 1;
+                let index = question.find('.optins-list').find('.other-option').index() + 1;
                 removeDropdownOption(question, index);
             }
         });

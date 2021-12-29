@@ -1969,6 +1969,14 @@ body {
                             align-items: center;
                             justify-content: flex-start;
                             width: 100%;
+                            &.neither-option,
+                            &.other-option {
+                                .value {
+                                    input {
+                                        pointer-events:none;
+                                    }
+                                }
+                            }
                             .number {
                                 font-family: $fontPage;
                                 font-style: normal;
