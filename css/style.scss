@@ -3340,7 +3340,9 @@ body {
                 padding-bottom: 20px;
                 display: flex;
                 align-items: center;
-                justify-content: center;
+                justify-content: space-between;
+                padding-left: 40px;
+                padding-right: 40px;
             }
             .btn-default {
                 background: #7FA1F8;
@@ -4587,6 +4589,9 @@ body {
                 .list-item {
                     padding: 15px 13px;
                     margin-bottom: 8px;
+                    &[data-type=branching] {
+                        display: none;
+                    }
                 }
                 &.icons-mode {
                     .list-item {

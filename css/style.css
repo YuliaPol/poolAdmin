@@ -4427,10 +4427,12 @@ body .page-wrap {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 .page-wrap .constr-wrap .questions-box .btn-default {
@@ -5994,6 +5996,9 @@ body .page-wrap {
   .page-wrap .constr-wrap .listbox .list-item {
     padding: 15px 13px;
     margin-bottom: 8px;
+  }
+  .page-wrap .constr-wrap .listbox .list-item[data-type=branching] {
+    display: none;
   }
   .page-wrap .constr-wrap .listbox.icons-mode .list-item {
     margin-bottom: 15px;

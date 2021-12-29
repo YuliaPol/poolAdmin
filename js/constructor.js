@@ -91,17 +91,16 @@ jQuery(function ($) {
         //actions with question
         //sortable questions
         if($( window ).width() > 700) {
-            $('.questions-box .questions-list').sortable({
-                cancel: 'input, a, button, textarea, .control-panel, .customselect-wrapper',
-                containment: 'parent',
-                distance: 5,
-                items: '.question-wrap',
-                opacity: 0.7,
-                deactivate: function (event, ui) {
-                    refreshQuestionsId();
-                }
+            let questionList = $('.questions-box .questions-list');
+            new Sortable(questionList[0], {
+                scroll: true,
+                forceFallback: true,
+                animation: 150,
+                filter: 'input, a, button, textarea, .control-panel, .customselect-wrapper, .ranging-list',
+                preventOnFilter: false,
+                swapThreshold: 0.1,
+                invertSwap: true,
             });
-            $( '.questions-box .questions-list' ).disableSelection();
         }
         //drag question
         $('.listbox .list-item' ).draggable({
@@ -672,9 +671,6 @@ jQuery(function ($) {
             if(type = "single"){
                 setSortbaleSingleItems();
             }
-            if(type = "multiple"){
-                setMultipleItems();
-            }
             refreshQuestionsId();
             setTimeout(() => {
                 questionInFocus();
@@ -1007,15 +1003,23 @@ jQuery(function ($) {
 
         //sortable for single items
         function setSortbaleSingleItems(){
-            $('.question-single .radio-btns-wrapper').sortable({
-                cancel: 'a, .inFocus',
-                containment: '.questions-list',
-                cursor: 'grab',
-                stop: function( event, ui ) {
-                    let itemsList = $(event.target);
-                    refreshSingleOptionsId(itemsList);
+            let questionList = $('.question-single .radio-btns-wrapper');
+            for (let i = 0; i < questionList.length; i++) {
+                if(!$(questionList[i]).hasClass('sortable')){
+                    $(questionList[i]).addClass('sortable');
+                    new Sortable(questionList[i], {
+                        scroll: true,
+                        forceFallback: true,
+                        animation: 150,
+                        filter: 'a, .inFocus',
+                        preventOnFilter: false,
+                        onEnd: function (evt) {
+                            let itemsList = $(evt.target);
+                            refreshSingleOptionsId(itemsList);
+                        },
+                    });
                 }
-            });
+            }
         }
         setSortbaleSingleItems();
 
@@ -1418,158 +1422,6 @@ jQuery(function ($) {
             }
         }
         //end settings for dropdown question
-
-        //settings for multiple question
-
-        //multiple input point in focus
-        $('.content-wrap').on('focus', '.question-multiple .radio-item textarea', function(e){
-            $(this).parents('.radio-item').addClass('focus');
-        });
-
-        //multiple input point out of focus
-        $('.content-wrap').on('blur', '.question-multiple .radio-item textarea', function(e){
-            $(this).parents('.radio-item').removeClass('focus');
-        });
-
-        //add new multiple item
-        $('.content-wrap').on('change', '.question-multiple .input-multiple-item', function(e){
-            let text = $(this).val();
-            if(text){
-                let question = $(this).parents('.question-wrap');
-                if(text && question){
-                    addMultipleOption(question, text);
-                }
-                clear_form_elements($(this).parents('.input-new-item-wrap'));
-            }
-        });
-        function addMultipleOption(question, text, addClas = ' '){
-            let itemsList = question.find('.radio-btns-wrapper');
-            let questionId = question.attr('data-id');
-            let pointId = parseInt(itemsList.find('.radio-item').length) + 1;
-            let itemsName = "inputpoint_" + questionId + "_" + pointId;
-            let itemHtml = 
-            '<div class="radio-item ' + addClas +'">'
-            +'    <div class="remove-item"></div>'
-            +'    <textarea name="'+ itemsName + '" rows="1" placeholder="Вариант ответа">'+ text +'</textarea>'
-            +'</div>';
-            $(itemHtml).insertBefore(question.find('.input-item'));
-            $(itemsList).find('textarea').autoResize();
-        }
-
-        //click enter
-        $(document).on('keypress',function(e) {
-            if(e.which == 13) {
-                if($(e.target).hasClass('input-multiple-item')){
-                    e.preventDefault();
-                    $(e.target).change();
-                }
-            }
-        });
-
-        // click out of input multiple option
-        $(document).click(function(event) { 
-            var $target = $(event.target);
-            if(!$target.hasClass('input-multiple-item')){
-                $('.input-multiple-item').change();
-            }
-        });
-
-        // remove multiple item
-        $('.content-wrap').on('click', '.question-multiple .radio-item .remove-item', function(e){
-            let itemEl = $(this).parents('.radio-item');
-            removeMultipleOption(itemEl);
-        });
-
-        function removeMultipleOption(itemEl){
-            let itemQuestion = itemEl.parents('.question-wrap');
-            let itemsList = itemEl.parents('.radio-btns-wrapper');
-            if($(itemEl).hasClass('neither')){
-                itemQuestion.find('.add-neither').prop('checked', false);;
-            }
-            if($(itemEl).hasClass('other')){
-                itemQuestion.find('.add-other').prop('checked', false);;
-            }
-            $(itemEl).remove();
-            refreshMultipleOptionsId(itemsList);
-        }
-
-        //refresh id for multiple options
-        function refreshMultipleOptionsId(itemsList){
-            let options = itemsList.find('.radio-item');
-            for (let i = 0; i < options.length; i++) {
-                let id = i + 1;
-                let textareas = $(options[i]).find('textarea');
-                changeNameInput(textareas, id, 2);
-            }
-        }
-        //add multiple option other
-        $('.content-wrap').on('change', '.question-multiple .add-other', function(e){
-            let question = $(this).parents('.question-wrap');
-            let itemsList = question.find('.radio-btns-wrapper');
-            let text = 'Другое';
-            if($(this).is(':checked')){
-                addMultipleOption(question, text, 'other');
-            } else {
-                let removeEl = itemsList.find('.other');
-                removeMultipleOption(removeEl);
-            }
-        });
-        //add multiple option comment
-        $('.content-wrap').on('change', '.question-multiple .add-comment', function(e){
-            let question = $(this).parents('.question-wrap');
-            if($(this).is(':checked')){
-                let commnetHtml = 
-                '<div class="option-comment">'
-                +'    <textarea rows="1" placeholder="Введите ваш комментарий"></textarea>'
-                +'</div>';
-                $(commnetHtml).insertAfter(question.find('.radio-btns-wrapper'));
-            } else {
-                question.find('.option-comment').remove();
-            }
-        });
-        //add multiple option neither
-        $('.content-wrap').on('change', '.question-multiple .add-neither', function(e){
-            let question = $(this).parents('.question-wrap');
-            let itemsList = question.find('.radio-btns-wrapper');
-            let text = 'Ничего из вышеперечисленного';
-            if($(this).is(':checked')){
-                addMultipleOption(question, text, 'neither');
-            } else {
-                let removeEl = itemsList.find('.neither');
-                removeSingleOption(removeEl);
-            }
-        });
-        //sortable for multiple items
-        function setMultipleItems(){
-            $('.question-multiple .radio-btns-wrapper').sortable({
-                cancel: 'a, .input-item',
-                containment: '.questions-list',
-                cursor: 'grab',
-                stop: function( event, ui ) {
-                    let itemsList = $(event.target);
-                    //check if input-item is last element
-                    let inputItem = itemsList.find('.input-item');
-                    let inputItemId = inputItem.index() + 1;
-                    let listLegth = itemsList.children().length;
-                    if(inputItemId < listLegth){
-                        inputItem.appendTo(itemsList);
-                    }
-                    refreshMultipleOptionsId(itemsList);
-                }
-            });
-        }
-        setMultipleItems();
-        $('.content-wrap').on('click', '.question-multiple .radio-btns-wrapper textarea', function(e){
-            let parent = $(this).parents('.radio-btns-wrapper');
-            if(parent.is(':ui-sortable')){
-                parent.sortable( 'disable');
-            }
-        });
-        $('.content-wrap').on('blur', '.question-multiple .radio-btns-wrapper textarea', function(e){
-            let parent = $(this).parents('.radio-btns-wrapper');
-            parent.sortable( 'enable');
-        });
-        //end settings for multiple question
 
         //settings for matrix question
 

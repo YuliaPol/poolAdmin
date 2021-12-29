@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All survey </title>
+
+    <link rel="stylesheet" href="./font/Gilroy/stylesheet.css">
+    <link rel="stylesheet" href="./css/jquery-ui.css">
+    <link rel="stylesheet" href="./css/custom-select.css">
+    <link rel="stylesheet" href="./css/datepicker.min.css">
+    <link rel="stylesheet" href="./css/intlTelInput.css">
+    <link rel="stylesheet" href="./css/style.css?4665436346">
+
+    <script src="./js/jquery-3.5.1.min.js"></script>
+</head>
+
+<body>
+    <div class="page-wrap">
+        <div class="top-panel">
+            <div class="logo">
+                <img src="./img/logo-white.svg" alt="">
+            </div>
+            <div class="notification-wrap">
+                <a href="#">
+                    <div class="icon active">
+                        <img src="./img/notification-icon.png" alt="notification">
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="content-wrap">
+            <div class="top-nav">
+                <div class="nav-back">
+                    <a href="./index.html">
+                        Название опроса
+                    </a>
+                </div>
+                <div class="pools-menu">
+                    <div class="menu-item active">
+                        <a href="#">
+                            Вопросы
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="#">
+                            Дизайн
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="constr-wrap">
+                <div class="left-side">
+                    <div class="mobile-aside">
+                        <span></span>
+                    </div>
+                    <div class="mode-view-wrap">
+                        <div class="mode-view-item">
+                            <div class="mode-view mode-full active"></div>
+                        </div>
+                        <div class="mode-view-item">
+                            <div class="mode-view mode-icons"></div>
+                        </div>
+                    </div>
+                    <div class="listbox">
+                        <div class="list-item" data-type="single">
+                            <div class="icon icon-single"></div>
+                            <div class="name">Выбор из списка</div>
+                        </div>
+                        <div class="list-item" data-type="free-answer">
+                            <div class="icon icon-free"></div>
+                            <div class="name">Свободный ответ</div>
+                        </div>
+                        <div class="list-item" data-type="branching">
+                            <div class="icon icon-branching"></div>
+                            <div class="name">Ветвление ответа</div>
+                        </div>
+                        <div class="list-item" data-type="scale">
+                            <div class="icon icon-scale"></div>
+                            <div class="name">Шкала оценок</div>
+                        </div>
+                        <div class="list-item" data-type="dropdown">
+                            <div class="icon icon-dropdown"></div>
+                            <div class="name">Выпадающий список</div>
+                        </div>
+                        <div class="list-item" data-type="matrix">
+                            <div class="icon icon-matrix"></div>
+                            <div class="name">Матрица</div>
+                        </div>
+                        <div class="list-item" data-type="ranging">
+                            <div class="icon icon-ranging"></div>
+                            <div class="name">Ранжирование</div>
+                        </div>
+                        <div class="list-item" data-type="name">
+                            <div class="icon icon-name"></div>
+                            <div class="name">ФИО</div>
+                        </div>
+                        <div class="list-item" data-type="date">
+                            <div class="icon icon-date"></div>
+                            <div class="name">Дата</div>
+                        </div>
+                        <div class="list-item" data-type="email">
+                            <div class="icon icon-email"></div>
+                            <div class="name">E-mail</div>
+                        </div>
+                        <div class="list-item" data-type="phone">
+                            <div class="icon icon-phone"></div>
+                            <div class="name">Номер телефона</div>
+                        </div>
+                        <div class="list-item" data-type="file">
+                            <div class="icon icon-file"></div>
+                            <div class="name">Загрузить файл</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="center-block">
+                    <div class="filter-wrap">
+                        <div class="filter-item">
+                            <select name="" class="customselect">
+                                <option selected disabled>Пол</option>
+                                <option value="Мужской">Мужской</option>
+                                <option value="Женский">Женский</option>
+                            </select>
+                        </div>
+                        <div class="filter-item">
+                            <select name="" class="customselect">
+                                <option selected disabled>Возраст</option>
+                                <option value="18-25 лет">18-25 лет</option>
+                                <option value="25-35 лет">25-35 лет</option>
+                                <option value="35-45 лет">35-45 лет</option>
+                                <option value="45-60 лет">45-60 лет</option>
+                                <option value="Старше 60 лет">Старше 60 лет</option>
+                            </select>
+                        </div>
+                        <div class="filter-item">
+                            <select name="" class="customselect">
+                                <option selected disabled>ГЕО</option>
+                                <option value="города 1 млн+">города 1 млн+</option>
+                                <option value="города 500+">города 500+</option>
+                                <option value="города 100+">города 100+</option>
+                            </select>
+                        </div>
+                        <div class="filter-item">
+                            <select name="" class="customselect">
+                                <option selected disabled>Город</option>
+                                <option value="Москва">Москва</option>
+                                <option value="Питер">Питер</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="questions-box">
+                        <form action="./preview.html" class="constructo-form" autocomplete="off">
+                            <div class="questions-list">
+                                <div class="btn-preview-wrap">
+                                    <button class="btn-save btn-default">Сохранить</button>
+                                    <a href="./preview.html" class="btn-preview btn-default">Предпросмотр</a>
+                                </div>
+                                <div class="question-wrap question-free" data-id="1">
+                                    <div class="box-shadow question-content">
+                                        <div class="control-panel">
+                                            <div class="attach-file">
+                                                <div class="attach-file-icon active"></div>
+                                                <div class="attach-files-wrap">
+                                                    <div class="files-list">
+                                                        <div class="file-item file-video">
+                                                            <input type="file" accept="video/mp4,video/x-m4v,video/*"
+                                                                name="uploadvideo_1" id="uploadvideo_1">
+                                                            <label for="uploadvideo_1" class="active"></label>
+                                                        </div>
+                                                        <div class="file-item file-img">
+                                                            <input type="file" accept="image/png, image/gif, image/jpeg"
+                                                                name="uploadimage_1" id="uploadimage_1">
+                                                            <label for="uploadimage_1"></label>
+                                                        </div>
+                                                        <div class="file-item file-audio">
+                                                            <input type="file" accept=".mp3,audio/*"
+                                                                name="uploadaudio_1" id="uploadaudio_1">
+                                                            <label for="uploadaudio_1"></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="show-settings"></div>
+                                            <div class="remove-question"></div>
+                                        </div>
+                                        <input type="hidden" name="type_1" value="free-answer">
+                                        <input type="hidden" name="id_1" value="kxrnn8b8e39jfi9h8n">
+                                        <div class="question-name">
+                                            <textarea name="question_1" rows="1" placeholder="Введите ваш вопрос"
+                                                data-required="required"></textarea>
+                                        </div>
+                                        <div class="added-file-wrap">
+                                            <div class="video-wrap">
+                                                <video-radio-star class="radiostar-enhanced radiostar-paused">
+                                                    <video>
+                                                        <source src="./files-for-test/video.mp4">
+                                                        Your browser does not support HTML5 video.
+                                                    </video>
+                                                    <button type="button" class="video-play" data-play=""></button>
+                                                </video-radio-star>
+                                                <div class="video-remove"></div>
+                                            </div>
+                                        </div>
+                                        <div class="free-answers">
+                                            <div class="answer-wrap">
+                                                <textarea rows="1" placeholder="Введите ваш комментарий"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-shadow question-settings" style="display: none;">
+                                        <div class="select-row">
+                                            <div class="label">
+                                                Несколько вариантов ответов
+                                            </div>
+                                            <div class="select-input customselect-wrapper">
+                                                <div class="select"><select name="amount_1"
+                                                        class="customselect amount-select select-hidden">
+                                                        <option value="dynamic">Автообновление</option>
+                                                        <option selected="" value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                    </select>
+                                                    <div class="select-styled">1</div>
+                                                    <ul class="select-options" style="display: none;">
+                                                        <li rel="dynamic" class="">Автообновление</li>
+                                                        <li rel="1" class="active">1</li>
+                                                        <li rel="2" class="">2</li>
+                                                        <li rel="3" class="">3</li>
+                                                        <li rel="4" class="">4</li>
+                                                        <li rel="5" class="">5</li>
+                                                        <li rel="6" class="">6</li>
+                                                        <li rel="7" class="">7</li>
+                                                        <li rel="8" class="">8</li>
+                                                        <li rel="9" class="">9</li>
+                                                        <li rel="10" class="">10</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="switch-row">
+                                            <div class="label">
+                                                Обязательность ответа
+                                            </div>
+                                            <label class="switch">
+                                                <input type="checkbox" name="required_1">
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="question-wrap question-free" data-id="2">
+                                    <div class="box-shadow question-content">
+                                        <div class="control-panel">
+                                            <div class="attach-file">
+                                                <div class="attach-file-icon active"></div>
+                                                <div class="attach-files-wrap">
+                                                    <div class="files-list">
+                                                        <div class="file-item file-video">
+                                                            <input type="file" accept="video/mp4,video/x-m4v,video/*"
+                                                                name="uploadvideo_2" id="uploadvideo_2">
+                                                            <label for="uploadvideo_2"></label>
+                                                        </div>
+                                                        <div class="file-item file-img">
+                                                            <input type="file" accept="image/png, image/gif, image/jpeg"
+                                                                name="uploadimage_2" id="uploadimage_2">
+                                                            <label for="uploadimage_2" class="active"></label>
+                                                        </div>
+                                                        <div class="file-item file-audio">
+                                                            <input type="file" accept=".mp3,audio/*"
+                                                                name="uploadaudio_2" id="uploadaudio_2">
+                                                            <label for="uploadaudio_2"></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="show-settings"></div>
+                                            <div class="remove-question"></div>
+                                        </div>
+                                        <input type="hidden" name="type_2" value="free-answer">
+                                        <input type="hidden" name="id_2" value="kxrnnnhb43oasb0qx7w">
+                                        <div class="question-name">
+                                            <textarea name="question_2" rows="1" placeholder="Введите ваш вопрос"
+                                                data-required="required"
+                                                ></textarea>
+                                        </div>
+                                        <div class="added-file-wrap">
+                                            <div class="img-wrap">
+                                                <img src="./files-for-test/img.jpg" alt="Img">
+                                                <div class="img-remove"></div>
+                                            </div>
+                                        </div>
+                                        <div class="free-answers">
+                                            <div class="answer-wrap">
+                                                <textarea rows="1" placeholder="Введите ваш комментарий"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-shadow question-settings" style="display: none;">
+                                        <div class="select-row">
+                                            <div class="label">
+                                                Несколько вариантов ответов
+                                            </div>
+                                            <div class="select-input customselect-wrapper">
+                                                <div class="select"><select name="amount_2"
+                                                        class="customselect amount-select select-hidden">
+                                                        <option value="dynamic">Автообновление</option>
+                                                        <option selected="" value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                    </select>
+                                                    <div class="select-styled">1</div>
+                                                    <ul class="select-options" style="display: none;">
+                                                        <li rel="dynamic" class="">Автообновление</li>
+                                                        <li rel="1" class="active">1</li>
+                                                        <li rel="2" class="">2</li>
+                                                        <li rel="3" class="">3</li>
+                                                        <li rel="4" class="">4</li>
+                                                        <li rel="5" class="">5</li>
+                                                        <li rel="6" class="">6</li>
+                                                        <li rel="7" class="">7</li>
+                                                        <li rel="8" class="">8</li>
+                                                        <li rel="9" class="">9</li>
+                                                        <li rel="10" class="">10</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="switch-row">
+                                            <div class="label">
+                                                Обязательность ответа
+                                            </div>
+                                            <label class="switch">
+                                                <input type="checkbox" name="required_2">
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="question-wrap question-free focus" data-id="3">
+                                    <div class="box-shadow question-content">
+                                        <div class="control-panel">
+                                            <div class="attach-file">
+                                                <div class="attach-file-icon active"></div>
+                                                <div class="attach-files-wrap">
+                                                    <div class="files-list">
+                                                        <div class="file-item file-video">
+                                                            <input type="file" accept="video/mp4,video/x-m4v,video/*"
+                                                                name="uploadvideo_3" id="uploadvideo_3">
+                                                            <label for="uploadvideo_3"></label>
+                                                        </div>
+                                                        <div class="file-item file-img">
+                                                            <input type="file" accept="image/png, image/gif, image/jpeg"
+                                                                name="uploadimage_3" id="uploadimage_3">
+                                                            <label for="uploadimage_3"></label>
+                                                        </div>
+                                                        <div class="file-item file-audio">
+                                                            <input type="file" accept=".mp3,audio/*"
+                                                                name="uploadaudio_3" id="uploadaudio_3">
+                                                            <label for="uploadaudio_3" class="active"></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="show-settings"></div>
+                                            <div class="remove-question"></div>
+                                        </div>
+                                        <input type="hidden" name="type_3" value="free-answer">
+                                        <input type="hidden" name="id_3" value="kxrnno147veyc5z78pb">
+                                        <div class="question-name">
+                                            <textarea name="question_3" rows="1" placeholder="Введите ваш вопрос"
+                                                data-required="required"></textarea>
+                                        </div>
+                                        <div class="added-file-wrap">
+                                            <div class="audio-wrap">
+                                                <div class="audio-control"></div>
+                                                <div class="audiowave" data-audiopath="/files-for-test/audio.mp3"></div>
+                                                <div class="audio-duration"></div>
+                                                <div class="audio-remove"></div>
+                                            </div>
+                                        </div>
+                                        <div class="free-answers">
+                                            <div class="answer-wrap">
+                                                <textarea rows="1" placeholder="Введите ваш комментарий"
+                                                    style="overflow: hidden; height: 31px;"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-shadow question-settings" style="display: none;">
+                                        <div class="select-row">
+                                            <div class="label">
+                                                Несколько вариантов ответов
+                                            </div>
+                                            <div class="select-input customselect-wrapper">
+                                                <div class="select"><select name="amount_3"
+                                                        class="customselect amount-select select-hidden">
+                                                        <option value="dynamic">Автообновление</option>
+                                                        <option selected="" value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                    </select>
+                                                    <div class="select-styled">1</div>
+                                                    <ul class="select-options" style="display: none;">
+                                                        <li rel="dynamic" class="">Автообновление</li>
+                                                        <li rel="1" class="active">1</li>
+                                                        <li rel="2" class="">2</li>
+                                                        <li rel="3" class="">3</li>
+                                                        <li rel="4" class="">4</li>
+                                                        <li rel="5" class="">5</li>
+                                                        <li rel="6" class="">6</li>
+                                                        <li rel="7" class="">7</li>
+                                                        <li rel="8" class="">8</li>
+                                                        <li rel="9" class="">9</li>
+                                                        <li rel="10" class="">10</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="switch-row">
+                                            <div class="label">
+                                                Обязательность ответа
+                                            </div>
+                                            <label class="switch">
+                                                <input type="checkbox" name="required_3">
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="load-wrapper">
+        <div class="loader"></div>
+    </div>
+    <script src="./js/jquery-ui.js"></script>
+    <script src="./js/jquery.ui.touch-punch.min.js"></script>
+    <script src="./js/Sortable.min.js"></script>
+    <script src="./js/datepicker.min.js"></script>
+    <script src="./js/custom_select.js"></script>
+    <script src="./js/wavesurfer.min.js"></script>
+    <script src="./js/video-radio-star.js"></script>
+    <script src="./js/intlTelInput.js"></script>
+    <script src="./js/script.js?456789"></script>
+    <script src="./js/validation.js"></script>
+    <script src="./js/constructor.js?46546"></script>
+</body>
+
+</html>
