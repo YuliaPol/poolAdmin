@@ -98,7 +98,7 @@ jQuery(function ($) {
                 animation: 150,
                 filter: 'input, a, button, textarea, .control-panel, .customselect-wrapper, .ranging-list',
                 preventOnFilter: false,
-                swapThreshold: 0.1,
+                swapThreshold: 0.9,
                 invertSwap: true,
             });
         }
