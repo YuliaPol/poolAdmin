@@ -1434,6 +1434,11 @@ body {
                         box-shadow: 1px 1px 4px 5px rgba(127, 161, 248, 0.3);
                     }
                 }
+                &.sortable-ghost {
+                    & > .box-shadow {
+                        box-shadow: 1px 1px 4px 5px rgba(127, 161, 248, 0.3);
+                    }
+                }
                 &.focus {
                     & > .box-shadow {
                         &::before {
@@ -1480,6 +1485,9 @@ body {
                             background: #fff;
                             &.sortable-chosen {
                                 min-width: initial;
+                            }
+                            &.sortable-ghost {
+                                box-shadow: 1px 1px 4px 5px rgba(127, 161, 248, 0.3);
                             }
                             &.focus {
                                 border-color: $switchBg;

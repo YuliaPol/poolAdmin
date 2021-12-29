@@ -1888,6 +1888,11 @@ body .page-wrap {
           box-shadow: 1px 1px 4px 5px rgba(127, 161, 248, 0.3);
 }
 
+.page-wrap .constr-wrap .questions-box .question-wrap.sortable-ghost > .box-shadow {
+  -webkit-box-shadow: 1px 1px 4px 5px rgba(127, 161, 248, 0.3);
+          box-shadow: 1px 1px 4px 5px rgba(127, 161, 248, 0.3);
+}
+
 .page-wrap .constr-wrap .questions-box .question-wrap.focus > .box-shadow::before {
   opacity: 1;
 }
@@ -1959,6 +1964,11 @@ body .page-wrap {
 
 .page-wrap .constr-wrap .questions-box .question-wrap.question-single .radio-btns-wrapper .radio-item.sortable-chosen, .page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .radio-btns-wrapper .radio-item.sortable-chosen {
   min-width: initial;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-single .radio-btns-wrapper .radio-item.sortable-ghost, .page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .radio-btns-wrapper .radio-item.sortable-ghost {
+  -webkit-box-shadow: 1px 1px 4px 5px rgba(127, 161, 248, 0.3);
+          box-shadow: 1px 1px 4px 5px rgba(127, 161, 248, 0.3);
 }
 
 .page-wrap .constr-wrap .questions-box .question-wrap.question-single .radio-btns-wrapper .radio-item.focus, .page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .radio-btns-wrapper .radio-item.focus {
