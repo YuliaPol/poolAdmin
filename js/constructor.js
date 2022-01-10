@@ -100,6 +100,11 @@ jQuery(function ($) {
                 preventOnFilter: false,
                 swapThreshold: 0.9,
                 invertSwap: true,
+                onEnd: function (evt) {
+                    let questionsList = $(evt.target);
+                    console.log(questionsList);
+                    refreshQuestionsId(questionsList);
+                },
             });
         }
         //drag question
