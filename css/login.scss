@@ -74,7 +74,7 @@ body {
     }
     .login-header-2 {
         font-family: $fontPage;
-        font-weight: 300;
+        font-weight: normal;
         font-size: 24px;
         line-height: 27px;
         color: $fontColor;
@@ -115,7 +115,7 @@ body {
         border-radius: 15px;
         cursor: pointer;
         font-family: $fontPage;
-        font-weight: 300;
+        font-weight: normal;
         font-size: 13px;
         line-height: 15px;
         color: $fontColor;
@@ -174,7 +174,7 @@ body {
             padding-left: calc(50% + 50px);
             .under-header {
                 font-family: $fontPage;
-                font-weight: 200;
+                font-weight: normal;
                 font-size: 16px;
                 line-height: 18px;
                 color: $fontColor;
@@ -203,7 +203,7 @@ body {
                 }
                 label {
                     font-family: $fontPage;
-                    font-weight: 200;
+                    font-weight: normal;
                     font-size: 12px;
                     line-height: 13px;
                     color: $fontColor;
@@ -271,7 +271,7 @@ body {
                     max-width: 345px;
                     &::placeholder {
                         font-family: $fontPage;
-                        font-weight: 300;
+                        font-weight: normal;
                         font-size: 13px;
                         line-height: 15px;
                         color: $fontColor;
@@ -291,7 +291,7 @@ body {
                 border-radius: 15px;
                 cursor: pointer;
                 font-family: $fontPage;
-                font-weight: 300;
+                font-weight: normal;
                 font-size: 13px;
                 line-height: 15px;
                 color: $fontColor;
@@ -351,7 +351,7 @@ body {
         }
         .login-header-2 {
             font-family: $fontPage;
-            font-weight: 300;
+            font-weight: normal;
             font-size: 24px;
             line-height: 27px;
             color: $fontColor;

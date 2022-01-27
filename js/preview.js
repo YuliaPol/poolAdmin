@@ -255,5 +255,61 @@ jQuery(function ($) {
             $('.preview-footer .proggres').css('width', scrollWidth + '%');
         }
         setScrollWisth();
+
+        $('.pool-wrap').on('click', '.video-wrap video', function(e){
+            e.preventDefault();
+            let videoWrap = $(this).parent();
+            let video = videoWrap.find('video').get(0);
+            if(video.paused){
+                $(video).prop('controls', true);
+                video.play();
+            } else {
+                video.pause();
+                $(video).prop('controls', false);
+            }
+        });
+
+        //make audiowave
+        $('.audiowave').each(function(){
+            var path = $(this).attr('data-audiopath');//path for audio
+            setAudioWave(this, path);
+        });
+        // wavesurfer for audio elements
+        function setAudioWave(el, path){
+            //Initialize WaveSurfer
+            var wavesurfer = WaveSurfer.create({
+                container: el,
+                scrollParent: false,
+                backgroundColor: '#FFFFFF',
+                height: 40,
+                barMinHeight: 1,
+                barWidth: 1.5,
+                cursorWidth: 0,
+                barGap: 1.5,
+                waveColor: '#E5E5E5',
+                hideScrollbar: true,
+                progressColor: "#000000"
+            });
+
+            //Load audio file
+            wavesurfer.load(path);
+
+            // Show video duration
+            wavesurfer.on('ready', function () {
+                $(el).parents('.audio-wrap').find('.audio-duration').html(formatTime(wavesurfer.getDuration()));
+            });
+
+            wavesurfer.on('pause', function () {
+                $(el).parents('.audio-wrap').find('.audio-control').removeClass('pause');
+            });
+
+            wavesurfer.on('play', function () {
+                $(el).parents('.audio-wrap').find('.audio-control').addClass('pause');
+            });
+            //Add button event
+            $(el).parents('.audio-wrap').find('.audio-control').click(function(){
+                wavesurfer.playPause();
+            });
+        }
     });
 });

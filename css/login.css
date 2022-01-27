@@ -83,7 +83,7 @@ body {
 
 .login-page .login-header-2 {
   font-family: "Gilroy", Verdana, Tahoma, sans-serif;
-  font-weight: 300;
+  font-weight: normal;
   font-size: 24px;
   line-height: 27px;
   color: #000000;
@@ -133,7 +133,7 @@ body {
   border-radius: 15px;
   cursor: pointer;
   font-family: "Gilroy", Verdana, Tahoma, sans-serif;
-  font-weight: 300;
+  font-weight: normal;
   font-size: 13px;
   line-height: 15px;
   color: #000000;
@@ -203,7 +203,7 @@ body {
 .login-page .login-content .login-form .under-header,
 .login-page .login-content .agreement-form .under-header {
   font-family: "Gilroy", Verdana, Tahoma, sans-serif;
-  font-weight: 200;
+  font-weight: normal;
   font-size: 16px;
   line-height: 18px;
   color: #000000;
@@ -240,7 +240,7 @@ body {
 .login-page .login-content .login-form .radio-input label,
 .login-page .login-content .agreement-form .radio-input label {
   font-family: "Gilroy", Verdana, Tahoma, sans-serif;
-  font-weight: 200;
+  font-weight: normal;
   font-size: 12px;
   line-height: 13px;
   color: #000000;
@@ -345,7 +345,7 @@ body {
 .login-page .login-content .agreement-form .login-input input[type=tel]::-webkit-input-placeholder,
 .login-page .login-content .agreement-form .login-input input[type=password]::-webkit-input-placeholder {
   font-family: "Gilroy", Verdana, Tahoma, sans-serif;
-  font-weight: 300;
+  font-weight: normal;
   font-size: 13px;
   line-height: 15px;
   color: #000000;
@@ -360,7 +360,7 @@ body {
 .login-page .login-content .agreement-form .login-input input[type=tel]::-moz-placeholder,
 .login-page .login-content .agreement-form .login-input input[type=password]::-moz-placeholder {
   font-family: "Gilroy", Verdana, Tahoma, sans-serif;
-  font-weight: 300;
+  font-weight: normal;
   font-size: 13px;
   line-height: 15px;
   color: #000000;
@@ -375,7 +375,7 @@ body {
 .login-page .login-content .agreement-form .login-input input[type=tel]:-ms-input-placeholder,
 .login-page .login-content .agreement-form .login-input input[type=password]:-ms-input-placeholder {
   font-family: "Gilroy", Verdana, Tahoma, sans-serif;
-  font-weight: 300;
+  font-weight: normal;
   font-size: 13px;
   line-height: 15px;
   color: #000000;
@@ -390,7 +390,7 @@ body {
 .login-page .login-content .agreement-form .login-input input[type=tel]::-ms-input-placeholder,
 .login-page .login-content .agreement-form .login-input input[type=password]::-ms-input-placeholder {
   font-family: "Gilroy", Verdana, Tahoma, sans-serif;
-  font-weight: 300;
+  font-weight: normal;
   font-size: 13px;
   line-height: 15px;
   color: #000000;
@@ -405,7 +405,7 @@ body {
 .login-page .login-content .agreement-form .login-input input[type=tel]::placeholder,
 .login-page .login-content .agreement-form .login-input input[type=password]::placeholder {
   font-family: "Gilroy", Verdana, Tahoma, sans-serif;
-  font-weight: 300;
+  font-weight: normal;
   font-size: 13px;
   line-height: 15px;
   color: #000000;
@@ -430,7 +430,7 @@ body {
   border-radius: 15px;
   cursor: pointer;
   font-family: "Gilroy", Verdana, Tahoma, sans-serif;
-  font-weight: 300;
+  font-weight: normal;
   font-size: 13px;
   line-height: 15px;
   color: #000000;
@@ -499,7 +499,7 @@ body {
 
 .login-page .interests-content .login-header-2 {
   font-family: "Gilroy", Verdana, Tahoma, sans-serif;
-  font-weight: 300;
+  font-weight: normal;
   font-size: 24px;
   line-height: 27px;
   color: #000000;

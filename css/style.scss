@@ -230,6 +230,13 @@ body {
                 .table-row {
                     padding-bottom: 20px;
                 }    
+                .table-group {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    position: relative;
+                    width: 100%;
+                }
                 .table-col {
                     font-family: $fontPage;
                     font-style: normal;
@@ -240,6 +247,10 @@ body {
                     color: #37353F;
                 }
            }
+           .table-col-menu {
+                width: 100px;
+                min-width: 100px;
+            }
            .table-body {
                 .table-row {
                     margin-bottom: 25px;
@@ -277,6 +288,14 @@ body {
                align-items: center;
                justify-content: flex-start;
                position: relative;
+               & > a {
+                   display: flex;
+                   align-items: center;
+                   justify-content: flex-start;
+                   width: 100%;
+                   text-decoration: none;
+                   color: inherit;
+               }
                .table-col {
                     padding-left: 5px;
                     padding-right: 5px;
@@ -285,65 +304,61 @@ body {
                         min-width: 7%;
                     }
                     &:nth-child(2){
-                        width: 17%;
-                        min-width: 17%;
+                        width: 18%;
+                        min-width: 18%;
                     }
                     &:nth-child(3){
-                        width: 8%;
-                        min-width: 8%;
+                        width: 9%;
+                        min-width: 9%;
                     }
                     &:nth-child(4){
-                        width: 8%;
-                        min-width: 8%;
-                    }
-                    &:nth-child(5){
-                        width: 7%;
-                        min-width: 7%;
-                    }
-                    &:nth-child(6){
-                        width: 7%;
-                        min-width: 7%;
-                    }
-                    &:nth-child(7){
-                        width: 7%;
-                        min-width: 7%;
-                    }
-                    &:nth-child(8){
-                        width: 7%;
-                        min-width: 7%;
-                    }
-                    &:nth-child(9){
-                        width: 7%;
-                        min-width: 7%;
-                    }
-                    &:nth-child(10){
-                        width: 8%;
-                        min-width: 8%;
-                    }
-                    &:nth-child(11){
-                        width: 7%;
-                        min-width: 7%;
-                    }
-                    &:nth-child(12){
                         width: 10%;
                         min-width: 10%;
                     }
+                    &:nth-child(5){
+                        width: 8%;
+                        min-width: 8%;
+                    }
+                    &:nth-child(6){
+                        width: 8%;
+                        min-width: 8%;
+                    }
+                    &:nth-child(7){
+                        width: 8%;
+                        min-width: 8%;
+                    }
+                    &:nth-child(8){
+                        width: 8%;
+                        min-width: 8%;
+                    }
+                    &:nth-child(9){
+                        width: 8%;
+                        min-width: 8%;
+                    }
+                    &:nth-child(10){
+                        width: 9%;
+                        min-width: 9%;
+                    }
+                    &:nth-child(11){
+                        width: 8%;
+                        min-width: 8%;
+                    }
                }
            }
-           .table-col {
-               .pool-menu-wrap {
-                   position: relative;
-                   display: flex;
-                   align-items: center;
-                   justify-content: center;
-                   &:hover {
-                       z-index: 100;
+           .table-col-menu {
+                .pool-menu-wrap {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    &:hover {
+                        z-index: 100;
                         .hidden-menu {
                             max-height: 200px;
                             opacity: 1;
                         }
-                   }
-                   .menu-icon {
+                    }
+                    .menu-icon {
                         width: 20px;
                         display: flex;
                         align-items: center;
@@ -355,24 +370,24 @@ body {
                             height: 5px;
                             border-radius: 50%;
                         }
-                   }
-                   .hidden-menu {
-                       position: absolute;
-                       z-index: 100;
-                       top: -5px;
-                       min-width: 220px;
-                       max-height: 0px;
-                       overflow: hidden;
-                       opacity: 0;
-                       transition: opacity 0.3s ease-in;
-                       &.to-top {
-                           top: initial;
-                           bottom: -5px;
-                       }
-                       .menu-wrap {
-                           padding: 5px 15px 15px 5px;
-                       }
-                       .menu-list {
+                    }
+                    .hidden-menu {
+                        position: absolute;
+                        z-index: 100;
+                        top: -5px;
+                        min-width: 220px;
+                        max-height: 0px;
+                        overflow: hidden;
+                        opacity: 0;
+                        transition: opacity 0.3s ease-in;
+                        &.to-top {
+                            top: initial;
+                            bottom: -5px;
+                        }
+                        .menu-wrap {
+                            padding: 5px 15px 15px 5px;
+                        }
+                        .menu-list {
                             background: #FFFFFF;
                             box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
                             border-radius: 25px;
@@ -610,8 +625,8 @@ body {
                                     color: #000000;
                                 }
                             }
-                       }
-                   }
+                        }
+                    }
                 }
            }
        }
@@ -3061,6 +3076,11 @@ body {
                         position: relative;
                         display: inline-block;
                         padding-right: 15px;
+                        &:hover {
+                            .img-remove {
+                                opacity: 1;
+                            }
+                        }
                         .img-remove {
                             position: absolute;
                             top: 0px;
@@ -3072,6 +3092,7 @@ body {
                             background-repeat: no-repeat;
                             background-size: contain;
                             cursor: pointer;
+                            opacity: 0;
                             transition: opacity 0.3s ease-in;
                         }
                         img {
@@ -3177,11 +3198,19 @@ body {
                             display: none!important;
                             -webkit-appearance: none;
                         }
+                        &:hover {
+                            .video-remove {
+                                opacity: 1;
+                            }
+                        }
                         video {
                             max-width: 100%;
                             width: 100%;
+                            height: auto;
+                            max-height: 600px;
                             box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
                             border-radius: 25px;
+                            background: #000;
                             &::-webkit-media-controls-play-button {
                                 display: none!important;
                                 -webkit-appearance: none;
@@ -3223,6 +3252,7 @@ body {
                             background-repeat: no-repeat;
                             background-size: contain;
                             cursor: pointer;
+                            opacity: 0;
                             transition: opacity 0.3s ease-in;
                         }
                     }
@@ -3340,7 +3370,7 @@ body {
                 padding-bottom: 20px;
                 display: flex;
                 align-items: center;
-                justify-content: space-between;
+                justify-content: space-around;
                 padding-left: 40px;
                 padding-right: 40px;
             }
@@ -4296,6 +4326,146 @@ body {
                 }
             }
         }
+        .added-file-wrap {
+            width: 100%;
+            max-width: 100%;
+            padding-bottom: 35px;
+            .img-wrap {
+                max-width: 100%;
+                position: relative;
+                display: inline-block;
+                img {
+                    object-fit: contain;
+                    object-position: center;
+                    max-width: 100%;
+                    max-height: 600px;
+                    box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
+                    border-radius: 25px;
+                }
+            }
+            .audio-wrap {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                max-width: 500px;
+                width: 100%;
+                position: relative;
+                &:hover {
+                    .audio-remove {
+                        opacity: 1;
+                    }
+                }
+                .audio-control {
+                    width: 20px;
+                    height: 20px;
+                    position: relative;
+                    margin-right: 10px;
+                    cursor: pointer;
+                    &.pause {
+                        &::before {
+                            opacity: 0;
+                        }
+                        &::after {
+                            opacity: 1;
+                        }
+                    }
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        top: 0px;
+                        bottom: 0px;
+                        left: 0px;
+                        right: 0px;
+                        background: url(./../img/icon-audio-play.svg);
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        opacity: 1;
+                        transition: opacity 0.3s ease-in;
+                    }
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        top: 0px;
+                        bottom: 0px;
+                        left: 0px;
+                        right: 0px;
+                        background: url(./../img/icon-audio-pause.svg);
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        opacity: 0;
+                        transition: opacity 0.3s ease-in;
+                    }
+                }
+                .audiowave {
+                    width: calc(100% - 30px);
+                }
+                .audio-duration {
+                    font-family: $fontPage;
+                    font-style: normal;
+                    font-weight: bold;
+                    font-size: 9px;
+                    line-height: 11px;
+                    color: #E5E5E5;
+                    margin-left: 10px;
+                }
+            }
+            .video-wrap {
+                position: relative;
+                *::-webkit-media-controls-play-button {
+                    display: none!important;
+                    -webkit-appearance: none;
+                }
+                *::-webkit-media-controls-start-playback-button {
+                    display: none!important;
+                    -webkit-appearance: none;
+                }
+                &:hover {
+                    .video-remove {
+                        opacity: 1;
+                    }
+                }
+                video {
+                    max-width: 100%;
+                    width: 100%;
+                    height: auto;
+                    max-height: 600px;
+                    box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
+                    border-radius: 25px;
+                    background: #000;
+                    &::-webkit-media-controls-play-button {
+                        display: none!important;
+                        -webkit-appearance: none;
+                    }
+                    &::-webkit-media-controls-start-playback-button {
+                        display: none!important;
+                        -webkit-appearance: none;
+                    }
+                }
+                .radiostar-playing {
+                    .video-play {
+                        opacity: 0;
+                    }
+                }
+                .video-play {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 50px;
+                    height: 50px;
+                    background: url(./../img/video-play.svg);
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    transform: translate(-50%, -50%);
+                    border: none;
+                    outline: none;
+                    transition: opacity 0.3s ease-in;
+                    pointer-events: none;
+                }
+            }
+        }
     }
 }
 .load-wrapper {
@@ -4618,7 +4788,7 @@ body {
             padding-left: 35px;
             padding-right: 35px;
             .pools-table {
-                .table-col {
+                .table-col-menu {
                     .pool-menu-wrap {
                         .hidden-menu {
                             right: 0px;
