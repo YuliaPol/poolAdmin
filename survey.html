@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Название опроса</title>
+
+    <link rel="stylesheet" href="./font/Gilroy/stylesheet.css">
+    <link rel="stylesheet" href="./css/jquery-ui.css">
+    <link rel="stylesheet" href="./css/custom-select.css">
+    <link rel="stylesheet" href="./css/datepicker.min.css">
+    <link rel="stylesheet" href="./css/intlTelInput.css">
+    <link rel="stylesheet" href="./css/style.css">
+
+    <script src="./js/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <div class="page-wrap">
+        <div class="content-wrap survey-page">
+            <div class="pool-wrap">
+                <div class="progress-bar">
+                    <div class="progress-text">
+                        Progress bar
+                    </div>
+                    <div class="progress-wrap">
+                        <div class="proggres">
+                        </div>
+                    </div>
+                </div>
+                <div class="question-list">
+                    <h1 class="survey-name">
+                        Название опроса
+                    </h1>
+                    <p class="survey-descr">
+                        Описание опроса. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.
+                    </p>
+                    <div class="question-wrap question-single" data-id="1">
+                        <div class="question-name">
+                            Введите ваш вопрос
+                        </div>
+                        <div class="radio-btns-wrapper">
+                            <div class="radio-item">
+                                <input type="radio" name="q-1" id="q-1-1" value="Вариант ответа">
+                                <label for="q-1-1">Вариант ответа</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" name="q-1" id="q-1-2" value="Вариант ответа">
+                                <label for="q-1-2">Вариант ответа</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" name="q-1" id="q-1-3" value="Вариант ответа">
+                                <label for="q-1-3">Вариант ответа</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" name="q-1" id="q-1-4" value="Вариант ответа">
+                                <label for="q-1-4">Вариант ответа</label>
+                            </div>
+                        </div>
+                        <div class="option-comment">
+                            <textarea rows="1" placeholder="Введите ваш комментарий"></textarea>
+                        </div>
+                    </div>
+                    <div class="question-wrap question-free" data-id="2">
+                        <div class="question-name">
+                            Введите ваш вопрос
+                        </div>
+                        <div class="free-answers">
+                            <div class="answer-wrap">
+                                <textarea rows="1" name="q-2" placeholder="Введите ваш комментарий"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="question-wrap question-free question-freedynamic" data-id="3">
+                        <div class="question-name">
+                            Введите ваш вопрос
+                        </div>
+                        <div class="free-answers">
+                            <div class="answer-wrap">
+                                <textarea rows="1" name="q-3-1" placeholder="Введите ваш комментарий"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="question-wrap question-scale" data-id="4">
+                        <div class="question-name">
+                            Введите ваш вопрос
+                        </div>
+                        <div class="scale-wrap scale-star scale-10">
+                    
+                            <input type="radio" id="q-4-10" name="q-4" value="10" />
+                            <label for="q-4-10" title="text"></label>
+                    
+                            <input type="radio" id="q-4-9" name="q-4" value="9" />
+                            <label for="q-4-9" title="text"></label>
+                    
+                            <input type="radio" id="q-4-8" name="q-4" value="8" />
+                            <label for="q-4-8" title="text"></label>
+                    
+                            <input type="radio" id="q-4-7" name="q-4" value="7" />
+                            <label for="q-4-7" title="text"></label>
+                    
+                            <input type="radio" id="q-4-6" name="q-4" value="6" />
+                            <label for="q-4-6" title="text"></label>
+                    
+                            <input type="radio" id="q-4-5" name="q-4" value="5" />
+                            <label for="q-4-5" title="text"></label>
+                    
+                            <input type="radio" id="q-4-4" name="q-4" value="4" />
+                            <label for="q-4-4" title="text"></label>
+                    
+                            <input type="radio" id="q-4-3" name="q-4" value="3" />
+                            <label for="q-4-3" title="text"></label>
+                    
+                            <input type="radio" id="q-4-2" name="q-4" value="2" />
+                            <label for="q-4-2" title="text"></label>
+                    
+                            <input type="radio" id="q-4-1" name="q-4" value="1" />
+                            <label for="q-4-1" title="text"></label>
+                        </div>
+                        <div class="scale-labels-wrap scale-10">
+                            <div class="label-item">
+                                Не понравилось вообще
+                            </div>
+                            <div class="label-item"></div>
+                            <div class="label-item"></div>
+                            <div class="label-item"></div>
+                            <div class="label-item"></div>
+                            <div class="label-item"></div>
+                            <div class="label-item"></div>
+                            <div class="label-item"></div>
+                            <div class="label-item"></div>
+                            <div class="label-item">
+                                Понравилось невероятно
+                            </div>
+                        </div>
+                    </div>
+                    <div class="question-wrap question-dropdown" data-id="5">
+                        <div class="question-name">
+                            Введите ваш вопрос
+                        </div>
+                        <div class="dropdown-wrap">
+                            <select class="customselect" name="q-5" multiple>
+                                <option value="Ответ 1">Ответ 1</option>
+                                <option value="Ответ 2">Ответ 2</option>
+                                <option value="Ответ 3">Ответ 3</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="question-wrap question-multiple" data-id="6">
+                        <div class="question-name">
+                            Введите ваш вопрос
+                        </div>
+                        <div class="radio-btns-wrapper">
+                            <div class="radio-item">
+                                <input type="checkbox" name="q-6-1" id="q-6-1" value="Вариант ответа">
+                                <label for="q-6-1">Вариант ответа</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="checkbox" name="q-6-2" id="q-6-2" value="Вариант ответа">
+                                <label for="q-6-2">Вариант ответа</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="checkbox" name="q-6-3" id="q-6-3" value="Вариант ответа">
+                                <label for="q-6-3">Вариант ответа</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="checkbox" name="q-6-4" id="q-6-4" value="Вариант ответа">
+                                <label for="q-6-4">Вариант ответа</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="checkbox" name="q-6-5" id="q-6-5" value="Вариант ответа">
+                                <label for="q-6-5">Вариант ответа</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="checkbox" name="q-6-6" id="q-6-6" value="Вариант ответа">
+                                <label for="q-6-6">Вариант ответа</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="question-wrap question-ranging" data-id="7">
+                        <div class="question-name">
+                            Введите ваш вопрос
+                        </div>
+                        <div class="ranging-list">
+                            <div class="ranging-item">
+                                <div class="grab-icon"></div>
+                                <div class="ranging-name">
+                                    <input type="hidden" name="q-7-1" value="Ответ">
+                                    Ответ
+                                </div>
+                            </div>
+                            <div class="ranging-item">
+                                <div class="grab-icon"></div>
+                                <div class="ranging-name">
+                                    <input type="hidden" name="q-7-2" value="Ответ">
+                                    Ответ
+                                </div>
+                            </div>
+                            <div class="ranging-item">
+                                <div class="grab-icon"></div>
+                                <div class="ranging-name">
+                                    <input type="hidden" name="q-7-3" value="Ответ">
+                                    Ответ
+                                </div>
+                            </div>
+                            <div class="ranging-item">
+                                <div class="grab-icon"></div>
+                                <div class="ranging-name">
+                                    <input type="hidden" name="q-7-4" value="Ответ">
+                                    Ответ
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="question-wrap question-name" data-id="8">
+                        <div class="question-name">
+                            Введите ваш вопрос
+                        </div>
+                        <div class="name-answers">
+                            <div class="answer-wrap">
+                                <textarea rows="1" placeholder="Имя" name="q-8-1"></textarea>
+                            </div>
+                            <div class="answer-wrap">
+                                <textarea rows="1" placeholder="Отчество" name="q-8-1"></textarea>
+                            </div>
+                            <div class="answer-wrap">
+                                <textarea rows="1" placeholder="Фамилия" name="q-8-1"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="question-wrap question-date" data-id="9">
+                        <div class="question-name">
+                            Введите ваш вопрос
+                        </div>
+                        <div class="data-list">
+                            <div class="date-answer">
+                                <input type="text" class="date-input" maxlength="10" name="q-9">
+                                <div class="icon-date"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="question-wrap question-email" data-id="10">
+                        <div class="question-name">
+                            Введите ваш вопрос
+                        </div>
+                        <div class="email-answer">
+                            <input type="email" placeholder="Email" name="q-10">
+                        </div>
+                    </div>
+                    <div class="question-wrap question-phone" data-id="11">
+                        <div class="question-name">
+                            Введите ваш вопрос
+                        </div>
+                        <div class="phone-answer">
+                            <input class="code" type="text" name="q-11-1" value="+7" readonly>
+                            <input class="phone" type="tel" maxlength="11" name="q-11-2">
+                        </div>
+                    </div>
+                    <div class="question-wrap question-file" data-id="12">
+                        <div class="question-name">
+                            Введите ваш вопрос
+                        </div>
+                        <div class="file-answer">
+                            <label for="q-12">
+                                <input type="file" multiple name="q-12" id="q-12">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="question-wrap question-date question-datedynamic" data-id="13">
+                        <div class="question-name">
+                            Введите ваш вопрос
+                        </div>
+                        <div class="data-list">
+                            <div class="date-answer">
+                                <input type="text" class="date-input" maxlength="10" name="q-13-1">
+                                <div class="icon-date"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="question-wrap question-free" data-id="14">
+                        <div class="question-name">
+                            Введите ваш вопрос
+                        </div>
+                        <div class="free-answers">
+                            <div class="answer-wrap">
+                                <textarea rows="1" name="q-14-1" placeholder="Введите ваш комментарий"></textarea>
+                            </div>
+                            <div class="answer-wrap">
+                                <textarea rows="1" name="q-14-2" placeholder="Введите ваш комментарий"></textarea>
+                            </div>
+                            <div class="answer-wrap">
+                                <textarea rows="1" name="q-14-3" placeholder="Введите ваш комментарий"></textarea>
+                            </div>
+                            <div class="answer-wrap">
+                                <textarea rows="1" name="q-13-4" placeholder="Введите ваш комментарий"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-wrap">
+                        <button class="btn-send btn-default">Отправить</button>
+                    </div>
+                </div>
+                <div class="survey-footer">
+                    <div class="logo">
+                        <img src="./img/logo-long.svg" alt="Poolcomment">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="load-wrapper">
+        <div class="loader"></div>
+    </div>
+    <script src="./js/jquery-ui.js"></script>
+    <script src="./js/jquery.ui.touch-punch.min.js"></script>
+    <script src="./js/datepicker.min.js"></script>
+    <script src="./js/custom_select.js"></script>
+    <script src="./js/wavesurfer.min.js"></script>
+    <script src="./js/video-radio-star.js"></script>
+    <script src="./js/intlTelInput.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/preview.js"></script>
+</body>
+</html>

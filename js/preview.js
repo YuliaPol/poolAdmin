@@ -252,7 +252,12 @@ jQuery(function ($) {
             let boxHeight = box[0].clientHeight;
             let boxScrollHeight = scrolHeight - boxHeight;
             let scrollWidth = Math.round((100/boxScrollHeight)*curScroll);
-            $('.preview-footer .proggres').css('width', scrollWidth + '%');
+            if($('.preview-footer .proggres').length > 0){
+                $('.preview-footer .proggres').css('width', scrollWidth + '%');
+            }
+            if($('.progress-bar .proggres')){
+                $('.progress-bar .proggres').css('width', scrollWidth + '%');
+            }
         }
         setScrollWisth();
 

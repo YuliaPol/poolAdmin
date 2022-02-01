@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -277,6 +278,112 @@ body .page-wrap {
   min-height: calc(100vh - 100px);
 }
 
+.page-wrap .content-wrap.survey-page {
+  padding-top: 1px;
+}
+
+.page-wrap .content-wrap.survey-page .pool-wrap {
+  margin-top: 0px;
+  height: calc(100vh - 200px);
+}
+
+.page-wrap .content-wrap.survey-page .question-list {
+  padding-bottom: 80px;
+}
+
+.page-wrap .content-wrap.survey-page .progress-bar {
+  position: relative;
+  z-index: 150;
+  border-radius: 25px;
+  background: red;
+}
+
+.page-wrap .content-wrap.survey-page .progress-bar .progress-text {
+  position: absolute;
+  top: -40px;
+  left: 0px;
+  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  color: #000000;
+}
+
+.page-wrap .content-wrap.survey-page .progress-bar .progress-wrap {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  border-radius: 25px;
+  height: 150px;
+  background: transparent;
+  overflow: hidden;
+}
+
+.page-wrap .content-wrap.survey-page .progress-bar .proggres {
+  width: 100%;
+  background: #7FA1F8;
+  border-radius: 25px;
+  height: 5px;
+  max-width: 100%;
+  overflow: hidden;
+  z-index: 99;
+}
+
+.page-wrap .content-wrap.survey-page .survey-footer {
+  padding-top: 45px;
+  padding-bottom: 45px;
+}
+
+.page-wrap .content-wrap.survey-page .survey-footer .logo {
+  width: 200px;
+}
+
+.page-wrap .content-wrap.survey-page .survey-footer .logo img {
+  max-width: 100%;
+}
+
+.page-wrap .content-wrap.survey-page .survey-name {
+  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 44px;
+  color: #37353F;
+  padding-bottom: 20px;
+  padding-top: 70px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.page-wrap .content-wrap.survey-page .survey-descr {
+  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 18px;
+  line-height: 21px;
+  color: #37353F;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 80px;
+}
+
+.page-wrap .content-wrap.survey-page .btn-wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .page-wrap .content-wrap .top-nav {
   display: -webkit-box;
   display: -webkit-flex;
@@ -357,7 +464,10 @@ body .page-wrap {
   text-decoration: none;
   border: none;
   outline: none;
-  background: #7FA1F8;
+  background: -webkit-gradient(linear, left top, right top, from(#B27AF8), to(#7FA1F8));
+  background: -webkit-linear-gradient(left, #B27AF8 0%, #7FA1F8 100%);
+  background: -o-linear-gradient(left, #B27AF8 0%, #7FA1F8 100%);
+  background: linear-gradient(90deg, #B27AF8 0%, #7FA1F8 100%);
   border-radius: 25px;
   padding: 14px 30px;
   font-family: "Gilroy", Verdana, Tahoma, sans-serif;
@@ -1273,7 +1383,10 @@ body .page-wrap {
   cursor: pointer;
   border: none;
   outline: none;
-  background: #7FA1F8;
+  background: -webkit-gradient(linear, left top, right top, from(#B27AF8), to(#7FA1F8));
+  background: -webkit-linear-gradient(left, #B27AF8 0%, #7FA1F8 100%);
+  background: -o-linear-gradient(left, #B27AF8 0%, #7FA1F8 100%);
+  background: linear-gradient(90deg, #B27AF8 0%, #7FA1F8 100%);
   border-radius: 25px;
   padding: 15px 50px;
   font-family: "Gilroy", Verdana, Tahoma, sans-serif;
@@ -4638,23 +4751,6 @@ body .page-wrap {
   padding-right: 40px;
 }
 
-.page-wrap .constr-wrap .questions-box .btn-default {
-  background: #7FA1F8;
-  border-radius: 25px;
-  padding: 15px 30px;
-  border: none;
-  outline: none;
-  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 11px;
-  line-height: 13px;
-  color: #FFFFFF;
-  display: inline-block;
-  cursor: pointer;
-  text-decoration: none;
-}
-
 .page-wrap .constr-wrap .questions-box .hidden {
   display: none;
 }
@@ -4730,7 +4826,10 @@ body .page-wrap {
   outline: none;
   border: none;
   text-decoration: none;
-  background: #7FA1F8;
+  background: -webkit-gradient(linear, left top, right top, from(#B27AF8), to(#7FA1F8));
+  background: -webkit-linear-gradient(left, #B27AF8 0%, #7FA1F8 100%);
+  background: -o-linear-gradient(left, #B27AF8 0%, #7FA1F8 100%);
+  background: linear-gradient(90deg, #B27AF8 0%, #7FA1F8 100%);
   border-radius: 25px;
   padding: 15px 40px;
   font-family: "Gilroy", Verdana, Tahoma, sans-serif;
@@ -4740,6 +4839,26 @@ body .page-wrap {
   line-height: 13px;
   color: #FFFFFF;
   cursor: pointer;
+}
+
+.page-wrap .btn-default {
+  background: -webkit-gradient(linear, left top, right top, from(#B27AF8), to(#7FA1F8));
+  background: -webkit-linear-gradient(left, #B27AF8 0%, #7FA1F8 100%);
+  background: -o-linear-gradient(left, #B27AF8 0%, #7FA1F8 100%);
+  background: linear-gradient(90deg, #B27AF8 0%, #7FA1F8 100%);
+  border-radius: 25px;
+  padding: 15px 30px;
+  border: none;
+  outline: none;
+  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 11px;
+  line-height: 13px;
+  color: #FFFFFF;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .page-wrap .pool-wrap {
@@ -4800,7 +4919,7 @@ body .page-wrap {
   -webkit-box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
           box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
   border-radius: 25px;
-  padding: 10px 30px;
+  padding: 10px 35px;
   padding-bottom: 100px;
   max-height: 100%;
   overflow: auto;
@@ -4812,11 +4931,12 @@ body .page-wrap {
 }
 
 .page-wrap .pool-wrap .question-wrap {
-  padding-top: 30px;
-  padding-bottom: 30px;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 35px;
+  padding-right: 35px;
   position: relative;
+  margin-bottom: 80px;
 }
 
 .page-wrap .pool-wrap .question-wrap:hover::before {
@@ -4830,9 +4950,12 @@ body .page-wrap {
   top: 0px;
   left: 0px;
   bottom: 0px;
-  background: #7FA1F8;
+  background: -webkit-gradient(linear, left top, right top, from(#B27AF8), to(#7FA1F8));
+  background: -webkit-linear-gradient(left, #B27AF8 0%, #7FA1F8 100%);
+  background: -o-linear-gradient(left, #B27AF8 0%, #7FA1F8 100%);
+  background: linear-gradient(90deg, #B27AF8 0%, #7FA1F8 100%);
   border-radius: 25px;
-  width: 11px;
+  width: 1px;
   opacity: 0;
   -webkit-transition: opacity 0.3s ease-in;
   -o-transition: opacity 0.3s ease-in;
@@ -4846,7 +4969,7 @@ body .page-wrap {
   font-size: 18px;
   line-height: 22px;
   color: #000000;
-  padding-bottom: 35px;
+  padding-bottom: 40px;
 }
 
 .page-wrap .pool-wrap .question-wrap .radio-btns-wrapper {
@@ -4880,9 +5003,11 @@ body .page-wrap {
 
 .page-wrap .pool-wrap .question-wrap .radio-btns-wrapper .radio-item input[type=radio]:checked ~ label,
 .page-wrap .pool-wrap .question-wrap .radio-btns-wrapper .radio-item input[type=checkbox]:checked ~ label {
-  background: #7FA1F8;
+  background: -webkit-gradient(linear, left top, right top, from(#B27AF8), to(#7FA1F8));
+  background: -webkit-linear-gradient(left, #B27AF8 0%, #7FA1F8 100%);
+  background: -o-linear-gradient(left, #B27AF8 0%, #7FA1F8 100%);
+  background: linear-gradient(90deg, #B27AF8 0%, #7FA1F8 100%);
   color: #fff;
-  border-color: #7FA1F8;
 }
 
 .page-wrap .pool-wrap .question-wrap .radio-btns-wrapper .radio-item input[type=radio] ~ label,
@@ -4890,7 +5015,7 @@ body .page-wrap {
   display: block;
   width: 100%;
   padding: 13px 20px;
-  border: 1px solid #C4C4C4;
+  border: 1px solid transparent;
   border-radius: 25px;
   font-family: #000000;
   font-style: normal;
@@ -4903,6 +5028,29 @@ body .page-wrap {
   -webkit-transition: all 0.3s ease-in;
   -o-transition: all 0.3s ease-in;
   transition: all 0.3s ease-in;
+  position: relative;
+  background: #fff;
+  -webkit-background-clip: padding-box;
+          background-clip: padding-box;
+}
+
+.page-wrap .pool-wrap .question-wrap .radio-btns-wrapper .radio-item input[type=radio] ~ label::after,
+.page-wrap .pool-wrap .question-wrap .radio-btns-wrapper .radio-item input[type=checkbox] ~ label::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  margin: -1px;
+  /* !importanté */
+  border-radius: inherit;
+  /* !importanté */
+  background: -webkit-gradient(linear, left top, right top, from(#B27AF8), to(#7FA1F8));
+  background: -webkit-linear-gradient(left, #B27AF8 0%, #7FA1F8 100%);
+  background: -o-linear-gradient(left, #B27AF8 0%, #7FA1F8 100%);
+  background: linear-gradient(90deg, #B27AF8 0%, #7FA1F8 100%);
 }
 
 .page-wrap .pool-wrap .question-wrap .free-answers .answer-wrap {
@@ -6229,7 +6377,10 @@ body .page-wrap {
 }
 
 .popup-wrap .popup-body .btn-default {
-  background: #7FA1F8;
+  background: -webkit-gradient(linear, left top, right top, from(#B27AF8), to(#7FA1F8));
+  background: -webkit-linear-gradient(left, #B27AF8 0%, #7FA1F8 100%);
+  background: -o-linear-gradient(left, #B27AF8 0%, #7FA1F8 100%);
+  background: linear-gradient(90deg, #B27AF8 0%, #7FA1F8 100%);
   border-radius: 25px;
   padding: 15px 30px;
   border: none;

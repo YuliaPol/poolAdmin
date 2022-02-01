@@ -2,6 +2,7 @@ $fontPage: 'Gilroy', Verdana, Tahoma, sans-serif;
 $fontColor: #000000;
 $errorColor: #FF7262;
 $switchBg: #7FA1F8;
+$gradient: linear-gradient(90deg, #B27AF8 0%, #7FA1F8 100%);
 
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
@@ -212,6 +213,90 @@ body {
         padding-left: 60px;
         padding-right: 60px;
         min-height: calc(100vh - 100px);
+        &.survey-page {
+            padding-top: 1px;
+            .pool-wrap {
+                margin-top: 0px;
+                height: calc(100vh - 200px);
+            }
+            .question-list {
+                padding-bottom: 80px;
+            }
+            .progress-bar {
+                position: relative;
+                z-index: 150;
+                border-radius: 25px;
+                background: red;
+                .progress-text {
+                    position: absolute;
+                    top: -40px;
+                    left: 0px;
+                    font-family: $fontPage;
+                    font-style: normal;
+                    font-weight: bold;
+                    font-size: 18px;
+                    line-height: 22px;
+                    color: #000000;
+                }
+                .progress-wrap {
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    right: 0px;
+                    border-radius: 25px;
+                    height: 150px;
+                    background: transparent;
+                    overflow: hidden;
+                }
+                .proggres {
+                    width: 100%;
+                    background: #7FA1F8;
+                    border-radius: 25px;
+                    height: 5px;
+                    max-width: 100%;
+                    overflow: hidden;
+                    z-index: 99;
+                }
+            }
+            .survey-footer {
+                padding-top: 45px;
+                padding-bottom: 45px;
+                .logo {
+                    width: 200px;
+                    img {
+                        max-width: 100%;
+                    }
+                }
+            }
+            .survey-name {
+                font-family: $fontPage;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 36px;
+                line-height: 44px;
+                color: #37353F;
+                padding-bottom: 20px;
+                padding-top: 70px;
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+            .survey-descr {
+                font-family: $fontPage;
+                font-style: normal;
+                font-weight: 200;
+                font-size: 18px;
+                line-height: 21px;
+                color: #37353F;
+                padding-left: 30px;
+                padding-right: 30px;
+                padding-bottom: 80px;
+            }
+            .btn-wrap {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
         .top-nav {
             display: flex;
             align-items: center;
@@ -265,7 +350,7 @@ body {
                 text-decoration: none;
                 border: none;
                 outline: none;
-                background: #7FA1F8;
+                background: $gradient;
                 border-radius: 25px;
                 padding: 14px 30px;
                 font-family: $fontPage;
@@ -943,7 +1028,7 @@ body {
                     cursor: pointer;
                     border: none;
                     outline: none;
-                    background: #7FA1F8;
+                    background: $gradient;
                     border-radius: 25px;
                     padding: 15px 50px;
                     font-family: $fontPage;
@@ -3493,22 +3578,6 @@ body {
                 padding-left: 40px;
                 padding-right: 40px;
             }
-            .btn-default {
-                background: #7FA1F8;
-                border-radius: 25px;
-                padding: 15px 30px;
-                border: none;
-                outline: none;
-                font-family: $fontPage;
-                font-style: normal;
-                font-weight: bold;
-                font-size: 11px;
-                line-height: 13px;
-                color: #FFFFFF;
-                display: inline-block;
-                cursor: pointer;
-                text-decoration: none;
-            }
             .hidden {
                 display: none;
             }
@@ -3566,7 +3635,7 @@ body {
                 outline: none;
                 border: none;
                 text-decoration: none;
-                background: #7FA1F8;
+                background: $gradient;
                 border-radius: 25px;
                 padding: 15px 40px;
                 font-family: $fontPage;
@@ -3578,6 +3647,22 @@ body {
                 cursor: pointer;
             }
         }
+    }
+    .btn-default {
+        background: $gradient;
+        border-radius: 25px;
+        padding: 15px 30px;
+        border: none;
+        outline: none;
+        font-family: $fontPage;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 11px;
+        line-height: 13px;
+        color: #FFFFFF;
+        display: inline-block;
+        cursor: pointer;
+        text-decoration: none;
     }
     .pool-wrap {
         max-width: 1075px;
@@ -3614,7 +3699,7 @@ body {
             background: #FFFFFF;
             box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
             border-radius: 25px;
-            padding: 10px 30px;
+            padding: 10px 35px;
             padding-bottom: 100px;
             max-height: 100%;
             overflow: auto;
@@ -3624,11 +3709,12 @@ body {
             }
         }
         .question-wrap {
-            padding-top: 30px;
-            padding-bottom: 30px;
-            padding-left: 30px;
-            padding-right: 30px;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            padding-left: 35px;
+            padding-right: 35px;
             position: relative;
+            margin-bottom: 80px;
             &:hover {
                 &::before {
                     opacity: 1;
@@ -3641,9 +3727,9 @@ body {
                 top: 0px;
                 left: 0px;
                 bottom: 0px;
-                background: #7FA1F8;
+                background: $gradient;
                 border-radius: 25px;
-                width: 11px;
+                width: 1px;
                 opacity: 0;
                 transition: opacity 0.3s ease-in;
             }
@@ -3654,7 +3740,7 @@ body {
                 font-size: 18px;
                 line-height: 22px;
                 color: #000000;
-                padding-bottom: 35px;
+                padding-bottom: 40px;
             }
             .radio-btns-wrapper {
                 display: flex;
@@ -3670,16 +3756,15 @@ body {
                         display: none;
                         &:checked {
                             & ~ label {
-                                background: #7FA1F8;
+                                background: $gradient;
                                 color: #fff;
-                                border-color: #7FA1F8;
                             }
                         }
                         & ~ label {
                             display: block;
                             width: 100%;
                             padding: 13px 20px;
-                            border: 1px solid #C4C4C4;
+                            border: 1px solid transparent;
                             border-radius: 25px;
                             font-family: $fontColor;
                             font-style: normal;
@@ -3690,6 +3775,18 @@ body {
                             color: #000000;
                             cursor: pointer;
                             transition:  all 0.3s ease-in;
+                            position: relative;
+                            background: #fff;
+                            background-clip: padding-box;
+                            &::after {
+                                content: '';
+                                position: absolute;
+                                top: 0; right: 0; bottom: 0; left: 0;
+                                z-index: -1;
+                                margin: -1px; /* !importanté */
+                                border-radius: inherit; /* !importanté */
+                                background: $gradient;
+                            }
                         }
                     }
                 }
@@ -4727,7 +4824,7 @@ body {
         max-width: 90%;
         padding: 40px 35px;
         .btn-default {
-            background: #7FA1F8;
+            background: $gradient;
             border-radius: 25px;
             padding: 15px 30px;
             border: none;
