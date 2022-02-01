@@ -223,7 +223,7 @@ jQuery(function ($) {
             filesWrap.html(fileList);
         });
         //input diapason value
-        $('.content-wrap').on('input', '.question-diapason .input-range', function(e){
+        $('.pool-wrap').on('input', '.question-wrap .input-range', function(e){
             setDiapasonValue(this);
         });
         //set new diapsson value

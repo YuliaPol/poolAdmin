@@ -198,7 +198,7 @@ jQuery(function ($) {
                 </div>`;
             let nameHtml = 
                 `<div class="question-name">
-                    <textarea name="question_${id}"  rows="1" placeholder="Введите ваш вопрос" data-required="required"></textarea>
+                    <textarea name="question_${id}"  rows="1" placeholder="Введите ваш вопрос" data-required="required">${id}. </textarea>
                 </div>`;
             let topEL = 
                 `<div class="control-panel">
@@ -358,7 +358,14 @@ jQuery(function ($) {
                                             </div>
                                             <div class="option-value">
                                                 <select name="scaleAmount_${id}" class="customselect scale-amount">
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
                                                     <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7">7</option>
+                                                    <option value="8">8</option>
+                                                    <option value="9">9</option>
                                                     <option selected value="10">10</option>
                                                     <option value="2">да/нет</option>
                                                 </select>
@@ -688,6 +695,19 @@ jQuery(function ($) {
             question.removeClass('question-new');
         }
 
+        //uneditable numbers in question name
+        $('.constr-wrap').on('keypress, keydown', '.question-name textarea', function(e){
+            let $field = $(this);
+            let value = $field.val().split('.');
+            if(value.length > 0 && $.isNumeric(value[0])) {
+                let readOnlyLength = value[0].length + 2;
+                if ((event.which != 37 && (event.which != 39)) &&
+                  ((this.selectionStart < readOnlyLength) ||
+                    ((this.selectionStart == readOnlyLength) && (event.which == 8)))) {
+                  return false;
+                }
+            }
+        });
         //show settings for question
         $('.constr-wrap').on('click', '.show-settings', function(e){
             let question = $(this).parents('.question-wrap');
@@ -1057,7 +1077,12 @@ jQuery(function ($) {
         });
 
         function addScalePicture(question){
-            let amount = parseInt(question.find('.scale-amount').val());
+            let amount = question.find('.scale-amount').val();
+            if(amount === 'yesNot'){
+                amount = 2;
+            } else {
+                amount = parseInt(amount);
+            }
             let questionId = question.attr('data-id');
             let scaleHtml = `<div class="scale-wrap scale-star scale-10">`;
             for (let i = amount; i >= 1; i--) {
@@ -1066,12 +1091,7 @@ jQuery(function ($) {
                     <label for="scale_${questionId}_${i}" title="text"></label>`;
             }
             scaleHtml += 
-                `</div>
-                <div class="scale-labels-wrap scale-10">`
-            for (let i = 1; i <= amount; i++) {
-                scaleHtml += `<div class="label-item"></div>`;
-            }
-            scaleHtml += '</div>';
+                `</div>`;
 
             let optionsHtml = 
                 `<div class="switch-row">
@@ -1142,6 +1162,11 @@ jQuery(function ($) {
         //change amount of ratings
         $('.content-wrap').on('change', '.question-scale .scale-amount', function(e){
             let amount = $(this).val();
+            if(amount === 'yesNot'){
+                amount = 2;
+            } else {
+                amount = parseInt(amount);
+            }
             let question = $(this).parents('.question-wrap');
             if(question.find('.diapason-answer').length !== 0){
                 setDiapasonMax(question);
@@ -1242,8 +1267,12 @@ jQuery(function ($) {
             if($(this).is(':checked')){
                 let labelsScale = `<div class="scale-labels-wrap"></div>`;
                 let labelsOption = `<div class="labels-option"></div>`;
-                $(labelsScale).insertAfter(question.find('.scale-wrap'));
-                $(labelsOption).insertAfter($(this).parents('.switch-row'));
+                if(question.find('.scale-labels-wrap').length === 0){
+                    $(labelsScale).insertAfter(question.find('.scale-wrap'));
+                }
+                if(question.find('.labels-option').length === 0){
+                    $(labelsOption).insertAfter($(this).parents('.switch-row'));
+                }
                 changeAmountLabel(question);
                 setClassForScale(question);
             } else {
@@ -1900,6 +1929,21 @@ jQuery(function ($) {
                     changeNameInput(labels, id, 1);
                     let selects = $(questions[i]).find('select');
                     changeNameInput(selects, id, 1);
+                    
+                    let questionName = $(questions[i]).find('.question-name textarea');
+                    let valueName = questionName.val().split('. ');
+                    if(!questionName.val()){
+                        let nameString = id + '. ';
+                        questionName.val(nameString);
+                    }
+                    else if(valueName.length > 1 && $.isNumeric(valueName[0])){
+                        valueName[0] = id;
+                        let nameString = valueName.join(". ");
+                        questionName.val(nameString);
+                    } else if(!$.isNumeric(valueName[0]) || valueName.length === 1){
+                        let nameString = id + '. ' + valueName.join(". ");
+                        questionName.val(nameString);
+                    }
                 }
             }
         }

@@ -88,6 +88,89 @@ body {
             }
         }
         .notification-wrap {
+            position: relative;
+            padding-bottom: 20px;
+            padding-top: 20px;
+            padding-left: 20px;
+            &:hover {
+                .exit-wrap {
+                    opacity: 1;
+                    pointer-events: all;
+                }
+            }
+            .exit-wrap {
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.3s ease-in;
+                position: absolute;
+                top: 65px;
+                right: 0px;
+                width: 215px;
+                padding: 15px 25px;
+                background: #FFFFFF;
+                box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
+                border-radius: 25px;
+                &:hover {
+                    background: rgb(229, 236, 254);
+                    .exit-icon {
+                        &::before {
+                            opacity: 0;
+                        }
+                        &::after {
+                            opacity: 1;
+                        }
+                    }
+                }
+                a {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    text-decoration: none;
+                    color: inherit;
+                }
+                .exit-icon {
+                    width: 15px;
+                    height: 15px;
+                    position: relative;
+                    &::before {
+                        content: "";
+                        background: url(./../img/icon-exit.svg);
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        position: absolute;
+                        top: 0px;
+                        left: 0px;
+                        right: 0px;
+                        bottom: 0px;
+                        opacity: 1;
+                        transition: opacity 0.3s ease-in;
+                    }
+                    &::after {
+                        content: "";
+                        background: url(./../img//icon-exit-a.svg);
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        position: absolute;
+                        top: 0px;
+                        left: 0px;
+                        right: 0px;
+                        bottom: 0px;
+                        opacity: 0;
+                        transition: opacity 0.3s ease-in;
+                    }
+                }
+                .exit-text {
+                    font-family: $fontPage;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 13px;
+                    line-height: 15px;
+                    color: #000000;
+                    padding-left: 18px;
+                }
+            }
             .icon {
                 position: relative;
                 width: 41px;
@@ -354,7 +437,7 @@ body {
                     &:hover {
                         z-index: 100;
                         .hidden-menu {
-                            max-height: 200px;
+                            max-height: 300px;
                             opacity: 1;
                         }
                     }
@@ -608,6 +691,38 @@ body {
                                             left: 0px;
                                             right: 0px;
                                             background: url(./../img/icon-duplicate-a.svg);
+                                            background-position: center;
+                                            background-repeat: no-repeat;
+                                            background-size: contain;
+                                            opacity: 0;
+                                            transition: opacity 0.3s ease-in;
+                                        }
+                                    }
+                                    .icon-remove {
+                                        width: 15px;
+                                        height: 15px;
+                                        position: relative;
+                                        &::before {
+                                            content: "";
+                                            position: absolute;
+                                            top: 0px;
+                                            bottom: 0px;
+                                            left: 0px;
+                                            right: 0px;
+                                            background: url(./../img/icon-pool-remove.svg);
+                                            background-position: center;
+                                            background-repeat: no-repeat;
+                                            background-size: contain;
+                                            transition: opacity 0.3s ease-in;
+                                        }
+                                        &::after {
+                                            content: "";
+                                            position: absolute;
+                                            top: 0px;
+                                            bottom: 0px;
+                                            left: 0px;
+                                            right: 0px;
+                                            background: url(./../img/icon-pool-remove-a.svg);
                                             background-position: center;
                                             background-repeat: no-repeat;
                                             background-size: contain;
@@ -1635,6 +1750,9 @@ body {
                     }
                 }
                 &.question-scale {
+                    .select-options {
+                        max-height: 180px;
+                    }
                     .scale-labels-wrap {
                         display: flex;
                         align-items: stretch;
@@ -1754,7 +1872,8 @@ body {
                                 }
                             }
                         }
-                        &.scale-hands {
+                        &.scale-hands,
+                        &.scale-hand {
                             label {
                                 &::before {
                                     content: "";
@@ -3370,7 +3489,7 @@ body {
                 padding-bottom: 20px;
                 display: flex;
                 align-items: center;
-                justify-content: space-around;
+                justify-content: space-between;
                 padding-left: 40px;
                 padding-right: 40px;
             }
@@ -3465,6 +3584,30 @@ body {
         margin: auto;
         margin-top: 20px;
         height: calc(100vh - 240px);
+        .option-comment {
+            padding-top: 35px;
+            textarea {
+                outline: none;
+                border: none;
+                width: 100%;
+                max-width: 500px;
+                padding-bottom: 5px;
+                border-bottom: 1px solid #E5E5E5;
+                font-family: $fontPage;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 13px;
+                line-height: 15px;
+                color: #000000;
+                resize: none;
+                &::placeholder {
+                    color: #000000;
+                }
+                &:focus {
+                    border-color: $switchBg;
+                }
+            }
+        }
         .question-list {
             position: relative;
             z-index: 100;
@@ -3697,7 +3840,8 @@ body {
                         }
                     }
                 }
-                &.scale-hands {
+                &.scale-hands,
+                &.scale-hand {
                     label {
                         &::before {
                             content: "";
@@ -3815,6 +3959,14 @@ body {
                 & > label {
                     width: calc(33.3% - 10px);
                     max-width: calc(33.3% - 10px);
+                }
+            }
+            .scale-2 {
+                max-width: 400px;
+                & > div,
+                & > label {
+                    width: calc(50% - 10px);
+                    max-width: calc(50% - 10px);
                 }
             }
             .dropdown-wrap {

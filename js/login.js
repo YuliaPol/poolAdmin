@@ -5,6 +5,7 @@ jQuery(function ($) {
         loginForm.submit(function (e) {
            return validForm();
         });
+
         if($('.interests-content').length === 0){
             $('form').on('change, input', 'input', function(e){
                 if(validForm()){
@@ -42,6 +43,25 @@ jQuery(function ($) {
                 loginInput.addClass('has-error');
             }
         });
+        $('input[type=password]').change(function(e){
+            let password = $(this).val();
+            loginInput = $(this).parents('.login-input');
+            if(password.length > 2){
+                if(loginInput.hasClass('has-error')){
+                    loginInput.removeClass('has-error');
+                    loginInput.find('.error-text').remove();
+                }
+            } else {
+                if(loginInput.find('.error-text').length === 0){
+                    let errorHtml = 
+                    `<div class="error-text">
+                       Пароль слишком короткий
+                    </div>`;
+                    $(errorHtml).appendTo(loginInput);
+                }
+                loginInput.addClass('has-error');
+            }
+        });
         function validForm(){
             var erroreArrayElemnts = [];
             var el = loginForm.find('[data-reqired]');
@@ -66,6 +86,16 @@ jQuery(function ($) {
                     loginInput.find('.error-text').remove();
                 }
             }
+            let passwords = loginForm.find('input[type=password]');
+            for (let i = 0; i < passwords.length; i++) {
+                if($(passwords[i]).val().length < 2){
+                    erroreArrayElemnts.push(emails[i]);
+                } else {
+                    loginInput = $(passwords[i]).parents('.login-input');
+                    loginInput.removeClass('has-error');
+                    loginInput.find('.error-text').remove();
+                }
+            }
             if(erroreArrayElemnts.length > 0){
                 return false;
             }
@@ -79,5 +109,11 @@ jQuery(function ($) {
         }
         // preloader
         $('.load-wrapper').fadeOut();
+
+        $( window ).load(function() {
+            if(validForm()){
+                $('form').find('.btn-submit').addClass('active');
+            }
+        });
     });
 });
