@@ -73,7 +73,7 @@ jQuery(function ($) {
             let question = $(this).parents('.question-wrap');
             let text = $(this).val();
             let index = $(this).parents('.answer-wrap').index() + 1;
-            let length = $(this).parents('.free-answers').children().lenght;
+            let length = $(this).parents('.free-answers').children().length;
             if(!text && index !== length) {
                 $(this).parents('.answer-wrap').remove();
                 refreshFreeList(question);
@@ -279,6 +279,13 @@ jQuery(function ($) {
             var path = $(this).attr('data-audiopath');//path for audio
             setAudioWave(this, path);
         });
+        //seconds to time
+        function formatTime (time) {
+            return [
+                Math.floor((time % 3600) / 60), // minutes
+                ('00' + Math.floor(time % 60)).slice(-2) // seconds
+            ].join(':');
+        };
         // wavesurfer for audio elements
         function setAudioWave(el, path){
             //Initialize WaveSurfer
