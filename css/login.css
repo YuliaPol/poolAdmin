@@ -480,6 +480,14 @@ body {
   max-width: 345px;
 }
 
+.login-page .login-content .login-error {
+  padding-top: 20px;
+  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+  color: #FF7262;
+}
+
 .login-page .interests-content {
   text-align: center;
   padding-top: 30px;

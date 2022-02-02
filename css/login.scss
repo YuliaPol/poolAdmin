@@ -334,6 +334,13 @@ body {
                 max-width: 345px;
             }
         }
+        .login-error {
+            padding-top: 20px;
+            font-family: $fontPage;
+            font-size: 14px;
+            line-height: 18px;
+            color: $errorColor;
+        }
     }
     .interests-content {
         text-align: center;

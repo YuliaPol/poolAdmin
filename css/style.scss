@@ -2098,6 +2098,25 @@ body {
                             width: calc(50% - 10px);
                             max-width: calc(50% - 10px);
                         }
+                        & + label,
+                        & ~ label {
+                            &::after {
+                                opacity: 0 !important;
+                            }
+                            &::before {
+                                opacity: 1 !important;
+                            }
+                        }
+                        &:checked {
+                            & + label {
+                                &::after {
+                                    opacity: 1 !important;
+                                }
+                                &::before {
+                                    opacity: 0 !important;
+                                }
+                            }
+                        }
                     }
                     .scale-options {
                         .switch-row {

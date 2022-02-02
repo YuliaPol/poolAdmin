@@ -2761,6 +2761,24 @@ body .page-wrap {
   max-width: calc(50% - 10px);
 }
 
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-2 + label::after,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-2 ~ label::after {
+  opacity: 0 !important;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-2 + label::before,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-2 ~ label::before {
+  opacity: 1 !important;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-2:checked + label::after {
+  opacity: 1 !important;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-2:checked + label::before {
+  opacity: 0 !important;
+}
+
 .page-wrap .constr-wrap .questions-box .question-wrap.question-scale .scale-options .switch-row {
   padding-bottom: 25px;
 }
