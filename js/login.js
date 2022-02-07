@@ -109,11 +109,9 @@ jQuery(function ($) {
         }
         // preloader
         $('.load-wrapper').fadeOut();
-
-        $( window ).load(function() {
-            if(validForm()){
-                $('form').find('.btn-submit').addClass('active');
-            }
-        });
+        
+        if(validForm()){
+            $('form').find('.btn-submit').addClass('active');
+        }
     });
 });

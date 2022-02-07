@@ -319,6 +319,7 @@ body .page-wrap {
   height: 150px;
   background: transparent;
   overflow: hidden;
+  pointer-events: none;
 }
 
 .page-wrap .content-wrap.survey-page .progress-bar .proggres {
@@ -4973,6 +4974,10 @@ body .page-wrap {
   margin-bottom: 80px;
 }
 
+.page-wrap .pool-wrap .question-wrap:last-child {
+  margin-bottom: 0px;
+}
+
 .page-wrap .pool-wrap .question-wrap:hover::before {
   opacity: 1;
 }
@@ -5586,7 +5591,7 @@ body .page-wrap {
 }
 
 .page-wrap .pool-wrap .question-wrap .data-list .date-answer.picked-date {
-  max-width: 65px;
+  max-width: 75px;
 }
 
 .page-wrap .pool-wrap .question-wrap .data-list .date-answer.picked-date:hover .btn-remove-date {
@@ -6331,19 +6336,232 @@ body .page-wrap {
           background-size: contain;
 }
 
-.datepicker {
+.datepicker,
+.datepicker.dropdown-menu {
   -webkit-box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
           box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.03);
   border-radius: 25px;
   border: none;
+  padding: 0px;
 }
 
-.datepicker .datepicker--pointer {
+.datepicker::before,
+.datepicker.dropdown-menu::before {
+  display: none;
+}
+
+.datepicker .table-condensed thead tr:nth-child(3),
+.datepicker.dropdown-menu .table-condensed thead tr:nth-child(3) {
+  border-top: 1px solid #F5F5F7;
+  border-bottom: 1px solid #F5F5F7;
+  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 13px;
+  color: #000000;
+  vertical-align: middle;
+}
+
+.datepicker .table-condensed thead tr:nth-child(3) th,
+.datepicker.dropdown-menu .table-condensed thead tr:nth-child(3) th {
+  padding: 5px;
+  height: 23px;
+}
+
+.datepicker tbody tr td,
+.datepicker.dropdown-menu tbody tr td {
+  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 11px;
+  line-height: 13px;
+  color: #000000;
+  vertical-align: middle;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.datepicker tbody tr td span:hover,
+.datepicker tbody tr td span.focused,
+.datepicker.dropdown-menu tbody tr td span:hover,
+.datepicker.dropdown-menu tbody tr td span.focused {
+  background: rgba(127, 161, 248, 0.2);
+}
+
+.datepicker tbody td.day, .datepicker tbody td.month, .datepicker tbody td.year, .datepicker tbody td.decade, .datepicker tbody td.century,
+.datepicker.dropdown-menu tbody td.day,
+.datepicker.dropdown-menu tbody td.month,
+.datepicker.dropdown-menu tbody td.year,
+.datepicker.dropdown-menu tbody td.decade,
+.datepicker.dropdown-menu tbody td.century {
+  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 11px;
+  line-height: 13px;
+  color: #000000;
+  vertical-align: middle;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.datepicker tbody td.day:hover, .datepicker tbody td.day.focused, .datepicker tbody td.day.active, .datepicker tbody td.month:hover, .datepicker tbody td.month.focused, .datepicker tbody td.month.active, .datepicker tbody td.year:hover, .datepicker tbody td.year.focused, .datepicker tbody td.year.active, .datepicker tbody td.decade:hover, .datepicker tbody td.decade.focused, .datepicker tbody td.decade.active, .datepicker tbody td.century:hover, .datepicker tbody td.century.focused, .datepicker tbody td.century.active,
+.datepicker.dropdown-menu tbody td.day:hover,
+.datepicker.dropdown-menu tbody td.day.focused,
+.datepicker.dropdown-menu tbody td.day.active,
+.datepicker.dropdown-menu tbody td.month:hover,
+.datepicker.dropdown-menu tbody td.month.focused,
+.datepicker.dropdown-menu tbody td.month.active,
+.datepicker.dropdown-menu tbody td.year:hover,
+.datepicker.dropdown-menu tbody td.year.focused,
+.datepicker.dropdown-menu tbody td.year.active,
+.datepicker.dropdown-menu tbody td.decade:hover,
+.datepicker.dropdown-menu tbody td.decade.focused,
+.datepicker.dropdown-menu tbody td.decade.active,
+.datepicker.dropdown-menu tbody td.century:hover,
+.datepicker.dropdown-menu tbody td.century.focused,
+.datepicker.dropdown-menu tbody td.century.active {
+  background: rgba(127, 161, 248, 0.2);
+  color: #000000;
+}
+
+.datepicker tbody td.day:hover:hover, .datepicker tbody td.day.focused:hover, .datepicker tbody td.day.active:hover, .datepicker tbody td.month:hover:hover, .datepicker tbody td.month.focused:hover, .datepicker tbody td.month.active:hover, .datepicker tbody td.year:hover:hover, .datepicker tbody td.year.focused:hover, .datepicker tbody td.year.active:hover, .datepicker tbody td.decade:hover:hover, .datepicker tbody td.decade.focused:hover, .datepicker tbody td.decade.active:hover, .datepicker tbody td.century:hover:hover, .datepicker tbody td.century.focused:hover, .datepicker tbody td.century.active:hover,
+.datepicker.dropdown-menu tbody td.day:hover:hover,
+.datepicker.dropdown-menu tbody td.day.focused:hover,
+.datepicker.dropdown-menu tbody td.day.active:hover,
+.datepicker.dropdown-menu tbody td.month:hover:hover,
+.datepicker.dropdown-menu tbody td.month.focused:hover,
+.datepicker.dropdown-menu tbody td.month.active:hover,
+.datepicker.dropdown-menu tbody td.year:hover:hover,
+.datepicker.dropdown-menu tbody td.year.focused:hover,
+.datepicker.dropdown-menu tbody td.year.active:hover,
+.datepicker.dropdown-menu tbody td.decade:hover:hover,
+.datepicker.dropdown-menu tbody td.decade.focused:hover,
+.datepicker.dropdown-menu tbody td.decade.active:hover,
+.datepicker.dropdown-menu tbody td.century:hover:hover,
+.datepicker.dropdown-menu tbody td.century.focused:hover,
+.datepicker.dropdown-menu tbody td.century.active:hover {
+  background: rgba(127, 161, 248, 0.2);
+  color: #000000;
+}
+
+.datepicker tbody td.day.old, .datepicker tbody td.day.new, .datepicker tbody td.month.old, .datepicker tbody td.month.new, .datepicker tbody td.year.old, .datepicker tbody td.year.new, .datepicker tbody td.decade.old, .datepicker tbody td.decade.new, .datepicker tbody td.century.old, .datepicker tbody td.century.new,
+.datepicker.dropdown-menu tbody td.day.old,
+.datepicker.dropdown-menu tbody td.day.new,
+.datepicker.dropdown-menu tbody td.month.old,
+.datepicker.dropdown-menu tbody td.month.new,
+.datepicker.dropdown-menu tbody td.year.old,
+.datepicker.dropdown-menu tbody td.year.new,
+.datepicker.dropdown-menu tbody td.decade.old,
+.datepicker.dropdown-menu tbody td.decade.new,
+.datepicker.dropdown-menu tbody td.century.old,
+.datepicker.dropdown-menu tbody td.century.new {
+  color: #777777;
+}
+
+.datepicker tbody td.day.today, .datepicker tbody td.month.today, .datepicker tbody td.year.today, .datepicker tbody td.decade.today, .datepicker tbody td.century.today,
+.datepicker.dropdown-menu tbody td.day.today,
+.datepicker.dropdown-menu tbody td.month.today,
+.datepicker.dropdown-menu tbody td.year.today,
+.datepicker.dropdown-menu tbody td.decade.today,
+.datepicker.dropdown-menu tbody td.century.today {
+  font-weight: bold;
+  color: #7FA1F8;
+  background: transparent;
+}
+
+.datepicker tbody td.day.today:hover, .datepicker tbody td.month.today:hover, .datepicker tbody td.year.today:hover, .datepicker tbody td.decade.today:hover, .datepicker tbody td.century.today:hover,
+.datepicker.dropdown-menu tbody td.day.today:hover,
+.datepicker.dropdown-menu tbody td.month.today:hover,
+.datepicker.dropdown-menu tbody td.year.today:hover,
+.datepicker.dropdown-menu tbody td.decade.today:hover,
+.datepicker.dropdown-menu tbody td.century.today:hover {
+  background: rgba(127, 161, 248, 0.2);
+}
+
+.datepicker .datepicker-switch,
+.datepicker .prev,
+.datepicker .next,
+.datepicker.dropdown-menu .datepicker-switch,
+.datepicker.dropdown-menu .prev,
+.datepicker.dropdown-menu .next {
+  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+  vertical-align: middle;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+}
+
+.datepicker .datepicker-switch:hover,
+.datepicker .prev:hover,
+.datepicker .next:hover,
+.datepicker.dropdown-menu .datepicker-switch:hover,
+.datepicker.dropdown-menu .prev:hover,
+.datepicker.dropdown-menu .next:hover {
+  background: rgba(127, 161, 248, 0.2);
+}
+
+.datepicker .prev,
+.datepicker.dropdown-menu .prev {
+  color: transparent;
+  position: relative;
+}
+
+.datepicker .prev::before,
+.datepicker.dropdown-menu .prev::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: url(./../img/arrow-back.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: 5px 5px;
+          background-size: 5px;
+}
+
+.datepicker .next,
+.datepicker.dropdown-menu .next {
+  color: transparent;
+  position: relative;
+}
+
+.datepicker .next::before,
+.datepicker.dropdown-menu .next::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: url(./../img/arrow-back.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: 5px 5px;
+          background-size: 5px;
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+       -o-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.datepicker .datepicker--pointer,
+.datepicker.dropdown-menu .datepicker--pointer {
   display: none;
 }
 
 .datepicker .datepicker--nav-title,
-.datepicker .datepicker--nav-title i {
+.datepicker .datepicker--nav-title i,
+.datepicker.dropdown-menu .datepicker--nav-title,
+.datepicker.dropdown-menu .datepicker--nav-title i {
   font-family: "Gilroy", Verdana, Tahoma, sans-serif;
   font-style: normal;
   font-weight: bold;
@@ -6353,33 +6571,41 @@ body .page-wrap {
 }
 
 .datepicker .datepicker--nav-title:hover,
-.datepicker .datepicker--nav-title i:hover {
+.datepicker .datepicker--nav-title i:hover,
+.datepicker.dropdown-menu .datepicker--nav-title:hover,
+.datepicker.dropdown-menu .datepicker--nav-title i:hover {
   border-radius: 10px;
   background: rgba(127, 161, 248, 0.2);
 }
 
-.datepicker .datepicker--nav-action:hover {
+.datepicker .datepicker--nav-action:hover,
+.datepicker.dropdown-menu .datepicker--nav-action:hover {
   border-radius: 10px;
   background: rgba(127, 161, 248, 0.2);
 }
 
-.datepicker .datepicker--nav-action path {
+.datepicker .datepicker--nav-action path,
+.datepicker.dropdown-menu .datepicker--nav-action path {
   stroke: #000000;
 }
 
-.datepicker .datepicker--cells {
+.datepicker .datepicker--cells,
+.datepicker.dropdown-menu .datepicker--cells {
   border-top: 1px solid #F5F5F7;
 }
 
-.datepicker .datepicker--nav {
+.datepicker .datepicker--nav,
+.datepicker.dropdown-menu .datepicker--nav {
   border-bottom: 1px solid #F5F5F7;
 }
 
-.datepicker .datepicker--days-names {
+.datepicker .datepicker--days-names,
+.datepicker.dropdown-menu .datepicker--days-names {
   margin: 3px 0px;
 }
 
-.datepicker .datepicker--day-name {
+.datepicker .datepicker--day-name,
+.datepicker.dropdown-menu .datepicker--day-name {
   font-family: "Gilroy", Verdana, Tahoma, sans-serif;
   font-style: normal;
   font-weight: 600;
@@ -6388,7 +6614,8 @@ body .page-wrap {
   color: #000000;
 }
 
-.datepicker .datepicker--cell {
+.datepicker .datepicker--cell,
+.datepicker.dropdown-menu .datepicker--cell {
   font-family: "Gilroy", Verdana, Tahoma, sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -6398,12 +6625,15 @@ body .page-wrap {
   border-radius: 10px;
 }
 
-.datepicker .datepicker--cell.-current- {
+.datepicker .datepicker--cell.-current-,
+.datepicker.dropdown-menu .datepicker--cell.-current- {
   color: #7FA1F8;
   font-weight: bold;
 }
 
-.datepicker .datepicker--cell.-selected-, .datepicker .datepicker--cell.-focus- {
+.datepicker .datepicker--cell.-selected-, .datepicker .datepicker--cell.-focus-,
+.datepicker.dropdown-menu .datepicker--cell.-selected-,
+.datepicker.dropdown-menu .datepicker--cell.-focus- {
   background: rgba(127, 161, 248, 0.2);
 }
 
