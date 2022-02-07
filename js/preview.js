@@ -137,24 +137,6 @@ jQuery(function ($) {
                 dateFormat: "mm.dd.yyyy",
                 autoclose: true,
                 todayHighlight: true,
-                onSelect: function(date, inst, obj){
-                    let dateAnswer = obj.$el.parents('.date-answer')
-                    if(dateAnswer.is(':last-child')){
-                        dateAnswer.addClass('picked-date');
-                        let removeHtml = `<div class="btn-remove-date"></div>`;
-                        $(removeHtml).appendTo(dateAnswer);
-                        let dateList = dateAnswer.parents('.data-list');
-                        let inputId = dateList.length + 1;
-                        let questionId = dateAnswer.parents('.question-wrap').attr('data-id');
-                        let newInputHtml = 
-                            `<div class="date-answer">
-                                <input type="text" class="date-input" maxlength="10" name="q-${questionId}-${inputId}">
-                                <div class="icon-date"></div>
-                            </div>`
-                        $(newInputHtml).appendTo(dateList);
-                        setDatePicker();
-                    }
-                },
             }).on('changeDate', function(ev){
                 if($(ev.currentTarget).parents('.question-datedynamic').length > 0){
                     let dateAnswer = $(ev.currentTarget).parents('.date-answer');
@@ -175,6 +157,7 @@ jQuery(function ($) {
                     }  
                 }
             });
+            $('.date-input').mask('00.00.0000');
         }
         setDatePicker();
         //delete date input
