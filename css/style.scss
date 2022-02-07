@@ -1683,9 +1683,9 @@ body {
                         left: 5px;
                         top: 15px;
                         bottom: 15px;      
-                        background: #7FA1F8;
+                        background: linear-gradient(180deg, #B37AF8 0%, #7FA1F8 75%);
                         border-radius: 25px;
-                        width: 10px;
+                        width: 1px;
                         transition: opacity 0.3s ease-in;
                         opacity: 0;
                     }
@@ -1783,7 +1783,11 @@ body {
                             font-family: $fontPage;
                             max-width: 500px;
                             &:focus {
-                                border-color: $switchBg;
+                                border-color: transparent;
+                                background-image: $gradient;
+                                background-size: 100% 1px;
+                                background-repeat: no-repeat;
+                                background-position: bottom;
                             }
                             &::placeholder {
                                 color: #000000;
@@ -2192,7 +2196,11 @@ body {
                                         width: 100%;
                                         max-width: 500px;
                                         &:focus {
-                                            border-color: $switchBg;
+                                            border-color: transparent;
+                                            background-image: $gradient;
+                                            background-size: 100% 1px;
+                                            background-repeat: no-repeat;
+                                            background-position: bottom;
                                         }
                                     }
                                 }
@@ -2254,7 +2262,11 @@ body {
                                     width: 100%;
                                     max-width: 500px;
                                     &:focus {
-                                        border-color: $switchBg;
+                                        border-color: transparent;
+                                        background-image: $gradient;
+                                        background-size: 100% 1px;
+                                        background-repeat: no-repeat;
+                                        background-position: bottom;
                                     }
                                 }
                             }
@@ -2410,7 +2422,11 @@ body {
                                     width: 100%;
                                     max-width: 500px;
                                     &:focus {
-                                        border-color: $switchBg;
+                                        border-color: transparent;
+                                        background-image: $gradient;
+                                        background-size: 100% 1px;
+                                        background-repeat: no-repeat;
+                                        background-position: bottom;
                                     }
                                 }
                             }
@@ -2874,7 +2890,7 @@ body {
                             position: absolute;
                             width: 60px;
                             height: 60px;
-                            background: #7FA1F8;
+                            background: linear-gradient(90deg, #B279F7, #7FA1F8) 0% center / 1000%;
                             border-radius: 50%;
                             top: 0px;
                             left: 0px;
@@ -2941,7 +2957,7 @@ body {
                                 right: 0px;
                                 width: 0%;
                                 height: 5px;
-                                background: #7FA1F8;
+                                background: linear-gradient(90deg, #B279F7, #7FA1F8) 0% 0% / 100%;
                                 z-index: 2;
                                 transition: width 0.1s ease-in;
                                 background-repeat: no-repeat;
@@ -2970,7 +2986,11 @@ body {
                             color: #000000;
                         }
                         &:focus {
-                            border-color: $switchBg;
+                            border-color: transparent;
+                            background-image: $gradient;
+                            background-size: 100% 1px;
+                            background-repeat: no-repeat;
+                            background-position: bottom;
                         }
                     }
                 }
@@ -3306,7 +3326,11 @@ body {
                         transition: border 0.3s ease-in;
                         font-family: $fontPage;
                         &:focus {
-                            border-color: $switchBg;
+                            border-color: transparent;
+                            background-image: $gradient;
+                            background-size: 100% 1px;
+                            background-repeat: no-repeat;
+                            background-position: bottom;
                         }
                         &::placeholder {
                             color: #000000;
@@ -3737,7 +3761,11 @@ body {
                     color: #000000;
                 }
                 &:focus {
-                    border-color: $switchBg;
+                    border-color: transparent;
+                    background-image: $gradient;
+                    background-size: 100% 1px;
+                    background-repeat: no-repeat;
+                    background-position: bottom;
                 }
             }
         }
@@ -4634,7 +4662,7 @@ body {
                         position: absolute;
                         width: 60px;
                         height: 60px;
-                        background: #7FA1F8;
+                        background: linear-gradient(90deg, #B279F7, #7FA1F8) 0% center / 1000%;
                         border-radius: 50%;
                         top: 0px;
                         left: 0px;
@@ -4701,7 +4729,7 @@ body {
                             right: 0px;
                             width: 0%;
                             height: 5px;
-                            background: #7FA1F8;
+                            background: linear-gradient(90deg, #B279F7, #7FA1F8) 0% 0% / 100%;
                             z-index: 2;
                             transition: width 0.1s ease-in;
                             background-repeat: no-repeat;

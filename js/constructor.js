@@ -1142,6 +1142,22 @@ jQuery(function ($) {
             setDiapasonValue(this);
         });
 
+        //set width for input range background
+        function setRangeBackground(){
+            let ranges = $('.input-range');
+            if(ranges.length > 0){
+                for (let i = 0; i < ranges.length; i++) {
+                    let barFilled = $(ranges[i]).parents('.question-wrap').find('.bar-filled');
+                    let barLenght = $(ranges[i]).width();
+                    console.log(barLenght);
+                    barFilled.css('background-size', barLenght + 'px');
+                }
+            }
+        }
+        setRangeBackground();
+        $( window ).resize(function() {
+            setRangeBackground();
+        });
         //set new diapsson value
         function setDiapasonValue(input){
             var value = $(input).val();
@@ -1151,8 +1167,7 @@ jQuery(function ($) {
             var relvalue = value - min;
             var percent = (100/range)*relvalue;
             var parents = $(input).parents('.diapason');
-            let diameter = $(input).parents('.diapason').find('.label').width();
-            var paddleft = (diameter*percent)/100;
+            var paddleft = (60*percent)/100;
             parents.find('.label').css('left', 'calc(' + percent + '% - ' + paddleft + 'px)');
             parents.find('.label .value').html(value);
             parents.find('.input-box .bar-filled').css('width', percent + '%');
