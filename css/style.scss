@@ -2349,10 +2349,22 @@ body {
                                         transform: translate(-50%, -50%);
                                         width: 10px;
                                         height: 10px;
-                                        border: 1px solid #E5E5E5;
+                                        // border: 1px solid #E5E5E5;
+                                        background: linear-gradient(90deg, #B279F7 0%, #7FA1F8 100%);
                                         border-radius: 50%;
-                                        background: transparent;
                                         transition: border-color, background 0.3s ease-in;
+                                    }
+                                    &::after {
+                                        content: "";
+                                        position: absolute;
+                                        top: 50%;
+                                        left: 50%;
+                                        transform: translate(-50%, -50%);
+                                        width: 9px;
+                                        height: 9px;
+                                        background: #fff;
+                                        transition: opacity 0.3s ease-in;
+                                        border-radius: 50%;
                                     }
                                 }
                                 input[type=radio],
@@ -2360,10 +2372,13 @@ body {
                                     display: none;
                                     &:checked {
                                         & ~ label {
-                                            &::before {
-                                                background: #7FA1F8;
-                                                border-color: #7FA1F8;
+                                            &::after {
+                                                opacity: 0;
                                             }
+                                            // &::before {
+                                            //     background: #7FA1F8;
+                                            //     border-color: #7FA1F8;
+                                            // }
                                         }
                                     }
                                 }
@@ -4138,6 +4153,75 @@ body {
                     }
                 }
             }
+            .matrix-table {
+                width: 100%;
+                max-width: 100%;
+                overflow: auto;
+                table {
+                    width: 100%;
+                    table-layout: fixed;
+                }
+                td {
+                    font-family: $fontPage;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 13px;
+                    line-height: 15px;
+                    text-align: center;
+                    color: #000000;
+                    padding: 20px 10px;
+                    &:first-child {
+                        text-align: left;
+                    }
+                    .matrix-check {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 100%;
+                        label {
+                            width: 30px;
+                            height: 20px;
+                            position: relative;
+                            &::before {
+                                content: "";
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                width: 10px;
+                                height: 10px;
+                                // border: 1px solid #E5E5E5;
+                                background: linear-gradient(90deg, #B279F7 0%, #7FA1F8 100%);
+                                border-radius: 50%;
+                                transition: border-color, background 0.3s ease-in;
+                            }
+                            &::after {
+                                content: "";
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                width: 9px;
+                                height: 9px;
+                                background: #fff;
+                                transition: opacity 0.3s ease-in;
+                                border-radius: 50%;
+                            }
+                        }
+                        input[type=radio],
+                        input[type=checkbox] {
+                            display: none;
+                            &:checked {
+                                & ~ label {
+                                    &::after {
+                                        opacity: 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
             .name-answers {
                 .answer-wrap {
                     padding-bottom: 20px;
@@ -5379,6 +5463,13 @@ body {
         .pool-wrap {
             margin-top: 0px;
             height: calc(100vh - 200px);
+            .question-wrap {
+                .matrix-table {
+                    table {
+                        table-layout: auto;
+                    }
+                }
+            }
             .question-list {
                 padding-left: 10px;
                 padding-right: 10px;
@@ -5391,6 +5482,7 @@ body {
             }
         }
     }
+    
 }
 @media screen and (max-width: 500px) {
     .page-wrap {

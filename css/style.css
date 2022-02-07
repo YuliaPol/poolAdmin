@@ -3075,12 +3075,32 @@ body .page-wrap {
           transform: translate(-50%, -50%);
   width: 10px;
   height: 10px;
-  border: 1px solid #E5E5E5;
+  background: -webkit-gradient(linear, left top, right top, from(#B279F7), to(#7FA1F8));
+  background: -webkit-linear-gradient(left, #B279F7 0%, #7FA1F8 100%);
+  background: -o-linear-gradient(left, #B279F7 0%, #7FA1F8 100%);
+  background: linear-gradient(90deg, #B279F7 0%, #7FA1F8 100%);
   border-radius: 50%;
-  background: transparent;
   -webkit-transition: border-color, background 0.3s ease-in;
   -o-transition: border-color, background 0.3s ease-in;
   transition: border-color, background 0.3s ease-in;
+}
+
+.page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-table td .matrix-check label::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+       -o-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 9px;
+  height: 9px;
+  background: #fff;
+  -webkit-transition: opacity 0.3s ease-in;
+  -o-transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
+  border-radius: 50%;
 }
 
 .page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-table td .matrix-check input[type=radio],
@@ -3088,10 +3108,9 @@ body .page-wrap {
   display: none;
 }
 
-.page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-table td .matrix-check input[type=radio]:checked ~ label::before,
-.page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-table td .matrix-check input[type=checkbox]:checked ~ label::before {
-  background: #7FA1F8;
-  border-color: #7FA1F8;
+.page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-table td .matrix-check input[type=radio]:checked ~ label::after,
+.page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-table td .matrix-check input[type=checkbox]:checked ~ label::after {
+  opacity: 0;
 }
 
 .page-wrap .constr-wrap .questions-box .question-wrap.question-matrix .matrix-options {
@@ -5467,6 +5486,103 @@ body .page-wrap {
   width: calc(100% - 20px);
 }
 
+.page-wrap .pool-wrap .question-wrap .matrix-table {
+  width: 100%;
+  max-width: 100%;
+  overflow: auto;
+}
+
+.page-wrap .pool-wrap .question-wrap .matrix-table table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.page-wrap .pool-wrap .question-wrap .matrix-table td {
+  font-family: "Gilroy", Verdana, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 15px;
+  text-align: center;
+  color: #000000;
+  padding: 20px 10px;
+}
+
+.page-wrap .pool-wrap .question-wrap .matrix-table td:first-child {
+  text-align: left;
+}
+
+.page-wrap .pool-wrap .question-wrap .matrix-table td .matrix-check {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+.page-wrap .pool-wrap .question-wrap .matrix-table td .matrix-check label {
+  width: 30px;
+  height: 20px;
+  position: relative;
+}
+
+.page-wrap .pool-wrap .question-wrap .matrix-table td .matrix-check label::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+       -o-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background: -webkit-gradient(linear, left top, right top, from(#B279F7), to(#7FA1F8));
+  background: -webkit-linear-gradient(left, #B279F7 0%, #7FA1F8 100%);
+  background: -o-linear-gradient(left, #B279F7 0%, #7FA1F8 100%);
+  background: linear-gradient(90deg, #B279F7 0%, #7FA1F8 100%);
+  border-radius: 50%;
+  -webkit-transition: border-color, background 0.3s ease-in;
+  -o-transition: border-color, background 0.3s ease-in;
+  transition: border-color, background 0.3s ease-in;
+}
+
+.page-wrap .pool-wrap .question-wrap .matrix-table td .matrix-check label::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+       -o-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 9px;
+  height: 9px;
+  background: #fff;
+  -webkit-transition: opacity 0.3s ease-in;
+  -o-transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
+  border-radius: 50%;
+}
+
+.page-wrap .pool-wrap .question-wrap .matrix-table td .matrix-check input[type=radio],
+.page-wrap .pool-wrap .question-wrap .matrix-table td .matrix-check input[type=checkbox] {
+  display: none;
+}
+
+.page-wrap .pool-wrap .question-wrap .matrix-table td .matrix-check input[type=radio]:checked ~ label::after,
+.page-wrap .pool-wrap .question-wrap .matrix-table td .matrix-check input[type=checkbox]:checked ~ label::after {
+  opacity: 0;
+}
+
 .page-wrap .pool-wrap .question-wrap .name-answers .answer-wrap {
   padding-bottom: 20px;
 }
@@ -7035,6 +7151,9 @@ body .page-wrap {
   .page-wrap .pool-wrap {
     margin-top: 0px;
     height: calc(100vh - 200px);
+  }
+  .page-wrap .pool-wrap .question-wrap .matrix-table table {
+    table-layout: auto;
   }
   .page-wrap .pool-wrap .question-list {
     padding-left: 10px;
