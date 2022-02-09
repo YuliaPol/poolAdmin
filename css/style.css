@@ -5508,6 +5508,28 @@ body .page-wrap {
   max-width: calc(50% - 10px);
 }
 
+.page-wrap .pool-wrap .question-wrap .scale-2 input[type=radio] {
+  display: none;
+}
+
+.page-wrap .pool-wrap .question-wrap .scale-2 input[type=radio] + label::after,
+.page-wrap .pool-wrap .question-wrap .scale-2 input[type=radio] ~ label::after {
+  opacity: 0 !important;
+}
+
+.page-wrap .pool-wrap .question-wrap .scale-2 input[type=radio] + label::before,
+.page-wrap .pool-wrap .question-wrap .scale-2 input[type=radio] ~ label::before {
+  opacity: 1 !important;
+}
+
+.page-wrap .pool-wrap .question-wrap .scale-2 input[type=radio]:checked + label::after {
+  opacity: 1 !important;
+}
+
+.page-wrap .pool-wrap .question-wrap .scale-2 input[type=radio]:checked + label::before {
+  opacity: 0 !important;
+}
+
 .page-wrap .pool-wrap .question-wrap .dropdown-wrap {
   max-width: 500px;
 }
