@@ -2241,6 +2241,11 @@ body .page-wrap {
   opacity: 0;
 }
 
+.page-wrap .constr-wrap .questions-box .question-wrap.has-error .question-content {
+  -webkit-box-shadow: 1px 1px 4px 5px rgba(255, 114, 98, 0.3);
+          box-shadow: 1px 1px 4px 5px rgba(255, 114, 98, 0.3);
+}
+
 .page-wrap .constr-wrap .questions-box .question-wrap.question-single .radio-btns-wrapper, .page-wrap .constr-wrap .questions-box .question-wrap.question-multiple .radio-btns-wrapper {
   display: -webkit-box;
   display: -webkit-flex;
@@ -4371,6 +4376,13 @@ body .page-wrap {
   cursor: pointer;
 }
 
+.page-wrap .constr-wrap .questions-box .question-wrap .question-error {
+  padding-top: 25px;
+  color: #FF7262;
+  font-size: 14px;
+  line-height: 18px;
+}
+
 .page-wrap .constr-wrap .questions-box .question-wrap .question-name {
   padding-bottom: 15px;
   padding-right: 100px;
@@ -4435,6 +4447,7 @@ body .page-wrap {
 .page-wrap .constr-wrap .questions-box .question-wrap .question-name input[type=text].has-error,
 .page-wrap .constr-wrap .questions-box .question-wrap .question-name textarea.has-error {
   border-color: #FF7262;
+  color: #FF7262;
 }
 
 .page-wrap .constr-wrap .questions-box .question-wrap .question-name input[type=text].has-error::-webkit-input-placeholder,

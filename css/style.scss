@@ -1690,6 +1690,11 @@ body {
                         opacity: 0;
                     }
                 }
+                &.has-error {
+                    .question-content {
+                        box-shadow: 1px 1px 4px 5px rgba(255, 114, 98, 0.3);
+                    }
+                }
                 &.question-single,
                 &.question-multiple  {
                     .radio-btns-wrapper {
@@ -3308,6 +3313,12 @@ body {
                         cursor: pointer;
                     }
                 }
+                .question-error {
+                    padding-top: 25px;
+                    color: $errorColor;
+                    font-size: 14px;
+                    line-height: 18px;
+                }
                 .question-name {
                     padding-bottom: 15px;
                     padding-right: 100px;
@@ -3337,6 +3348,7 @@ body {
                         }
                         &.has-error {
                             border-color: #FF7262;
+                            color: #FF7262;
                             &::placeholder {
                                 color: #FF7262;
                             }
