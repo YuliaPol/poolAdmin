@@ -1067,6 +1067,47 @@ body .page-wrap {
   transition: opacity 0.3s ease-in;
 }
 
+.page-wrap .content-wrap .pools-table .table-col-menu .pool-menu-wrap .hidden-menu .menu-list .menu-item .icon .icon-link {
+  width: 15px;
+  height: 15px;
+  position: relative;
+}
+
+.page-wrap .content-wrap .pools-table .table-col-menu .pool-menu-wrap .hidden-menu .menu-list .menu-item .icon .icon-link::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background: url(./../img/icon-link.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  -webkit-transition: opacity 0.3s ease-in;
+  -o-transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
+}
+
+.page-wrap .content-wrap .pools-table .table-col-menu .pool-menu-wrap .hidden-menu .menu-list .menu-item .icon .icon-link::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background: url(./../img/icon-link-a.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in;
+  -o-transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
+}
+
 .page-wrap .content-wrap .pools-table .table-col-menu .pool-menu-wrap .hidden-menu .menu-list .menu-item .icon .icon-remove {
   width: 15px;
   height: 15px;

@@ -146,6 +146,13 @@
           transform: rotate(90deg);
 }
 
+.customselect-wrapper .select-styled.active.orient-top {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
 .customselect-wrapper .select-options {
   display: none;
   position: absolute;
@@ -161,7 +168,7 @@
           box-shadow: 1px 5px 4px 5px rgba(0, 0, 0, 0.03);
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-  max-height: 280px;
+  max-height: 220px;
   overflow: auto;
   -ms-overflow-style: none;
   /* IE and Edge */
@@ -172,6 +179,17 @@
 .customselect-wrapper .select-options::-webkit-scrollbar {
   width: 0px;
   display: none;
+}
+
+.customselect-wrapper .select-options.orient-top {
+  top: initial;
+  bottom: 100%;
+  -webkit-box-shadow: 1px -5px 4px 5px rgba(0, 0, 0, 0.03);
+          box-shadow: 1px -5px 4px 5px rgba(0, 0, 0, 0.03);
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
 .customselect-wrapper .select-options li {

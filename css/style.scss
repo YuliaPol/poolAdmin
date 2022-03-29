@@ -784,6 +784,38 @@ body {
                                             transition: opacity 0.3s ease-in;
                                         }
                                     }
+                                    .icon-link {
+                                        width: 15px;
+                                        height: 15px;
+                                        position: relative;
+                                        &::before {
+                                            content: "";
+                                            position: absolute;
+                                            top: 0px;
+                                            bottom: 0px;
+                                            left: 0px;
+                                            right: 0px;
+                                            background: url(./../img/icon-link.svg);
+                                            background-position: center;
+                                            background-repeat: no-repeat;
+                                            background-size: contain;
+                                            transition: opacity 0.3s ease-in;
+                                        }
+                                        &::after {
+                                            content: "";
+                                            position: absolute;
+                                            top: 0px;
+                                            bottom: 0px;
+                                            left: 0px;
+                                            right: 0px;
+                                            background: url(./../img/icon-link-a.svg);
+                                            background-position: center;
+                                            background-repeat: no-repeat;
+                                            background-size: contain;
+                                            opacity: 0;
+                                            transition: opacity 0.3s ease-in;
+                                        }
+                                    }
                                     .icon-remove {
                                         width: 15px;
                                         height: 15px;

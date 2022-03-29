@@ -122,7 +122,7 @@ jQuery(function ($) {
         function setSortbaleRanging(){
             $('.question-ranging .ranging-list').sortable({
                 cancel: 'a,button, textarea, .empty-item',
-                containment: '.ranging-list',
+                containment: 'parent',
                 cursor: 'grab',
             });
         }

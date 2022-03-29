@@ -16,12 +16,26 @@ jQuery(function ($) {
             $('.customselect-wrapper').not(wrapper).find('.select-options').hide();
 
             let selected = wrapper.find('.select-styled');
+
+            let docHeight = $(document).height();
+            let selectPosition = $(selected).offset().top + $(selected).height();
+            let listHeight = $(selected).next('ul.select-options').height()
+            if($('.preview-footer').length > 0){
+                docHeight -= $('.preview-footer').height();
+            }
+            if(docHeight < selectPosition + listHeight){
+                $(selected).next('ul.select-options').addClass('orient-top');
+                $(selected).addClass('orient-top');
+            } else {
+                $(selected).next('ul.select-options').removeClass('orient-top');
+                $(selected).removeClass('orient-top');
+            }
             if(wrapper.hasClass('customselect-multiple')){
                 if($(e.target).hasClass('remove-option')){
                     let optionVal = $(e.target).parents('.selectvalue').attr('data-value');
                     $(e.target).parents('.select').find(`.select-options li[rel="${optionVal}"]`).click();
                 } else {
-                    (selected).toggleClass('active').next('ul.select-options').toggle();
+                    $(selected).toggleClass('active').next('ul.select-options').toggle();
                 }
             } else {
                 $('div.select-styled.active').not(selected).each(function(){
