@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All survey </title>
+
+    <link rel="icon" type="image/svg+xml" href="/img/favicon/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+
+    <link rel="stylesheet" href="./font/Gilroy/stylesheet.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/survey.css">
+
+    <script src="./js/jquery-3.5.1.min.js"></script>
+</head>
+
+<body>
+    <div class="page-wrap">
+        <div class="top-panel">
+            <div class="logo">
+                <img src="./img/logo-white.svg" alt="">
+            </div>
+            <div class="notification-wrap">
+                <a href="#">
+                    <div class="icon active">
+                        <img src="./img/notification-icon.png" alt="notification">
+                    </div>
+                </a>
+                <div class="exit-wrap">
+                    <a href="#">
+                        <div class="exit-icon"></div>
+                        <div class="exit-text">
+                            Выйти
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="content-wrap">
+            <div class="top-nav">
+                <div class="pools-menu">
+                    <div class="menu-item active">
+                        <a href="#">
+                            Все опросы
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="#">
+                            Архив
+                        </a>
+                    </div>
+                </div>
+                <div class="btn-wrap">
+                    <a href="./create-pool.html" class="btn-create-pool">Создать опрос</a>
+                </div>
+            </div>
+            <div class="inner">
+                <form action="#" class="links-form">
+                    <div class="form-wrap">
+                        <div class="form-group">
+                            <label for="links_amount">Количество ссылок</label>
+                            <div class="input-wrap input-number">
+                                <button class="decrement">-</button>
+                                <input type="number" id="links_amount" name="q-1" placeholder="0">
+                                <button class="increment">+</button>
+                            </div>
+                        </div>
+                        <div class="btn-wrap">
+                            <button class="btn-default btn-submit">Создать</button>
+                        </div>
+                    </div>
+                </form>
+                <div>
+                    <a href="#" class="exel-link inactive">
+                        <div class="link-text">Выгрузить созданые ссылки в Exel</div>
+                        <div class="icon-exel"></div>
+                    </a>
+                </div>
+                <div class="links-table-wrap">
+                    <div id="w0" class="grid-view">
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>
+                                        <a href="#" data-sort="survey_id">Опрос</a>
+                                    </th>
+                                    <th>
+                                        <a href="#" data-sort="url">
+                                            Url string
+                                        </a>
+                                    </th>
+                                    <th>
+                                        <a href="#" data-sort="status">Статус</a>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-key="200">
+                                    <td>1</td>
+                                    <td>10</td>
+                                    <td>DgBZ0</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr data-key="199">
+                                    <td>2</td>
+                                    <td>10</td>
+                                    <td>2Dxof</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr data-key="198">
+                                    <td>3</td>
+                                    <td>10</td>
+                                    <td>qr8VE</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr data-key="197">
+                                    <td>4</td>
+                                    <td>10</td>
+                                    <td>fqtqg</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr data-key="196">
+                                    <td>5</td>
+                                    <td>10</td>
+                                    <td>5jrbz</td>
+                                    <td>0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <ul class="pagination">
+                            <li class="prev disabled">
+                                <span>«</span>
+                            </li>
+                            <li class="active">
+                                <a href="#" data-page="0">1</a>
+                            </li>
+                            <li>
+                                <a href="#" data-page="1">2</a>
+                            </li>
+                            <li>
+                                <a href="#" data-page="2">3</a>
+                            </li>
+                            <li>
+                                <a href="#" data-page="3">4</a>
+                            </li>
+                            <li>
+                                <a href="#" data-page="4">5</a>
+                            </li>
+                            <li>
+                                <a href="#" data-page="5">6</a>
+                            </li>
+                            <li>
+                                <a href="#" data-page="6">7</a>
+                            </li>
+                            <li>
+                                <a href="#" data-page="7">8</a>
+                            </li>
+                            <li>
+                                <a href="#" data-page="8">9</a>
+                            </li>
+                            <li>
+                                <a href="#" data-page="9">10</a>
+                            </li>
+                            <li class="next">
+                                <a href="#" data-page="1">»</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="message-overlay">
+        <div class="message-popup">
+            <div class="closeMessage">+</div>
+            <div class="message-text">
+                <p>Ссылка сгенерирована. Теперь вы можете скачать ссылки в файле Excel.</p>
+            </div>
+        </div>
+    </div>
+    <div class="load-wrapper">
+        <div class="loader"></div>
+    </div>
+    <script src="./js/script.js"></script>
+    <script>
+        $('.links-form').on('submit', function (e) {
+            e.preventDefault();
+            let inputLinks = $(this).find('.input-number input');
+            if (inputLinks.val() > 0) {
+                $(this).find('.btn-submit').addClass('btn-loading');
+                //start generate links
+                setTimeout(() => {
+                    //after links are generated
+                    $(this).find('.btn-submit').removeClass('btn-loading');
+                    $('.message-overlay').css('display', 'flex');
+                    $('.exel-link').removeClass('inactive');
+                }, 1000);
+            } else {
+                inputLinks.addClass('has-error');
+            }
+        });
+        $('.links-form').on('focus', '.input-number input', function (e) {
+            $(this).removeClass('has-error');
+        });
+        $('.content-wrap').on('click', '.input-wrap .decrement', function (e) {
+            e.preventDefault();
+            let input = $(this).parents('.input-wrap').find('input');
+            let value = parseInt(input.val());
+            if (value > 0) {
+                let newValue = value - 1;
+                input.val(newValue);
+            }
+        });
+        $('.content-wrap').on('click', '.input-wrap .increment', function (e) {
+            e.preventDefault();
+            let input = $(this).parents('.input-wrap').find('input');
+            let value = parseInt(input.val());
+            if (!value) {
+                value = 0;
+            }
+            let newValue = value + 1;
+            input.val(newValue);
+        });
+        $('.closeMessage').on('click', function (e) {
+            $(this).parents('.message-overlay').fadeOut(300);
+        });
+        $(document).mouseup(function (e) {
+            var popup = $('.message-popup');
+            if (e.target != popup[0] && popup.has(e.target).length === 0) {
+                $('.message-overlay').fadeOut();
+            }
+        });
+    </script>
+</body>
+
+</html>
